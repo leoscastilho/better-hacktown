@@ -1,16 +1,16 @@
 name: Scrape Hacktown Events
 
-on:
-  schedule:
-    # Run every 4 hours instead of every hour to be more respectful
-    - cron: '0 */4 * * *'
-  workflow_dispatch:  # Allow manual triggering
-  push:
-    branches:
-      - main
-    paths:
-      - 'scrape_hacktown.py'
-      - '.github/workflows/scrape-events.yml'
+#on:
+#  schedule:
+#    # Run every 4 hours instead of every hour to be more respectful
+#    - cron: '0 */4 * * *'
+#  workflow_dispatch:  # Allow manual triggering
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - 'scrape_hacktown.py'
+#      - '.github/workflows/scrape-events.yml'
 
 permissions:
   contents: write  # Give write permissions to the token
