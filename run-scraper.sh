@@ -50,7 +50,7 @@ main() {
     # Run the container
     log "Starting Docker container..."
     
-    if docker-compose up --build hacktown-scraper 2>&1 | tee -a "$LOG_FILE"; then
+    if docker compose up --build hacktown-scraper 2>&1 | tee -a "$LOG_FILE"; then
         log "Scraper completed successfully"
         exit_code=0
     else
