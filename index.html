@@ -2200,7 +2200,7 @@
             
             // Add app link to description
             const eventId = getEventId(event);
-            const baseUrl = 'https://leoscastilho.github.io/hacktown-events/';
+            const baseUrl = 'https://leoscastilho.github.io/better-hacktown/';
             const appUrl = `${baseUrl}#day=${currentDay}&event=${eventId}&openCard=true`;
             if (description) description += `
 
@@ -2404,7 +2404,7 @@
             }
             
             const eventId = getEventId(event);
-            const baseUrl = 'https://leoscastilho.github.io/hacktown-events/';
+            const baseUrl = 'https://leoscastilho.github.io/better-hacktown/';
             const shareUrl = `${baseUrl}#day=${currentDay}&event=${eventId}&openCard=true`;
             
             // Try to use Web Share API if available
@@ -2767,7 +2767,7 @@
                 setTimeout(async () => {
                     if ('serviceWorker' in navigator) {
                         try {
-                            await navigator.serviceWorker.register('/hacktown-events/service-worker.js');
+                            await navigator.serviceWorker.register('/better-hacktown/service-worker.js');
                         } catch (e) {
                             console.log('Service worker re-registration failed:', e);
                         }
