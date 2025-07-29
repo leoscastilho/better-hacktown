@@ -2,8 +2,8 @@ name: Scrape Hacktown Events
 
 on:
   schedule:
-    # Run every hour at minute 0
-    - cron: '0 * * * *'
+    # Run every 4 hours instead of every hour to be more respectful
+    - cron: '0 */4 * * *'
   workflow_dispatch:  # Allow manual triggering
   push:
     branches:
