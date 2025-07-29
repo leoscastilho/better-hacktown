@@ -49,18 +49,20 @@ IS_CI = os.environ.get('CI', 'false').lower() == 'true' or os.environ.get('GITHU
 
 # Adjust concurrency and timing settings based on environment
 if IS_CI:
-    MAX_CONCURRENT_REQUESTS = 1  # Conservative: single request at a time in CI
-    RETRY_DELAY = 10  # Longer initial delay between retries in CI (seconds)
-    print("Running in CI environment - using conservative settings")
+    MAX_CONCURRENT_REQUESTS = 1  # Ultra-conservative: single request at a time in CI
+    RETRY_DELAY = 20  # Much longer initial delay between retries in CI (seconds)
+    MAX_RETRIES = 3   # Fewer retries in CI to avoid prolonged blocking
+    REQUEST_TIMEOUT = 60  # Longer timeout for CI environment
+    print("🤖 Running in CI environment - using ultra-conservative settings")
+    print(f"   • Max concurrent requests: {MAX_CONCURRENT_REQUESTS}")
+    print(f"   • Retry delay: {RETRY_DELAY}s")
+    print(f"   • Max retries: {MAX_RETRIES}")
+    print(f"   • Request timeout: {REQUEST_TIMEOUT}s")
 else:
     MAX_CONCURRENT_REQUESTS = 2  # Local development: allow 2 concurrent requests
     RETRY_DELAY = 5  # Shorter delay for local development (seconds)
-
-# Maximum number of retry attempts for failed requests
-MAX_RETRIES = 5
-
-# HTTP request timeout in seconds
-REQUEST_TIMEOUT = 30
+    MAX_RETRIES = 5  # More retries for local development
+    REQUEST_TIMEOUT = 30  # Standard timeout for local development
 
 # ============================================================================
 # EVENT CONFIGURATION
@@ -81,15 +83,38 @@ EVENT_DATES = [
 # ============================================================================
 
 # HTTP headers required by the HackTown API
-# These headers mimic a real browser request to avoid blocking
-HEADERS = {
-    'accept': 'application/json, text/plain, */*',  # Accept JSON responses
-    'origin': 'https://hacktown2025.yazo.app.br',   # Required origin header
-    'product-identifier': '1',                       # API product identifier
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',  # Browser user agent
-    'accept-language': 'en-US,en;q=0.9',           # Language preferences
-    'referer': 'https://hacktown2025.yazo.app.br/', # Referer header
-}
+# Enhanced headers to better mimic real browser requests and avoid blocking
+def get_headers():
+    """Generate headers with some randomization to avoid detection"""
+    user_agents = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/121.0'
+    ]
+    
+    return {
+        'accept': 'application/json, text/plain, */*',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'en-US,en;q=0.9,pt;q=0.8',
+        'cache-control': 'no-cache',
+        'origin': 'https://hacktown2025.yazo.app.br',
+        'pragma': 'no-cache',
+        'product-identifier': '1',
+        'referer': 'https://hacktown2025.yazo.app.br/',
+        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Linux"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'cross-site',
+        'user-agent': random.choice(user_agents),
+        'x-requested-with': 'XMLHttpRequest'
+    }
+
+# Keep a base version for backwards compatibility
+HEADERS = get_headers()
 
 # ============================================================================
 # LOGGING SETUP
@@ -98,6 +123,27 @@ HEADERS = {
 # Configure logging with timestamp, level, and message format
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# ============================================================================
+# PROXY CONFIGURATION (Optional - for future use if needed)
+# ============================================================================
+
+def get_proxy_list():
+    """
+    Get list of free proxies for rotation (if needed in the future).
+    Currently disabled but can be enabled if API blocking becomes severe.
+    """
+    # Free proxy services (use with caution in production)
+    # return [
+    #     'http://proxy1:port',
+    #     'http://proxy2:port',
+    # ]
+    return []
+
+def get_random_proxy():
+    """Get a random proxy from the list (currently disabled)"""
+    proxies = get_proxy_list()
+    return random.choice(proxies) if proxies else None
 
 # ============================================================================
 # LOCATION PROCESSING CACHE
@@ -316,60 +362,79 @@ async def fetch_page(session: aiohttp.ClientSession, date: str, page: int) -> Op
     for attempt in range(MAX_RETRIES):
         try:
             # Add random delay to avoid appearing as a bot
-            # Longer delays in CI to be more respectful of the API
+            # Much longer delays in CI to be more respectful of the API
             if IS_CI:
-                await asyncio.sleep(random.uniform(3, 7))  # 3-7 seconds in CI
+                # In CI: longer delays and simulate human browsing patterns
+                base_delay = random.uniform(5, 12)  # 5-12 seconds base delay
+                if attempt > 0:
+                    base_delay += random.uniform(10, 20)  # Additional delay on retries
+                await asyncio.sleep(base_delay)
             else:
                 await asyncio.sleep(random.uniform(0.5, 1.5))  # 0.5-1.5 seconds locally
+            
+            # Get fresh headers for each request to avoid fingerprinting
+            headers = get_headers()
             
             # Make the HTTP request with timeout
             async with session.get(
                     BASE_URL,
-                    headers=HEADERS,
+                    headers=headers,
                     params=params,
                     timeout=aiohttp.ClientTimeout(total=REQUEST_TIMEOUT)
             ) as response:
                 
                 # Success case: return parsed JSON
                 if response.status == 200:
+                    logger.info(f"✅ Successfully fetched {date} page {page}")
                     return await response.json()
                 
                 # Rate limiting case: retry with exponential backoff
                 elif response.status == 403 and attempt < MAX_RETRIES - 1:
-                    logger.warning(f"403 Forbidden for {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}")
+                    logger.warning(f"🚫 403 Forbidden for {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}")
                     
-                    # Calculate exponential backoff delay with jitter
-                    # Formula: base_delay * (2^attempt) + random_jitter
-                    base_delay = RETRY_DELAY * (2 ** attempt) + random.uniform(0, 5)
-                    retry_delay = max(5, min(base_delay, 30))  # Clamp between 5-30 seconds
+                    # Much longer delays in CI for 403 errors
+                    if IS_CI:
+                        # In CI: very conservative backoff (30-120 seconds)
+                        base_delay = 30 + (attempt * 30) + random.uniform(0, 30)
+                        retry_delay = min(base_delay, 120)  # Cap at 2 minutes
+                    else:
+                        # Local: normal exponential backoff
+                        base_delay = RETRY_DELAY * (2 ** attempt) + random.uniform(0, 5)
+                        retry_delay = max(5, min(base_delay, 30))  # Clamp between 5-30 seconds
                     
-                    logger.info(f"Rate limited - waiting {retry_delay:.1f} seconds before retry...")
+                    logger.info(f"⏳ Rate limited - waiting {retry_delay:.1f} seconds before retry...")
                     await asyncio.sleep(retry_delay)
                     continue
                 
                 # Other HTTP errors: log and return None
                 else:
-                    logger.error(f"HTTP {response.status} error for {date} page {page}")
+                    logger.error(f"❌ HTTP {response.status} error for {date} page {page}")
+                    # For other 4xx errors in CI, wait longer before giving up
+                    if IS_CI and 400 <= response.status < 500 and attempt < MAX_RETRIES - 1:
+                        await asyncio.sleep(random.uniform(15, 30))
+                        continue
                     return None
                     
         except asyncio.TimeoutError:
             # Handle request timeouts
-            logger.error(f"Request timeout ({REQUEST_TIMEOUT}s) for {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}")
+            logger.error(f"⏰ Request timeout ({REQUEST_TIMEOUT}s) for {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}")
             if attempt < MAX_RETRIES - 1:
-                await asyncio.sleep(RETRY_DELAY)
+                delay = RETRY_DELAY * (2 if IS_CI else 1)  # Longer delay in CI
+                await asyncio.sleep(delay)
                 continue
             return None
             
         except Exception as e:
             # Handle any other network or parsing errors
-            logger.error(f"Unexpected error fetching {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}: {e}")
+            logger.error(f"💥 Unexpected error fetching {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}: {e}")
             if attempt < MAX_RETRIES - 1:
-                await asyncio.sleep(RETRY_DELAY)
+                delay = RETRY_DELAY * (2 if IS_CI else 1)  # Longer delay in CI
+                await asyncio.sleep(delay)
                 continue
             return None
     
     # All retries exhausted
-    logger.error(f"All {MAX_RETRIES} retry attempts failed for {date} page {page}")
+    logger.error(f"🔴 All {MAX_RETRIES} retry attempts failed for {date} page {page}")
     return None
 
 
@@ -584,6 +649,32 @@ def save_events_to_file(date: str, events: List[Dict[str, Any]]):
     logger.info(f"File size: {os.path.getsize(filepath):,} bytes")
 
 
+async def warm_up_session(session: aiohttp.ClientSession):
+    """
+    Warm up the session by making a request to the main website first.
+    This helps establish a more legitimate browsing pattern.
+    """
+    try:
+        logger.info("🔥 Warming up session by visiting main website...")
+        
+        # Visit the main website first to establish session
+        async with session.get(
+            'https://hacktown2025.yazo.app.br/',
+            headers=get_headers(),
+            timeout=aiohttp.ClientTimeout(total=15)
+        ) as response:
+            if response.status == 200:
+                logger.info("✅ Session warmed up successfully")
+                # Wait a bit to simulate human browsing
+                await asyncio.sleep(random.uniform(2, 5))
+            else:
+                logger.warning(f"⚠️ Session warmup returned status {response.status}")
+                
+    except Exception as e:
+        logger.warning(f"⚠️ Session warmup failed: {e}")
+        # Continue anyway, warmup is optional
+
+
 async def fetch_all_dates(dates: List[str]) -> Dict[str, List[Dict[str, Any]]]:
     """
     Orchestrate concurrent fetching of events across multiple dates.
@@ -625,12 +716,13 @@ async def fetch_all_dates(dates: List[str]) -> Dict[str, List[Dict[str, Any]]]:
     if IS_CI:
         # CI Environment: Ultra-conservative settings
         connector = aiohttp.TCPConnector(
-            limit=5,              # Total connection pool size (very small)
-            limit_per_host=2,     # Max connections per host (minimal)
+            limit=3,              # Even smaller connection pool
+            limit_per_host=1,     # Only 1 connection per host in CI
             ttl_dns_cache=300,    # DNS cache timeout (5 minutes)
-            force_close=True      # Force close connections (no keep-alive)
+            force_close=True,     # Force close connections (no keep-alive)
+            enable_cleanup_closed=True  # Clean up closed connections
         )
-        logger.info("Using CI-optimized connection settings (conservative)")
+        logger.info("Using CI-optimized connection settings (ultra-conservative)")
     else:
         # Local Development: Normal settings for better performance
         connector = aiohttp.TCPConnector(
@@ -648,12 +740,27 @@ async def fetch_all_dates(dates: List[str]) -> Dict[str, List[Dict[str, Any]]]:
     # - Cookie jar for session state (if API requires it)
     # - Automatic resource cleanup via context manager
     
+    # Enhanced timeout settings for CI
+    timeout = aiohttp.ClientTimeout(
+        total=60 if IS_CI else 30,      # Longer total timeout in CI
+        connect=30 if IS_CI else 10,    # Longer connect timeout in CI
+        sock_read=30 if IS_CI else 10   # Longer read timeout in CI
+    )
+    
     async with aiohttp.ClientSession(
         connector=connector,
-        cookie_jar=aiohttp.CookieJar()  # Maintain cookies across requests
+        cookie_jar=aiohttp.CookieJar(),  # Maintain cookies across requests
+        timeout=timeout
     ) as session:
         
         logger.info(f"Created HTTP session - starting to fetch {len(dates)} dates")
+        
+        # ====================================================================
+        # SESSION WARMING (CI ONLY)
+        # ====================================================================
+        # In CI, warm up the session to appear more like a real browser
+        if IS_CI:
+            await warm_up_session(session)
         
         # ====================================================================
         # TASK CREATION AND SCHEDULING
