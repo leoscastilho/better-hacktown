@@ -1,8 +1,82 @@
 {
   "date": "2025-08-03",
-  "total_events": 21,
-  "scraped_at": "2025-07-29T05:40:28.343866-03:00",
+  "total_events": 24,
+  "scraped_at": "2025-07-29T15:29:26.622225-03:00",
   "events": [
+    {
+      "id": 2617,
+      "start_time": "2025-08-03T03:30:00.000+00:00",
+      "end_time": "2025-08-03T04:30:00.000+00:00",
+      "title": "Dj Paula Canteros (Reggaeton)",
+      "description": "",
+      "hub_event_id": 1,
+      "entity_register_id": 10515,
+      "place": "Beco do Saci - MultiExperiências",
+      "allow_questions": false,
+      "external_id": "yazo_2617",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 1792,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [],
+      "tags": [
+        {
+          "id": 417,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Showcase",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Beco do Saci - MultiExperiências",
+      "nearLocation": null
+    },
+    {
+      "id": 2618,
+      "start_time": "2025-08-03T04:30:00.000+00:00",
+      "end_time": "2025-08-03T06:00:00.000+00:00",
+      "title": "DJ Dais - Brasilidades",
+      "description": "",
+      "hub_event_id": 1,
+      "entity_register_id": 10516,
+      "place": "Beco do Saci - MultiExperiências",
+      "allow_questions": false,
+      "external_id": "yazo_2618",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 2048,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [],
+      "tags": [
+        {
+          "id": 417,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Showcase",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Beco do Saci - MultiExperiências",
+      "nearLocation": null
+    },
     {
       "id": 2161,
       "start_time": "2025-08-03T12:00:00.000+00:00",
@@ -85,11 +159,11 @@
       "place_color": null,
       "allow_evaluation": true,
       "order": 1024,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 5,
+      "available_slots": 45,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -109,6 +183,13 @@
         }
       ],
       "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        },
         {
           "id": 264,
           "color": "#21C89D",
@@ -201,7 +282,7 @@
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
-      "unlimited_slots": true,
+      "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
       "speakers": [
@@ -253,6 +334,48 @@
       ],
       "tags": [
         {
+          "id": 275,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Educação / Aprendizado",
+          "hub_event_id": 1
+        },
+        {
+          "id": 291,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão / Governança Inovadora",
+          "hub_event_id": 1
+        },
+        {
+          "id": 292,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Inovação Corporativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 332,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cidades / Comunidades Inovadoras",
+          "hub_event_id": 1
+        },
+        {
+          "id": 399,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Regeneração / Clima / Sustentabilidade",
+          "hub_event_id": 1
+        },
+        {
+          "id": 406,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Energia / Mobilidade / Transição Sustentável",
+          "hub_event_id": 1
+        },
+        {
           "id": 27,
           "color": "#21C89D",
           "type": "schedules",
@@ -284,7 +407,7 @@
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
-      "unlimited_slots": true,
+      "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
       "speakers": [
@@ -343,10 +466,10 @@
           "hub_event_id": 1
         },
         {
-          "id": 397,
+          "id": 407,
           "color": "#21C89D",
           "type": "schedules",
-          "name": "Ancestralidade / Espiritualidade / Futuro",
+          "name": "Ancestralidade / Espiritualidade",
           "hub_event_id": 1
         },
         {
@@ -672,8 +795,9 @@
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
-      "unlimited_slots": true,
+      "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -691,8 +815,42 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
+        {
+          "id": 292,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Inovação Corporativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 332,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cidades / Comunidades Inovadoras",
+          "hub_event_id": 1
+        },
+        {
+          "id": 392,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Consciência / Responsabilidade",
+          "hub_event_id": 1
+        },
+        {
+          "id": 395,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "GovTech / Inovação em Políticas Públicas",
+          "hub_event_id": 1
+        },
+        {
+          "id": 399,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Regeneração / Clima / Sustentabilidade",
+          "hub_event_id": 1
+        },
         {
           "id": 27,
           "color": "#21C89D",
@@ -727,6 +885,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -744,7 +903,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 384,
@@ -760,6 +918,66 @@
       },
       "filterLocation": "Casa Google Cloud",
       "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2640,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:00:00.000+00:00",
+      "title": "Destravando sua Carreira: Primeiros Passos para se Destacar no Mercado de Trabalho",
+      "description": "Destravando sua Carreira é uma atividade prática e interativa voltada para estudantes do ensino médio e técnico que sonham em atuar com tecnologia, games, automação, biomedicina, telecom e muito mais!\n\n🧠 Vamos falar sobre: ✅ Como escolher uma área que combina com você\n✅ LinkedIn e currículo para iniciantes\n✅ Soft skills que brilham nos olhos dos recrutadores\n✅ Como se destacar mesmo sem experiência\n\n💡 Uma conversa leve, acessível e transformadora para te ajudar a enxergar possibilidades e criar seu próprio caminho profissional desde já!",
+      "hub_event_id": 1,
+      "entity_register_id": 10541,
+      "place": "AWS Developer Hub ETE \"FMC\"",
+      "allow_questions": false,
+      "external_id": "yazo_2640",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 1024,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4966,
+          "name": "Paulo Boccaletti",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4966/partner_4966_1753477383077.png",
+          "bio": "Head de Parcerias no Papo de Sysadmin, engenheiro de software com experiência em Java, microsserviços e times ágeis. Atua como tech lead e mentor, promovendo excelência técnica e formação de talentos em tecnologia.",
+          "role": "Head de Parcerias e Novos Negócios",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2640,
+            "pivot_speaker_id": 4966,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 269,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Desenvolvimento de Hardware / Software",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2525,
@@ -780,8 +998,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -817,6 +1035,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4195,
@@ -834,7 +1053,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -877,6 +1095,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5237,
@@ -894,7 +1113,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -930,6 +1148,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -947,7 +1166,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -975,6 +1193,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5235,
@@ -992,7 +1211,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -1035,8 +1253,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -1072,6 +1290,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5235,
@@ -1089,7 +1308,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -1132,6 +1350,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5234,
@@ -1149,7 +1368,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -1185,8 +1403,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
