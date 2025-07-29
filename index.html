@@ -351,7 +351,13 @@
             transform: scale(1.1);
         }
 
-        .sidebar input[type="checkbox"]:checked + .toggle-switch {
+        .sidebar .toggle-switch:has(input:checked) {
+            background: var(--gradient-secondary);
+            border-color: var(--primary-orange);
+        }
+
+        /* Fallback for browsers that don't support :has() */
+        .sidebar .toggle-switch.checked {
             background: var(--gradient-secondary);
             border-color: var(--primary-orange);
         }
@@ -1938,6 +1944,17 @@
         </div>
 
         <div class="sidebar-section">
+            <div class="sidebar-section-title">Filtros de Visualização</div>
+            <div class="toggle-item">
+                <label for="showNewEventsOnly">Apenas eventos novos</label>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="showNewEventsOnly">
+                    <div class="slider"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
             <div class="sidebar-section-title">Informações do Evento</div>
             <div class="sidebar-summary-info">
                 <div class="sidebar-event-count" id="sidebarTotalEvents">Carregando...</div>
@@ -2081,6 +2098,7 @@
         let currentDay = null;
         let locations = new Set();
         let showFavoritesOnly = false;
+        let showNewEventsOnly = false; // Track new events filter
         let summaryData = null;
         let favorites = new Set();
         let currentNearLocation = ''; // Track current nearLocation filter
@@ -2808,6 +2826,46 @@
             window.addEventListener('resize', updateTimeLocationHeaderPosition, { passive: true });
             
             // Set up toggles
+            const newEventsToggle = document.getElementById('showNewEventsOnly');
+            if (newEventsToggle) {
+                const toggleSwitch = newEventsToggle.closest('.toggle-switch');
+                
+                newEventsToggle.addEventListener('change', (e) => {
+                    console.log('New events toggle changed:', e.target.checked);
+                    showNewEventsOnly = e.target.checked;
+                    
+                    // Update toggle switch appearance
+                    if (toggleSwitch) {
+                        toggleSwitch.classList.toggle('checked', e.target.checked);
+                    }
+                    
+                    renderCache.clear();
+                    if (currentDay) {
+                        displayEvents(currentDay);
+                    }
+                });
+                
+                // Also add click handler to the toggle switch itself
+                if (toggleSwitch) {
+                    toggleSwitch.addEventListener('click', (e) => {
+                        if (e.target === toggleSwitch || e.target.classList.contains('slider')) {
+                            newEventsToggle.checked = !newEventsToggle.checked;
+                            newEventsToggle.dispatchEvent(new Event('change'));
+                        }
+                    });
+                }
+                
+                // Add click handler to the label for better UX
+                const newEventsLabel = document.querySelector('label[for="showNewEventsOnly"]');
+                if (newEventsLabel) {
+                    newEventsLabel.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        newEventsToggle.checked = !newEventsToggle.checked;
+                        newEventsToggle.dispatchEvent(new Event('change'));
+                    });
+                }
+            }
+            
             // const favoritesToggle = document.getElementById('showFavoritesOnly');
             // favoritesToggle.addEventListener('change', (e) => {
             //     showFavoritesOnly = e.target.checked;
@@ -3011,7 +3069,7 @@
             const locationFilter = document.getElementById('locationFilter').value;
             
             // Create cache key
-            const cacheKey = `${date}_${locationFilter}_${currentNearLocation}_${showFavoritesOnly}`;
+            const cacheKey = `${date}_${locationFilter}_${currentNearLocation}_${showFavoritesOnly}_${showNewEventsOnly}`;
             
             // Check cache first
             if (renderCache.has(cacheKey)) {
@@ -3047,10 +3105,18 @@
                 events = events.filter(event => isFavorite(event));
             }
 
+            // Apply new events filter
+            if (showNewEventsOnly) {
+                events = events.filter(event => !isEventViewed(event));
+            }
+
             if (events.length === 0) {
-                const message = showFavoritesOnly 
-                    ? 'Nenhum evento favorito encontrado para os filtros selecionados' 
-                    : 'Nenhum evento encontrado para os filtros selecionados';
+                let message = 'Nenhum evento encontrado para os filtros selecionados';
+                if (showFavoritesOnly) {
+                    message = 'Nenhum evento favorito encontrado para os filtros selecionados';
+                } else if (showNewEventsOnly) {
+                    message = 'Nenhum evento novo encontrado para os filtros selecionados';
+                }
                 timeline.innerHTML = `<div class="no-events">${message}</div>`;
                 return;
             }
