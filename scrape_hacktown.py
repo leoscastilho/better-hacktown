@@ -45,7 +45,13 @@ OUTPUT_DIR = "events"
 
 # Detect if running in CI/CD environment (GitHub Actions, etc.)
 # This allows us to use more conservative settings to avoid rate limiting
-IS_CI = os.environ.get('CI', 'false').lower() == 'true' or os.environ.get('GITHUB_ACTIONS', 'false').lower() == 'true'
+# Check if we should force local mode (for Docker containers)
+FORCE_LOCAL_MODE = os.environ.get('FORCE_LOCAL_MODE', 'false').lower() == 'true'
+
+# Detect if running in CI/CD environment (GitHub Actions, etc.)
+# This allows us to use more conservative settings to avoid rate limiting
+# But can be overridden with FORCE_LOCAL_MODE for Docker containers
+IS_CI = (os.environ.get('CI', 'false').lower() == 'true' or os.environ.get('GITHUB_ACTIONS', 'false').lower() == 'true') and not FORCE_LOCAL_MODE
 
 # Adjust concurrency and timing settings based on environment
 if IS_CI:

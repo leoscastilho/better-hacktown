@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  hacktown-scraper:
+    build: .
+    container_name: hacktown-scraper
+    environment:
+      # GitHub repository configuration
+      - GITHUB_REPO_URL=https://github.com/leoscastilho/better-hacktown.git
+      - GITHUB_BRANCH=main
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      
+      # Git user configuration
+      - GIT_USER_NAME=HackTown Docker Scraper
+      - GIT_USER_EMAIL=scraper@hacktown.local
+      
+      # Python environment
+      - PYTHONUNBUFFERED=1
+      - FORCE_LOCAL_MODE=true
+      
+      # Git environment (prevent interactive prompts)
+      - GIT_TERMINAL_PROMPT=0
+      - GIT_ASKPASS=echo
+    
+    volumes:
+      # Persist the git repository between runs
+      - hacktown_repo:/repo
+      
+      # Optional: Mount logs directory
+      - ./logs:/app/logs
+    
+    restart: "no"  # Don't auto-restart, we'll use cron
+    
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+
+volumes:
+  hacktown_repo:
+    driver: local

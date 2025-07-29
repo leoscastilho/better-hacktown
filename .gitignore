@@ -1,2 +1,10 @@
 .idea/
 .DS_Store
+
+# Docker and environment files
+.env
+logs/
+*.log
+
+# Docker volumes
+docker-data/
