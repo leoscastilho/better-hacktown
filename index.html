@@ -7,7 +7,7 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9HKGBR5DC"></script>
-    <script>
+    <script>the
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -410,43 +410,44 @@
             line-height: 1.4;
         }
 
-        /* Refresh Button */
-        .refresh-button {
-            width: 100%;
-            min-width: 180px; /* Fixed minimum width to prevent resizing */
-            padding: 12px 20px;
-            background: var(--gradient-secondary);
+        .sidebar-attribution {
+            margin-top: 30px;
+            padding: 15px;
+            /*background: rgba(255, 255, 255, 0.08);*/
+            border-radius: var(--radius-md);
+            /*border-left: 3px solid var(--primary-orange);*/
+            font-size: 0.8em;
             color: var(--text-white);
-            border: none;
-            border-radius: var(--radius-full);
-            font-size: 16px;
+            opacity: 0.9;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .sidebar-attribution .amazon-q {
+            color: var(--primary-orange);
             font-weight: 600;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            display: flex;
+        }
+
+        .sidebar-attribution a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            box-shadow: var(--shadow-md);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px; /* Add space underneath the button */
+            gap: 5px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-sm);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .refresh-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, #ff6b3d 0%, #ff8c42 100%);
-        }
-
-        .refresh-button:active {
-            transform: translateY(0);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .refresh-button.loading {
-            opacity: 0.7;
-            cursor: not-allowed;
+        .sidebar-attribution a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+            transform: translateY(-1px);
         }
 
         .refresh-button.loading .refresh-icon {
@@ -1942,6 +1943,14 @@
                 <div class="sidebar-event-count" id="sidebarTotalEvents">Carregando...</div>
                 <div class="sidebar-last-update" id="sidebarLastUpdate">Carregando...</div>
             </div>
+        </div>
+
+        <div class="sidebar-attribution">
+            Esse aplicativo foi desenvolvido utilizando o <span class="amazon-q">Amazon Q</span> para o HackTown 2025
+            <br><br>
+            <a href="https://github.com/leoscastilho/better-hacktown" target="_blank" rel="noopener noreferrer">
+                📂 Ver código no GitHub
+            </a>
         </div>
 
     </div>

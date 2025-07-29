@@ -1,257 +1,259 @@
 # Better HackTown 2025
 
-A modern, Progressive Web App (PWA) for browsing HackTown 2025 events with an improved user experience.
+> 🤖 **Este aplicativo foi desenvolvido utilizando o Amazon Q para o HackTown 2025 em Santa Rita do Sapucaí**
 
-## 🚀 Features
+Um Progressive Web App (PWA) moderno para navegar pelos eventos do HackTown 2025 com uma experiência de usuário aprimorada.
 
-- **Event Scraping**: Asynchronous scraping of HackTown 2025 events from the official API
-- **Progressive Web App**: Installable PWA with offline capabilities
-- **Responsive Design**: Mobile-first design that works on all devices
-- **Real-time Updates**: Automated event data synchronization
-- **Fast Performance**: Optimized loading and caching strategies
-- **Analytics Integration**: Google Analytics and Tag Manager integration
+## 🚀 Funcionalidades
 
-## 📋 Project Structure
+- **Scraping de Eventos**: Scraping assíncrona de eventos do HackTown 2025 da API oficial
+- **Progressive Web App**: PWA instalável com capacidades offline
+- **Design Responsivo**: Design mobile-first que funciona em todos os dispositivos
+- **Atualizações em Tempo Real**: Sincronização automatizada de dados de eventos
+- **Performance Rápida**: Estratégias otimizadas de carregamento e cache
+- **Integração com Analytics**: Integração com Google Analytics e Tag Manager
+
+## 📋 Estrutura do Projeto
 
 ```
 better-hacktown/
-├── scrape_hacktown.py      # Main scraper script (async)
-├── index.html              # PWA frontend
-├── service-worker.js       # PWA service worker for offline functionality
-├── logo.png               # App logo/icon
-├── requirements.txt        # Python dependencies
-├── events/                # Scraped event data
-│   ├── hacktown_events_*.json  # Daily event files
-│   ├── locations.json     # Event locations data
-│   └── summary.json       # Event summary statistics
-└── README.md              # This file
+├── scrape_hacktown.py      # Script principal de Scraping (assíncrono)
+├── index.html              # Frontend PWA
+├── service-worker.js       # Service worker PWA para funcionalidade offline
+├── logo.png               # Logo/ícone do app
+├── requirements.txt        # Dependências Python
+├── events/                # Dados de eventos raspados
+│   ├── hacktown_events_*.json  # Arquivos de eventos diários
+│   ├── locations.json     # Dados de localizações de eventos
+│   └── summary.json       # Estatísticas resumidas de eventos
+└── README.md              # Este arquivo
 ```
 
-## 🛠️ Installation
+## 🛠️ Instalação
 
-### Prerequisites
+### Pré-requisitos
 
-- Python 3.9+ (for zoneinfo support)
-- Modern web browser for PWA features
+- Python 3.9+ (para suporte ao zoneinfo)
+- Navegador moderno para recursos PWA
 
-### Setup
+### Configuração
 
-1. **Clone the repository**
+1. **Clone o repositório**
    ```bash
-   git clone <repository-url>
+   git clone <url-do-repositório>
    cd better-hacktown
    ```
 
-2. **Install Python dependencies**
+2. **Instale as dependências Python**
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the scraper**
+3. **Execute o raspador**
    ```bash
    python scrape_hacktown.py
    ```
 
-4. **Serve the web application**
+4. **Sirva a aplicação web**
    ```bash
-   # Using Python's built-in server
+   # Usando o servidor integrado do Python
    python -m http.server 8000
    
-   # Or using any other static file server
+   # Ou usando qualquer outro servidor de arquivos estáticos
    npx serve .
    ```
 
-5. **Access the application**
-   Open your browser and navigate to `http://localhost:8000`
+5. **Acesse a aplicação**
+   Abra seu navegador e navegue para `http://localhost:8000`
 
-## 🔧 Usage
+## 🔧 Uso
 
-### Event Scraping
+### Scraping de Eventos
 
-The scraper automatically fetches events from the HackTown 2025 API:
+O raspador busca automaticamente eventos da API do HackTown 2025:
 
 ```bash
 python scrape_hacktown.py
 ```
 
-**Features:**
-- Concurrent async requests for faster scraping
-- Automatic retry logic with exponential backoff
-- CI/CD environment detection with conservative settings
-- Organized output by date in the `events/` directory
-- Location and summary data extraction
+**Funcionalidades:**
+- Requisições assíncronas concorrentes para Scraping mais rápida
+- Lógica de retry automática com backoff exponencial
+- Detecção de ambiente CI/CD com configurações conservadoras
+- Saída organizada por data no diretório `events/`
+- Extração de dados de localização e resumo
 
-### Web Application
+### Aplicação Web
 
-The PWA provides an enhanced browsing experience:
+O PWA oferece uma experiência de navegação aprimorada:
 
-- **Install as App**: Use your browser's "Add to Home Screen" feature
-- **Offline Access**: Events are cached for offline viewing
-- **Mobile Optimized**: Touch-friendly interface
-- **Fast Loading**: Optimized assets and caching
+- **Instalar como App**: Use o recurso "Adicionar à Tela Inicial" do seu navegador
+- **Acesso Offline**: Eventos são armazenados em cache para visualização offline
+- **Otimizado para Mobile**: Interface amigável ao toque
+- **Carregamento Rápido**: Assets otimizados e estratégias de cache
 
-## 📊 Data Structure
+## 📊 Estrutura de Dados
 
-### Event Files
-- `hacktown_events_YYYY-MM-DD.json`: Daily event schedules
-- `locations.json`: Venue and location information
-- `summary.json`: Event statistics and metadata
+### Arquivos de Eventos
+- `hacktown_events_YYYY-MM-DD.json`: Programações de eventos diárias
+- `locations.json`: Informações de locais e venues
+- `summary.json`: Estatísticas de eventos e metadados
 
-### API Integration
-The scraper connects to:
+### Integração com API
+O raspador se conecta a:
 ```
 https://hacktown-2025-ss-v2.api.yazo.com.br/public/schedules
 ```
 
-## 🔄 Automation
+## 🔄 Automação
 
-### GitHub Actions Workflow
+### Workflow do GitHub Actions
 
-The project includes an automated GitHub Actions workflow (`.github/workflows/scrape-events.yml`) that keeps event data fresh and the web application updated automatically.
+O projeto inclui um workflow automatizado do GitHub Actions (`.github/workflows/scrape-events.yml`) que mantém os dados de eventos atualizados e a aplicação web atualizada automaticamente.
 
-#### Workflow Configuration
+#### Configuração do Workflow
 
-**Triggers:**
-- **Scheduled**: Runs every hour at minute 0 (`0 * * * *`)
-- **Manual**: Can be triggered manually via GitHub Actions UI
-- **Push**: Automatically runs when `scrape_hacktown.py` or the workflow file is updated
+**Gatilhos:**
+- **Agendado**: Executa a cada 4 horas (`0 */4 * * *`)
+- **Manual**: Pode ser acionado manualmente via interface do GitHub Actions
+- **Push**: Executa automaticamente quando `scrape_hacktown.py` ou o arquivo de workflow é atualizado
 
-**Environment:**
-- Runs on `ubuntu-latest`
-- Uses Python 3.10
-- Automatically detects CI environment for conservative scraping settings
+**Ambiente:**
+- Executa em `ubuntu-latest`
+- Usa Python 3.10
+- Detecta automaticamente ambiente CI para configurações conservadoras
 
-#### Workflow Steps
+#### Etapas do Workflow
 
-1. **Repository Setup**
+1. **Configuração do Repositório**
    ```yaml
-   - Checkout repository with write permissions
-   - Set up Python 3.10 environment
-   - Install dependencies from requirements.txt
+   - Checkout do repositório com permissões de escrita
+   - Configuração do ambiente Python 3.10
+   - Instalação de dependências do requirements.txt
    ```
 
-2. **Event Scraping**
+2. **Scraping de Eventos**
    ```yaml
-   - Execute scrape_hacktown.py with CI optimizations
-   - Handle output directory management
-   - Process all HackTown 2025 event dates
+   - Execução do scrape_hacktown.py com otimizações CI
+   - Gerenciamento do diretório de saída
+   - Processamento de todas as datas de eventos do HackTown 2025
    ```
 
-3. **Cache Management**
+3. **Gerenciamento de Cache**
    ```yaml
-   - Generate timestamp-based cache busting version
-   - Update index.html with new version numbers
-   - Ensure PWA updates properly in browsers
+   - Geração de versão de cache busting baseada em timestamp
+   - Atualização do index.html com novos números de versão
+   - Garantia de que o PWA atualiza adequadamente nos navegadores
    ```
 
-4. **Git Operations**
+4. **Operações Git**
    ```yaml
-   - Check for changes in events/ and index.html
-   - Commit changes with timestamp
-   - Push updates back to repository
+   - Verificação de mudanças em events/ e index.html
+   - Commit de mudanças com timestamp
+   - Push de atualizações de volta ao repositório
    ```
 
-#### Workflow Features
+#### Funcionalidades do Workflow
 
-- **Smart Updates**: Only commits when actual changes are detected
-- **Cache Busting**: Automatically updates PWA cache versions
-- **Error Handling**: Graceful handling of missing files and directories
-- **CI Optimization**: Uses conservative scraping settings in GitHub Actions
-- **Automated Timestamps**: Commits include execution timestamp
+- **Atualizações Inteligentes**: Só faz commit quando mudanças reais são detectadas
+- **Cache Busting**: Atualiza automaticamente versões de cache do PWA
+- **Tratamento de Erros**: Tratamento gracioso de arquivos e diretórios ausentes
+- **Otimização CI**: Usa configurações conservadoras de Scraping no GitHub Actions
+- **Timestamps Automatizados**: Commits incluem timestamp de execução
 
-#### Monitoring the Workflow
+#### Monitoramento do Workflow
 
-**GitHub Actions Tab:**
-- View workflow runs and their status
-- Check logs for scraping progress and errors
-- Monitor execution time and success rates
+**Aba GitHub Actions:**
+- Visualizar execuções do workflow e seus status
+- Verificar logs para progresso de Scraping e erros
+- Monitorar tempo de execução e taxas de sucesso
 
-**Repository Updates:**
-- Automatic commits appear with "Update event data" messages
-- Event files are updated in the `events/` directory
-- PWA cache versions are automatically incremented
+**Atualizações do Repositório:**
+- Commits automáticos aparecem com mensagens "Update event data"
+- Arquivos de eventos são atualizados no diretório `events/`
+- Versões de cache PWA são automaticamente incrementadas
 
-#### Manual Execution
+#### Execução Manual
 
-You can manually trigger the workflow:
+Você pode acionar manualmente o workflow:
 
-1. Go to your repository's **Actions** tab
-2. Select **"Scrape Hacktown Events"** workflow
-3. Click **"Run workflow"** button
-4. Choose the branch (usually `main`)
-5. Click **"Run workflow"** to execute
+1. Vá para a aba **Actions** do seu repositório
+2. Selecione o workflow **"Scrape Hacktown Events"**
+3. Clique no botão **"Run workflow"**
+4. Escolha a branch (geralmente `main`)
+5. Clique em **"Run workflow"** para executar
 
-#### Troubleshooting Workflow Issues
+#### Solução de Problemas do Workflow
 
-**Common Issues:**
-- **Permission Errors**: Ensure repository has Actions enabled
-- **Rate Limiting**: Workflow uses CI-optimized settings to avoid API limits
-- **Commit Failures**: Check if repository protection rules allow Actions to push
+**Problemas Comuns:**
+- **Erros de Permissão**: Certifique-se de que o repositório tem Actions habilitadas
+- **Rate Limiting**: Workflow usa configurações otimizadas para CI para evitar limites de API
+- **Falhas de Commit**: Verifique se as regras de proteção do repositório permitem que Actions façam push
 
-**Debugging Steps:**
-1. Check the Actions tab for detailed logs
-2. Look for error messages in the "Run scraper" step
-3. Verify the events directory contains updated files
-4. Confirm cache versions are being updated in index.html
+**Passos de Debug:**
+1. Verifique a aba Actions para logs detalhados
+2. Procure por mensagens de erro na etapa "Run scraper"
+3. Verifique se o diretório events contém arquivos atualizados
+4. Confirme se as versões de cache estão sendo atualizadas no index.html
 
-### CI/CD Support
-The scraper includes CI/CD optimizations:
-- Detects CI environments (`CI` or `GITHUB_ACTIONS` env vars)
-- Adjusts concurrency and retry settings automatically
-- Conservative rate limiting in automated environments
+### Suporte CI/CD
+O raspador inclui otimizações para CI/CD:
+- Detecta ambientes CI (variáveis `CI` ou `GITHUB_ACTIONS`)
+- Ajusta configurações de concorrência e retry automaticamente
+- Rate limiting conservador em ambientes automatizados
 
-### Alternative Scheduling Options
-Consider setting up automated runs using:
-- **GitHub Actions**: ✅ Already configured (recommended)
-- **Cron Jobs**: For server-based scheduling
-- **Cloud Functions**: For serverless automation
-- **AWS Lambda**: Event-driven scraping
+### Opções Alternativas de Agendamento
+Considere configurar execuções automatizadas usando:
+- **GitHub Actions**: ✅ Já configurado (recomendado)
+- **Cron Jobs**: Para agendamento baseado em servidor
+- **Cloud Functions**: Para automação serverless
+- **AWS Lambda**: Scraping orientada por eventos
 
-## 🎨 Customization
+## 🎨 Personalização
 
-### Styling
-Modify the CSS in `index.html` to customize the appearance.
+### Estilização
+Modifique o CSS no `index.html` para personalizar a aparência.
 
 ### Analytics
-Update the Google Analytics and Tag Manager IDs in `index.html`:
+Atualize os IDs do Google Analytics e Tag Manager no `index.html`:
 ```javascript
-gtag('config', 'YOUR-GA-ID');
-// GTM ID in the Tag Manager script
+gtag('config', 'SEU-ID-GA');
+// ID GTM no script do Tag Manager
 ```
 
-### PWA Configuration
-Edit the manifest and service worker for PWA customization:
-- App name and description
-- Theme colors
-- Caching strategies
-- Offline behavior
+### Configuração PWA
+Edite o manifest e service worker para personalização do PWA:
+- Nome e descrição do app
+- Cores do tema
+- Estratégias de cache
+- Comportamento offline
 
-## 🚀 Deployment
+## 🚀 Deploy
 
-### Static Hosting
-Deploy to any static hosting service:
-- **GitHub Pages**: Automatic deployment from repository
+### Hospedagem Estática
+Faça deploy em qualquer serviço de hospedagem estática:
+- **GitHub Pages**: Deploy automático do repositório
 
-### Automated Scraping
-Set up scheduled scraping using:
-- **GitHub Actions**: `.github/workflows/scrape.yml`
+### Scraping Automatizada
+Configure Scraping agendada usando:
+- **GitHub Actions**: `.github/workflows/scrape-events.yml`
 
-## 📱 PWA Features
+## 📱 Funcionalidades PWA
 
-- **Installable**: Add to home screen on mobile devices
-- **Offline Support**: Cached events available without internet
-- **App-like Experience**: Full-screen mode and native feel
-- **Fast Loading**: Service worker caching strategies
-- **Responsive**: Works on desktop, tablet, and mobile
+- **Instalável**: Adicionar à tela inicial em dispositivos móveis
+- **Suporte Offline**: Eventos em cache disponíveis sem internet
+- **Experiência Similar a App**: Modo tela cheia e sensação nativa
+- **Carregamento Rápido**: Estratégias de cache do service worker
+- **Responsivo**: Funciona em desktop, tablet e mobile
 
-## 🤝 Contributing
+## 🤝 Contribuindo
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Faça fork do repositório
+2. Crie uma branch de feature (`git checkout -b feature/funcionalidade-incrivel`)
+3. Commit suas mudanças (`git commit -m 'Adiciona funcionalidade incrível'`)
+4. Push para a branch (`git push origin feature/funcionalidade-incrivel`)
+5. Abra um Pull Request
 
 ---
 
-**Made with ❤️ for the HackTown 2025 community with the assistance of Amazon Q**
+**Feito com ❤️ para a comunidade HackTown 2025 com a assistência do Amazon Q**
