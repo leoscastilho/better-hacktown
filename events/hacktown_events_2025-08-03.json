@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
   "total_events": 28,
-  "scraped_at": "2025-07-30T15:01:19.376592-03:00",
+  "scraped_at": "2025-07-30T16:01:16.993449-03:00",
   "events": [
     {
       "id": 2617,
@@ -22,6 +22,8 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -31,8 +33,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -59,15 +59,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4426,
@@ -100,7 +92,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -127,15 +127,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5063,
@@ -153,7 +145,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -180,15 +180,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5468,
@@ -206,7 +198,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -233,15 +233,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5068,
@@ -289,7 +281,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -316,6 +316,24 @@
       "available_slots": 45,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4960,
+          "name": "Flávio Pimenta",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4960/partner_4960_1753477367909.png",
+          "bio": "Staff Engineer na Select Soluções, com mais de 25 anos em TI. Atuou na implantação da Nota Fiscal Eletrônica, SPED e Open Finance. Especialista em cloud AWS há mais de 14 anos, conecta IA à estratégia de negócios dos clientes.",
+          "role": "Staff Engineer",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2539,
+            "pivot_speaker_id": 4960,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 27,
@@ -339,24 +357,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4960,
-          "name": "Flávio Pimenta",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4960/partner_4960_1753477367909.png",
-          "bio": "Staff Engineer na Select Soluções, com mais de 25 anos em TI. Atuou na implantação da Nota Fiscal Eletrônica, SPED e Open Finance. Especialista em cloud AWS há mais de 14 anos, conecta IA à estratégia de negócios dos clientes.",
-          "role": "Staff Engineer",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2539,
-            "pivot_speaker_id": 4960,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -383,15 +383,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4894,
@@ -409,7 +401,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -436,6 +436,54 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4224,
+          "name": "Benito Berretta",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556746540.png?ims=filters:quality(75)",
+          "bio": "Diretor Geral da Hyper Island, é formado em Ciências da Computação e Econometria. Atua no desenvolvimento de competências em liderança, inovação e tecnologia, facilitando processos de mudança para pessoas, times e organizações.",
+          "role": "Managing Director na Hyper Island Américas",
+          "company": "Hyper Island",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 4224,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5360,
+          "name": "Adam Kurdahl",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
+          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis. ",
+          "role": "Sócio do SPOL Architects ",
+          "company": "SPOL Architects",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 5360,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5356,
+          "name": "Jesper Rhode",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753555906204.png?ims=filters:quality(75)",
+          "bio": "Fundador da Casa Dinamarca, Jesper é pensador de cultura digital e conselheiro em inovação e futuro, mentor no Hyper Island. ",
+          "role": "Fundador da Casa Dinamarca",
+          "company": "Casa Dinamarca",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 5356,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 275,
@@ -487,54 +535,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4224,
-          "name": "Benito Berretta",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556746540.png?ims=filters:quality(75)",
-          "bio": "Diretor Geral da Hyper Island, é formado em Ciências da Computação e Econometria. Atua no desenvolvimento de competências em liderança, inovação e tecnologia, facilitando processos de mudança para pessoas, times e organizações.",
-          "role": "Managing Director na Hyper Island Américas",
-          "company": "Hyper Island",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 4224,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5360,
-          "name": "Adam Kurdahl",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
-          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis. ",
-          "role": "Sócio do SPOL Architects ",
-          "company": "SPOL Architects",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 5360,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5356,
-          "name": "Jesper Rhode",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753555906204.png?ims=filters:quality(75)",
-          "bio": "Fundador da Casa Dinamarca, Jesper é pensador de cultura digital e conselheiro em inovação e futuro, mentor no Hyper Island. ",
-          "role": "Fundador da Casa Dinamarca",
-          "company": "Casa Dinamarca",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 5356,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -561,29 +561,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 332,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cidades / Comunidades Inovadoras",
-          "hub_event_id": 1
-        },
-        {
-          "id": 407,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Ancestralidade / Espiritualidade",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5286,
@@ -631,7 +609,29 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 332,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cidades / Comunidades Inovadoras",
+          "hub_event_id": 1
+        },
+        {
+          "id": 407,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Ancestralidade / Espiritualidade",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -658,6 +658,24 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4106,
+          "name": "Adriana Kaku",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/26/26_1753879892726.png?ims=filters:quality(75)",
+          "bio": "Adriana Kaku é especialista em aceleração na FIAP Rock New Ventures, mentora em programas de empreendedorismo e facilitadora do Startup Weekend pela Techstars. Atua na interseção entre ciência, inovação e negócios, com olhar estratégico e sensível para transformar ideias em empreendimentos viáveis.",
+          "role": "Especialista de aceleração na FIAP",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2169,
+            "pivot_speaker_id": 4106,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -681,24 +699,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4106,
-          "name": "Adriana Kaku",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/26/26_1753879892726.png?ims=filters:quality(75)",
-          "bio": "Adriana Kaku é especialista em aceleração na FIAP Rock New Ventures, mentora em programas de empreendedorismo e facilitadora do Startup Weekend pela Techstars. Atua na interseção entre ciência, inovação e negócios, com olhar estratégico e sensível para transformar ideias em empreendimentos viáveis.",
-          "role": "Especialista de aceleração na FIAP",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2169,
-            "pivot_speaker_id": 4106,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -834,10 +834,10 @@
         {
           "id": 4195,
           "name": "Brenda Xavier",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1326/partner_1326_1752610070226.png",
-          "bio": "Engenheira de Dados no Itaú, mentora no Google for Startups e organizadora do GDG Santos, atua conectando tecnologia, inovação e impacto social por meio de comunidades e projetos inclusivos.",
-          "role": "Engenheira de Dados no Itaú",
-          "company": "-",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753900664568.png?ims=filters:quality(75)",
+          "bio": "Engenheira de dados no Itaú Unibanco. Atua como GDG Organizer Santos & Hackathon Leader e é mentora Google For Startups. Academicamente, possui formação em Ciência da Computação, Sistemas Biomédicos e pós-graduação em Engenharia de Dados.",
+          "role": "Engenheira de Dados no Itaú, GDG Organizer Santos & Hackathon Leader e Mentora Google for Startups",
+          "company": "Itaú/Google",
           "meta": {
             "pivot_schedule_id": 2189,
             "pivot_speaker_id": 4195,
@@ -1298,10 +1298,10 @@
         {
           "id": 4195,
           "name": "Brenda Xavier",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1326/partner_1326_1752610070226.png",
-          "bio": "Engenheira de Dados no Itaú, mentora no Google for Startups e organizadora do GDG Santos, atua conectando tecnologia, inovação e impacto social por meio de comunidades e projetos inclusivos.",
-          "role": "Engenheira de Dados no Itaú",
-          "company": "-",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753900664568.png?ims=filters:quality(75)",
+          "bio": "Engenheira de dados no Itaú Unibanco. Atua como GDG Organizer Santos & Hackathon Leader e é mentora Google For Startups. Academicamente, possui formação em Ciência da Computação, Sistemas Biomédicos e pós-graduação em Engenharia de Dados.",
+          "role": "Engenheira de Dados no Itaú, GDG Organizer Santos & Hackathon Leader e Mentora Google for Startups",
+          "company": "Itaú/Google",
           "meta": {
             "pivot_schedule_id": 2193,
             "pivot_speaker_id": 4195,
