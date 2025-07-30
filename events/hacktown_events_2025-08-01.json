@@ -1,7 +1,7 @@
 {
   "date": "2025-08-01",
-  "total_events": 358,
-  "scraped_at": "2025-07-30T18:01:18.790339-03:00",
+  "total_events": 360,
+  "scraped_at": "2025-07-30T19:01:19.299605-03:00",
   "events": [
     {
       "id": 2611,
@@ -23,7 +23,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -33,6 +32,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -60,7 +60,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -70,6 +69,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -97,6 +97,15 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 399,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Regeneração / Clima / Sustentabilidade",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5049,
@@ -129,15 +138,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 399,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Regeneração / Clima / Sustentabilidade",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -165,6 +165,22 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 290,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Economia Criativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 321,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Direitos Autorais / Criatividade",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4257,
@@ -212,22 +228,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 290,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Economia Criativa",
-          "hub_event_id": 1
-        },
-        {
-          "id": 321,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Direitos Autorais / Criatividade",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -243,7 +243,7 @@
       "description": "",
       "hub_event_id": 1,
       "entity_register_id": 10121,
-      "place": "Ao lado do Teatro Inatel - Prédio 5 - 2º Piso",
+      "place": "Teatro Inatel - 2º Piso",
       "allow_questions": false,
       "external_id": "yazo_2415",
       "place_color": null,
@@ -255,8 +255,8 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -284,7 +284,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 415,
@@ -294,6 +293,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -321,6 +321,7 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5280,
@@ -338,13 +339,57 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Casa do CCCF",
       "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 2810,
+      "start_time": "2025-08-01T12:00:00.000+00:00",
+      "end_time": "2025-08-01T16:00:00.000+00:00",
+      "title": "Introdução à IA e Machine Learning",
+      "description": "",
+      "hub_event_id": 1,
+      "entity_register_id": 11159,
+      "place": "Casa Google Cloud - Sala Academy",
+      "allow_questions": false,
+      "external_id": "324766f6-758f-4a2d-af64-a8c6f0f1b531",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [],
+      "speakers": [
+        {
+          "id": 5232,
+          "name": "Ronoaldo Pereira",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753734945499.png?ims=filters:quality(75)",
+          "bio": "Instrutor autorizado em Google Cloud, Ronaldo Pereira, conhecido como \"Bill\", possui 12 certificações e foi reconhecido por três anos consecutivos como Instrutor do Ano pelo Google. Atua na formação de profissionais em computação em nuvem, destacando-se pela didática, profundidade técnica e impacto na capacitação de talentos em tecnologia.",
+          "role": "Instrutor do Ano pelo Google autorizado em Google Cloud",
+          "company": "Google",
+          "meta": {
+            "pivot_schedule_id": 2810,
+            "pivot_speaker_id": 5232,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Google Cloud",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2574,
@@ -366,8 +411,8 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -395,23 +440,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5402,
-          "name": "Thais Marteletti",
-          "picture": null,
-          "bio": "",
-          "role": "",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2569,
-            "pivot_speaker_id": 5402,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 322,
@@ -435,6 +463,23 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [
+        {
+          "id": 5402,
+          "name": "Thais Marteletti",
+          "picture": null,
+          "bio": "",
+          "role": "",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2569,
+            "pivot_speaker_id": 5402,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -443,57 +488,33 @@
       "nearLocation": "ETE e Arredores"
     },
     {
-      "id": 2178,
-      "start_time": "2025-08-01T12:00:00.000+00:00",
-      "end_time": "2025-08-01T16:00:00.000+00:00",
-      "title": "Introdução à IA e Machine Learning",
-      "description": "Neste curso prático, você vai explorar as ofertas de IA e ML do Google Cloud para construir projetos de IA preditiva e generativa. É ideal para cientistas de dados, desenvolvedores de IA e engenheiros de ML, que visam aprimorar suas habilidades e conhecimentos com experiências de aprendizado e exercícios práticos. Você aprenderá a reconhecer tecnologias e ferramentas de dados para IA do Google Cloud, desenvolver projetos de IA generativa usando Gemini multimodal, prompts eficientes e ajuste de modelo, além de criar um modelo de ML de ponta a ponta com o Vertex AI.",
+      "id": 2863,
+      "start_time": "2025-08-01T12:30:00.000+00:00",
+      "end_time": "2025-08-01T21:00:00.000+00:00",
+      "title": "Shuttle Oficial do HackTown ",
+      "description": "A stellantis te da uma carona....\n",
       "hub_event_id": 1,
-      "entity_register_id": 9816,
-      "place": "Casa Google Cloud - Sala Academy",
+      "entity_register_id": 11213,
+      "place": "ETE",
       "allow_questions": false,
-      "external_id": "36b790f0-2780-4cc3-abef-99be440bf62e",
+      "external_id": "yazo_2863",
       "place_color": null,
       "allow_evaluation": false,
-      "order": 512,
+      "order": -512,
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5232,
-          "name": "Ronoaldo Pereira",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753734945499.png?ims=filters:quality(75)",
-          "bio": "Instrutor autorizado em Google Cloud, Ronaldo Pereira, conhecido como \"Bill\", possui 12 certificações e foi reconhecido por três anos consecutivos como Instrutor do Ano pelo Google. Atua na formação de profissionais em computação em nuvem, destacando-se pela didática, profundidade técnica e impacto na capacitação de talentos em tecnologia.",
-          "role": "Instrutor do Ano pelo Google autorizado em Google Cloud",
-          "company": "Google",
-          "meta": {
-            "pivot_schedule_id": 2178,
-            "pivot_speaker_id": 5232,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
+      "speakers": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Casa Google Cloud",
-      "nearLocation": "Inatel e Arredores"
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2479,
@@ -1571,6 +1592,51 @@
           "hub_event_id": 1
         }
       ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 2856,
+      "start_time": "2025-08-01T13:00:00.000+00:00",
+      "end_time": "2025-08-01T16:00:00.000+00:00",
+      "title": "Temazcal, cerimônia ancestral",
+      "description": "",
+      "hub_event_id": 1,
+      "entity_register_id": 11205,
+      "place": "ETE - Espaço e Palco Elemento",
+      "allow_questions": false,
+      "external_id": "c47517c2-7bb5-40cb-b8d8-50246fe823db",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 24,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5557,
+          "name": "Max Mello e integrantes Sol da Manhã ",
+          "picture": null,
+          "bio": "",
+          "role": "",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2856,
+            "pivot_speaker_id": 5557,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3230,7 +3296,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5227,
@@ -3248,6 +3313,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -3283,7 +3349,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4705,
@@ -3301,6 +3366,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -3350,7 +3416,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4870,
@@ -3398,6 +3463,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -3447,7 +3513,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4570,
@@ -3480,6 +3545,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -3529,7 +3595,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4171,
@@ -3547,6 +3612,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -3596,7 +3662,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4155,
@@ -3614,6 +3679,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -3663,7 +3729,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4548,
@@ -3681,6 +3746,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -3730,7 +3796,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5199,
@@ -3778,6 +3843,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 269,
@@ -3834,7 +3900,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4434,
@@ -3852,6 +3917,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -3901,7 +3967,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4454,
@@ -3919,6 +3984,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -4516,7 +4582,7 @@
       "description": "A inteligência artificial deixou de ser tendência para se tornar parte central do desenvolvimento de produtos. Nessa palestra traçaremos uma visão panorâmica — e provocativa — sobre a evolução da IA: das origens simbólicas aos modelos generativos atuais. Abordando o impacto real dos LLMs, os setores mais transformados e as estratégias adotadas por Big Techs e startups. Um convite à reflexão: o que profissionais de produto precisam compreender, questionar e dominar para atuar com relevância nesta nova era?",
       "hub_event_id": 1,
       "entity_register_id": 9804,
-      "place": "Casa Google Cloud - Sala Varanda",
+      "place": "Casa Google Cloud - Quintal com Palestra",
       "allow_questions": false,
       "external_id": "c15597a6-19b4-419c-aa1c-4ae3d0d8ddb6",
       "place_color": null,
@@ -4529,15 +4595,7 @@
       "requires_booking": false,
       "broadcast_rooms": [],
       "speakers": [],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6037,6 +6095,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4915,
@@ -6077,7 +6136,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6104,6 +6162,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4386,
@@ -6144,7 +6203,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6171,6 +6229,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4702,
@@ -6226,7 +6285,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6253,6 +6311,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5354,
@@ -6314,7 +6373,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6341,6 +6399,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4186,
@@ -6412,7 +6471,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6439,6 +6497,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4481,
@@ -6479,7 +6538,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6506,6 +6564,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4330,
@@ -6546,7 +6605,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6573,6 +6631,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5389,
@@ -6599,7 +6658,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6626,6 +6684,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5482,
@@ -6673,8 +6733,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6701,23 +6759,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "speakers": [
-        {
-          "id": 4896,
-          "name": "Matheus Fonseca",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4896/partner_4896_1753477214616.png",
-          "bio": "Co-fundador da Leapy, plataforma que transforma o programa de jovem aprendiz em investimento estratégico. Atuou na Movile e fundou a Fundação 1Bi, impactando mais de 150 mil jovens. Formado pela UNESP, tem formação empreendedora por Stanford.",
-          "role": "Co-fundador da Leapy",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2237,
-            "pivot_speaker_id": 4896,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -6741,7 +6783,23 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4896,
+          "name": "Matheus Fonseca",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4896/partner_4896_1753477214616.png",
+          "bio": "Co-fundador da Leapy, plataforma que transforma o programa de jovem aprendiz em investimento estratégico. Atuou na Movile e fundou a Fundação 1Bi, impactando mais de 150 mil jovens. Formado pela UNESP, tem formação empreendedora por Stanford.",
+          "role": "Co-fundador da Leapy",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2237,
+            "pivot_speaker_id": 4896,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6803,6 +6861,21 @@
           "meta": {
             "pivot_schedule_id": 1980,
             "pivot_speaker_id": 4835,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4759,
+          "name": "Tatiana Pilnik",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1907/partner_1907_1752613655873.png",
+          "bio": "Sociotecnóloga e mestre em Design para IA responsável, Tatiana Pilnik pesquisa os impactos sociais e éticos das tecnologias emergentes. Fundadora da Lighthouse In Site, um critical-lab, atua como Head de Design na Silverguard, startup de cibersegurança.",
+          "role": "Sociotecnóloga, Mestre em Responsible IA, Head de Design na Silverguard",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1980,
+            "pivot_speaker_id": 4759,
             "is_bookmarked": false,
             "allow_access": false
           },
@@ -7284,6 +7357,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4506,
+          "name": "Law",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1647/partner_1647_1752612058982.png",
+          "bio": "Gerente de Inovação no Grupo Lotus Yang, explora o cruzamento entre IA, criatividade e soluções no-code acessíveis. Redator desde os 17 anos, estudou Publicidade no IED Barcelona e traz uma trajetória marcada pela experimentação entre linguagem, gastronomia e tecnologia para impulsionar ideias inovadoras.",
+          "role": "Gerente de Inovação na Babushka",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1906,
+            "pivot_speaker_id": 4506,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -7305,23 +7395,6 @@
           "type": "schedules",
           "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4506,
-          "name": "Law",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1647/partner_1647_1752612058982.png",
-          "bio": "Gerente de Inovação no Grupo Lotus Yang, explora o cruzamento entre IA, criatividade e soluções no-code acessíveis. Redator desde os 17 anos, estudou Publicidade no IED Barcelona e traz uma trajetória marcada pela experimentação entre linguagem, gastronomia e tecnologia para impulsionar ideias inovadoras.",
-          "role": "Gerente de Inovação na Babushka",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1906,
-            "pivot_speaker_id": 4506,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -7351,6 +7424,23 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4259,
+          "name": "Fada",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1391/partner_1391_1752610523584.png",
+          "bio": "Especialista em comunicação e branding com 15 anos de experiência e formação contínua em erotismo. Integra sexualidade, comportamento, conteúdo e inovação para criar experiências autênticas e provocadoras que geram engajamento e fortalecem a conexão entre marcas e públicos. Atua na vanguarda de projetos que aliam criatividade e estratégia para resultados de alto impacto.",
+          "role": "CEO da Erotika Town Hackeadora de Tabus do Prazer",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1671,
+            "pivot_speaker_id": 4259,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -7372,23 +7462,6 @@
           "type": "schedules",
           "name": "Brand Experience / Festivais / Eventos",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4259,
-          "name": "Fada",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1391/partner_1391_1752610523584.png",
-          "bio": "Especialista em comunicação e branding com 15 anos de experiência e formação contínua em erotismo. Integra sexualidade, comportamento, conteúdo e inovação para criar experiências autênticas e provocadoras que geram engajamento e fortalecem a conexão entre marcas e públicos. Atua na vanguarda de projetos que aliam criatividade e estratégia para resultados de alto impacto.",
-          "role": "CEO da Erotika Town Hackeadora de Tabus do Prazer",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1671,
-            "pivot_speaker_id": 4259,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -7847,7 +7920,7 @@
       "description": "Junte-se a Bernardo Barlach para descobrir como a Google está construindo um mundo mais inclusivo através da acessibilidade e da IA. Entenda o compromisso da Google em garantir que produtos e serviços sejam úteis para todos, abordando diversas deficiências (visão, audição, mobilidade, fala e cognitiva). Veja como a IA nivela o campo de jogo, desde legendas em tempo real a descrições visuais. Uma palestra essencial para entender como a inovação gera impacto positivo na vida de bilhões.",
       "hub_event_id": 1,
       "entity_register_id": 9802,
-      "place": "Casa Google Cloud - Sala Varanda",
+      "place": "Casa Google Cloud - Quintal com Palestra",
       "allow_questions": false,
       "external_id": "95b1977a-909b-4273-a887-afb29ef874e6",
       "place_color": null,
@@ -7876,15 +7949,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 384,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Design / UX / Acessibilidade",
-          "hub_event_id": 1
-        }
-      ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -8720,6 +8785,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5355,
@@ -8737,7 +8803,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -8801,6 +8866,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4221,
@@ -8818,7 +8884,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -8861,6 +8926,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4582,
@@ -8908,7 +8974,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -8958,6 +9023,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4686,
@@ -8975,7 +9041,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9025,6 +9090,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4320,
@@ -9042,7 +9108,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9085,6 +9150,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4452,
@@ -9102,7 +9168,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9152,6 +9217,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4367,
@@ -9214,7 +9280,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -9264,6 +9329,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4136,
@@ -9281,7 +9347,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9466,7 +9531,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4538,
@@ -9484,6 +9548,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9526,7 +9591,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4148,
@@ -9544,6 +9608,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9593,7 +9658,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4115,
@@ -9611,6 +9675,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9660,8 +9725,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -9689,7 +9754,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4736,
@@ -9752,6 +9816,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -9794,7 +9859,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4451,
@@ -9812,6 +9876,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9861,7 +9926,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4133,
@@ -9879,6 +9943,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9928,7 +9993,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4811,
@@ -9946,6 +10010,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -10645,7 +10710,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4417,
@@ -10663,6 +10727,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -10690,7 +10755,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4810,
@@ -10708,6 +10772,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -10757,7 +10822,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4574,
@@ -10775,6 +10839,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -10824,7 +10889,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4127,
@@ -10857,6 +10921,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -10906,7 +10971,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4111,
@@ -10924,6 +10988,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -10973,7 +11038,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4350,
@@ -10991,6 +11055,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -11040,7 +11105,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4306,
@@ -11058,6 +11122,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -11107,7 +11172,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4115,
@@ -11125,6 +11189,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -11174,7 +11239,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4102,
@@ -11192,6 +11256,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -11241,7 +11306,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4758,
@@ -11259,6 +11323,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -11536,6 +11601,51 @@
       "nearLocation": "Praça e Arredores"
     },
     {
+      "id": 2813,
+      "start_time": "2025-08-01T17:00:00.000+00:00",
+      "end_time": "2025-08-01T21:00:00.000+00:00",
+      "title": "Introdução à IA e Machine Learning",
+      "description": "",
+      "hub_event_id": 1,
+      "entity_register_id": 11162,
+      "place": "Casa Google Cloud - Sala Academy",
+      "allow_questions": false,
+      "external_id": "f2d3c825-24e2-4b6e-8137-6d57e9fffd9b",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5232,
+          "name": "Ronoaldo Pereira",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753734945499.png?ims=filters:quality(75)",
+          "bio": "Instrutor autorizado em Google Cloud, Ronaldo Pereira, conhecido como \"Bill\", possui 12 certificações e foi reconhecido por três anos consecutivos como Instrutor do Ano pelo Google. Atua na formação de profissionais em computação em nuvem, destacando-se pela didática, profundidade técnica e impacto na capacitação de talentos em tecnologia.",
+          "role": "Instrutor do Ano pelo Google autorizado em Google Cloud",
+          "company": "Google",
+          "meta": {
+            "pivot_schedule_id": 2813,
+            "pivot_speaker_id": 5232,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Google Cloud",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
       "id": 2199,
       "start_time": "2025-08-01T17:00:00.000+00:00",
       "end_time": "2025-08-01T17:40:00.000+00:00",
@@ -11579,59 +11689,6 @@
       },
       "filterLocation": "Other",
       "nearLocation": "Other"
-    },
-    {
-      "id": 2181,
-      "start_time": "2025-08-01T17:00:00.000+00:00",
-      "end_time": "2025-08-01T21:00:00.000+00:00",
-      "title": "Introdução à IA e Machine Learning",
-      "description": "Neste curso prático, você vai explorar as ofertas de IA e ML do Google Cloud para construir projetos de IA preditiva e generativa. É ideal para cientistas de dados, desenvolvedores de IA e engenheiros de ML, que visam aprimorar suas habilidades e conhecimentos com experiências de aprendizado e exercícios práticos. Você aprenderá a reconhecer tecnologias e ferramentas de dados para IA do Google Cloud, desenvolver projetos de IA generativa usando Gemini multimodal, prompts eficientes e ajuste de modelo, além de criar um modelo de ML de ponta a ponta com o Vertex AI.",
-      "hub_event_id": 1,
-      "entity_register_id": 9819,
-      "place": "Casa Google Cloud - Sala Academy",
-      "allow_questions": false,
-      "external_id": "1b902a67-d641-408b-a6c2-8d01046c3260",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5232,
-          "name": "Ronoaldo Pereira",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753734945499.png?ims=filters:quality(75)",
-          "bio": "Instrutor autorizado em Google Cloud, Ronaldo Pereira, conhecido como \"Bill\", possui 12 certificações e foi reconhecido por três anos consecutivos como Instrutor do Ano pelo Google. Atua na formação de profissionais em computação em nuvem, destacando-se pela didática, profundidade técnica e impacto na capacitação de talentos em tecnologia.",
-          "role": "Instrutor do Ano pelo Google autorizado em Google Cloud",
-          "company": "Google",
-          "meta": {
-            "pivot_schedule_id": 2181,
-            "pivot_speaker_id": 5232,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Casa Google Cloud",
-      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2179,
@@ -15849,6 +15906,59 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2812,
+      "start_time": "2025-08-01T19:00:00.000+00:00",
+      "end_time": "2025-08-01T19:40:00.000+00:00",
+      "title": "Entendendo o mundo de agentspace",
+      "description": "Agentspace Google Cloud: Unificamos Busca, Gen AI e Agentes para revolucionar suas operações e acelerar o negócio. Transformamos sistemas fragmentados com IA responsável, mais de 100 conectores e conhecimento exclusivo.",
+      "hub_event_id": 1,
+      "entity_register_id": 11161,
+      "place": "Casa Google Cloud - Cloud Talks",
+      "allow_questions": false,
+      "external_id": "cb9d5236-01a6-4dd3-a417-a781c0e271fb",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5234,
+          "name": "Tainara Santos",
+          "picture": null,
+          "bio": "",
+          "role": "Customer Engineer Google Cloud",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2812,
+            "pivot_speaker_id": 5234,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Google Cloud",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
       "id": 2658,
       "start_time": "2025-08-01T19:00:00.000+00:00",
       "end_time": "2025-08-01T20:00:00.000+00:00",
@@ -16476,59 +16586,6 @@
         "rating": 0
       },
       "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2180,
-      "start_time": "2025-08-01T19:00:00.000+00:00",
-      "end_time": "2025-08-01T19:40:00.000+00:00",
-      "title": "Como construir seu agente de IA",
-      "description": "A ser anunciado",
-      "hub_event_id": 1,
-      "entity_register_id": 9818,
-      "place": "Casa Google Cloud - Sala Cafézin",
-      "allow_questions": false,
-      "external_id": "c367e2f2-80dc-48bb-8299-a9cc2bd69a47",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5234,
-          "name": "Tainara Santos",
-          "picture": null,
-          "bio": "",
-          "role": "Customer Engineer Google Cloud",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2180,
-            "pivot_speaker_id": 5234,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Casa Google Cloud",
       "nearLocation": "Inatel e Arredores"
     },
     {
@@ -18310,7 +18367,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4285,
@@ -18328,6 +18384,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -18377,7 +18434,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4503,
@@ -18395,6 +18451,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -18437,7 +18494,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4872,
@@ -18500,6 +18556,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 269,
@@ -18549,7 +18606,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4642,
@@ -18567,6 +18623,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -18616,7 +18673,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4420,
@@ -18634,6 +18690,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -18683,8 +18740,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -18734,7 +18791,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4181,
@@ -18752,6 +18808,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -18794,7 +18851,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4354,
@@ -18812,6 +18868,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -18861,7 +18918,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4123,
@@ -18894,6 +18950,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -18943,7 +19000,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4243,
@@ -18961,6 +19017,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19003,7 +19060,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4592,
@@ -19051,6 +19107,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -19093,7 +19150,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4801,
@@ -19111,6 +19167,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19160,7 +19217,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4210,
@@ -19178,6 +19234,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19227,7 +19284,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4991,
@@ -19245,6 +19301,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -19287,7 +19344,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4352,
@@ -19305,6 +19361,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19354,7 +19411,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5005,
@@ -19402,6 +19458,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 384,
@@ -19437,7 +19494,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5490,
@@ -19470,6 +19526,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -19505,7 +19562,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4115,
@@ -19523,6 +19579,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19558,8 +19615,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 417,
@@ -19595,8 +19652,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 417,
@@ -19919,7 +19976,7 @@
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
-      "unlimited_slots": true,
+      "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
       "speakers": [
@@ -19941,17 +19998,17 @@
       ],
       "tags": [
         {
-          "id": 269,
+          "id": 261,
           "color": "#21C89D",
           "type": "schedules",
-          "name": "Desenvolvimento de Hardware / Software",
+          "name": "Empreendedorismo",
           "hub_event_id": 1
         },
         {
-          "id": 399,
+          "id": 305,
           "color": "#21C89D",
           "type": "schedules",
-          "name": "Regeneração / Clima / Sustentabilidade",
+          "name": "Brasilidade / Latinidade",
           "hub_event_id": 1
         },
         {
@@ -20082,6 +20139,21 @@
           "meta": {
             "pivot_schedule_id": 1992,
             "pivot_speaker_id": 4423,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5598,
+          "name": "Bruno Araújo",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753912386200.png?ims=filters:quality(75)",
+          "bio": "Secretário Executivo de Estado de Desenvolvimento Econômico",
+          "role": "Secretário Executivo de Estado de Desenvolvimento Econômico",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 1992,
+            "pivot_speaker_id": 5598,
             "is_bookmarked": false,
             "allow_access": false
           },
@@ -21208,66 +21280,6 @@
       },
       "filterLocation": "Inatel",
       "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2324,
-      "start_time": "2025-08-01T20:30:00.000+00:00",
-      "end_time": "2025-08-01T21:30:00.000+00:00",
-      "title": "Storytelling e propósito",
-      "description": "Venha conhecer os princípios de uma boa narrativa, refletir sobre sua própria\nhistória e perceber como ela está intimidante ligada ao encontro do seu\npropósito. Henry e Marcelo (co-fundadores da Social Docs) vão conduzir a plateia\npor uma jornada no universo das narrativas e dividir ferramentas práticas para que\nas pessoas trabalhem em suas histórias de vida, em busca de um propósito maior\npara suas trajetórias pessoais ou profissionais.",
-      "hub_event_id": 1,
-      "entity_register_id": 10030,
-      "place": "Mimma's",
-      "allow_questions": false,
-      "external_id": "751a50a5-7ecf-4c95-969d-761c28f57f4f",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4930,
-          "name": "Marcelo Douek",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4930/partner_4930_1753477295013.png",
-          "bio": "CEO da Social Docs. Formado pela FAAP, com especializações na Kellogg e Stanford, fundou a agência LUKSO e depois a Social Docs, focando na criação de narrativas que destacam impacto social e transformação positiva",
-          "role": "CEO",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2324,
-            "pivot_speaker_id": 4930,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Mimma's",
-      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 1982,
@@ -22749,6 +22761,59 @@
       },
       "filterLocation": "Palco na Calçada - MultiExperiências",
       "nearLocation": null
+    },
+    {
+      "id": 2831,
+      "start_time": "2025-08-01T20:30:00.000+00:00",
+      "end_time": "2025-08-01T21:30:00.000+00:00",
+      "title": "Storytelling e propósito",
+      "description": "Venha conhecer os princípios de uma boa narrativa, refletir sobre sua própria\nhistória e perceber como ela está intimidante ligada ao encontro do seu\npropósito. Henry e Marcelo (co-fundadores da Social Docs) vão conduzir a plateia\npor uma jornada no universo das narrativas e dividir ferramentas práticas para que\nas pessoas trabalhem em suas histórias de vida, em busca de um propósito maior\npara suas trajetórias pessoais ou profissionais.",
+      "hub_event_id": 1,
+      "entity_register_id": 11180,
+      "place": "Mimma's",
+      "allow_questions": false,
+      "external_id": "51cca9cf-4dd7-472a-8963-c84a67895490",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 150,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4930,
+          "name": "Marcelo Douek",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4930/partner_4930_1753477295013.png",
+          "bio": "CEO da Social Docs. Formado pela FAAP, com especializações na Kellogg e Stanford, fundou a agência LUKSO e depois a Social Docs, focando na criação de narrativas que destacam impacto social e transformação positiva",
+          "role": "CEO",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2831,
+            "pivot_speaker_id": 4930,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 295,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cultura em Movimento",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Mimma's",
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2692,
