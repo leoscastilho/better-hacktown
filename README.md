@@ -66,31 +66,55 @@ better-hacktown/
 5. **Acesse a aplicação**
    Abra seu navegador e navegue para `http://localhost:8000`
 
-## 🔧 Uso
+## 🗺️ Location Management
 
-### Scraping de Eventos
+The application uses a **centralized location configuration system** that eliminates the need to update location mappings in multiple places.
 
-O raspador busca automaticamente eventos da API do HackTown 2025:
+### Configuration Files
 
-```bash
-python scrape_hacktown.py
+- **`locations_config.json`**: Master configuration file containing all location mappings
+- **`events/locations.json`**: Auto-generated file used by the frontend (do not edit manually)
+
+### Location Configuration Structure
+
+```json
+{
+  "location_mappings": {
+    "API_LOCATION_KEY": {
+      "filter_location": "Standardized Name",
+      "near_location": "Geographical Area",
+      "gmaps": "https://maps.app.goo.gl/..."
+    }
+  }
+}
 ```
 
-**Funcionalidades:**
-- Requisições assíncronas concorrentes para Scraping mais rápida
-- Lógica de retry automática com backoff exponencial
-- Detecção de ambiente CI/CD com configurações conservadoras
-- Saída organizada por data no diretório `events/`
-- Extração de dados de localização e resumo
+### Adding New Locations
 
-### Aplicação Web
+#### Method 1: Manual Editing
+Edit `locations_config.json` directly and add new mappings following the structure above.
 
-O PWA oferece uma experiência de navegação aprimorada:
+### Location Categories
 
-- **Instalar como App**: Use o recurso "Adicionar à Tela Inicial" do seu navegador
-- **Acesso Offline**: Eventos são armazenados em cache para visualização offline
-- **Otimizado para Mobile**: Interface amigável ao toque
-- **Carregamento Rápido**: Assets otimizados e estratégias de cache
+- **Inatel e Arredores**: Campus and nearby venues
+- **ETE e Arredores**: Technical school area  
+- **Praça e Arredores**: Central plaza and downtown area
+- **Other**: Unmapped or unknown locations
+
+### Workflow
+
+1. **Add new location**: Use `python add_location.py` or edit `locations_config.json`
+2. **Run scraper**: Execute `python scrape_hacktown.py`
+3. **Auto-generation**: The scraper automatically updates `events/locations.json`
+4. **Frontend sync**: The web app uses the updated location data
+
+### Benefits
+
+- ✅ **Single source of truth**: All location data in one file
+- ✅ **Automatic sync**: Frontend locations.json is auto-generated
+- ✅ **No duplication**: Update once, works everywhere
+- ✅ **Easy maintenance**: Interactive helper for adding locations
+- ✅ **Version control friendly**: Clean diffs when locations change
 
 ## 📊 Estrutura de Dados
 

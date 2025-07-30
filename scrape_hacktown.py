@@ -152,35 +152,94 @@ def get_random_proxy():
     return random.choice(proxies) if proxies else None
 
 # ============================================================================
-# LOCATION PROCESSING CACHE
+# LOCATION PROCESSING CACHE AND CONFIGURATION
 # ============================================================================
 
 # Cache for location normalization to avoid repeated processing
 # Key: original location string, Value: (filter_location, near_location) tuple
 location_cache = {}
 
+# Global variable to store location mappings loaded from config
+location_mappings = {}
+
+def load_location_config():
+    """
+    Load location configuration from locations_config.json.
+    This centralizes all location mapping logic in one place.
+    """
+    global location_mappings
+    config_file = "locations_config.json"
+    
+    try:
+        with open(config_file, 'r', encoding='utf-8') as f:
+            config = json.load(f)
+            location_mappings = config.get('location_mappings', {})
+            logger.info(f"✅ Loaded {len(location_mappings)} location mappings from {config_file}")
+    except FileNotFoundError:
+        logger.error(f"❌ Location config file {config_file} not found!")
+        logger.error("Please create locations_config.json with location mappings")
+        location_mappings = {}
+    except Exception as e:
+        logger.error(f"❌ Error loading location config: {e}")
+        location_mappings = {}
+
+def generate_locations_json():
+    """
+    Generate locations.json file from the centralized configuration.
+    This ensures the frontend always has the latest location data.
+    """
+    locations_data = []
+    
+    # Create a set to track unique filter_locations to avoid duplicates
+    seen_locations = set()
+    
+    for key, config in location_mappings.items():
+        filter_location = config.get('filter_location', key)
+        gmaps = config.get('gmaps', '')
+        
+        # Only add if we haven't seen this filter_location before
+        if filter_location not in seen_locations:
+            locations_data.append({
+                "name": filter_location,
+                "gmaps": gmaps
+            })
+            seen_locations.add(filter_location)
+    
+    # Add "Other" location if not already present
+    if "Other" not in seen_locations:
+        locations_data.append({
+            "name": "Other",
+            "gmaps": ""
+        })
+    
+    # Sort by name for consistency
+    locations_data.sort(key=lambda x: x['name'])
+    
+    # Save to events directory
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    locations_file = os.path.join(OUTPUT_DIR, "locations.json")
+    
+    with open(locations_file, 'w', encoding='utf-8') as f:
+        json.dump(locations_data, f, ensure_ascii=False, indent=2)
+    
+    logger.info(f"📍 Generated {locations_file} with {len(locations_data)} locations")
 
 def normalize_and_locate(place: str) -> tuple[str, str]:
     """
-    Normalize location names and categorize them into filter and proximity groups.
+    Normalize location names and categorize them using centralized configuration.
     
     This function processes raw location strings from the API and maps them to:
     1. filterLocation: Standardized location name for filtering/grouping
     2. nearLocation: Broader geographical area for proximity-based grouping
     
-    The function uses caching to improve performance for repeated location lookups.
+    The function now uses the centralized locations_config.json file instead of
+    hardcoded mappings, making it easier to maintain and update.
     
     Args:
         place (str): Raw location string from the API
         
     Returns:
         tuple[str, str]: (filter_location, near_location)
-        
-    Location Categories:
-        - "Inatel e Arredores": Campus and nearby venues
-        - "ETE e Arredores": Technical school area
-        - "Praça e Arredores": Central plaza and downtown area
-        - "Other": Unmapped or unknown locations
     """
     # Handle empty or None input
     if not place:
@@ -198,143 +257,14 @@ def normalize_and_locate(place: str) -> tuple[str, str]:
     near_location = "Other"
 
     # ========================================================================
-    # LOCATION MAPPING RULES
+    # CENTRALIZED LOCATION MAPPING
     # ========================================================================
-    # Each condition maps venue names to standardized categories
-    # The mapping is based on physical proximity and venue characteristics
-    
-    # INATEL Campus and surrounding area
-    if "INATEL" in place_upper:
-        filter_location = "Inatel"
-        near_location = "Inatel e Arredores"
-
-    # Technical School (ETE) area
-    elif "ETE" in place_upper:
-        filter_location = "ETE"
-        near_location = "ETE e Arredores"
-
-    # Central plaza area venues
-    elif "LOJA MAÇONICA" in place_upper or "LOJA MAÇÔNICA" in place_upper:
-        filter_location = "Loja Maçônica"
-        near_location = "Praça e Arredores"
-
-    elif "REAL PALACE" in place_upper:
-        filter_location = "Real Palace"
-        near_location = "Praça e Arredores"
-
-    elif "BRASEIRO" in place_upper:
-        filter_location = "Braseiro"
-        near_location = "Praça e Arredores"
-
-    elif "BOTECO DO TIO" in place_upper:
-        filter_location = "Boteco do Tio João"
-        near_location = "Praça e Arredores"
-
-    elif "ASSOCIAÇÃO" in place_upper:
-        filter_location = "Associação José do Patrocínio"
-        near_location = "Praça e Arredores"
-
-    elif "BAR E RESTAURANTE" in place_upper:
-        filter_location = "Bar e Restaurante do Dimas II"
-        near_location = "Praça e Arredores"
-
-    elif "ESCOLA S" in place_upper:
-        filter_location = "Escola Sanico Teles"
-        near_location = "Praça e Arredores"
-
-    # INATEL area venues (special event spaces)
-    elif "CASA DINAMARCA" in place_upper:
-        filter_location = "Casa Dinamarca"
-        near_location = "Inatel e Arredores"
-
-    elif "CASA MFM" in place_upper:
-        filter_location = "Casa MFM"
-        near_location = "Inatel e Arredores"
-
-    elif "CASA DO CCCF" in place_upper:
-        filter_location = "Casa do CCCF"
-        near_location = "Praça e Arredores"
-
-    # Event stages and special venues
-    elif "PALCO UNDERSTREAM" in place_upper:
-        filter_location = "Palco UNDERSTREAM"
-        near_location = "Praça e Arredores"
-
-    elif "INCUBADORA MUNICIPAL" in place_upper:
-        filter_location = "Incubadora Municipal"
-        near_location = "Praça e Arredores"
-
-    elif "CASA GOOGLE CLOUD" in place_upper:
-        filter_location = "Casa Google Cloud"
-        near_location = "Inatel e Arredores"
-
-    elif "CASA FUTUROS POSSÍVEIS" in place_upper:
-        filter_location = "Casa Futuros Possíveis - Maria Maria Gastrobar"
-        near_location = "Praça e Arredores"
-
-    elif "PALCO MULTIEXPERIÊNCIAS" in place_upper:
-        filter_location = "Palco MultiExperiências"
-        near_location = "ETE e Arredores"
-
-    elif "CIRCUITO SESC AMANTIKIR" in place_upper:
-        filter_location = "Circuito SESC Amantikir"
-        near_location = "Praça e Arredores"
-
-    # Restaurants and food venues
-    elif "MIMMA" in place_upper:
-        filter_location = "Mimma's"
-        near_location = "Praça e Arredores"
-
-    elif "DIJA GASTRONOMIA" in place_upper:
-        filter_location = "Dija Gastronomia"
-        near_location = "Praça e Arredores"
-
-    elif "GRANDPA JOEL" in place_upper or "COFFEE SHOP" in place_upper:
-        filter_location = "Grandpa Joel´s Coffee Shop"
-        near_location = "Praça e Arredores"
-
-    # Street and area-based locations
-    elif "SINHÁ MOREIRA" in place_upper or "SINHA MOREIRA" in place_upper:
-        filter_location = "Av. Sinhá Moreira"
-        near_location = "ETE e Arredores"
-
-    elif "BE BOLD" in place_upper:
-        filter_location = "Be Bold"
-        near_location = "ETE e Arredores"
-
-    elif "MERCADO MUNICIPAL" in place_upper:
-        filter_location = "Mercado Municipal"
-        near_location = "ETE e Arredores"
-
-    elif "FEIRA DA MANTIQUEIRA" in place_upper:
-        filter_location = "Feira da Mantiqueira"
-        near_location = "Inatel e Arredores"
-
-    elif "BECO DO SACI" in place_upper:
-        filter_location = "Beco do Saci"
-        near_location = "Praça e Arredores"
-
-    elif "CASA CONECTADA CLARO" in place_upper:
-        filter_location = "Casa Conectada Claro"
-        near_location = "Inatel e Arredores"
-
-    elif "PRAÇA DA CÂMARA" in place_upper:
-        filter_location = "Praça da Câmara"
-        near_location = "ETE e Arredores"
-
-    elif "CASARÃO PÓS-DOC" in place_upper:
-        filter_location = "Casarão Pós-Doc"
-        near_location = "Praça e Arredores"
-
-    elif "DULLÊ GOURMET" in place_upper:
-        filter_location = "Dullê Gourmet"
-        near_location = "Praça e Arredores"
-
-    # Special cases
-    elif "A SER ANUNCIADO" in place_upper:
-        filter_location = "A ser anunciado"
-        near_location = "ETE e Arredores"
-
+    # Search through the loaded configuration for matches
+    for key, config in location_mappings.items():
+        if key.upper() in place_upper:
+            filter_location = config.get('filter_location', key)
+            near_location = config.get('near_location', 'Other')
+            break
     else:
         # For unmapped locations, preserve the original name
         # This allows for future mapping without losing data
@@ -835,7 +765,7 @@ async def main():
     Main orchestration function for the HackTown 2025 event scraping process.
     
     This function coordinates the entire scraping workflow:
-    1. Initialize logging and load existing data
+    1. Initialize logging and load configuration
     2. Execute concurrent event fetching across all dates
     3. Process and save individual date files
     4. Generate summary statistics and metadata
@@ -850,7 +780,7 @@ async def main():
     Output Files:
         - hacktown_events_YYYY-MM-DD.json: Daily event data
         - summary.json: Overall statistics and metadata
-        - locations.json: Location mapping data (if applicable)
+        - locations.json: Location mapping data (auto-generated)
     """
     # ========================================================================
     # INITIALIZATION AND STARTUP
@@ -862,6 +792,16 @@ async def main():
     logger.info(f"Dates to scrape: {', '.join(EVENT_DATES)}")
     logger.info(f"Max concurrent requests: {MAX_CONCURRENT_REQUESTS}")
     logger.info(f"Output directory: {os.path.abspath(OUTPUT_DIR)}")
+
+    # ========================================================================
+    # LOAD LOCATION CONFIGURATION
+    # ========================================================================
+    logger.info("\n" + "📍 Loading location configuration...")
+    logger.info("-" * 50)
+    load_location_config()
+    
+    # Generate locations.json for the frontend
+    generate_locations_json()
 
     # Start performance timing
     start_time = time.time()
@@ -939,6 +879,7 @@ async def main():
     
     # Location cache efficiency metrics
     logger.info(f"🗺️  Location cache: {len(location_cache)} unique locations processed")
+    logger.info(f"📍 Location mappings: {len(location_mappings)} configured mappings loaded")
 
     # ========================================================================
     # SUMMARY FILE GENERATION
@@ -961,7 +902,8 @@ async def main():
             "files_created": [f"hacktown_events_{date}.json" for date in EVENT_DATES if date not in failed_dates],
             "scraping_time_seconds": round(elapsed_time, 2),
             "events_per_second": round(total_events/elapsed_time, 2) if elapsed_time > 0 else 0,
-            "location_cache_size": len(location_cache)
+            "location_cache_size": len(location_cache),
+            "location_mappings_loaded": len(location_mappings)
         }
         logger.info("✅ Scraping successful - updating summary with new data")
         
@@ -996,6 +938,7 @@ async def main():
     if fetch_successful:
         logger.info("✅ Status: SUCCESS")
         logger.info("🎉 Event data is ready for the web application")
+        logger.info("📍 locations.json has been updated automatically")
     else:
         logger.error("❌ Status: FAILED")
         logger.error("🔧 Check logs above for error details and retry")
