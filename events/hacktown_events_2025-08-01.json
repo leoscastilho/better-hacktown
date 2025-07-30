@@ -1,7 +1,7 @@
 {
   "date": "2025-08-01",
   "total_events": 357,
-  "scraped_at": "2025-07-30T06:01:12.987851-03:00",
+  "scraped_at": "2025-07-30T07:01:18.184396-03:00",
   "events": [
     {
       "id": 2611,
@@ -23,7 +23,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -33,6 +32,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -60,7 +60,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -70,6 +69,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -97,6 +97,15 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 399,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Regeneração / Clima / Sustentabilidade",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5049,
@@ -129,15 +138,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 399,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Regeneração / Clima / Sustentabilidade",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -165,6 +165,22 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 290,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Economia Criativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 321,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Direitos Autorais / Criatividade",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4257,
@@ -180,22 +196,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 290,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Economia Criativa",
-          "hub_event_id": 1
-        },
-        {
-          "id": 321,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Direitos Autorais / Criatividade",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -225,8 +225,8 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -254,7 +254,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 415,
@@ -264,6 +263,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -291,6 +291,7 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5280,
@@ -308,7 +309,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -336,8 +336,8 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -365,23 +365,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5402,
-          "name": "Thais Marteletti",
-          "picture": null,
-          "bio": "",
-          "role": "",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2569,
-            "pivot_speaker_id": 5402,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 322,
@@ -403,6 +386,23 @@
           "type": "schedules",
           "name": "Palestra",
           "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 5402,
+          "name": "Thais Marteletti",
+          "picture": null,
+          "bio": "",
+          "role": "",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2569,
+            "pivot_speaker_id": 5402,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -432,6 +432,15 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5232,
@@ -447,15 +456,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -1408,7 +1408,7 @@
           "name": "Caio Abreu",
           "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4878/partner_4878_1753477173780.png",
           "bio": "CHRO da Numen, com mais de 15 anos de experiência em empresas globais de consumo e tecnologia. Especialista em cultura organizacional, fusões e aquisição, liderança de equipes e estratégias de RH com base em dados.",
-          "role": "CHRO da Numen",
+          "role": "Executivo de Recursos Humanos",
           "company": " ",
           "meta": {
             "pivot_schedule_id": 2655,
@@ -5145,7 +5145,7 @@
           "id": 5404,
           "name": "Carolina Pasquali",
           "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753740193351.png?ims=filters:quality(75)",
-          "bio": "Diretora-executiva do Greenpeace Brasil, Carolina Pasquali é jornalista, graduada em Comunicação Social pela Universidade Estadual de Londrina (UEL), com pós-graduação em gestão pela Universidade Pontifícia de Salamanca na Espanha. Com passagens por vários veículos de comunicação, migrou para o terceiro setor há mais de uma década, onde exerceu diversas funções, incluindo a co-direção executiva do Instituto Alana. Empreendedora social, lançou no Brasil o projeto global Design for Change (aqui batizado de Criativos da Escola) e é co-fundadora da Rede Narrativas, que nasceu para fortalecer a comunicação de causas.",
+          "bio": "Carolina Pasquali se uniu ao Greenpeace Brasil como Diretora-Executiva em 2021, depois de vários anos trabalhando em outras organizações da sociedade civil com foco em meio ambiente, mudanças climáticas e suas interseções com direitos humanos - especialmente os direitos das crianças. No Greenpeace, Carolina está liderando o trabalho para a COP30, e vê esse momento como uma oportunidade para mudarmos a conversa sobre clima e natureza, e para acelerarmos uma transição justa rumo a um futuro que respeite os povos indígenas e as comunidades tradicionais e valorize a floresta de pé.",
           "role": "Diretora-executiva do Greenpeace Brasil",
           "company": "Greenpeace Brasil",
           "meta": {
@@ -16878,7 +16878,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4750,
@@ -16896,6 +16895,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 386,
@@ -16945,7 +16945,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4789,
@@ -16963,6 +16962,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -17005,7 +17005,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5248,
@@ -17053,6 +17052,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -17095,7 +17095,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4556,
@@ -17128,6 +17127,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -17177,7 +17177,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5357,
@@ -17195,6 +17194,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -17272,7 +17272,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4389,
@@ -17290,6 +17289,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 273,
@@ -17339,7 +17339,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5058,
@@ -17372,6 +17371,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -17414,7 +17414,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4564,
@@ -17432,6 +17431,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -17481,7 +17481,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5038,
@@ -17529,6 +17528,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -17571,15 +17571,14 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5194,
           "name": "Luis Sousa",
-          "picture": null,
-          "bio": {},
-          "role": {},
-          "company": {},
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753869244619.png?ims=filters:quality(75)",
+          "bio": "",
+          "role": "",
+          "company": "",
           "meta": {
             "pivot_schedule_id": 1959,
             "pivot_speaker_id": 5194,
@@ -17589,6 +17588,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 384,
@@ -19070,7 +19070,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4592,
@@ -19103,6 +19102,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -19145,7 +19145,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4801,
@@ -19163,6 +19162,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19212,7 +19212,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4210,
@@ -19230,6 +19229,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19279,7 +19279,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4352,
@@ -19297,6 +19296,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19346,8 +19346,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 384,
@@ -19383,7 +19383,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4115,
@@ -19401,6 +19400,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19436,8 +19436,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 417,
@@ -19473,8 +19473,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 417,
@@ -19510,7 +19510,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5358,
@@ -19528,6 +19527,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 261,
@@ -19605,7 +19605,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4960,
@@ -19623,6 +19622,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
