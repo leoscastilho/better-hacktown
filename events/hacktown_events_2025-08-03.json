@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
   "total_events": 28,
-  "scraped_at": "2025-07-30T11:01:37.382743-03:00",
+  "scraped_at": "2025-07-30T12:01:17.470590-03:00",
   "events": [
     {
       "id": 2617,
@@ -22,8 +22,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -33,6 +31,8 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -59,6 +59,15 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -92,15 +101,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -116,7 +116,7 @@
       "description": "Professores não precisam de formação, mas de compartilhamento. Neste workshop, proponho uma experiência de troca de saberes como ferramenta de aprendizado coletivo. Mais do que mostrar como formar professores, o que vamos fazer é construir um ambiente de compartilhamento de repertórios para que, a partir dele, qualquer educador se sinta mais valorizado e empoderado nas suas práticas.",
       "hub_event_id": 1,
       "entity_register_id": 10598,
-      "place": "Escola Sânico Teles - Sala Sugata Mitra",
+      "place": "HackEdu by TTF Brasil - Escola Sânico Teles - Sala Sugata Mitra",
       "allow_questions": false,
       "external_id": "yazo_2673",
       "place_color": null,
@@ -125,8 +125,17 @@
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
-      "unlimited_slots": true,
+      "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -145,15 +154,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -169,7 +169,7 @@
       "description": "Experienciar como a IA pode ser uma aliada dos adultos na Aprendizagem ao Longo da Vida - ideias de como ela pode ser utilizada por pessoas das mais diversas áreas com diferentes objetivos (trocar de carreira, aprofundar-se na profissão, etc). Pensar em um plano de ação para aprendizagem contínua usando alguma IA (possivelmente o ChatGPT)",
       "hub_event_id": 1,
       "entity_register_id": 10595,
-      "place": "Escola Sânico Teles - Sala Paulo Freire",
+      "place": "HackEdu by TTF Brasil - Escola Sânico Teles - Sala Paulo Freire",
       "allow_questions": false,
       "external_id": "yazo_2671",
       "place_color": null,
@@ -178,8 +178,17 @@
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
-      "unlimited_slots": true,
+      "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -196,15 +205,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -233,6 +233,15 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -281,15 +290,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -316,24 +316,6 @@
       "available_slots": 45,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4960,
-          "name": "Flávio Pimenta",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4960/partner_4960_1753477367909.png",
-          "bio": "Staff Engineer na Select Soluções, com mais de 25 anos em TI. Atuou na implantação da Nota Fiscal Eletrônica, SPED e Open Finance. Especialista em cloud AWS há mais de 14 anos, conecta IA à estratégia de negócios dos clientes.",
-          "role": "Staff Engineer",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2539,
-            "pivot_speaker_id": 4960,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 27,
@@ -355,6 +337,24 @@
           "type": "schedules",
           "name": "Desenvolvimento de Hardware / Software",
           "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4960,
+          "name": "Flávio Pimenta",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4960/partner_4960_1753477367909.png",
+          "bio": "Staff Engineer na Select Soluções, com mais de 25 anos em TI. Atuou na implantação da Nota Fiscal Eletrônica, SPED e Open Finance. Especialista em cloud AWS há mais de 14 anos, conecta IA à estratégia de negócios dos clientes.",
+          "role": "Staff Engineer",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2539,
+            "pivot_speaker_id": 4960,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -383,6 +383,15 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -399,15 +408,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -436,54 +436,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4224,
-          "name": "Benito Berretta",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556746540.png?ims=filters:quality(75)",
-          "bio": "Diretor Geral da Hyper Island, é formado em Ciências da Computação e Econometria. Atua no desenvolvimento de competências em liderança, inovação e tecnologia, facilitando processos de mudança para pessoas, times e organizações.",
-          "role": "Managing Director na Hyper Island Américas",
-          "company": "Hyper Island",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 4224,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5360,
-          "name": "Adam Kurdahl",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
-          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis. ",
-          "role": "Sócio do SPOL Architects ",
-          "company": "SPOL Architects",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 5360,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5356,
-          "name": "Jesper Rhode",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753555906204.png?ims=filters:quality(75)",
-          "bio": "Fundador da Casa Dinamarca, Jesper é pensador de cultura digital e conselheiro em inovação e futuro, mentor no Hyper Island. ",
-          "role": "Fundador da Casa Dinamarca",
-          "company": "Casa Dinamarca",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 5356,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 275,
@@ -535,6 +487,54 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4224,
+          "name": "Benito Berretta",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556746540.png?ims=filters:quality(75)",
+          "bio": "Diretor Geral da Hyper Island, é formado em Ciências da Computação e Econometria. Atua no desenvolvimento de competências em liderança, inovação e tecnologia, facilitando processos de mudança para pessoas, times e organizações.",
+          "role": "Managing Director na Hyper Island Américas",
+          "company": "Hyper Island",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 4224,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5360,
+          "name": "Adam Kurdahl",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
+          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis. ",
+          "role": "Sócio do SPOL Architects ",
+          "company": "SPOL Architects",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 5360,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5356,
+          "name": "Jesper Rhode",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753555906204.png?ims=filters:quality(75)",
+          "bio": "Fundador da Casa Dinamarca, Jesper é pensador de cultura digital e conselheiro em inovação e futuro, mentor no Hyper Island. ",
+          "role": "Fundador da Casa Dinamarca",
+          "company": "Casa Dinamarca",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 5356,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -561,6 +561,29 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 332,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cidades / Comunidades Inovadoras",
+          "hub_event_id": 1
+        },
+        {
+          "id": 407,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Ancestralidade / Espiritualidade",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -609,29 +632,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 332,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cidades / Comunidades Inovadoras",
-          "hub_event_id": 1
-        },
-        {
-          "id": 407,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Ancestralidade / Espiritualidade",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -658,24 +658,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4106,
-          "name": "Adriana Kaku",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/26/26_1753879892726.png?ims=filters:quality(75)",
-          "bio": "Adriana Kaku é especialista em aceleração na FIAP Rock New Ventures, mentora em programas de empreendedorismo e facilitadora do Startup Weekend pela Techstars. Atua na interseção entre ciência, inovação e negócios, com olhar estratégico e sensível para transformar ideias em empreendimentos viáveis.",
-          "role": "Especialista de aceleração na FIAP",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2169,
-            "pivot_speaker_id": 4106,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 19,
@@ -697,6 +679,24 @@
           "type": "schedules",
           "name": "Desenvolvimento de Hardware / Software",
           "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4106,
+          "name": "Adriana Kaku",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/26/26_1753879892726.png?ims=filters:quality(75)",
+          "bio": "Adriana Kaku é especialista em aceleração na FIAP Rock New Ventures, mentora em programas de empreendedorismo e facilitadora do Startup Weekend pela Techstars. Atua na interseção entre ciência, inovação e negócios, com olhar estratégico e sensível para transformar ideias em empreendimentos viáveis.",
+          "role": "Especialista de aceleração na FIAP",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2169,
+            "pivot_speaker_id": 4106,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -725,8 +725,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -762,6 +762,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5230,
@@ -779,7 +780,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -829,6 +829,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4195,
@@ -846,7 +847,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -889,6 +889,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5231,
@@ -906,7 +907,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -949,6 +949,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -966,7 +967,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 292,
@@ -1037,6 +1037,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -1054,7 +1055,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 384,
@@ -1090,6 +1090,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5470,
@@ -1107,7 +1108,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -1132,7 +1132,7 @@
       "description": "Esta palestra investiga como o Task-Based Learning pode ser utilizado para promover o pensamento crítico e a empatia dos estudantes, ao lidar com temas sensíveis, transformando a maneira como aprendem e interagem com o conhecimento.",
       "hub_event_id": 1,
       "entity_register_id": 10597,
-      "place": "Escola Sânico Teles - Sala Paulo Freire",
+      "place": "HackEdu by TTF Brasil - Escola Sânico Teles - Sala Paulo Freire",
       "allow_questions": false,
       "external_id": "yazo_2672",
       "place_color": null,
@@ -1141,8 +1141,9 @@
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
-      "unlimited_slots": true,
+      "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5469,
@@ -1160,7 +1161,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -1196,6 +1196,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4966,
@@ -1213,7 +1214,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -1256,8 +1256,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -1293,23 +1293,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "speakers": [
-        {
-          "id": 4195,
-          "name": "Brenda Xavier",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1326/partner_1326_1752610070226.png",
-          "bio": "Engenheira de Dados no Itaú, mentora no Google for Startups e organizadora do GDG Santos, atua conectando tecnologia, inovação e impacto social por meio de comunidades e projetos inclusivos.",
-          "role": "Engenheira de Dados no Itaú",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2193,
-            "pivot_speaker_id": 4195,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "broadcast_rooms": [],
       "tags": [
         {
@@ -1325,6 +1308,23 @@
           "type": "schedules",
           "name": "IA / Tecnologias Emergentes",
           "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 4195,
+          "name": "Brenda Xavier",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1326/partner_1326_1752610070226.png",
+          "bio": "Engenheira de Dados no Itaú, mentora no Google for Startups e organizadora do GDG Santos, atua conectando tecnologia, inovação e impacto social por meio de comunidades e projetos inclusivos.",
+          "role": "Engenheira de Dados no Itaú",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2193,
+            "pivot_speaker_id": 4195,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -1353,6 +1353,16 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5237,
@@ -1368,16 +1378,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -1406,6 +1406,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5226,
@@ -1423,8 +1425,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1451,23 +1451,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "speakers": [
-        {
-          "id": 5235,
-          "name": "Camilla Martins",
-          "picture": null,
-          "bio": "",
-          "role": "GDE em Google Cloud",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2194,
-            "pivot_speaker_id": 5235,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "broadcast_rooms": [],
       "tags": [
         {
@@ -1483,6 +1466,23 @@
           "type": "schedules",
           "name": "IA / Tecnologias Emergentes",
           "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 5235,
+          "name": "Camilla Martins",
+          "picture": null,
+          "bio": "",
+          "role": "GDE em Google Cloud",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2194,
+            "pivot_speaker_id": 5235,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -1511,7 +1511,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
       "tags": [
         {
@@ -1522,6 +1521,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1548,23 +1548,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "speakers": [
-        {
-          "id": 5235,
-          "name": "Camilla Martins",
-          "picture": null,
-          "bio": "",
-          "role": "GDE em Google Cloud",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2195,
-            "pivot_speaker_id": 5235,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "broadcast_rooms": [],
       "tags": [
         {
@@ -1580,6 +1563,23 @@
           "type": "schedules",
           "name": "IA / Tecnologias Emergentes",
           "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 5235,
+          "name": "Camilla Martins",
+          "picture": null,
+          "bio": "",
+          "role": "GDE em Google Cloud",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2195,
+            "pivot_speaker_id": 5235,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -1608,6 +1608,16 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5234,
@@ -1623,16 +1633,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -1661,7 +1661,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
       "tags": [
         {
@@ -1672,6 +1671,7 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
