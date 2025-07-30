@@ -1,7 +1,7 @@
 {
   "date": "2025-08-01",
-  "total_events": 338,
-  "scraped_at": "2025-07-29T19:01:15.287378-03:00",
+  "total_events": 352,
+  "scraped_at": "2025-07-29T23:01:36.739462-03:00",
   "events": [
     {
       "id": 2611,
@@ -23,6 +23,7 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -32,13 +33,12 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Beco do Saci",
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2612,
@@ -60,6 +60,7 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -69,13 +70,12 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Beco do Saci",
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2002,
@@ -97,15 +97,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 399,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Regeneração / Clima / Sustentabilidade",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5049,
@@ -138,6 +129,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 399,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Regeneração / Clima / Sustentabilidade",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -165,22 +165,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 290,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Economia Criativa",
-          "hub_event_id": 1
-        },
-        {
-          "id": 321,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Direitos Autorais / Criatividade",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4257,
@@ -196,6 +180,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 290,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Economia Criativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 321,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Direitos Autorais / Criatividade",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -225,8 +225,8 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -254,6 +254,7 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 415,
@@ -263,7 +264,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -291,12 +291,11 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [
         {
           "id": 5280,
           "name": "DJ Deeprez",
-          "picture": null,
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753833020906.png?ims=filters:quality(75)",
           "bio": "",
           "role": "Músico, DJ, Pianista, Compositor, Graduado en Sonica",
           "company": "Artista Independente",
@@ -309,6 +308,7 @@
           "allow_access": false
         }
       ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -336,14 +336,14 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Praça da Câmara",
-      "nearLocation": null
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2569,
@@ -365,6 +365,23 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5402,
+          "name": "Thais Marteletti",
+          "picture": null,
+          "bio": "",
+          "role": "",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2569,
+            "pivot_speaker_id": 5402,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 322,
@@ -386,23 +403,6 @@
           "type": "schedules",
           "name": "Palestra",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 5402,
-          "name": "Thais Marteletti",
-          "picture": null,
-          "bio": "",
-          "role": "",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2569,
-            "pivot_speaker_id": 5402,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -432,15 +432,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5232,
@@ -456,6 +447,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -484,7 +484,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4268,
@@ -525,6 +524,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -551,7 +551,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4587,
@@ -592,6 +591,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -618,7 +618,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5411,
@@ -690,6 +689,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -716,7 +716,6 @@
       "available_slots": 45,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4894,
@@ -757,6 +756,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -783,7 +783,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4557,
@@ -810,6 +809,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -836,7 +836,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4321,
@@ -863,11 +862,72 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Escola Sanico Teles",
+      "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 2687,
+      "start_time": "2025-08-01T13:00:00.000+00:00",
+      "end_time": "2025-08-01T14:00:00.000+00:00",
+      "title": "Contratação Pública de Inovação (CPSI): Cases e Estratégias de Petrobrás, Cemig e Caixa",
+      "description": "Uma discussão sobre o papel estratégico do Contrato Público de Solução Inovadora (CPSI) na agenda de inovação de grandes players do mercado. Gestores da Petrobrás, Cemig e Caixa apresentam suas perspectivas institucionais sobre como o CPSI acelera a resolução de desafios complexos, fomenta o ecossistema e quais tipos de soluções inovadoras estão em seu radar para futuras contratações.",
+      "hub_event_id": 1,
+      "entity_register_id": 10631,
+      "place": "Associação José do Patrocínio",
+      "allow_questions": false,
+      "external_id": "yazo_2687",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "speakers": [
+        {
+          "id": 5485,
+          "name": "João Carlos",
+          "picture": null,
+          "bio": "",
+          "role": "",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2687,
+            "pivot_speaker_id": 5485,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5486,
+          "name": "Felipe Reis",
+          "picture": null,
+          "bio": "",
+          "role": "",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2687,
+            "pivot_speaker_id": 5486,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "broadcast_rooms": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Associação José do Patrocínio",
       "nearLocation": "Praça e Arredores"
     },
     {
@@ -889,7 +949,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4894,
@@ -923,6 +982,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -949,7 +1009,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5412,
@@ -1021,12 +1080,179 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Casa MFM",
       "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2693,
+      "start_time": "2025-08-01T13:00:00.000+00:00",
+      "end_time": "2025-08-01T14:00:00.000+00:00",
+      "title": "Educar, Empreender e Preservar: Três Forças para um Novo Brasil",
+      "description": "Como transformar o Brasil a partir da base? Este painel conecta ecoturismo sustentável, educação afrocentrada e empreendedorismo com propósito para discutir como diferentes frentes podem gerar impacto real e regenerativo nos territórios, unindo meio ambiente, cultura, economia e justiça social.",
+      "hub_event_id": 1,
+      "entity_register_id": 10646,
+      "place": "ETE - Sala 64",
+      "allow_questions": false,
+      "external_id": "yazo_2693",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "speakers": [
+        {
+          "id": 4617,
+          "name": "Maurilo Andreas",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1758/partner_1758_1752612739729.png",
+          "bio": "Com quase 30 anos de experiência em campanhas eleitorais, é estrategista, redator e roteirista, com atuações em Minas Gerais, Rio de Janeiro, São Paulo, Espírito Santo, Rondônia e Portugal.",
+          "role": "Especialista em Marketing Eleitoral e Fundador da Square Egg",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2693,
+            "pivot_speaker_id": 4617,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4201,
+          "name": "Bruno Leite",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1332/partner_1332_1752610102391.png",
+          "bio": "Bruno Leite Miranda é economista pela Universidade Federal Fluminense, com especializações em Gestão Empresarial (FGV) e Gestão do Agronegócio (USP). Após uma década no mercado financeiro, incluindo oito anos no setor público, assumiu em 2012 a direção do Parque Ecológico Rio Formoso. Desde então, reposicionou o empreendimento como referência em ecoturismo e turismo de aventura, conquistando premiações e certificações nacionais e internacionais.",
+          "role": "Diretor Executivo no Parque Ecológico Rio Formoso",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2693,
+            "pivot_speaker_id": 4201,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4651,
+          "name": "Patrícia Vigilato",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1793/partner_1793_1752612973609.png",
+          "bio": "Historiadora e professora afrocentrada, atua com educação decolonial, antirracista, feminista e voltada à diversidade. Mestra em Desenvolvimento, Tecnologias e Sociedade, desenvolve práticas pedagógicas comprometidas com a equidade na educação.",
+          "role": "Professora Afrocentrada e Historiadora.",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2693,
+            "pivot_speaker_id": 4651,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 2684,
+      "start_time": "2025-08-01T13:00:00.000+00:00",
+      "end_time": "2025-08-01T14:00:00.000+00:00",
+      "title": "Fandoms como nova força econômica: da cultura pop aos R$ 21,5 bilhões do mercado criativo ",
+      "description": "Descubra como os fandoms se tornaram a nova potência econômica do Brasil! Com 38% dos brasileiros gastando cinco vezes mais em paixões culturais, esse mercado bilionário está redefinindo negócios, tecnologia e conexões humanas. Entenda como transformar o amor pela cultura pop em oportunidades reais de inovação e receita no futuro digital!",
+      "hub_event_id": 1,
+      "entity_register_id": 10623,
+      "place": "Casa Conectada by Claro",
+      "allow_questions": false,
+      "external_id": "yazo_2684",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5479,
+          "name": "João Paulo Sette",
+          "picture": null,
+          "bio": "João Paulo Sette é CEO do EiNerd Group, ecossistema que soma mais de 100 milhões de seguidores e lidera o maior canal de cultura pop do Brasil. Já foi diretor da CCXP (Comic Con Experience) e hoje está à frente do Imagineland, evento que conecta marcas e fãs em torno dos grandes universos do entretenimento. Quando o assunto é fandom, cultura geek e estratégias que viralizam, ele sabe exatamente o que está falando.",
+          "role": "CEO da Imagineland",
+          "company": "Imagineland",
+          "meta": {
+            "pivot_schedule_id": 2684,
+            "pivot_speaker_id": 5479,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5480,
+          "name": "Christian Zaharic",
+          "picture": null,
+          "bio": "Christian Zaharic é founder & CEO de startup em stealth mode que combina IA com universo de creators, além de sócio da Ø1Digital. Pioneiro gaming no Brasil desde os anos 90, creator economy, Games. Ex-Intel e ex-diretor de Marketing da Nvidia Brasil. Na Ø1Digital, expandiu a Galinha Pintadinha, Luccas Neto,Turma da Monica entre outros. Une história dos games com expertise em IA e creator economy.",
+          "role": "Territory Manager na 01 Digital",
+          "company": "01 Digital",
+          "meta": {
+            "pivot_schedule_id": 2684,
+            "pivot_speaker_id": 5480,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5481,
+          "name": "Ronaldo Geraidine",
+          "picture": null,
+          "bio": "",
+          "role": "Responsável pelo desenvolvimento do segmento de games na Claro",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2684,
+            "pivot_speaker_id": 5481,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Conectada by Claro",
+      "nearLocation": null
     },
     {
       "id": 2655,
@@ -1069,7 +1295,7 @@
           "name": "Letícia Coletto",
           "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4877/partner_4877_1753477172165.png",
           "bio": "CHRO e investidora anjo com mais de 15 anos de experiência em RH. Atua na Recargapay, com equipes no Brasil e Argentina, e já liderou iniciativas em diversidade, people analytics e employer branding no Itaú.",
-          "role": "CHRO e Investidora Anjo na RecargaPay",
+          "role": "Investidora Anjo Eluvi",
           "company": " ",
           "meta": {
             "pivot_schedule_id": 2655,
@@ -1252,11 +1478,11 @@
       "speakers": [
         {
           "id": 5296,
-          "name": "Aline Silva Alegria",
-          "picture": null,
-          "bio": {},
-          "role": {},
-          "company": {},
+          "name": "Aline Alegria",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753829228073.png?ims=filters:quality(75)",
+          "bio": "Bióloga e designer de experiências de aprendizagem. Membro do movimento Teach The Future (TTF) no Brasil, é uma das primeiras educadoras do mundo a ministrar a disciplina Alfabetização em Futuros para crianças do ensino fundamental.",
+          "role": "Fundadora Casulo Lab",
+          "company": "Casulo Lab",
           "meta": {
             "pivot_schedule_id": 2278,
             "pivot_speaker_id": 5296,
@@ -2112,96 +2338,6 @@
       "nearLocation": "Praça e Arredores"
     },
     {
-      "id": 2404,
-      "start_time": "2025-08-01T13:00:00.000+00:00",
-      "end_time": "2025-08-01T14:00:00.000+00:00",
-      "title": "Mulheres que lideram o impacto: caminhos regenerativos de gestão, escuta e ação",
-      "description": "Um painel com mulheres que atuam em impacto social, sustentabilidade, inovação social ou negócios conscientes.",
-      "hub_event_id": 1,
-      "entity_register_id": 10110,
-      "place": "Associação José do Patrocínio",
-      "allow_questions": false,
-      "external_id": "542b7507-94ce-4f37-87b4-ccedd2cc1198",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5038,
-          "name": "Julia Caldas de Almeida",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5038/partner_5038_1753477558456.png",
-          "bio": "Relações Públicas e gestora, é superintendente da FUNDAMIG e fundadora da Rede Ubuntu. Atua com impacto social, articulação intersetorial e fortalecimento do Terceiro Setor.",
-          "role": "Relações Públicas e gestora, especialista em infraestrutura para impacto social.",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2404,
-            "pivot_speaker_id": 5038,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5131,
-          "name": "Nanda Soffiette Soares",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5131/partner_5131_1753477795873.png",
-          "bio": "Fundadora da Conectidea e cofundadora do Movimento Mulheres 3S, atua há mais de 12 anos com comunicação de causas, inovação social e educação transformadora. RP, mestranda em Transformação Digital e certificada em Gestão de Projetos Sociais pela PM4NGOs.",
-          "role": "Líder Conectidea e Movimento Mulheres 3S\nComunicação de causas e inovação social",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2404,
-            "pivot_speaker_id": 5131,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5321,
-          "name": "Dani Fecomércio",
-          "picture": null,
-          "bio": "",
-          "role": "Conectidea - Base Criativa de Transformação Social Movimento Mulheres 3S Consultora FUNDAMIG",
-          "company": "Conectidea 3S e Consultora FUNDAMIG",
-          "meta": {
-            "pivot_schedule_id": 2404,
-            "pivot_speaker_id": 5321,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 294,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Impacto Social",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Associação José do Patrocínio",
-      "nearLocation": "Praça e Arredores"
-    },
-    {
       "id": 1917,
       "start_time": "2025-08-01T13:00:00.000+00:00",
       "end_time": "2025-08-01T14:00:00.000+00:00",
@@ -2590,66 +2726,6 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
-      "id": 2322,
-      "start_time": "2025-08-01T13:00:00.000+00:00",
-      "end_time": "2025-08-01T14:00:00.000+00:00",
-      "title": "Plataformas invisíveis, impactos reais: construindo experiências digitais para quem mais precisa",
-      "description": "Plataformas digitais estão transformando silenciosamente a vida de milhões no Brasil — da renegociação de dívidas ao acesso à saúde. Nesta palestra, Rubem Andrade revela como criar experiências digitais que realmente importam, com foco em quem mais precisa. Uma conversa sobre propósito, simplicidade, design estratégico e tecnologia que serve, não exibe. Para quem quer sair do hype e fazer o essencial: funcionar para todos.",
-      "hub_event_id": 1,
-      "entity_register_id": 10028,
-      "place": "Mimma's",
-      "allow_questions": false,
-      "external_id": "59a5b793-5525-45b0-99cf-b54b376c027f",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4727,
-          "name": "Rubem Andrade",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1874/partner_1874_1752613452732.png",
-          "bio": "Matemático, empreendedor e criador de soluções digitais focadas em impacto humano. Pai e marido, com experiência de vida nômade, dedica-se a investir e desenvolver projetos que servem pessoas, guiado pelo propósito de servir com plenitude e gerar transformação real.",
-          "role": "Investidor e founder na Igma",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2322,
-            "pivot_speaker_id": 4727,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 384,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Design / UX / Acessibilidade",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Mimma's",
-      "nearLocation": "Praça e Arredores"
-    },
-    {
       "id": 1939,
       "start_time": "2025-08-01T13:00:00.000+00:00",
       "end_time": "2025-08-01T14:00:00.000+00:00",
@@ -3035,111 +3111,6 @@
         "rating": 0
       },
       "filterLocation": "Casa Google Cloud",
-      "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 1989,
-      "start_time": "2025-08-01T13:00:00.000+00:00",
-      "end_time": "2025-08-01T14:00:00.000+00:00",
-      "title": "ZR- Ruralidade Urbana, Hip Hop e a reinvenção do espaço.",
-      "description": "Como as estéticas da ZR atravessam as linguagens urbanas? Neste painel, artistas e produtores culturais do interior de Minas discutem como o hip-hop, seus elementos e outras expressões culturais vêm ressignificando símbolos rurais dentro da cultura urbana, criando novas narrativas visuais, sonoras e territoriais.",
-      "hub_event_id": 1,
-      "entity_register_id": 9627,
-      "place": "INATEL - Sala 25 - Prédio 1 - 2º Piso",
-      "allow_questions": false,
-      "external_id": "59c0113c-08ee-4fb2-8e49-e7d0ae182ed6",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4271,
-          "name": "Dais",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1404/partner_1404_1752610591826.png",
-          "bio": "Artista urbano, arte-educador e produtor cultural. Atua pela cultura hip hop no Sul de Minas desde 2007, promovendo o diálogo entre a cultura urbana e as tradições mineiras.",
-          "role": "Artista Urbano e Produtor Cultural",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1989,
-            "pivot_speaker_id": 4271,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4458,
-          "name": "P.MC",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1594/partner_1594_1752611738475.png",
-          "bio": "P.MC é músico há 32 anos, arte-educador há 23 e pedagogo com atuação focada na alfabetização por meio da música e dos letramentos. Mestre pela FEUSP, pesquisa Pedagogia Hip Hop e educação popular. Criador das oficinas culturais Artes da Palavra, Pé de Palavra e autor do livro infantil homônimo, foi formador nas Olimpíadas de Língua Portuguesa. Atua desde 1983 na cultura Hip Hop, com trabalhos musicais e parcerias marcantes como Charlie Brown Jr.",
-          "role": "Consultor em Planejamento Estratégico para Artistas",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1989,
-            "pivot_speaker_id": 4458,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4550,
-          "name": "Luis Carlos Adão de Melo",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1691/partner_1691_1752612328175.png",
-          "bio": "Rapper e MC mineiro natural de Santarritense, atua na cena musical combinando ritmo e cultura local para expressar identidade e experiências.",
-          "role": "Rapper e MC",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1989,
-            "pivot_speaker_id": 4550,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4722,
-          "name": "Rômulo Spuri",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1869/partner_1869_1752613426852.png",
-          "bio": "Produtor executivo, diretor criativo e label manager, com 12 anos de experiência em projetos socioculturais e produção artística no movimento Hip Hop. Idealizador do Festival Coliseu Cultural e fundador da Strads, atua com mentoria de carreira, gestão de selo e direção criativa para artistas independentes.",
-          "role": "Consultor em Planejamento Estratégico para Artistas",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1989,
-            "pivot_speaker_id": 4722,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 290,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Economia Criativa",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Inatel",
       "nearLocation": "Inatel e Arredores"
     },
     {
@@ -3624,6 +3595,36 @@
             "allow_access": false
           },
           "allow_access": false
+        },
+        {
+          "id": 5523,
+          "name": "Rafael Pelli",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753835795172.png?ims=filters:quality(75)",
+          "bio": "Acredito que se quero mudar o mundo, o primeiro passo é transformar o meu ambiente, por isso luto todos os dias para fortalecer e desenvolver pessoas através de ciência, tecnologia, empreendedorismo e inovação.",
+          "role": "Gerente de Pesquisa, Desenvolvimento e Inovação na CEMIG",
+          "company": "CEMIG",
+          "meta": {
+            "pivot_schedule_id": 1995,
+            "pivot_speaker_id": 5523,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5524,
+          "name": "Afonso Henriques",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753835887457.png?ims=filters:quality(75)",
+          "bio": "Engenheiro e mestre formado pela Universidade Federal de Itajubá-UNIFEI; doutorado na Unicamp; Livre Docente na USP; pós doutorado no CIRED/EHESS, Paris.\nFoi professor na UNIFEI, diretor da ANEEL, Secretário de Energia do Ministério de Minas e Energia e diretor geral da DME Geração de Poços de Caldas. \nProjetista e consultor nas áreas de energia e sustentabilidade. \nConselheiro da Cemig e ex-conselheiro da Light, de Furnas e de várias SPEs   de geração e transmissão.",
+          "role": "Conselheiro de Administração na CEMIG e Professor da UNIFEI",
+          "company": "CEMIG",
+          "meta": {
+            "pivot_schedule_id": 1995,
+            "pivot_speaker_id": 5524,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "tags": [
@@ -3632,6 +3633,13 @@
           "color": "#21C89D",
           "type": "schedules",
           "name": "Desenvolvimento de Hardware / Software",
+          "hub_event_id": 1
+        },
+        {
+          "id": 406,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Energia / Mobilidade / Transição Sustentável",
           "hub_event_id": 1
         },
         {
@@ -4179,6 +4187,73 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 1690,
+      "start_time": "2025-08-01T13:00:00.000+00:00",
+      "end_time": "2025-08-01T14:00:00.000+00:00",
+      "title": "O Brasil Invisível: Insights sobre o Consumidor da Baixa Renda",
+      "description": "\"O Brasil Invisível\" é a maior pesquisa já realizada sobre consumidores de baixa renda, revelando um público moderno, digital e engajado: 91% acessam a internet diariamente, 49% preferem comprar pelo celular e causas sociais são amplamente valorizadas. Criado em uma parceria entre Data-Makers, Gerando Falcões e ESPM; o estudo vai além dos números: desvenda sete mitos sobre o consumo de baixa renda, desafiando estereótipos e mostrando o verdadeiro potencial das periferias. Convidamos você a descobrir insights inéditos e a enxergar um Brasil que quer ser visto, ouvido e respeitado.",
+      "hub_event_id": 1,
+      "entity_register_id": 9328,
+      "place": "INATEL - Sala 25 - Prédio 1 - 2º Piso",
+      "allow_questions": false,
+      "external_id": "42d44577-4aee-4e43-8890-e37639dd074b",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4313,
+          "name": "Fabrício Fudissaku",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1446/partner_1446_1752610864988.png",
+          "bio": "CEO da Data-Makers, instituto de pesquisa e big data, Fabrício Fudissaku possui mais de 20 anos de experiência em estudos de comportamento do consumidor. Foi Head de Insights LATAM da Meta por seis anos e liderou mais de 320 pesquisas na América Latina, consolidando-se como referência em análise de dados e tendências regionais.",
+          "role": "CEO da Data-Makers",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1690,
+            "pivot_speaker_id": 4313,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 273,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Criação Digital / Economia dos Criadores",
+          "hub_event_id": 1
+        },
+        {
+          "id": 305,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Brasilidade / Latinidade",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
       "id": 1691,
       "start_time": "2025-08-01T13:00:00.000+00:00",
       "end_time": "2025-08-01T14:00:00.000+00:00",
@@ -4438,73 +4513,6 @@
       },
       "filterLocation": "Casa MFM",
       "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2337,
-      "start_time": "2025-08-01T14:30:00.000+00:00",
-      "end_time": "2025-08-01T15:30:00.000+00:00",
-      "title": "10 verdades [invisíveis] sobre a tecnologia que já moldam sua vida (e talvez você não tenha percebido)",
-      "description": "Você acha que tem total controle sobre suas escolhas, preferências e decisões? Talvez não tanto assim. Nesta palestra provocativa, Marcel Nobre revela 10 verdades [invisíveis] sobre como a tecnologia - da IA aos algoritmos do seu feed - já molda sua vida, seu comportamento, sua atenção e até suas ações.\nCom dados surpreendentes, exemplos reais e um storytelling afiado, ele expõe como estamos sendo silenciosamente reprogramados por sistemas que entendem mais sobre nós do que nós mesmos.\nPrepare-se para se incomodar, rir (de nervoso), se surpreender e sair com uma certeza: você nunca mais vai olhar para seu celular da mesma forma.",
-      "hub_event_id": 1,
-      "entity_register_id": 10043,
-      "place": "Sala de Palestras - Real Palace",
-      "allow_questions": false,
-      "external_id": "fe189d94-738c-493e-a4f7-9ff2f23e6114",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 0,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4568,
-          "name": "Marcel Nobre",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1709/partner_1709_1752612433939.png",
-          "bio": "Marcel Nobre é founder e CEO da BetaLab, professor na StartSe, HSM e FIA, além de mentor de startups. Atua na interseção entre inovação, educação e empreendedorismo, impulsionando negócios com visão estratégica e foco em crescimento sustentável.",
-          "role": "Professor, pesquisador e palestrante em\nInovação, Tecnologia, Inteligência Artificial, Tendências e Educação.",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2337,
-            "pivot_speaker_id": 4568,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 269,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Desenvolvimento de Hardware / Software",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Real Palace",
-      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2595,
@@ -5255,7 +5263,7 @@
         {
           "id": 5276,
           "name": "Amélia Queiroz",
-          "picture": null,
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753829600879.png?ims=filters:quality(75)",
           "bio": "CEO da Comense e CIO da VSB Ukraine. Lidera projetos de cidades inteligentes e regenerativas, e é host dos podcasts Global Smart Gov e Trends News.",
           "role": "Especialista em cidades (realmente) inteligentes, CEO Grupo Comense & CIO VSB Ukraine",
           "company": "Grupo Comense & VSB Ukraine",
@@ -6036,6 +6044,104 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
+      "id": 2713,
+      "start_time": "2025-08-01T14:30:00.000+00:00",
+      "end_time": "2025-08-01T15:30:00.000+00:00",
+      "title": "O Vale do Silício é mesmo o Dono da Verdade?",
+      "description": "Por que seguimos copiando modelos que não falam com a nossa realidade? Este painel propõe um olhar crítico sobre as fórmulas importadas e valoriza caminhos que nascem da escassez, da criatividade local e das bordas do Brasil.",
+      "hub_event_id": 1,
+      "entity_register_id": 10701,
+      "place": "ETE - Sala 64",
+      "allow_questions": false,
+      "external_id": "yazo_2713",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4186,
+          "name": "Beatriz Bevilaqua",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1317/partner_1317_1752610013061.png",
+          "bio": "Jornalista premiada com mais de 15 anos de experiência em produção de conteúdo multimídia. Colunista do Estado de Minas e autora na MIT Technology Review, apresenta os programas \"Empreender Brasil\" e \"Brasil Sustentável\" no YouTube, com mais de 1 milhão de inscritos. Reconhecida como melhor profissional de imprensa no Startup Awards (2019, 2021 e 2023) pela cobertura do ecossistema de inovação no Brasil.",
+          "role": "Comunicadora de Startups",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2713,
+            "pivot_speaker_id": 4186,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5528,
+          "name": "Livia Batista",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753837250740.png?ims=filters:quality(75)",
+          "bio": "Apaixonada por inovação na saúde, é responsável pela gestão de soluções digitais que integram tecnologia e IA à engenharia clínica, atuando com foco em inovação, eficiência e transformação na gestão de ativos hospitalares.\n",
+          "role": "Product Owner",
+          "company": "Arkmeds",
+          "meta": {
+            "pivot_schedule_id": 2713,
+            "pivot_speaker_id": 5528,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5529,
+          "name": " Ferdinando Kun",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753837345235.png?ims=filters:quality(75)",
+          "bio": "Ferdinando Kun foi eleito Herói do Ano no Startup Awards 2024 por seu trabalho como Community Leader voluntário no UberHub Startups, reconhecida como a melhor comunidade de startups do Brasil. Atua facilitando iniciativas e projetos que conectam e capacitam pessoas, divulgando oportunidades e posicionando Uberlândia como um dos principais polos de startups do Brasil.",
+          "role": "Community Leader Voluntário no UberHub Startups (Comunidade de startups de Uberlândia)",
+          "company": "UberHub",
+          "meta": {
+            "pivot_schedule_id": 2713,
+            "pivot_speaker_id": 5529,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5530,
+          "name": "Rogers Pereira",
+          "picture": null,
+          "bio": "Empreendedor, executivo, mentor, trabalhando todo dia para fazer de Joinville a melhor cidade para se viver e empreender no Brasil. \n",
+          "role": "Diretor Executivo ",
+          "company": "Join.Valle",
+          "meta": {
+            "pivot_schedule_id": 2713,
+            "pivot_speaker_id": 5530,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 2235,
       "start_time": "2025-08-01T14:30:00.000+00:00",
       "end_time": "2025-08-01T15:30:00.000+00:00",
@@ -6223,6 +6329,81 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2688,
+      "start_time": "2025-08-01T14:30:00.000+00:00",
+      "end_time": "2025-08-01T15:30:00.000+00:00",
+      "title": "PME turbo: como startups e grandes empresas como a Claro estão virando pit stop da transformação digital",
+      "description": "Na corrida pela digitalização, quem dá suporte para as PMEs? Como grandes empresas e startups estão trabalhando em conjunto? Neste painel, Claro, Sebrae Startups e Sidivale debatem como montar um kit de digitalização com soluções de startups, sem quebrar o caixa das PMEs.",
+      "hub_event_id": 1,
+      "entity_register_id": 10634,
+      "place": "Casa Conectada by Claro",
+      "allow_questions": false,
+      "external_id": "yazo_2688",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5482,
+          "name": "Paulo Henrique de Paula",
+          "picture": null,
+          "bio": "Diretor Comercial da Madtex, distribuidora de madeiras e acessórios para o setor moveleiro com atuação no Sul e Centro-Oeste de Minas. Formado em Direito e pós-graduado em Gestão de Vendas e Marketing, atua há mais de 20 anos em posições de liderança comercial. Participa ativamente de entidades como o Sindcomércio e Sicredi. É entusiasta de viagens em família, pets e bons vinhos.",
+          "role": "Vice Presidente SindVale – Sindicato do Comércio do Vale do Sapucaí",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2688,
+            "pivot_speaker_id": 5482,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5483,
+          "name": "Manuela Assis",
+          "picture": null,
+          "bio": "Manuela Assis, engenheira de produção pela PUC Minas, analista em inovação no Sebrae MG.\nAtua no desenvolvimento de programas que impulsionam startups e fortalecem o ecossistemas de empreendedorismo inovador.",
+          "role": "Analista no Sebrae MG",
+          "company": "Sebrae",
+          "meta": {
+            "pivot_schedule_id": 2688,
+            "pivot_speaker_id": 5483,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5488,
+          "name": "Devanil Rueda",
+          "picture": null,
+          "bio": "Com mais de 15 anos de estrada em TI, entregando além de soluções, tração estratégica no mundo digital. Formado em Gestão de Tecnologia da Informação, com MBA pela FGV, atua no núcleo duro da transformação digital B2B/B2C, conectando produto, inovação e modelo de negócio como quem decifra código corporativo. Lidera o desenvolvimento de soluções digitais para as verticais mais exigentes da companhia, e também atua na inovação aberta: ativa ideias internas, acelera experimentações e opera como arquiteto de novas possibilidades. Não pensa só em tecnologia — pensa em disrupção com ROI para a companhia.",
+          "role": "Gerente produtos digitais ",
+          "company": "Claro",
+          "meta": {
+            "pivot_schedule_id": 2688,
+            "pivot_speaker_id": 5488,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Conectada by Claro",
+      "nearLocation": null
+    },
+    {
       "id": 2237,
       "start_time": "2025-08-01T14:30:00.000+00:00",
       "end_time": "2025-08-01T15:30:00.000+00:00",
@@ -6288,111 +6469,6 @@
       },
       "filterLocation": "Incubadora Municipal",
       "nearLocation": "Praça e Arredores"
-    },
-    {
-      "id": 1990,
-      "start_time": "2025-08-01T14:30:00.000+00:00",
-      "end_time": "2025-08-01T15:30:00.000+00:00",
-      "title": "Prazer sem limites: Incluindo Pessoas com Deficiência no Processo de Criação de Um Sextoy Acessivel",
-      "description": "Nessa palestra vamos refletir sobre a importância de colocar as pessoas com deficiência no centro de processos de design e quais abordagens podem ser utilizadas para criar soluções que refletem os desejos e as necessidades reais dessa população.\n\nE tem mais! Vamos também compartilhar como essas práticas foram fundamentais no desenvolvimento de um sex toy acessível – mostrando na prática como o design inclusivo pode transformar experiências e promover a autonomia e prazer de todos.\n\nNesse papo delicioso sobre prazer e acessibilidade, tenho certeza que você não vai querer ficar de fora!",
-      "hub_event_id": 1,
-      "entity_register_id": 9628,
-      "place": "INATEL - Sala 25 - Prédio 1 - 2º Piso",
-      "allow_questions": false,
-      "external_id": "6016ca48-da89-4a51-a53e-c309f7d357ba",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 0,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4261,
-          "name": "Dani Gonçalves",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1393/partner_1393_1752610533944.png",
-          "bio": "Product Designer na Sinqia, Dani é apaixonada por design centrado nas pessoas, com foco em acessibilidade e inclusão como pilares essenciais do processo criativo. Está sempre conectada às novidades do universo do design, em busca de referências e práticas que ampliem o impacto e a experiência de todos os usuários.",
-          "role": "Product Designer",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1990,
-            "pivot_speaker_id": 4261,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4449,
-          "name": "João Dionizio",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1585/partner_1585_1752611684289.png",
-          "bio": "Designer, Dev e engenheiro de gambiarras criativas, apaixonado por UX e Visual Design. Atualmente se aprofunda em Design de Futuros e Metadesign, explorando possibilidades emergentes e provocativas para a criação de novas realidades.",
-          "role": "Designer Estratégico na F1RST",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1990,
-            "pivot_speaker_id": 4449,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4528,
-          "name": "Lívia Bazan",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1668/partner_1668_1752612192380.png",
-          "bio": "UX Designer na Globo e graduanda em Design de Interação pela PUC-SP. Durante a formação, desenvolveu o projeto NUE, focado em acessibilidade sexual, que resultou na criação de um sextoy acessível para pessoas com deficiência física e mobilidade manual reduzida. A iniciativa propõe ampliar o debate sobre inclusão e autonomia.",
-          "role": "UX Designer na Globo",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1990,
-            "pivot_speaker_id": 4528,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4629,
-          "name": "Nati Passarotto",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1771/partner_1771_1752612825384.png",
-          "bio": "Designer multidisciplinar que transicionou da moda para o UX, unindo olhar estético e foco na experiência do usuário. Curiosa por natureza, está sempre em busca de novos aprendizados. Apaixonada por café gelado, quebra-cabeças e boas histórias que inspiram.",
-          "role": "Product Designer",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1990,
-            "pivot_speaker_id": 4629,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 269,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Desenvolvimento de Hardware / Software",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 1980,
@@ -6704,6 +6780,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4250,
@@ -6721,7 +6798,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -6749,6 +6825,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5443,
@@ -6766,7 +6843,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -6794,6 +6870,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4661,
@@ -6811,7 +6888,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -6861,6 +6937,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4408,
@@ -6878,7 +6955,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -6928,6 +7004,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4506,
@@ -6945,7 +7022,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -6995,6 +7071,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4259,
@@ -7012,7 +7089,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7062,6 +7138,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4496,
@@ -7079,7 +7156,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7129,6 +7205,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4116,
@@ -7146,7 +7223,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7196,6 +7272,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4592,
@@ -7213,7 +7290,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7263,6 +7339,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4763,
@@ -7280,7 +7357,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7330,6 +7406,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4946,
@@ -7347,7 +7424,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7383,6 +7459,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4146,
@@ -7400,7 +7477,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 321,
@@ -7450,6 +7526,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -7467,7 +7544,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 384,
@@ -7503,6 +7579,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -7520,7 +7597,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -7548,6 +7624,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5177,
@@ -7565,7 +7642,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7590,6 +7666,111 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
+      "id": 1989,
+      "start_time": "2025-08-01T16:00:00.000+00:00",
+      "end_time": "2025-08-01T17:00:00.000+00:00",
+      "title": "ZR- Ruralidade Urbana, Hip Hop e a reinvenção do espaço.",
+      "description": "Como as estéticas da ZR atravessam as linguagens urbanas? Neste painel, artistas e produtores culturais do interior de Minas discutem como o hip-hop, seus elementos e outras expressões culturais vêm ressignificando símbolos rurais dentro da cultura urbana, criando novas narrativas visuais, sonoras e territoriais.",
+      "hub_event_id": 1,
+      "entity_register_id": 9627,
+      "place": "ETE - Sala 81 - by SkyOne",
+      "allow_questions": false,
+      "external_id": "59c0113c-08ee-4fb2-8e49-e7d0ae182ed6",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4271,
+          "name": "Dais",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1404/partner_1404_1752610591826.png",
+          "bio": "Artista urbano, arte-educador e produtor cultural. Atua pela cultura hip hop no Sul de Minas desde 2007, promovendo o diálogo entre a cultura urbana e as tradições mineiras.",
+          "role": "Artista Urbano e Produtor Cultural",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1989,
+            "pivot_speaker_id": 4271,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4458,
+          "name": "P.MC",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1594/partner_1594_1752611738475.png",
+          "bio": "P.MC é músico há 32 anos, arte-educador há 23 e pedagogo com atuação focada na alfabetização por meio da música e dos letramentos. Mestre pela FEUSP, pesquisa Pedagogia Hip Hop e educação popular. Criador das oficinas culturais Artes da Palavra, Pé de Palavra e autor do livro infantil homônimo, foi formador nas Olimpíadas de Língua Portuguesa. Atua desde 1983 na cultura Hip Hop, com trabalhos musicais e parcerias marcantes como Charlie Brown Jr.",
+          "role": "Consultor em Planejamento Estratégico para Artistas",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1989,
+            "pivot_speaker_id": 4458,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4550,
+          "name": "Luis Carlos Adão de Melo",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1691/partner_1691_1752612328175.png",
+          "bio": "Rapper e MC mineiro natural de Santarritense, atua na cena musical combinando ritmo e cultura local para expressar identidade e experiências.",
+          "role": "Rapper e MC",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1989,
+            "pivot_speaker_id": 4550,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4722,
+          "name": "Rômulo Spuri",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1869/partner_1869_1752613426852.png",
+          "bio": "Produtor executivo, diretor criativo e label manager, com 12 anos de experiência em projetos socioculturais e produção artística no movimento Hip Hop. Idealizador do Festival Coliseu Cultural e fundador da Strads, atua com mentoria de carreira, gestão de selo e direção criativa para artistas independentes.",
+          "role": "Consultor em Planejamento Estratégico para Artistas",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1989,
+            "pivot_speaker_id": 4722,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 290,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Economia Criativa",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 2474,
       "start_time": "2025-08-01T16:00:00.000+00:00",
       "end_time": "2025-08-01T17:00:00.000+00:00",
@@ -7608,6 +7789,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4394,
@@ -7670,7 +7852,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -7720,6 +7901,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5425,
@@ -7737,7 +7919,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7773,6 +7954,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4102,
@@ -7790,7 +7972,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -7840,6 +8021,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4814,
@@ -7857,7 +8039,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 392,
@@ -7907,6 +8088,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5036,
@@ -7924,7 +8106,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -8007,6 +8188,51 @@
       },
       "filterLocation": "ETE",
       "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 2690,
+      "start_time": "2025-08-01T16:00:00.000+00:00",
+      "end_time": "2025-08-01T17:00:00.000+00:00",
+      "title": "Quando a rede vira mídia, quem controla o roteiro da jornada: a marca ou o contexto?",
+      "description": "Num mundo em que cada swipe, clique e silêncio dizem mais do que mil pesquisas, a Claro mostra como transformar 85 milhões de jornadas em narrativas hiperpersonalizadas. Aqui, a mídia não é só o banner, é o momento certo, no lugar certo, com a mensagem que parece ter sido lida direto da cabeça do cliente. Quando o contexto é rei, a marca precisa aprender a ser roteirista e espectadora ao mesmo tempo.",
+      "hub_event_id": 1,
+      "entity_register_id": 10637,
+      "place": "Casa Conectada by Claro",
+      "allow_questions": false,
+      "external_id": "yazo_2690",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5489,
+          "name": "Gabriel Villa",
+          "picture": null,
+          "bio": "Gabriel Villa é responsável por Claro Ads e Martech/Adtech na Claro. É apaixonado por criação de audiências com dados inteligentes e insights. Tem ampla experiência no universo de ecommerce, marketplace e meios de pagamento, com mais de 30 operações lançadas via VTEX e na operação do ShopFácil Bradesco.",
+          "role": "Gerente de novos negócios e publicidade",
+          "company": "Claro Ads",
+          "meta": {
+            "pivot_schedule_id": 2690,
+            "pivot_speaker_id": 5489,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Conectada by Claro",
+      "nearLocation": null
     },
     {
       "id": 2621,
@@ -9131,9 +9357,9 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9160,7 +9386,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4736,
@@ -9239,6 +9464,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9265,7 +9491,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4451,
@@ -9306,6 +9531,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9349,7 +9575,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9373,6 +9598,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9416,7 +9642,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9440,6 +9665,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9483,7 +9709,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9507,6 +9732,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9550,7 +9776,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9574,6 +9799,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9617,7 +9843,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9634,6 +9859,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9677,7 +9903,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9694,6 +9919,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9737,7 +9963,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -9754,6 +9979,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -9780,6 +10006,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4589,
@@ -9797,7 +10024,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -9840,6 +10066,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4509,
@@ -9872,7 +10099,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -9922,6 +10148,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5076,
@@ -9939,7 +10166,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -10141,73 +10367,6 @@
       },
       "filterLocation": "Escola Sanico Teles",
       "nearLocation": "Praça e Arredores"
-    },
-    {
-      "id": 1690,
-      "start_time": "2025-08-01T16:00:00.000+00:00",
-      "end_time": "2025-08-01T17:00:00.000+00:00",
-      "title": "O Brasil Invisível: Insights sobre o Consumidor da Baixa Renda",
-      "description": "\"O Brasil Invisível\" é a maior pesquisa já realizada sobre consumidores de baixa renda, revelando um público moderno, digital e engajado: 91% acessam a internet diariamente, 49% preferem comprar pelo celular e causas sociais são amplamente valorizadas. Criado em uma parceria entre Data-Makers, Gerando Falcões e ESPM; o estudo vai além dos números: desvenda sete mitos sobre o consumo de baixa renda, desafiando estereótipos e mostrando o verdadeiro potencial das periferias. Convidamos você a descobrir insights inéditos e a enxergar um Brasil que quer ser visto, ouvido e respeitado.",
-      "hub_event_id": 1,
-      "entity_register_id": 9328,
-      "place": "ETE - Sala 81 - by SkyOne",
-      "allow_questions": false,
-      "external_id": "42d44577-4aee-4e43-8890-e37639dd074b",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4313,
-          "name": "Fabrício Fudissaku",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1446/partner_1446_1752610864988.png",
-          "bio": "CEO da Data-Makers, instituto de pesquisa e big data, Fabrício Fudissaku possui mais de 20 anos de experiência em estudos de comportamento do consumidor. Foi Head de Insights LATAM da Meta por seis anos e liderou mais de 320 pesquisas na América Latina, consolidando-se como referência em análise de dados e tendências regionais.",
-          "role": "CEO da Data-Makers",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1690,
-            "pivot_speaker_id": 4313,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 273,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Criação Digital / Economia dos Criadores",
-          "hub_event_id": 1
-        },
-        {
-          "id": 305,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Brasilidade / Latinidade",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 1972,
@@ -11191,6 +11350,7 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5226,
@@ -11208,7 +11368,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -11236,23 +11395,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4293,
-          "name": "Emely Jensen",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1426/partner_1426_1752610731156.png",
-          "bio": "Diretora de Curadoria Musical na Bananas Music Branding, com vasta experiência no desenvolvimento de estratégias musicais para marcas. Há mais de 9 anos, atua na pesquisa e criação de identidade musical para diferentes segmentos de mercado.",
-          "role": "Sócia e Diretora de Curadoria e Estratégia Musical na Bananas Music",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1754,
-            "pivot_speaker_id": 4293,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 19,
@@ -11276,12 +11418,277 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [
+        {
+          "id": 4293,
+          "name": "Emely Jensen",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1426/partner_1426_1752610731156.png",
+          "bio": "Diretora de Curadoria Musical na Bananas Music Branding, com vasta experiência no desenvolvimento de estratégias musicais para marcas. Há mais de 9 anos, atua na pesquisa e criação de identidade musical para diferentes segmentos de mercado.",
+          "role": "Sócia e Diretora de Curadoria e Estratégia Musical na Bananas Music",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1754,
+            "pivot_speaker_id": 4293,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Inatel",
       "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2404,
+      "start_time": "2025-08-01T17:30:00.000+00:00",
+      "end_time": "2025-08-01T18:30:00.000+00:00",
+      "title": "Mulheres que lideram o impacto: caminhos regenerativos de gestão, escuta e ação",
+      "description": "Um painel com mulheres que atuam em impacto social, sustentabilidade, inovação social ou negócios conscientes.",
+      "hub_event_id": 1,
+      "entity_register_id": 10110,
+      "place": "Associação José do Patrocínio",
+      "allow_questions": false,
+      "external_id": "542b7507-94ce-4f37-87b4-ccedd2cc1198",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 294,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Impacto Social",
+          "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 5038,
+          "name": "Julia Caldas de Almeida",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5038/partner_5038_1753477558456.png",
+          "bio": "Relações Públicas e gestora, é superintendente da FUNDAMIG e fundadora da Rede Ubuntu. Atua com impacto social, articulação intersetorial e fortalecimento do Terceiro Setor.",
+          "role": "Relações Públicas e gestora, especialista em infraestrutura para impacto social.",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2404,
+            "pivot_speaker_id": 5038,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5131,
+          "name": "Nanda Soffiette Soares",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5131/partner_5131_1753477795873.png",
+          "bio": "Fundadora da Conectidea e cofundadora do Movimento Mulheres 3S, atua há mais de 12 anos com comunicação de causas, inovação social e educação transformadora. RP, mestranda em Transformação Digital e certificada em Gestão de Projetos Sociais pela PM4NGOs.",
+          "role": "Líder Conectidea e Movimento Mulheres 3S\nComunicação de causas e inovação social",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2404,
+            "pivot_speaker_id": 5131,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5321,
+          "name": "Dani Fecomércio",
+          "picture": null,
+          "bio": "",
+          "role": "Conectidea - Base Criativa de Transformação Social Movimento Mulheres 3S Consultora FUNDAMIG",
+          "company": "Conectidea 3S e Consultora FUNDAMIG",
+          "meta": {
+            "pivot_schedule_id": 2404,
+            "pivot_speaker_id": 5321,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Associação José do Patrocínio",
+      "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 2559,
+      "start_time": "2025-08-01T17:30:00.000+00:00",
+      "end_time": "2025-08-01T18:30:00.000+00:00",
+      "title": "Brand Talks: por que o palco é o novo espaço de mídia estratégica das marcas?",
+      "description": "A era da mídia viva chegou. Marcas passam a ocupar palcos e festivais como parte da sua estratégia de reputação. Nesta palestra, Caetano Tona — curador TEDx e fundador da LifeLab — mostra como o palco virou ativo de awareness e branding. A partir de cases e experiências com líderes globais, revela como preparar lideranças e creators para transformar presença ao vivo em valor de marca. Para quem entende que a economia criativa começa com ideias bem contadas.",
+      "hub_event_id": 1,
+      "entity_register_id": 10336,
+      "place": "INATEL - Sala de Física - Prédio 4 - 1º Piso",
+      "allow_questions": false,
+      "external_id": "yazo_2559",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 4205,
+          "name": "Caetano Tona",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1336/partner_1336_1752610169045.png",
+          "bio": "Caetano Tona é curador de eventos TEDx no Brasil e no mundo, reconhecido pela Forbes como um dos principais especialistas em comunicação do país. Atua na formação de profissionais e empresas, unindo técnica, escuta e storytelling com propósito. Professor da ESPM, acredita no poder transformador das histórias para criar conexões autênticas e gerar impacto.",
+          "role": "TEDx Organizer, Curador, Preparador de Palestrantes, Professor e Escritor.",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2559,
+            "pivot_speaker_id": 4205,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 1990,
+      "start_time": "2025-08-01T17:30:00.000+00:00",
+      "end_time": "2025-08-01T18:30:00.000+00:00",
+      "title": "Prazer sem limites: Incluindo Pessoas com Deficiência no Processo de Criação de Um Sextoy Acessivel",
+      "description": "Nessa palestra vamos refletir sobre a importância de colocar as pessoas com deficiência no centro de processos de design e quais abordagens podem ser utilizadas para criar soluções que refletem os desejos e as necessidades reais dessa população.\n\nE tem mais! Vamos também compartilhar como essas práticas foram fundamentais no desenvolvimento de um sex toy acessível – mostrando na prática como o design inclusivo pode transformar experiências e promover a autonomia e prazer de todos.\n\nNesse papo delicioso sobre prazer e acessibilidade, tenho certeza que você não vai querer ficar de fora!",
+      "hub_event_id": 1,
+      "entity_register_id": 9628,
+      "place": "ETE - Sala 81 - by SkyOne",
+      "allow_questions": false,
+      "external_id": "6016ca48-da89-4a51-a53e-c309f7d357ba",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 269,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Desenvolvimento de Hardware / Software",
+          "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 4261,
+          "name": "Dani Gonçalves",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1393/partner_1393_1752610533944.png",
+          "bio": "Product Designer na Sinqia, Dani é apaixonada por design centrado nas pessoas, com foco em acessibilidade e inclusão como pilares essenciais do processo criativo. Está sempre conectada às novidades do universo do design, em busca de referências e práticas que ampliem o impacto e a experiência de todos os usuários.",
+          "role": "Product Designer",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1990,
+            "pivot_speaker_id": 4261,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4449,
+          "name": "João Dionizio",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1585/partner_1585_1752611684289.png",
+          "bio": "Designer, Dev e engenheiro de gambiarras criativas, apaixonado por UX e Visual Design. Atualmente se aprofunda em Design de Futuros e Metadesign, explorando possibilidades emergentes e provocativas para a criação de novas realidades.",
+          "role": "Designer Estratégico na F1RST",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1990,
+            "pivot_speaker_id": 4449,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4528,
+          "name": "Lívia Bazan",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1668/partner_1668_1752612192380.png",
+          "bio": "UX Designer na Globo e graduanda em Design de Interação pela PUC-SP. Durante a formação, desenvolveu o projeto NUE, focado em acessibilidade sexual, que resultou na criação de um sextoy acessível para pessoas com deficiência física e mobilidade manual reduzida. A iniciativa propõe ampliar o debate sobre inclusão e autonomia.",
+          "role": "UX Designer na Globo",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1990,
+            "pivot_speaker_id": 4528,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4629,
+          "name": "Nati Passarotto",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1771/partner_1771_1752612825384.png",
+          "bio": "Designer multidisciplinar que transicionou da moda para o UX, unindo olhar estético e foco na experiência do usuário. Curiosa por natureza, está sempre em busca de novos aprendizados. Apaixonada por café gelado, quebra-cabeças e boas histórias que inspiram.",
+          "role": "Product Designer",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1990,
+            "pivot_speaker_id": 4629,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2325,
@@ -11605,6 +12012,59 @@
       "nearLocation": "Praça e Arredores"
     },
     {
+      "id": 2712,
+      "start_time": "2025-08-01T17:30:00.000+00:00",
+      "end_time": "2025-08-01T18:30:00.000+00:00",
+      "title": "Benevolência dá lucro — e outras ideias perigosas pra quem ainda acredita no mundo",
+      "description": "Você não precisa largar tudo e virar xamã pra viver com propósito — e muito menos pra ajudar a mudar o mundo. Nesta conversa espiritualmente pragmática (com lucidez cômica), falamos de autoconhecimento aplicado, benevolência como estratégia e de como alinhar valores, trabalho e escolhas de consumo. Para quem empreende, lidera, trabalha em equipe ou simplesmente se importa mas não sabe por onde começar. Um convite pra quem ainda acredita no mundo… mesmo que só às vezes.\n",
+      "hub_event_id": 1,
+      "entity_register_id": 10697,
+      "place": "INATEL - Sala 03 - Prédio 1 - Térreo",
+      "allow_questions": false,
+      "external_id": "yazo_2712",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5149,
+          "name": "Estefanía Guzmán",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5149/partner_5149_1753477837909.png",
+          "bio": "Fundadora da Strategi LA e Head de Alianças na 2.5 Ventures. Estrategista multicultural, conecta culturas e propósitos com foco em impacto social na América Latina. Formada em Administração (MX), MBA em Direção Empresarial (ES) e formação em Empreendedorismo pela ONU.",
+          "role": "Fundadora da Strategi LA | Head de Alianças na 2.5 Ventures",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2712,
+            "pivot_speaker_id": 5149,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
       "id": 2232,
       "start_time": "2025-08-01T17:30:00.000+00:00",
       "end_time": "2025-08-01T18:30:00.000+00:00",
@@ -11623,7 +12083,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 399,
@@ -11647,6 +12106,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4757,
@@ -11705,7 +12165,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -11729,6 +12188,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4521,
@@ -11772,7 +12232,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -11810,6 +12269,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5356,
@@ -11853,7 +12313,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 392,
@@ -11877,6 +12336,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4785,
@@ -11920,7 +12380,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -11937,6 +12396,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "speakers": [],
       "meta": {
         "is_bookmarked": false,
@@ -11964,6 +12424,23 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5299,
@@ -11979,23 +12456,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -12024,6 +12484,16 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 388,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4565,
@@ -12056,16 +12526,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 388,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -12092,24 +12552,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [
-        {
-          "id": 4602,
-          "name": "Larissa Lakshmi",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1743/partner_1743_1752612647424.png",
-          "bio": "Larissa Lakshmi é educadora pré, perinatal e infantil, doula, instrutora de yoga e discípula de Shivakumar Belavadi, da Linhagem Shivanetra (Índia). Mulher e mãe em constante transmutação, realiza mediações de rituais de chegada e passagem, unindo a sabedoria sagrada indiana às ciências modernas. É responsável pelo Temple Of Peace – Prenatal Education & Cosmic Energies. Mãe da Olívia, Henrique e dois anjos.",
-          "role": "Educadora Pré-Natal do Comitê de Boas-Vindas do Planeta Terra",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1940,
-            "pivot_speaker_id": 4602,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 391,
@@ -12131,6 +12573,24 @@
           "type": "schedules",
           "name": "Palestra",
           "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4602,
+          "name": "Larissa Lakshmi",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1743/partner_1743_1752612647424.png",
+          "bio": "Larissa Lakshmi é educadora pré, perinatal e infantil, doula, instrutora de yoga e discípula de Shivakumar Belavadi, da Linhagem Shivanetra (Índia). Mulher e mãe em constante transmutação, realiza mediações de rituais de chegada e passagem, unindo a sabedoria sagrada indiana às ciências modernas. É responsável pelo Temple Of Peace – Prenatal Education & Cosmic Energies. Mãe da Olívia, Henrique e dois anjos.",
+          "role": "Educadora Pré-Natal do Comitê de Boas-Vindas do Planeta Terra",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1940,
+            "pivot_speaker_id": 4602,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -12159,6 +12619,23 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 290,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Economia Criativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5108,
@@ -12174,23 +12651,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 290,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Economia Criativa",
-          "hub_event_id": 1
-        },
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -12219,6 +12679,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4731,
@@ -12236,7 +12697,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -12286,6 +12746,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4326,
@@ -12318,7 +12779,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 386,
@@ -12368,8 +12828,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -12385,66 +12845,6 @@
       },
       "filterLocation": "Palco na Calçada - MultiExperiências",
       "nearLocation": null
-    },
-    {
-      "id": 2401,
-      "start_time": "2025-08-01T17:30:00.000+00:00",
-      "end_time": "2025-08-01T18:30:00.000+00:00",
-      "title": "Inclusão: mito ou realidade?",
-      "description": "A palestra apresenta um olhar positivo e transformador sobre a deficiência, a partir da vivência de 21 anos de Katia com seu filho Mateus, estudante, artista, modelo e palhaço com síndrome de Down. Por meio de histórias reais e reflexões provocativas, a sessão propõe repensar a inclusão como prática viva, que começa no reconhecimento da pessoa antes da deficiência. O encontro também conta com a colaboração de Mateus, que apresenta um solo de 90 segundos de clown, ampliando a experiência e o impacto do tema.",
-      "hub_event_id": 1,
-      "entity_register_id": 10107,
-      "place": "Associação José do Patrocínio",
-      "allow_questions": false,
-      "external_id": "d57aa69d-8ce8-48ca-adda-5b34c01ee197",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "speakers": [
-        {
-          "id": 4488,
-          "name": "Katia Gontijo",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1627/partner_1627_1752611938922.png",
-          "bio": "Palestrante, pedagoga e professora de yoga há mais de 25 anos. Mãe de dois filhos, descobriu a síndrome de Down de Mateus aos 8 meses e sempre priorizou ver a pessoa antes da deficiência, buscando a autonomia dele. Em suas palestras, fala sobre inclusão como construção coletiva, trazendo reflexões baseadas em sua experiência de 21 anos.",
-          "role": "Mentora de Diversidade no Projeto ISE",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2401,
-            "pivot_speaker_id": 4488,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 387,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Diversidade / Equidade / Inclusão",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Associação José do Patrocínio",
-      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 1970,
@@ -12465,6 +12865,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4683,
@@ -12482,7 +12883,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 395,
@@ -12532,6 +12932,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4991,
@@ -12549,7 +12950,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -12670,6 +13070,74 @@
       },
       "filterLocation": "Escola Sanico Teles",
       "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 2691,
+      "start_time": "2025-08-01T17:30:00.000+00:00",
+      "end_time": "2025-08-01T18:30:00.000+00:00",
+      "title": "Muito além do hype: a IA que move Claro e CEMIG por dentro",
+      "description": "IA de verdade não aparece no pitch, aparece nos resultados. Claro e CEMIG mostram como estão aplicando tecnologia de ponta com propósito: tornar operações mais inteligentes, confiáveis e preparadas pro que vem aí.",
+      "hub_event_id": 1,
+      "entity_register_id": 10641,
+      "place": "Casa Conectada by Claro",
+      "allow_questions": false,
+      "external_id": "yazo_2691",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5490,
+          "name": "Guilherme Amaral",
+          "picture": null,
+          "bio": "Com uma sólida experiência em gestão estratégica e de inovação, e uma paixão por energias alternativas, lidero o planejamento estratégico na CEMIG. Onde busco desenvolver estratégias inovadoras que impulsionem a sustentabilidade no setor energético.",
+          "role": "Gerente de Estrategia",
+          "company": "CEMIG",
+          "meta": {
+            "pivot_schedule_id": 2691,
+            "pivot_speaker_id": 5490,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5492,
+          "name": "Rodrigo Assad",
+          "picture": null,
+          "bio": "Desempenha também o papel de Chief Network Officer (CNO) na Ustore - Smart Cloud Systems, empresa que fundou em 2012. Além de sua carreira corporativa, é professor na Universidade Federal Rural de Pernambuco (UFRPE), e compartilha seu conhecimento em disciplinas como sistemas operacionais, segurança e cloud computing. Com sólida formação acadêmica e vasta experiência, Rodrigo Assad desempenha um papel decisivo para impulsionar a inovação e o crescimento do mercado de tecnologia no Brasil. ",
+          "role": "Diretor de Inovação",
+          "company": "Claro",
+          "meta": {
+            "pivot_schedule_id": 2691,
+            "pivot_speaker_id": 5492,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Conectada by Claro",
+      "nearLocation": null
     },
     {
       "id": 2431,
@@ -14073,7 +14541,7 @@
       "description": "Muito antes do hype, já usávamos IA para expandir a criatividade. Agora, com a IA generativa e a computação quântica ganhando espaço, a verdadeira pergunta é: quem escolhemos ser? Esta palestra provoca reflexões sobre como usar a tecnologia como catalisadora da humanidade — construindo negócios mais conscientes, sociedades mais justas e futuros realmente desejáveis.",
       "hub_event_id": 1,
       "entity_register_id": 9305,
-      "place": "ETE - Sala 82",
+      "place": "INATEL - Sala 16 - Prédio 1 - 2º Piso",
       "allow_questions": false,
       "external_id": "23a83625-1a4b-4ea5-b613-23a1519f58c6",
       "place_color": null,
@@ -14129,8 +14597,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 1984,
@@ -14813,6 +15281,240 @@
       },
       "filterLocation": "Boteco do Tio João",
       "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 2699,
+      "start_time": "2025-08-01T19:00:00.000+00:00",
+      "end_time": "2025-08-01T20:00:00.000+00:00",
+      "title": "Liderança de Times de Tecnologia",
+      "description": "Liderar times técnicos em 2025 é mais do que tomar decisões técnicas ou cobrar entregas. Em um cenário de transformação acelerada, com a chegada da inteligência artificial, múltiplas gerações convivendo no mesmo time e uma pressão constante por velocidade com qualidade, a liderança técnica precisa evoluir. É hora de sair do controle para a mobilização. Do líder herói que resolve tudo para o formador de time que decide junto e entrega com consistência. Nesta palestra, compartilho como tenho conduzido times nos últimos anos para criar um ambiente de autonomia real, inovação prática e resultados concretos. E como transformamos esses aprendizados em um",
+      "hub_event_id": 1,
+      "entity_register_id": 10664,
+      "place": "ETE - Sala 81 - by SkyOne",
+      "allow_questions": false,
+      "external_id": "yazo_2699",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5423,
+          "name": "Júlia Galvão",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753751442516.png?ims=filters:quality(75)",
+          "bio": "Júlia Galvão trabalha com comunicação e marketing há 13 anos e está à frente da Ambrô, marca de roupas referência em resultados meteóricos no e- commerce de maneira orgânica. A goiana de 25 anos, dona de uma mente inquieta e marketeira, também ensina empreendedores a criar e escalar negócios no digital, já contando com mais de 10 mil alunos impactados por seus cursos, aulas e treinamentos. É co-fundadora da Adzy, uma plataforma de gestão de afiliados para revolucionar o varejo brasileiro com tecnologia e uma forma criativa de vender.",
+          "role": "Co-fundadora da Adzy",
+          "company": "Adzy",
+          "meta": {
+            "pivot_schedule_id": 2699,
+            "pivot_speaker_id": 5423,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5504,
+          "name": "Felipe Adamoli",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753831535226.png?ims=filters:quality(75)",
+          "bio": "\"Empreendedor que acredita no uso inteligente de tecnologia para alavancar negócios.\nSócio da nav9, consultoria de tecnologia e inovação, onde já atendeu mais de 50 clientes, entre eles SBT, Banco ABC e Grupo SEB.\nUsa práticas ágeis em todo ciclo de vida dos projetos, desde o entendimento dos objetivos de negócio da iniciativa, processo de discovery junto a usuários e stakeholder, definição de solução e entregas incrementais contínuas.\"",
+          "role": "Sócio",
+          "company": "Nav9",
+          "meta": {
+            "pivot_schedule_id": 2699,
+            "pivot_speaker_id": 5504,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5507,
+          "name": "Thiago Moreira",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753831687713.png?ims=filters:quality(75)",
+          "bio": "Fundador da Stalse Analytics e da Easy Attribution, com 14+ anos solucionando desafios em Data Engineering, BI e Web Analytics: estrutura pipelines robustos, governa dados, automatiza processos e entrega insights que impulsionam decisões estratégicas.",
+          "role": "CTO",
+          "company": "Stalse",
+          "meta": {
+            "pivot_schedule_id": 2699,
+            "pivot_speaker_id": 5507,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 2702,
+      "start_time": "2025-08-01T19:00:00.000+00:00",
+      "end_time": "2025-08-01T20:00:00.000+00:00",
+      "title": "O que ninguém conta sobre mudar de rota e começar do zero?",
+      "description": "Nem tudo é coragem e propósito: tem dúvida, erro, dívida, solidão. Mulheres que abandonaram caminhos seguros para empreender ou atuar em áreas distantes da formação compartilham os bastidores reais de suas reinvenções e o que você precisa saber antes de seguir pelo mesmo caminho.\n",
+      "hub_event_id": 1,
+      "entity_register_id": 10670,
+      "place": "Escola Sânico Teles - Ginásio ",
+      "allow_questions": false,
+      "external_id": "yazo_2702",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4606,
+          "name": "Mariana Martins",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1747/partner_1747_1752612674607.png",
+          "bio": "Mari Martins é filmmaker, diretora e criadora de conteúdo, com atuação reconhecida no audiovisual. Alpha Partner da Sony, já dirigiu e produziu projetos para marcas como BMW, Nissan, Hyundai e Volkswagen, unindo criatividade e técnica em expedições, lançamentos e séries especiais. Ex-advogada, encontrou na câmera sua verdadeira linguagem, traduzindo histórias com autenticidade, inovação e paixão por imagem e movimento.",
+          "role": "Filmmaker, fotografa e Creator",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2702,
+            "pivot_speaker_id": 4606,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4657,
+          "name": "Paula Dias",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1800/partner_1800_1752613012108.png",
+          "bio": "Empreendedora no setor agro, produtora de café, baunilha e mel com foco em sustentabilidade, desenvolve práticas agrícolas responsáveis que promovem equilíbrio ambiental e qualidade nos produtos.",
+          "role": "Empreendedora de agronegócios",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2702,
+            "pivot_speaker_id": 4657,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4578,
+          "name": "Marcelo Lobianco",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1719/partner_1719_1752612498960.png",
+          "bio": "Empreendedor com mais de 30 anos de atuação no marketing brasileiro, liderou áreas no Facebook, IG e IAB Brasil, além de ter sido CEO de agências dos grupos Publicis e IPG. Desde 2021, é responsável por trazer e dirigir a Fast Company no Brasil.",
+          "role": "CEO na Fast Company Brazil",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2702,
+            "pivot_speaker_id": 4578,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5510,
+          "name": "Fernanda Degolin",
+          "picture": null,
+          "bio": "Desenvolvedora Front-end na Globo, dando vida ao app Globoplay para TVs. Durante a pandemia, deu um salto ousado para o mundo da tecnologia, transformando paixão por criar em uma nova jornada.",
+          "role": "Atriz e desenvolvedora Frontend",
+          "company": "Globo",
+          "meta": {
+            "pivot_schedule_id": 2702,
+            "pivot_speaker_id": 5510,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Escola Sanico Teles",
+      "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 2694,
+      "start_time": "2025-08-01T19:00:00.000+00:00",
+      "end_time": "2025-08-01T20:00:00.000+00:00",
+      "title": "Vi cinco bandas tocarem com AI, e aí?",
+      "description": "Quando o músico vira curador de prompt, ele ainda é um músico? Então o palco vira um laboratório, e James Feeler, que já julgou Cannes e levou 108 Leões pra casa, mergulha na cena onde artistas tocam com IA ao vivo. A pergunta: é só código 0 e 1 ou ainda sobra alguma alma? Spoiler: essa jam é mais sobre a próxima revolução cultural do que sobre tecnologia.",
+      "hub_event_id": 1,
+      "entity_register_id": 10647,
+      "place": "Casa Conectada by Claro",
+      "allow_questions": false,
+      "external_id": "yazo_2694",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -512,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5453,
+          "name": "James Feeler",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753819713727.png?ims=filters:quality(75)",
+          "bio": "James Feeler não cria trilhas — ele programa experiências sensoriais. Fundador e Diretor Criativo da Jamute, vem transformando emoção em arquitetura sonora desde 1996. Ex-baterista, pianista, vocalista e alquimista de modulares, opera som como linguagem simbólica de alto impacto. Sob sua direção, a Jamute virou culto criativo: 108 Cannes Lions (com 1 Titanium e 3 Grand Prix), 85 Clio Awards, 38 D&AD e presença constante no topo dos festivais mais exigentes do mundo. O estúdio foi ranqueado Top 4 global no The One Club em 2022, 2023 e 2024 — e Feeler é presença obrigatória nas mesas de decisão: presidente de júri em Cannes, Clio, FIAP, El Ojo, EFFIE e Clube de Criação. Em 2024, leva também uma indicação ao Caboré. Mas prêmios são só rastros — sua real missão é hackear percepção sonora.",
+          "role": "CEO Jamute",
+          "company": "Jamute",
+          "meta": {
+            "pivot_schedule_id": 2694,
+            "pivot_speaker_id": 5453,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Conectada by Claro",
+      "nearLocation": null
     },
     {
       "id": 1920,
@@ -17474,6 +18176,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4642,
@@ -17514,7 +18217,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17541,6 +18243,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4420,
@@ -17581,7 +18284,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17608,6 +18310,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -17632,7 +18335,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17659,6 +18361,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4181,
@@ -17692,7 +18395,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17719,6 +18421,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4354,
@@ -17759,7 +18462,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17786,6 +18488,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4243,
@@ -17819,7 +18522,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17846,6 +18548,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4592,
@@ -17885,9 +18588,15 @@
           "type": "schedules",
           "name": "Painel",
           "hub_event_id": 1
+        },
+        {
+          "id": 388,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
+          "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17914,6 +18623,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4801,
@@ -17954,7 +18664,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -17981,6 +18690,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4210,
@@ -18021,7 +18731,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18030,80 +18739,36 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
-      "id": 1703,
+      "id": 1710,
       "start_time": "2025-08-01T19:00:00.000+00:00",
       "end_time": "2025-08-01T20:00:00.000+00:00",
-      "title": "Pensamento no lugar do processamento - Raízes criativas que a I.A. não alcançará",
-      "description": "A arte e a psicanálise se encontram em um painel que analisa como realmente criamos. Sublimações, sonhos, traumas e desejos, elementos que a inteligência artificial jamais conseguirá acessar, nos ajudam a compreender a diferença brutal entre o pensamento e o processamento. A psicanalista Paula Prucoli desafia o escritor Luis Biajoni (Elvis & Madonna) e o cantor Tatá Aeroplano a mergulhar fundo em seus processos criativos, com mediação do jornalista cultural Jota Wagner.",
+      "title": "Booktokers, algoritmos e a revolução silenciosa do mercado editorial",
+      "description": "O TikTok está transformando a leitura entre jovens. Esta palestra analisa como comunidades literárias digitais influenciam o mercado editorial e a formação de leitores no Brasil. Com foco nas gerações mais novas e na lógica dos algoritmos, discute tendências de comportamento, impacto cultural e as mudanças no modo de produzir, promover e consumir literatura.",
       "hub_event_id": 1,
-      "entity_register_id": 9341,
-      "place": "Escola Sânico Teles - Ginásio",
+      "entity_register_id": 9348,
+      "place": "ETE - Sala 66",
       "allow_questions": false,
-      "external_id": "fc34fd46-dab8-4944-988e-5a0c3c661877",
+      "external_id": "e058b297-dfad-4552-a2df-12856b15459a",
       "place_color": null,
       "allow_evaluation": false,
-      "order": 0,
+      "order": 512,
       "has_check_in": false,
       "tolerance_time_in_minutes": 0,
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
-          "id": 4463,
-          "name": "Jota Wagner",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1599/partner_1599_1752611769488.png",
-          "bio": "Jota Wagner é repórter especial de cultura na UOL / Revista Music Non Stop e colaborador da Billboard Brasil, além de articulador cultural com 30 anos de experiência em festivais, turnês internacionais e ações de fomento à criação musical.",
-          "role": "Repórter Especial de Cultura - Music Non Stop / Billboard / UOL",
+          "id": 4352,
+          "name": "Gabriel Mattos",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1485/partner_1485_1752611092350.png",
+          "bio": "Publicitário, jornalista e mestre em Economia Criativa e Inovação pela ESPM-RJ, atua há mais de 14 anos no mercado digital com marcas como Oi, Mitsubishi e Globo Livros. É professor do IBMEC e da ESPM e sócio da Agência TwoCom.",
+          "role": "Sócio e Head de Growth na Agência TwoCom",
           "company": " ",
           "meta": {
-            "pivot_schedule_id": 1703,
-            "pivot_speaker_id": 4463,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4559,
-          "name": "Luiz Biajoni",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1700/partner_1700_1752612377439.png",
-          "bio": "Luiz Biajoni é escritor e autor de obras como Elvis & Madona, A Comédia Mundana, A Viagem de James Amaro, Virgínia Berlim, Quatro Velhos, Algum Amor, O Crime no Edifício Giallo e João Malho. Seus livros exploram o cotidiano com humor, crítica e originalidade, e alguns já foram publicados em outros países, ampliando seu alcance internacional.",
-          "role": "Jornalista e Escritor",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1703,
-            "pivot_speaker_id": 4559,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4646,
-          "name": "Tatá Aeroplano",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1788/partner_1788_1752612937056.png",
-          "bio": "Músico, compositor, DJ, cinéfilo e andarilho urbano. Lançou 8 álbuns em parceria com Bruno Buarque, Dustan Gallas e Junior Boca. Nos anos 2000, integrou as bandas Cérebro Eletrônico e Jumbo Elektro, contribuindo para a cena musical independente com sonoridade experimental e estética urbana.",
-          "role": "Músico, Compositor, DJ, Cinéfilo e Andarilho Urbano",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1703,
-            "pivot_speaker_id": 4646,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4658,
-          "name": "Paula Prucolli",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1801/partner_1801_1752613017393.png",
-          "bio": "Psicanalista participante do Fórum do Campo Lacaniano em SP e RJ, realiza pesquisas em conjunto com a NUPPEC/UFRGS. Atua como supervisora no Centro de Psicologia Aplicada da Universidade São Judas Tadeu.",
-          "role": "Psicanalista",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1703,
-            "pivot_speaker_id": 4658,
+            "pivot_schedule_id": 1710,
+            "pivot_speaker_id": 4352,
             "is_bookmarked": false,
             "allow_access": false
           },
@@ -18112,34 +18777,33 @@
       ],
       "tags": [
         {
-          "id": 23,
+          "id": 19,
           "color": "#21C89D",
           "type": "schedules",
-          "name": "Painel",
+          "name": "Palestra",
           "hub_event_id": 1
         },
         {
-          "id": 264,
+          "id": 275,
           "color": "#21C89D",
           "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
+          "name": "Educação / Aprendizado",
           "hub_event_id": 1
         },
         {
-          "id": 322,
+          "id": 273,
           "color": "#21C89D",
           "type": "schedules",
-          "name": "Fronteiras da Mente",
+          "name": "Criação Digital / Economia dos Criadores",
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2428,
@@ -19501,6 +20165,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5001,
@@ -19548,7 +20213,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -19591,6 +20255,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4317,
@@ -19608,7 +20273,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 391,
@@ -19658,6 +20322,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5046,
@@ -19675,7 +20340,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 384,
@@ -19718,6 +20382,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5301,
@@ -19810,7 +20475,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19853,6 +20517,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4325,
@@ -19870,7 +20535,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19913,6 +20577,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4214,
@@ -19930,7 +20595,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 399,
@@ -19980,6 +20644,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4930,
@@ -19997,7 +20662,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -20040,6 +20704,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5040,
@@ -20057,7 +20722,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 399,
@@ -20100,6 +20764,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4806,
@@ -20117,7 +20782,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -20167,6 +20831,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4250,
@@ -20214,7 +20879,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -20679,6 +21343,59 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2689,
+      "start_time": "2025-08-01T20:30:00.000+00:00",
+      "end_time": "2025-08-01T21:30:00.000+00:00",
+      "title": "AWS Security Best Praticies",
+      "description": "Nesta palestra introdutória, você vai descobrir que segurança em nuvem vai muito além de ativar um firewall ou escolher a senha certa. Com uma abordagem prática, simples e sem “tecniquês”, vamos explorar os principais erros que colocam dados e sistemas em risco — e como evitá-los mesmo se você estiver começando agora.",
+      "hub_event_id": 1,
+      "entity_register_id": 10635,
+      "place": "INATEL - Sala 16 - Prédio 1 - 2º Piso",
+      "allow_questions": false,
+      "external_id": "yazo_2689",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5444,
+          "name": "Eduardo Neves",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753791333563.png?ims=filters:quality(75)",
+          "bio": "Tenho mais de 10 anos de experiência otimizando operações com IA, BI e automação. Sou criador do Produtize IA, formo consultores e atuo ao lado de grandes nomes do mercado de tecnologia.",
+          "role": "Observability and AI Specialist",
+          "company": "Papo de Sysadmin",
+          "meta": {
+            "pivot_schedule_id": 2689,
+            "pivot_speaker_id": 5444,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
       "id": 2649,
       "start_time": "2025-08-01T20:30:00.000+00:00",
       "end_time": "2025-08-01T21:30:00.000+00:00",
@@ -20851,6 +21568,194 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2714,
+      "start_time": "2025-08-01T20:30:00.000+00:00",
+      "end_time": "2025-08-01T21:30:00.000+00:00",
+      "title": "Inovação de Verdade ou Só Estratégia de Marketing das Big Corps",
+      "description": "Startups são chamadas para cocriar, diversificar e “inovar com propósito” — mas até onde vai a vontade real de transformação? Este painel questiona o uso da inovação como ferramenta de imagem por grandes empresas, e discute o que é parceria verdadeira e o que é só discurso bonito pra parecer moderno.",
+      "hub_event_id": 1,
+      "entity_register_id": 10809,
+      "place": "Associação José do Patrocínio",
+      "allow_questions": false,
+      "external_id": "yazo_2714",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5532,
+          "name": "Gabriela Aguiar ",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753840148343.png?ims=filters:quality(75)",
+          "bio": "Gabriela Aguiar é especialista em desenvolvimento e engajamento de ecossistemas de inovação, com atuação estratégica entre startups, empresas, governo e academia. Atua em projetos que conectam impacto social, tecnologia e parcerias. Acredita que ecossistemas fortes geram valor real para todos os envolvidos.\n",
+          "role": "Diretora de Ecossistemas e Relações Institucionais",
+          "company": "Plug and Play Brazil",
+          "meta": {
+            "pivot_schedule_id": 2714,
+            "pivot_speaker_id": 5532,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5523,
+          "name": "Rafael Pelli",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753835795172.png?ims=filters:quality(75)",
+          "bio": "Acredito que se quero mudar o mundo, o primeiro passo é transformar o meu ambiente, por isso luto todos os dias para fortalecer e desenvolver pessoas através de ciência, tecnologia, empreendedorismo e inovação.",
+          "role": "Gerente de Pesquisa, Desenvolvimento e Inovação na CEMIG",
+          "company": "CEMIG",
+          "meta": {
+            "pivot_schedule_id": 2714,
+            "pivot_speaker_id": 5523,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5533,
+          "name": "Lincoln Possada de Rezende",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753840426255.png?ims=filters:quality(75)",
+          "bio": "Mineiro de BH, marido da Gabi com quem teve 3 filhos capixabas, está na ArcelorMittal há 31 anos, e no iNO.VC, programa de transformação digital do segmento de aços planos, desde o seu lançamento , já quase 6 anos.\n",
+          "role": "Assessor de Relacionamento com Ecossistema ",
+          "company": "ArcelorMittal ",
+          "meta": {
+            "pivot_schedule_id": 2714,
+            "pivot_speaker_id": 5533,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5534,
+          "name": "Vitor Salama",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753840495516.png?ims=filters:quality(75)",
+          "bio": "Lidero o ecossistema de inovação da Oracle no Brasil, conectando startups, clientes, hubs e investidores pra acelerar negócios e criar parcerias de impacto. Engenheiro de produção com pós em neurociência — sempre buscando unir tecnologia, pessoas e propósito.\n",
+          "role": "Ecossistema Inovação Brasil na Oracle",
+          "company": "Oracle",
+          "meta": {
+            "pivot_schedule_id": 2714,
+            "pivot_speaker_id": 5534,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Associação José do Patrocínio",
+      "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 2695,
+      "start_time": "2025-08-01T20:30:00.000+00:00",
+      "end_time": "2025-08-01T21:30:00.000+00:00",
+      "title": "Inovação em rede: os bastidores da conectividade que move o Brasil",
+      "description": "Executivos revelam os bastidores das redes privativas no Brasil, decisões críticas, infraestrutura invisível e inovação em escala nacional. E mostram como a formação técnica no Inatel foi o ponto de partida para trajetórias que hoje lideram a transformação digital do país.",
+      "hub_event_id": 1,
+      "entity_register_id": 10650,
+      "place": "Casa Conectada by Claro",
+      "allow_questions": false,
+      "external_id": "yazo_2695",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5020,
+          "name": "Carlos Nazareth",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5020/partner_5020_1753477524062.png",
+          "bio": "Diretor do INATEL e Diretor Executivo da FINATEL. Doutor pela UNICAMP, tem sólida carreira em telecomunicações e gestão educacional.",
+          "role": "DIRETOR DO INATEL",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2695,
+            "pivot_speaker_id": 5020,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5496,
+          "name": "André Sarcinelli ",
+          "picture": null,
+          "bio": "",
+          "role": "CTO da Claro",
+          "company": "Claro",
+          "meta": {
+            "pivot_schedule_id": 2695,
+            "pivot_speaker_id": 5496,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5497,
+          "name": "Alexandre Gomes",
+          "picture": null,
+          "bio": "Alexandre Gomes é Diretor de Marketing da Claro empresas para Grandes Empresas e Governo. É formado em Engenharia Eletrônica e Telecomunicações pelo Instituto Nacional de Telecomunicações (Inatel) e possui MBA pela Fundação Getulio Vargas (FGV). Realizou diversos cursos de negócios em instituições brasileiras e internacionais. Tem grande experiência no segmento de telecomunicações, com desenvolvimento de produtos e negócios. Atua há mais de 15 anos na Claro empresas, tendo ocupado diversos cargos de liderança até assumir a diretoria de marketing.",
+          "role": "Diretor de MKT Empresarial",
+          "company": "Claro",
+          "meta": {
+            "pivot_schedule_id": 2695,
+            "pivot_speaker_id": 5497,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5492,
+          "name": "Rodrigo Assad",
+          "picture": null,
+          "bio": "Desempenha também o papel de Chief Network Officer (CNO) na Ustore - Smart Cloud Systems, empresa que fundou em 2012. Além de sua carreira corporativa, é professor na Universidade Federal Rural de Pernambuco (UFRPE), e compartilha seu conhecimento em disciplinas como sistemas operacionais, segurança e cloud computing. Com sólida formação acadêmica e vasta experiência, Rodrigo Assad desempenha um papel decisivo para impulsionar a inovação e o crescimento do mercado de tecnologia no Brasil. ",
+          "role": "Diretor de Inovação",
+          "company": "Claro",
+          "meta": {
+            "pivot_schedule_id": 2695,
+            "pivot_speaker_id": 5492,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Conectada by Claro",
+      "nearLocation": null
+    },
+    {
       "id": 1692,
       "start_time": "2025-08-01T20:30:00.000+00:00",
       "end_time": "2025-08-01T21:30:00.000+00:00",
@@ -20869,7 +21774,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4381,
@@ -20910,6 +21814,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20936,7 +21841,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4989,
@@ -20970,12 +21874,125 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Inatel",
       "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 1703,
+      "start_time": "2025-08-01T20:30:00.000+00:00",
+      "end_time": "2025-08-01T21:30:00.000+00:00",
+      "title": "Pensamento no lugar do processamento - Raízes criativas que a I.A. não alcançará",
+      "description": "A arte e a psicanálise se encontram em um painel que analisa como realmente criamos. Sublimações, sonhos, traumas e desejos, elementos que a inteligência artificial jamais conseguirá acessar, nos ajudam a compreender a diferença brutal entre o pensamento e o processamento. A psicanalista Paula Prucoli desafia o escritor Luis Biajoni (Elvis & Madonna) e o cantor Tatá Aeroplano a mergulhar fundo em seus processos criativos, com mediação do jornalista cultural Jota Wagner.",
+      "hub_event_id": 1,
+      "entity_register_id": 9341,
+      "place": "Escola Sânico Teles - Ginásio",
+      "allow_questions": false,
+      "external_id": "fc34fd46-dab8-4944-988e-5a0c3c661877",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "speakers": [
+        {
+          "id": 4463,
+          "name": "Jota Wagner",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1599/partner_1599_1752611769488.png",
+          "bio": "Jota Wagner é repórter especial de cultura na UOL / Revista Music Non Stop e colaborador da Billboard Brasil, além de articulador cultural com 30 anos de experiência em festivais, turnês internacionais e ações de fomento à criação musical.",
+          "role": "Repórter Especial de Cultura - Music Non Stop / Billboard / UOL",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1703,
+            "pivot_speaker_id": 4463,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4559,
+          "name": "Luiz Biajoni",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1700/partner_1700_1752612377439.png",
+          "bio": "Luiz Biajoni é escritor e autor de obras como Elvis & Madona, A Comédia Mundana, A Viagem de James Amaro, Virgínia Berlim, Quatro Velhos, Algum Amor, O Crime no Edifício Giallo e João Malho. Seus livros exploram o cotidiano com humor, crítica e originalidade, e alguns já foram publicados em outros países, ampliando seu alcance internacional.",
+          "role": "Jornalista e Escritor",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1703,
+            "pivot_speaker_id": 4559,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4646,
+          "name": "Tatá Aeroplano",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1788/partner_1788_1752612937056.png",
+          "bio": "Músico, compositor, DJ, cinéfilo e andarilho urbano. Lançou 8 álbuns em parceria com Bruno Buarque, Dustan Gallas e Junior Boca. Nos anos 2000, integrou as bandas Cérebro Eletrônico e Jumbo Elektro, contribuindo para a cena musical independente com sonoridade experimental e estética urbana.",
+          "role": "Músico, Compositor, DJ, Cinéfilo e Andarilho Urbano",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1703,
+            "pivot_speaker_id": 4646,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4658,
+          "name": "Paula Prucolli",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1801/partner_1801_1752613017393.png",
+          "bio": "Psicanalista participante do Fórum do Campo Lacaniano em SP e RJ, realiza pesquisas em conjunto com a NUPPEC/UFRGS. Atua como supervisora no Centro de Psicologia Aplicada da Universidade São Judas Tadeu.",
+          "role": "Psicanalista",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1703,
+            "pivot_speaker_id": 4658,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 322,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Fronteiras da Mente",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Escola Sanico Teles",
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2624,
@@ -20996,7 +22013,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -21007,12 +22023,111 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Palco na Calçada - MultiExperiências",
       "nearLocation": null
+    },
+    {
+      "id": 2692,
+      "start_time": "2025-08-01T20:30:00.000+00:00",
+      "end_time": "2025-08-01T21:30:00.000+00:00",
+      "title": "Unidas pelo café, movidas pela coragem",
+      "description": "O painel reúne histórias inspiradoras de mulheres que transformaram suas vidas por meio do café. Da lavoura à xícara, cada trajetória representa coragem, inovação e pertencimento. Mediado por Irys, fisioterapeuta por formação e hoje administradora do Sítio São Sebastião, o encontro destaca o papel da Associação das Empreendedoras do Café como rede de apoio, representatividade e protagonismo feminino na Mantiqueira de Mi",
+      "hub_event_id": 1,
+      "entity_register_id": 10645,
+      "place": "ETE - Sala 64",
+      "allow_questions": false,
+      "external_id": "yazo_2692",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 0,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "speakers": [
+        {
+          "id": 5491,
+          "name": "Irys Lopes",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753829783429.png?ims=filters:quality(75)",
+          "bio": "Empresária do café Especial e do Turismo rural no Sitio São Sebastião e Conselheira da Associação das Empreendedoras do café de SRS.",
+          "role": "Adm. do Sítio São Sebastião e conselheira da Associação das Empreendedoras do Café.",
+          "company": "Sitio São Sebastião",
+          "meta": {
+            "pivot_schedule_id": 2692,
+            "pivot_speaker_id": 5491,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5493,
+          "name": "Maria Doroteia Rennó Moreira",
+          "picture": null,
+          "bio": "Maria Dorotéia Rennó Moreira, conhecida como Dorô, é gestora e proprietária da Fazenda Santa Maria, localizada em Santa Rita do Sapucaí, na Mantiqueira de Minas. Atua há mais de 12 anos com inovação sustentável e tecnologia nas áreas de café, leite e corte. É conselheira do grupo Empreendedoras do Café e desenvolve ações voltadas à educação de jovens para o entendimento do agro moderno. A fazenda também recebe visitas técnicas de escolas, promovendo a conexão entre o campo e a formação de novas gerações",
+          "role": "Gestora e Proprietária da Fazenda Santa Maria",
+          "company": "Fazenda Santa Maria",
+          "meta": {
+            "pivot_schedule_id": 2692,
+            "pivot_speaker_id": 5493,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5494,
+          "name": "Daniele Alkmin Carvalho Mohallem",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753830110794.png?ims=filters:quality(75)",
+          "bio": "5a geração na produção de cafés, família desde 1892 no café; CEO da empresa Agrorigem - The Coffee ID; Especialista em Cafés, Q-Grader desde 2016, Coffeelover, apaixonada por pessoas e Q-Evolved; Presidente do coletivo Associação Empreendedoras do Café de Santa Rita do Sapucaí – MG; Diretora de Relações Internacionais da Aliança Internacional das Mulheres do Café - IWCA com 1.300 Associadas Brasil e 17.000 Associadas IWCA Global, 34 países.",
+          "role": "CEO da empresa Agrorigem - The Coffee ID",
+          "company": "Agrorigem - The Coffee ID",
+          "meta": {
+            "pivot_schedule_id": 2692,
+            "pivot_speaker_id": 5494,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5495,
+          "name": "Andréia Moreira",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1753830170414.png?ims=filters:quality(75)",
+          "bio": "Fisioterapeuta por formação, produtora de leite e cafés especiais por amor e dedicação. Co-fundadora e Conselheira na Associação das Empreendedoras do Café de Santa Rita do Sapucaí. Se apaixonou tanto por trabalhar com qualidade que em 2022 recebeu o convite da 3 Corações para ser Embaixadora do Projeto Florada da Região da Mantiqueira de Minas.",
+          "role": "Gestora Sucessora da Fazenda São José",
+          "company": "Fazenda São José",
+          "meta": {
+            "pivot_schedule_id": 2692,
+            "pivot_speaker_id": 5495,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2572,
@@ -21033,7 +22148,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5403,
@@ -21075,6 +22189,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21101,7 +22216,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4701,
@@ -21142,6 +22256,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21168,7 +22283,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -21193,6 +22307,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21219,7 +22334,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4539,
@@ -21260,6 +22374,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21286,7 +22401,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4251,
@@ -21335,6 +22449,7 @@
         }
       ],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21699,7 +22814,7 @@
         "rating": 0
       },
       "filterLocation": "Casarão Pós-Doc",
-      "nearLocation": null
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2510,
@@ -22216,8 +23331,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Beco do Saci",
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2513,

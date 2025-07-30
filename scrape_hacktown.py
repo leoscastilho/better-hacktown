@@ -310,6 +310,26 @@ def normalize_and_locate(place: str) -> tuple[str, str]:
         filter_location = "Feira da Mantiqueira"
         near_location = "Inatel e Arredores"
 
+    elif "BECO DO SACI" in place_upper:
+        filter_location = "Beco do Saci"
+        near_location = "Praça e Arredores"
+
+    elif "CASA CONECTADA CLARO" in place_upper:
+        filter_location = "Casa Conectada Claro"
+        near_location = "Inatel e Arredores"
+
+    elif "PRAÇA DA CÂMARA" in place_upper:
+        filter_location = "Praça da Câmara"
+        near_location = "ETE e Arredores"
+
+    elif "CASARÃO PÓS-DOC" in place_upper:
+        filter_location = "Casarão Pós-Doc"
+        near_location = "Praça e Arredores"
+
+    elif "DULLÊ GOURMET" in place_upper:
+        filter_location = "Dullê Gourmet"
+        near_location = "Praça e Arredores"
+
     # Special cases
     elif "A SER ANUNCIADO" in place_upper:
         filter_location = "A ser anunciado"
