@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
-  "total_events": 110,
-  "scraped_at": "2025-07-30T19:01:19.772269-03:00",
+  "total_events": 108,
+  "scraped_at": "2025-07-31T02:01:24.355171-03:00",
   "events": [
     {
       "id": 2617,
@@ -152,11 +152,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 2048,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 80,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "tags": [
         {
@@ -356,11 +356,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "tags": [
         {
@@ -449,6 +449,35 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2928,
+      "start_time": "2025-08-03T12:00:00.000+00:00",
+      "end_time": "2025-08-03T20:00:00.000+00:00",
+      "title": "Caminhão Sesc Geek Itinerante",
+      "description": "",
+      "hub_event_id": 1,
+      "entity_register_id": 11313,
+      "place": "Estacionamento ETE",
+      "allow_questions": false,
+      "external_id": "yazo_2928",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 768,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "tags": [],
+      "speakers": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 2787,
       "start_time": "2025-08-03T12:00:00.000+00:00",
       "end_time": "2025-08-03T15:00:00.000+00:00",
@@ -462,11 +491,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 50,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "tags": [
         {
@@ -536,15 +565,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4106,
@@ -560,6 +580,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -857,6 +886,51 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2882,
+      "start_time": "2025-08-03T12:00:00.000+00:00",
+      "end_time": "2025-08-03T13:00:00.000+00:00",
+      "title": "curta + sessão comentada (Rede Minas) - Curta: Vincular e Entrelaçar (Hebert Jonas)",
+      "description": "VINCULAR E ENTRELAÇAR  - O curta-metragem 'Vincular e Entrelaçar', dirigido pelo artista plástico e cineasta Hebert Jonas, explora o poder das histórias de vida através de um conteúdo transmídia emocionante. O filme narra as trajetórias de três mulheres extraordinárias: Dona Jovina, de 87 anos, que migrou do interior de Minas para Ibirité, trabalhou como cantineira e criou seus seis filhos sozinha após a morte do marido; Dona Maria, que veio do Espírito Santo, morou no Rio de Janeiro antes de se estabelecer em Ibirité, doou um rim ao marido e enfrentou a vida como mãe solteira após sua morte; e Dona Ilda, que fugiu das condições análogas à escravidão no interior da Bahia, perdeu o marido em um acidente e a casa em um deslizamento, mas reconstruiu sua vida em Ibirité. Durante as entrevistas, Hebert Jonas captura suas histórias com uma sensibilidade artística única, enquanto pinta uma tela que traduz os relatos de luta, resiliência e vitória dessas mulheres.",
+      "hub_event_id": 1,
+      "entity_register_id": 11246,
+      "place": "ETE - Biblioteca by Studios MAX Sebrae ",
+      "allow_questions": false,
+      "external_id": "yazo_2882",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 768,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5612,
+          "name": "Hebert Jonas ",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753917860310.png?ims=filters:quality(75)",
+          "bio": "Hebert Jonas é artista plástico, jornalista e cineasta, com atuação multidisciplinar nas artes visuais e no audiovisual. Pós-graduado em Direção de Arte, já produziu mais de 50 telas e 10 esculturas, desenvolvendo uma poética que articula memória, identidade e território. É diretor do curta “Vincular e Entrelaçar – Vínculos de Artes em Ibirité”, finalista no SmallRig Awards na China, e atualmente realiza o documentário “Candangos – A Saga das Mãos que Ergueram Brasília”. Também é autor do livro “O Circo na Minha Escola”, com foco em cultura e educação.",
+          "role": "Diretor",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2882,
+            "pivot_speaker_id": 5612,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 2770,
       "start_time": "2025-08-03T12:00:00.000+00:00",
       "end_time": "2025-08-03T14:30:00.000+00:00",
@@ -923,11 +997,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -1256,11 +1330,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 30,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -1415,11 +1489,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 30,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -1574,11 +1648,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 100,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -1642,11 +1716,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 50,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -1701,15 +1775,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 295,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cultura em Movimento",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4233,
@@ -1742,6 +1807,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 295,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cultura em Movimento",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1763,21 +1837,12 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 468,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Diversidade/  Equidade e Inclusão",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4961,
@@ -1810,6 +1875,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 468,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Diversidade/  Equidade e Inclusão",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1837,15 +1911,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 279,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação e Aprendizado",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4305,
@@ -1861,6 +1926,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 279,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Educação e Aprendizado",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -1890,15 +1964,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 469,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro do Trabalho/  Carreira e Cultura Organizacional",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4487,
@@ -1914,6 +1979,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 469,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro do Trabalho/  Carreira e Cultura Organizacional",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -1943,15 +2017,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 290,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Economia Criativa",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5594,
@@ -1967,6 +2032,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 290,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Economia Criativa",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -1990,21 +2064,12 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 70,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 312,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro da Alimentação",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4183,
@@ -2052,6 +2117,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 312,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro da Alimentação",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2079,15 +2153,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 306,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Vendas e Marketing",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5394,
@@ -2135,6 +2200,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 306,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Vendas e Marketing",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2162,15 +2236,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 272,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "AI e Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4721,
@@ -2186,6 +2251,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 272,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "AI e Tecnologias Emergentes",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2215,15 +2289,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 284,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Gestão e Governança Inovadora",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4163,
@@ -2239,6 +2304,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 284,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão e Governança Inovadora",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2262,21 +2336,12 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 50,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 470,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Música – Inovação na Indústria",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4355,
@@ -2292,6 +2357,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 470,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Música – Inovação na Indústria",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2315,11 +2389,12 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 15,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4856,
@@ -2337,7 +2412,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 293,
@@ -2373,6 +2447,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5392,
@@ -2390,7 +2465,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 280,
@@ -2426,6 +2500,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4269,
@@ -2443,7 +2518,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 284,
@@ -2479,6 +2553,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4344,
@@ -2496,7 +2571,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -2532,6 +2606,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4555,
@@ -2549,7 +2624,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -2585,6 +2659,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4637,
@@ -2602,7 +2677,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 348,
@@ -2638,6 +2712,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4426,
@@ -2670,7 +2745,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -2706,6 +2780,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4732,
@@ -2873,7 +2948,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 312,
@@ -2909,8 +2983,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -2938,6 +3012,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4224,
@@ -2985,7 +3060,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 274,
@@ -3016,11 +3090,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 30,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -3215,59 +3289,6 @@
       "nearLocation": "Praça e Arredores"
     },
     {
-      "id": 2852,
-      "start_time": "2025-08-03T13:00:00.000+00:00",
-      "end_time": "2025-08-03T15:00:00.000+00:00",
-      "title": "Lifelong Learning (Aprendizagem ao longo da vida): aprendendo com IA",
-      "description": "Experienciar como a IA pode ser uma aliada dos adultos na Aprendizagem ao Longo da Vida - ideias de como ela pode ser utilizada por pessoas das mais diversas áreas com diferentes objetivos (trocar de carreira, aprofundar-se na profissão, etc). Pensar em um plano de ação para aprendizagem contínua usando alguma IA (possivelmente o ChatGPT)",
-      "hub_event_id": 1,
-      "entity_register_id": 11201,
-      "place": "Escola Sânico Teles - Sala Paulo Freire",
-      "allow_questions": false,
-      "external_id": "9ec964ae-002d-4eff-955a-3aebe7e366de",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5468,
-          "name": "Mariana Santana Ofugi",
-          "picture": null,
-          "bio": "",
-          "role": "",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2852,
-            "pivot_speaker_id": 5468,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 279,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação e Aprendizado",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
-    },
-    {
       "id": 2802,
       "start_time": "2025-08-03T13:00:00.000+00:00",
       "end_time": "2025-08-03T15:00:00.000+00:00",
@@ -3364,11 +3385,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 50,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -3404,59 +3425,6 @@
       "nearLocation": null
     },
     {
-      "id": 2851,
-      "start_time": "2025-08-03T13:00:00.000+00:00",
-      "end_time": "2025-08-03T15:00:00.000+00:00",
-      "title": "Professores não precisam de formação, mas de compartilhamento. Neste workshop, proponho uma experiência de troca de saberes como ferramenta de aprendizado coletivo. Mais do que mostrar como formar professores, o que vamos fazer é construir um ambiente de compartilhamento de repertórios para que, a partir dele, qualquer educador se sinta mais valorizado e empoderado nas suas práticas.",
-      "description": "Coletivos de Aprendizagem: Repensando a Formação de Professores",
-      "hub_event_id": 1,
-      "entity_register_id": 11200,
-      "place": "Escola Sânico Teles - Sala Sugata Mitra",
-      "allow_questions": false,
-      "external_id": "6cf5cf0e-57ea-4014-9df9-f19f4c961c51",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5063,
-          "name": "Filipe Gonçalves",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5063/partner_5063_1753477621439.png",
-          "bio": "Fundador do Em Si no Outro e professor de Liderança no Inteli. Mestre em Educação pela USP, desenvolve experiências de alteridade e transformação ética no ensino.",
-          "role": "Fundador do Em Si no Outro e Professor de Liderança no Inteli",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2851,
-            "pivot_speaker_id": 5063,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 279,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação e Aprendizado",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
-    },
-    {
       "id": 2849,
       "start_time": "2025-08-03T13:00:00.000+00:00",
       "end_time": "2025-08-03T15:00:00.000+00:00",
@@ -3464,7 +3432,7 @@
       "description": "O Revoluteen é um programa de 8 horas para adolescentes de 13 a 18 anos que visa promover habilidades para que sejam agentes de mudança. Desenvolvemos 3 blocos: autoconhecimento; greenskills e letramento em futuros. São dinâmicas conduzidas por diferentes profissionais e promovem uma nova perspectiva pra criação de projeto de vida amparado nas novas realidades econômicas. O Revoluteen tem 50% vindos de rede publica e 50% de rede privada o que possibilita uma excelente diversidade de pensamento. Ja realizamos 7 turmas . A proposta para esse evento seria realizar a oficina de futuro do trabalho.",
       "hub_event_id": 1,
       "entity_register_id": 11198,
-      "place": "Escola Sânico Teles - Auditório  Maria Montessori",
+      "place": "Escola Sanico Teles - Teatro FIAP",
       "allow_questions": false,
       "external_id": "e3857838-74c1-41d2-8807-b697187e7477",
       "place_color": null,
@@ -3529,89 +3497,6 @@
           "color": "#21C89D",
           "type": "schedules",
           "name": "Futuro do Trabalho/  Carreira e Cultura Organizacional",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
-    },
-    {
-      "id": 2674,
-      "start_time": "2025-08-03T13:00:00.000+00:00",
-      "end_time": "2025-08-03T15:00:00.000+00:00",
-      "title": "Revoluteen ",
-      "description": "O Revoluteen é um programa de 8 horas para adolescentes de 13 a 18 anos que visa promover habilidades para que sejam agentes de mudança. Desenvolvemos 3 blocos: autoconhecimento; greenskills e letramento em futuros. São dinâmicas conduzidas por diferentes profissionais e promovem uma nova perspectiva pra criação de projeto de vida amparado nas novas realidades econômicas. O Revoluteen tem 50% vindos de rede publica e 50% de rede privada o que possibilita uma excelente diversidade de pensamento. Ja realizamos 7 turmas . A proposta para esse evento seria realizar a oficina de futuro do trabalho. ",
-      "hub_event_id": 1,
-      "entity_register_id": 10599,
-      "place": "Escola Sânico Teles - Sala Sugata Mitra",
-      "allow_questions": false,
-      "external_id": "yazo_2674",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5068,
-          "name": "fabiana fragiacomo",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5068/partner_5068_1753477638568.png",
-          "bio": "Fundadora da Gloppies e criadora do Revoluteen. Especialista em inovação, comunicação e futuros, atua com adolescentes e organizações, conectando tendências globais e educação transformadora com base em sua experiência no Instituto Ayrton Senna.",
-          "role": "Fundadora Gloppies, Revoluteen e consultora de inovação e comunicação",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2674,
-            "pivot_speaker_id": 5068,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5155,
-          "name": "Adriana Higashi",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5155/partner_5155_1753477853001.png",
-          "bio": "Mentora de carreira e liderança, fundadora da UBetter Mentoria. Atua com foco em posicionamento estratégico, identidade profissional e transições conscientes. Desenvolve pessoas na interseção entre desenvolvimento humano, novas economias, habilidades emergentes e futuro do trabalho.",
-          "role": "Fundadora UBetter Mentoria",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2674,
-            "pivot_speaker_id": 5155,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5100,
-          "name": "Calebe",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5100/partner_5100_1753477723735.png",
-          "bio": "Compositor, violeiro e pesquisador de música regional brasileira. Atua também como professor, preservando e difundindo tradições musicais por meio da arte e da educação.",
-          "role": "Compositor, Violeiro",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2674,
-            "pivot_speaker_id": 5100,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
           "hub_event_id": 1
         }
       ],
@@ -3809,11 +3694,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 1024,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
+      "available_slots": 50,
       "unlimited_slots": false,
-      "requires_booking": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -4085,6 +3970,51 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
+      "id": 2883,
+      "start_time": "2025-08-03T13:30:00.000+00:00",
+      "end_time": "2025-08-03T14:30:00.000+00:00",
+      "title": "curta + sessão comentada (Rede Minas) - Curta: Casulo (Rafael Aguiar)",
+      "description": "Casulo - Mário e seu pai vivem isolados num pequeno sítio no interior de Minas Gerais. Lá, cultivam hortaliças e criam animais para garantir o sustento dos dois. A cada dia que passa, Mário se descobre e essas descobertas irão levá-lo até o seu mais íntimo desejo.",
+      "hub_event_id": 1,
+      "entity_register_id": 11248,
+      "place": "ETE - Biblioteca by Studios MAX Sebrae ",
+      "allow_questions": false,
+      "external_id": "yazo_2883",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 1024,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5613,
+          "name": "Rafael Aguiar",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753917967399.png?ims=filters:quality(75)",
+          "bio": "Rafael Aguiar é fotógrafo, roteirista e diretor mineiro, natural de Cataguases. Estudou Comunicação e Artes Cênicas e, desde 2007, realiza curtas-metragens, webséries e videoclipes com circulação em festivais no Brasil e no exterior. Realizou as exposições “CRU” e Projeto GIZ em espaços culturais de Minas Gerais. Finalista do programa Arte na Fotografia (Arte1), atua entre o autoral e o comercial, com um olhar que cruza narrativa e estética visual.",
+          "role": "Diretor",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2883,
+            "pivot_speaker_id": 5613,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 2768,
       "start_time": "2025-08-03T13:30:00.000+00:00",
       "end_time": "2025-08-03T15:30:00.000+00:00",
@@ -4315,6 +4245,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5421,
@@ -4332,7 +4263,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 348,
@@ -4363,11 +4293,12 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 1280,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4690,
@@ -4385,7 +4316,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -4421,6 +4351,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5596,
@@ -4453,7 +4384,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 315,
@@ -4484,11 +4414,12 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 1280,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4929,
@@ -4506,7 +4437,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 280,
@@ -4542,8 +4472,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 417,
@@ -4579,6 +4509,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4275,
@@ -4596,7 +4527,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 468,
@@ -4632,6 +4562,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5230,
@@ -4649,7 +4580,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -4677,6 +4607,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4195,
@@ -4694,7 +4625,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -4730,6 +4660,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5231,
@@ -4747,7 +4678,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -4790,6 +4720,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -4867,7 +4798,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 473,
@@ -5129,11 +5059,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 25,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5182,11 +5112,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 25,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5220,59 +5150,6 @@
       },
       "filterLocation": "ETE",
       "nearLocation": "ETE e Arredores"
-    },
-    {
-      "id": 2853,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Esta palestra investiga como o Task-Based Learning pode ser utilizado para promover o pensamento crítico e a empatia dos estudantes, ao lidar com temas sensíveis, transformando a maneira como aprendem e interagem com o conhecimento.",
-      "description": "Aprendendo a Empatia: Abordando Temas Sensíveis através do Task-Based Learning",
-      "hub_event_id": 1,
-      "entity_register_id": 11202,
-      "place": "Escola Sânico Teles - Sala Paulo Freire",
-      "allow_questions": false,
-      "external_id": "32a3b25d-beed-4ff0-82a7-3c41c9bd52d0",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5469,
-          "name": "Eduardo de Freitas",
-          "picture": null,
-          "bio": "",
-          "role": "",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2853,
-            "pivot_speaker_id": 5469,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 279,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação e Aprendizado",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2777,
@@ -5394,11 +5271,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5492,12 +5369,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
+      "available_slots": 25,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "speakers": [
         {
           "id": 4699,
@@ -5515,6 +5391,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 294,
@@ -5550,7 +5427,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4747,
@@ -5568,6 +5444,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 293,
@@ -5598,12 +5475,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 768,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
+      "available_slots": 40,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "speakers": [
         {
           "id": 4675,
@@ -5621,6 +5497,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -5656,7 +5533,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4825,
@@ -5674,6 +5550,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 284,
@@ -5689,59 +5566,6 @@
       },
       "filterLocation": "Inatel",
       "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2850,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Workshop cocriativo envolvendo a criação de um propósito coletivo com base na realidade criada pelas IAs generativas e os anseios e demandas futuras.",
-      "description": "IA, futuro e propósito: como equilibrar os pratos na era da incerteza.",
-      "hub_event_id": 1,
-      "entity_register_id": 11199,
-      "place": "Escola Sânico Teles - Auditório  Maria Montessori",
-      "allow_questions": false,
-      "external_id": "428f9eb2-7dc3-4b4d-8e7b-7fc1b9e0f1d6",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5470,
-          "name": "Rafael Davini",
-          "picture": null,
-          "bio": "",
-          "role": "",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2850,
-            "pivot_speaker_id": 5470,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 315,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA e Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2672,
@@ -5762,7 +5586,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5469,
@@ -5780,6 +5603,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -5815,7 +5639,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4966,
@@ -5833,6 +5656,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -5875,7 +5699,6 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4273,
@@ -5893,6 +5716,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -5928,8 +5752,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 417,
@@ -5965,7 +5789,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5432,
@@ -5983,6 +5806,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 277,
@@ -6018,7 +5842,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4579,
@@ -6036,6 +5859,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 261,
@@ -6191,7 +6015,7 @@
       "id": 2839,
       "start_time": "2025-08-03T17:30:00.000+00:00",
       "end_time": "2025-08-03T18:30:00.000+00:00",
-      "title": "WORKSHOP DE MEDIA TRAINING: COMO FALAR COM PROPÓSITO EM TEMPOS IMPREVISÍVEIS",
+      "title": "Workshop em Media Training : Como falar com propósito em tempos imprevisíveis",
       "description": "Não basta saber o que dizer — é preciso saber como dizer com impacto. Neste workshop, vamos mostrar como construir autoridade, criar mensagens poderosas e manter a presença mesmo sob pressão. Com base em treinamentos reais com líderes e porta-vozes em crise, vamos explorar estratégias para enfrentar perguntas armadas, brancos e ambientes hostis. Um express de sobrevivência e performance para quem precisa comunicar com clareza e firmeza.",
       "hub_event_id": 1,
       "entity_register_id": 11188,
@@ -6201,11 +6025,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 1792,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 40,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
