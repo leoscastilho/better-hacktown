@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
   "total_events": 105,
-  "scraped_at": "2025-08-01T18:02:01.162025-03:00",
+  "scraped_at": "2025-08-01T19:01:26.486266-03:00",
   "events": [
     {
       "id": 2790,
@@ -22,6 +22,7 @@
       "available_slots": 80,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4768,
@@ -100,7 +101,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -127,6 +127,7 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4273,
@@ -160,7 +161,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -187,9 +187,9 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -216,6 +216,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4426,
@@ -257,7 +258,51 @@
           "hub_event_id": 1
         }
       ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 3023,
+      "start_time": "2025-08-03T12:00:00.000+00:00",
+      "end_time": "2025-08-03T15:00:00.000+00:00",
+      "title": "Oficina PRIORIZAR-SER",
+      "description": "O Corpo é o Receptáculo da Mente \n\nA Matemática Corpo 3D  Sincronizada com a Mente 4D em Manifestação com o Coração 5D.\n\nTecnologia do Futuro é sair do Sapiens Sapiens para o Homo Noosféricos.\n\nA SUPERMENTE !",
+      "hub_event_id": 1,
+      "entity_register_id": 13424,
+      "place": "INATEL - Sala 07 - Prédio 1 - Térreo",
+      "allow_questions": false,
+      "external_id": "yazo_3023",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 70,
+      "unlimited_slots": false,
+      "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5649,
+          "name": "Vania Temporini",
+          "picture": "https://iili.io/FgzzFiN.png",
+          "bio": "-",
+          "role": "-",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 3023,
+            "pivot_speaker_id": 5649,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -284,6 +329,7 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4258,
@@ -317,7 +363,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -344,6 +389,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5056,
@@ -377,7 +423,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -404,6 +449,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4929,
@@ -437,7 +483,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -464,6 +509,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4226,
@@ -497,7 +543,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -524,6 +569,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4421,
@@ -572,7 +618,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -599,6 +644,7 @@
       "available_slots": 80,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4106,
@@ -632,7 +678,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1847,10 +1892,10 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 512,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
+      "available_slots": 60,
+      "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
       "speakers": [
@@ -2594,6 +2639,7 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4856,
@@ -2611,7 +2657,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 293,
@@ -2654,6 +2699,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5392,
@@ -2671,7 +2717,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 280,
@@ -2714,6 +2759,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4269,
@@ -2731,7 +2777,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 284,
@@ -2774,6 +2819,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4344,
@@ -2791,7 +2837,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -2834,6 +2879,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4555,
@@ -2851,7 +2897,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -2894,6 +2939,7 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4413,
@@ -2911,7 +2957,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 293,
@@ -2954,6 +2999,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4732,
@@ -3121,7 +3167,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 312,
@@ -3164,6 +3209,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4224,
@@ -3211,7 +3257,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 274,
@@ -3254,8 +3299,8 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -3283,6 +3328,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4960,
@@ -3300,7 +3346,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -3338,9 +3383,9 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 256,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
+      "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
@@ -3495,96 +3540,6 @@
         "rating": 0
       },
       "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
-    },
-    {
-      "id": 2802,
-      "start_time": "2025-08-03T13:00:00.000+00:00",
-      "end_time": "2025-08-03T15:00:00.000+00:00",
-      "title": "Mapa Vivo - Facilitação e inteliência coletiva para promover conexões",
-      "description": "O Mapa Vivo permite que um um grupo muito grande de pessoas crie consciência a respeito de onde estão, com quem estão falando e quais as oportunidades disponíveis no ambiente. No mínimo, é a atividade mais avançada de networking disponível atualmente. Em seu melhor resultado, o Mapa Vivo destrava negócios, cria comunidades de prática e viabiliza projetos complexos.",
-      "hub_event_id": 1,
-      "entity_register_id": 11151,
-      "place": "Casa do CCCF - Venue Principal",
-      "allow_questions": false,
-      "external_id": "7af21cd9-02d0-4f3d-95a6-2e3cf405f406",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5286,
-          "name": "Lessak Israel",
-          "picture": "https://iili.io/FgzzFiN.png",
-          "bio": "-",
-          "role": "-",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2802,
-            "pivot_speaker_id": 5286,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5287,
-          "name": "Vinicius Pires",
-          "picture": "https://iili.io/FgzzFiN.png",
-          "bio": "-",
-          "role": "Associação Internacional de Metadesign",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2802,
-            "pivot_speaker_id": 5287,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5588,
-          "name": "Daniel Vivacqua",
-          "picture": "https://iili.io/FgzzFiN.png",
-          "bio": "-",
-          "role": "-",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2802,
-            "pivot_speaker_id": 5588,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 274,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cidades e Comunidades Inovadoras",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Casa do CCCF",
       "nearLocation": "Praça e Arredores"
     },
     {
@@ -4003,7 +3958,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4224,
@@ -4051,6 +4005,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 275,
@@ -4128,8 +4083,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -4152,12 +4107,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 512,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
+      "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4489,
@@ -4175,6 +4129,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -4212,12 +4167,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 512,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
+      "available_slots": 60,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5286,
@@ -4265,6 +4219,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 332,
@@ -4314,7 +4269,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4753,
@@ -4332,6 +4286,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 284,
@@ -4374,7 +4329,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4815,
@@ -4392,6 +4346,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -4434,7 +4389,6 @@
       "available_slots": 28,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5672,
@@ -4452,6 +4406,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -4479,7 +4434,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5662,
@@ -4497,6 +4451,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -4524,7 +4479,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5421,
@@ -4542,6 +4496,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 348,
@@ -4584,7 +4539,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4275,
@@ -4602,6 +4556,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 468,
@@ -4644,7 +4599,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4690,
@@ -4678,6 +4632,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4704,7 +4659,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5596,
@@ -4753,6 +4707,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4774,12 +4729,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 1280,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
+      "available_slots": 70,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4230,
@@ -4813,6 +4767,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4839,7 +4794,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4953,
@@ -4866,6 +4820,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4892,7 +4847,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4929,
@@ -4926,6 +4880,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4952,7 +4907,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5230,
@@ -4971,6 +4925,7 @@
         }
       ],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4997,7 +4952,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -5008,6 +4962,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5034,7 +4989,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4195,
@@ -5068,6 +5022,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5094,7 +5049,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5231,
@@ -5128,6 +5082,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5154,7 +5109,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -5248,6 +5202,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5275,6 +5230,23 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5360,
+          "name": "Adam Kurdahl",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
+          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis.",
+          "role": "Sócio do SPOL Architects",
+          "company": "SPOL Architects",
+          "meta": {
+            "pivot_schedule_id": 2504,
+            "pivot_speaker_id": 5360,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 292,
@@ -5319,23 +5291,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 5360,
-          "name": "Adam Kurdahl",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
-          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis.",
-          "role": "Sócio do SPOL Architects",
-          "company": "SPOL Architects",
-          "meta": {
-            "pivot_schedule_id": 2504,
-            "pivot_speaker_id": 5360,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5363,15 +5318,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5226,
@@ -5387,6 +5333,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -5416,22 +5371,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 306,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Vendas e Marketing",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4569,
@@ -5449,39 +5388,12 @@
           "allow_access": false
         }
       ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
-    },
-    {
-      "id": 2792,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Do Zero ao MVP: Como Lançar um Produto Sem Travar na Ideia",
-      "description": "Workshop prático voltado para quem tem uma ideia, mas ainda não deu o primeiro passo. Ao longo de poucas horas, será desenvolvido ao vivo um MVP funcional, da concepção à entrega. Utilizando ferramentas no-code/low-code e técnicas de validação ágil, os participantes aprenderão a testar rapidamente, lançar com eficiência e evitar a busca por perfeição paralisante. Foco em execução, experimentação e aceleração do caminho até o mercado.",
-      "hub_event_id": 1,
-      "entity_register_id": 11141,
-      "place": "FAI - SALA 1",
-      "allow_questions": false,
-      "external_id": "584dabc7-cf1f-4378-8ed1-690739497a00",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 25,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
       "tags": [
         {
-          "id": 261,
+          "id": 306,
           "color": "#21C89D",
           "type": "schedules",
-          "name": "Empreendedorismo",
+          "name": "Vendas e Marketing",
           "hub_event_id": 1
         },
         {
@@ -5490,83 +5402,6 @@
           "type": "schedules",
           "name": "Workshop",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4279,
-          "name": "Edson Marques",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1412/partner_1412_1752610635325.png",
-          "bio": "Fundador de startup especializada em transformação digital de setores tradicionais, com atuação como Tech Manager em projetos de software e inovação. Combina visão estratégica e metodologias ágeis para desenvolver soluções tecnológicas que geram impacto real e sustentável. Experiência consolidada na liderança de equipes multidisciplinares, impulsionando a inovação e a competitividade em ambientes desafiadores.",
-          "role": "Cofundador e CEO da Imobyl / Tech Manager em projetos de inovação",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2792,
-            "pivot_speaker_id": 4279,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "FAI - SALA 1",
-      "nearLocation": null
-    },
-    {
-      "id": 2801,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Entre Nós – Comunicação com Sentimento e Cultura como Prática.",
-      "description": "Uma aula-experiência sobre como a coragem de se comunicar com sentimento transforma a forma como lideramos, criamos e pertencemos. Com práticas simbólicas, dinâmicas participativas e provocação emocional, Giu Libar conduz uma jornada para quem quer transformar presença em cultura viva.\n\nEssa não é uma aula convencional. É um convite para refletir e sentir. Partindo da Pedagogia da Vulnerabilidade, Giu Libar convida os participantes a se colocarem com verdade. \nVamos falar sobre:\n•⁠  ⁠Como reconhecer a própria história fortalece a coletividade.\n•⁠  ⁠Como a emoção é ingrediente estratégico para a confiança.\n•⁠  ⁠Como cultura não se decreta: se constrói com presença, prática e repetição consciente.\n\nCom dinâmicas como a Linha da Vida e Comunicação Autêntica, essa experiência ativa o lado mais humano da inovação: aquele que gera conexão, acolhimento e coragem para agir com autenticidade.",
-      "hub_event_id": 1,
-      "entity_register_id": 11150,
-      "place": "ETE - Sala 66",
-      "allow_questions": false,
-      "external_id": "b0d99638-b85c-4e02-aa18-9d0d9c90ac88",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 25,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 472,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Ética/  Consciência e Responsabilidade",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4374,
-          "name": "Giu Libar",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1507/partner_1507_1752611226869.png",
-          "bio": "Publicitária, cofundadora da Libarte e integrante da UNESCO-SOST Transcriativa. Atua há mais de 10 anos na interseção entre cultura, estratégia e transformação humana. Facilitadora de experiências simbólicas para líderes e organizações, com passagens por Ambev, Perestroika e Rio2C.",
-          "role": "Cofundadora da Libarte | Pesquisadora em cultura, comunicação e confiança coletiva",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2801,
-            "pivot_speaker_id": 4374,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -5575,366 +5410,13 @@
       },
       "filterLocation": "ETE",
       "nearLocation": "ETE e Arredores"
-    },
-    {
-      "id": 2777,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Hackeando o tempo: a revolução da criança que você tentou esquecer",
-      "description": "Palestra-espetáculo que conduz uma jornada sensível e provocativa pelas fronteiras da mente, explorando territórios onde a criatividade foi esquecida e a leveza reprimida. Combinando storytelling, dinâmicas lúdicas e performances, a experiência propõe um reencontro real com a criança interior — como ferramenta concreta de reinvenção e inovação emocional. Uma travessia afetiva que desafia o óbvio e inspira transformação pessoal.",
-      "hub_event_id": 1,
-      "entity_register_id": 11126,
-      "place": "INATEL - Sala 03 - Prédio 1 - Térreo",
-      "allow_questions": false,
-      "external_id": "1c7f197c-24a4-4fdc-9f9b-0126d2d49fe2",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 40,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 322,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Fronteiras da Mente",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4334,
-          "name": "Flávia Gama",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1467/partner_1467_1752610989304.png",
-          "bio": "Especialista em storytelling e comunicação com propósito, atua como contadora de histórias em palestras-espetáculo que unem arte, poesia e reflexões potentes. Reconhecida por criar experiências que inspiram, sensibilizam e promovem transformação, utiliza a narrativa como ferramenta de conexão, cura e desenvolvimento humano.",
-          "role": "Fundadora do Gama Instituto, Mentora de Storytelling e Comunicação",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2777,
-            "pivot_speaker_id": 4334,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2799,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Ignite Yourself: Jornada de Empreendedorismo em 60 Minutos",
-      "description": "Atividade prática e dinâmica para ideação, validação de problema e conexão com propósito usando ferramentas ágeis como Canvas e Mapa de Problema.",
-      "hub_event_id": 1,
-      "entity_register_id": 11148,
-      "place": "INATEL - Sala 23 - Prédio 1 - 2º Piso",
-      "allow_questions": false,
-      "external_id": "6e1d0fe9-30ae-4956-bf38-e77752fac13d",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 20,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 279,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação e Aprendizado",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4380,
-          "name": "Greyce Franzmann",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1513/partner_1513_1752611260017.png",
-          "bio": "Greyce Franzmann é referência em inovação, empreendedorismo e negócios de impacto. Atua na Wadhwani, representa a Casa Sete, é cofundadora do Impact Hub Belém e mentora em iniciativas como InovaClima, Avati, InoveNow e Hub de Inovação Climática. Integra a Coalizão pelo Impacto Belém, promovendo transformação sustentável por meio da colaboração.",
-          "role": "Gerente de conteúdo de empreendedorismo na Wadhwani Foundation",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2799,
-            "pivot_speaker_id": 4380,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2825,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T17:30:00.000+00:00",
-      "title": "Intro to Gemini 2.5",
-      "description": "",
-      "hub_event_id": 1,
-      "entity_register_id": 11174,
-      "place": "Casa Google Cloud - Sala Academy",
-      "allow_questions": false,
-      "external_id": "d24a4d19-d19a-46e4-a76d-7f724d0cb6d5",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4195,
-          "name": "Brenda Xavier",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753900664568.png?ims=filters:quality(75)",
-          "bio": "Engenheira de dados no Itaú Unibanco. Atua como GDG Organizer Santos & Hackathon Leader e é mentora Google For Startups. Academicamente, possui formação em Ciência da Computação, Sistemas Biomédicos e pós-graduação em Engenharia de Dados.",
-          "role": "Engenheira de Dados no Itaú, GDG Organizer Santos & Hackathon Leader e Mentora Google for Startups",
-          "company": "Itaú/Google",
-          "meta": {
-            "pivot_schedule_id": 2825,
-            "pivot_speaker_id": 4195,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Casa Google Cloud",
-      "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2789,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Jornada de impacto socioambiental: como medir o que realmente importa",
-      "description": "Como saber se um projeto está, de fato, gerando transformação? Neste workshop, vamos guiar participantes por uma jornada prática de construção de teorias de mudança e definição de indicadores de impacto socioambiental. Usando exemplos reais e ferramentas colaborativas, vamos aprender a sair do discurso e transformar missão em evidências — sem abrir mão da complexidade e particularidades de cada contexto. Ideal para quem atua no terceiro setor, responsabilidade social corporativa, gestão pública e áreas ESG e quer estruturar estratégias de impacto com inteligência e propósito.",
-      "hub_event_id": 1,
-      "entity_register_id": 11138,
-      "place": "INATEL - Sala 25 - Prédio 1 - 2º Piso",
-      "allow_questions": false,
-      "external_id": "68be4b13-34e2-4b0c-8dd9-a7b10a81dde6",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 25,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 294,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Impacto Social",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4699,
-          "name": "Rayssa Mendes",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753751336416.png?ims=filters:quality(75)",
-          "bio": "Empreendedora social, historiadora e cientista social, Rayssa Mendes atua com tecnologias e inteligência voltadas para impacto social e enfrentamento das mudanças climáticas. Desenvolve iniciativas que promovem inovação com propósito e acredita no empreendedorismo como ferramenta para a construção de um Brasil mais justo, inclusivo e sustentável.",
-          "role": "Cofundadora da Manacá, atua com impacto, dados e justiça climática",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2789,
-            "pivot_speaker_id": 4699,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
-    },
-    {
-      "id": 2767,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:30:00.000+00:00",
-      "title": "Linhas e rasgos: uma experiência projetiva sobre quem somos na fila do pão",
-      "description": "Um workshop criativo e sensorial que convida os participantes a explorar traços, rasgos, luz e sombra como formas de refletir sobre identidade e relação com o mundo. A partir da criação de composições visuais, a atividade propõe uma investigação profunda — e sem respostas prontas — sobre como nos posicionamos diante do outro, do ambiente e de nós mesmos. Não é necessário ter habilidades artísticas, apenas disposição para experimentar.",
-      "hub_event_id": 1,
-      "entity_register_id": 11116,
-      "place": "ETE - Sala 82",
-      "allow_questions": false,
-      "external_id": "a22e236f-b58b-4bc1-8152-6687d1f37d2d",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 30,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 293,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Saúde Física e Mental – Presente e Futuro",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4747,
-          "name": "Stella Nery",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1894/partner_1894_1752613578556.png",
-          "bio": "CEO e Consultora Criativa na Jellyframe Studio, com atuação multicarreira que integra arte, educação e cuidado. Arteterapeuta com foco em processos criativos e desenvolvimento humano, desenvolve projetos que promovem bem-estar, expressão e aprendizagem. Reconhecida por conectar inovação e sensibilidade em experiências formativas e terapêuticas.",
-          "role": "CEO, Sócia-Fundadora e Consultora Criativa na Jellyframe Studio.",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2767,
-            "pivot_speaker_id": 4747,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
-    },
-    {
-      "id": 2782,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "O que você faria com um dia a mais na semana?",
-      "description": "O trabalho está quebrado. Não há comunicação adequada, não há organização. Quanto mais improdutivo você é, mais retrabalho você tem. Centralizar seu trabalho em um só lugar, com fluxos personalizados para o seu cenário e com agentes de IA que te auxiliam em uma rotina mais produtiva, faz você ganhar um dia a mais na sua semana. Então, o que você faria com esse tempo extra?",
-      "hub_event_id": 1,
-      "entity_register_id": 11131,
-      "place": "INATEL - Sala 17 - Prédio 1 - 2º Piso",
-      "allow_questions": false,
-      "external_id": "f25aae50-f456-4f57-b842-c1b6bb6e5752",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 50,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4825,
-          "name": "Yago Santos",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1974/partner_1974_1752614060135.png",
-          "bio": "Especialista em gestão de projetos, Yago atua na identificação de necessidades de empresas e pessoas, orientando sobre boas práticas e impulsionando a produtividade. Com foco em inovação e melhoria contínua, desenvolve soluções estratégicas que otimizam processos, fortalecem equipes e ampliam resultados de forma sustentável.",
-          "role": "Head of Customer Success da P3rformar",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2782,
-            "pivot_speaker_id": 4825,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 284,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Gestão e Governança Inovadora",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2843,
       "start_time": "2025-08-03T16:00:00.000+00:00",
       "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Transformação Digital na Saúde: Integrando Tecnologia e Experiência do Paciente para uma Gestão Eficiente",
-      "description": "E se a sua clínica fosse mais encantadora que um parque da Disney e mais eficiente que um robô da NASA? Nessa palestra, você vai descobrir como transformar gestão chata em mágica estratégica com tecnologia, branding e atendimento UAU! Uma dose de governança, outra de criatividade — e pronto: o futuro da saúde começa aqui.",
+      "title": "Criatividade sem limites: transformando um X em possibilidades",
+      "description": "Por que sentimos que não somos criativos? Nesta oficina provocativa e prática, exploramos os bloqueios mentais que limitam nossa capacidade de imaginar soluções e transformar o mundo, desafiando a lógica do “não sei criar”. Através de uma experiência prática e sensível recriação do \"X\", os participantes experimentam, na prática, o poder de enxergar além do óbvio — liberando seu potencial criativo para inovar na vida, nos projetos e nos territórios que habitam. Convidamos o público a destravar sua imaginação e ativar novos olhares!",
       "hub_event_id": 1,
       "entity_register_id": 11192,
       "place": "INATEL - Sala 14 - Prédio 1 - 2º Piso",
@@ -6005,6 +5487,479 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
+      "id": 2792,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:00:00.000+00:00",
+      "title": "Do Zero ao MVP: Como Lançar um Produto Sem Travar na Ideia",
+      "description": "Workshop prático voltado para quem tem uma ideia, mas ainda não deu o primeiro passo. Ao longo de poucas horas, será desenvolvido ao vivo um MVP funcional, da concepção à entrega. Utilizando ferramentas no-code/low-code e técnicas de validação ágil, os participantes aprenderão a testar rapidamente, lançar com eficiência e evitar a busca por perfeição paralisante. Foco em execução, experimentação e aceleração do caminho até o mercado.",
+      "hub_event_id": 1,
+      "entity_register_id": 11141,
+      "place": "INATEL - Sala 24 - Prédio 1 - 2º Piso",
+      "allow_questions": false,
+      "external_id": "584dabc7-cf1f-4378-8ed1-690739497a00",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 25,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4279,
+          "name": "Edson Marques",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1412/partner_1412_1752610635325.png",
+          "bio": "Fundador de startup especializada em transformação digital de setores tradicionais, com atuação como Tech Manager em projetos de software e inovação. Combina visão estratégica e metodologias ágeis para desenvolver soluções tecnológicas que geram impacto real e sustentável. Experiência consolidada na liderança de equipes multidisciplinares, impulsionando a inovação e a competitividade em ambientes desafiadores.",
+          "role": "Cofundador e CEO da Imobyl / Tech Manager em projetos de inovação",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2792,
+            "pivot_speaker_id": 4279,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2801,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:00:00.000+00:00",
+      "title": "Entre Nós – Comunicação com Sentimento e Cultura como Prática.",
+      "description": "Uma aula-experiência sobre como a coragem de se comunicar com sentimento transforma a forma como lideramos, criamos e pertencemos. Com práticas simbólicas, dinâmicas participativas e provocação emocional, Giu Libar conduz uma jornada para quem quer transformar presença em cultura viva.\n\nEssa não é uma aula convencional. É um convite para refletir e sentir. Partindo da Pedagogia da Vulnerabilidade, Giu Libar convida os participantes a se colocarem com verdade. \nVamos falar sobre:\n•⁠  ⁠Como reconhecer a própria história fortalece a coletividade.\n•⁠  ⁠Como a emoção é ingrediente estratégico para a confiança.\n•⁠  ⁠Como cultura não se decreta: se constrói com presença, prática e repetição consciente.\n\nCom dinâmicas como a Linha da Vida e Comunicação Autêntica, essa experiência ativa o lado mais humano da inovação: aquele que gera conexão, acolhimento e coragem para agir com autenticidade.",
+      "hub_event_id": 1,
+      "entity_register_id": 11150,
+      "place": "ETE - Sala 66",
+      "allow_questions": false,
+      "external_id": "b0d99638-b85c-4e02-aa18-9d0d9c90ac88",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 25,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4374,
+          "name": "Giu Libar",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1507/partner_1507_1752611226869.png",
+          "bio": "Publicitária, cofundadora da Libarte e integrante da UNESCO-SOST Transcriativa. Atua há mais de 10 anos na interseção entre cultura, estratégia e transformação humana. Facilitadora de experiências simbólicas para líderes e organizações, com passagens por Ambev, Perestroika e Rio2C.",
+          "role": "Cofundadora da Libarte | Pesquisadora em cultura, comunicação e confiança coletiva",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2801,
+            "pivot_speaker_id": 4374,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 472,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Ética/  Consciência e Responsabilidade",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 2777,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:00:00.000+00:00",
+      "title": "Hackeando o tempo: a revolução da criança que você tentou esquecer",
+      "description": "Palestra-espetáculo que conduz uma jornada sensível e provocativa pelas fronteiras da mente, explorando territórios onde a criatividade foi esquecida e a leveza reprimida. Combinando storytelling, dinâmicas lúdicas e performances, a experiência propõe um reencontro real com a criança interior — como ferramenta concreta de reinvenção e inovação emocional. Uma travessia afetiva que desafia o óbvio e inspira transformação pessoal.",
+      "hub_event_id": 1,
+      "entity_register_id": 11126,
+      "place": "INATEL - Sala 03 - Prédio 1 - Térreo",
+      "allow_questions": false,
+      "external_id": "1c7f197c-24a4-4fdc-9f9b-0126d2d49fe2",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 40,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4334,
+          "name": "Flávia Gama",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1467/partner_1467_1752610989304.png",
+          "bio": "Especialista em storytelling e comunicação com propósito, atua como contadora de histórias em palestras-espetáculo que unem arte, poesia e reflexões potentes. Reconhecida por criar experiências que inspiram, sensibilizam e promovem transformação, utiliza a narrativa como ferramenta de conexão, cura e desenvolvimento humano.",
+          "role": "Fundadora do Gama Instituto, Mentora de Storytelling e Comunicação",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2777,
+            "pivot_speaker_id": 4334,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 322,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Fronteiras da Mente",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2799,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:00:00.000+00:00",
+      "title": "Ignite Yourself: Jornada de Empreendedorismo em 60 Minutos",
+      "description": "Atividade prática e dinâmica para ideação, validação de problema e conexão com propósito usando ferramentas ágeis como Canvas e Mapa de Problema.",
+      "hub_event_id": 1,
+      "entity_register_id": 11148,
+      "place": "INATEL - Sala 23 - Prédio 1 - 2º Piso",
+      "allow_questions": false,
+      "external_id": "6e1d0fe9-30ae-4956-bf38-e77752fac13d",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4380,
+          "name": "Greyce Franzmann",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1513/partner_1513_1752611260017.png",
+          "bio": "Greyce Franzmann é referência em inovação, empreendedorismo e negócios de impacto. Atua na Wadhwani, representa a Casa Sete, é cofundadora do Impact Hub Belém e mentora em iniciativas como InovaClima, Avati, InoveNow e Hub de Inovação Climática. Integra a Coalizão pelo Impacto Belém, promovendo transformação sustentável por meio da colaboração.",
+          "role": "Gerente de conteúdo de empreendedorismo na Wadhwani Foundation",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2799,
+            "pivot_speaker_id": 4380,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 279,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Educação e Aprendizado",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2825,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T17:30:00.000+00:00",
+      "title": "Intro to Gemini 2.5",
+      "description": "",
+      "hub_event_id": 1,
+      "entity_register_id": 11174,
+      "place": "Casa Google Cloud - Sala Academy",
+      "allow_questions": false,
+      "external_id": "d24a4d19-d19a-46e4-a76d-7f724d0cb6d5",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4195,
+          "name": "Brenda Xavier",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753900664568.png?ims=filters:quality(75)",
+          "bio": "Engenheira de dados no Itaú Unibanco. Atua como GDG Organizer Santos & Hackathon Leader e é mentora Google For Startups. Academicamente, possui formação em Ciência da Computação, Sistemas Biomédicos e pós-graduação em Engenharia de Dados.",
+          "role": "Engenheira de Dados no Itaú, GDG Organizer Santos & Hackathon Leader e Mentora Google for Startups",
+          "company": "Itaú/Google",
+          "meta": {
+            "pivot_schedule_id": 2825,
+            "pivot_speaker_id": 4195,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa Google Cloud",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2789,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:00:00.000+00:00",
+      "title": "Jornada de impacto socioambiental: como medir o que realmente importa",
+      "description": "Como saber se um projeto está, de fato, gerando transformação? Neste workshop, vamos guiar participantes por uma jornada prática de construção de teorias de mudança e definição de indicadores de impacto socioambiental. Usando exemplos reais e ferramentas colaborativas, vamos aprender a sair do discurso e transformar missão em evidências — sem abrir mão da complexidade e particularidades de cada contexto. Ideal para quem atua no terceiro setor, responsabilidade social corporativa, gestão pública e áreas ESG e quer estruturar estratégias de impacto com inteligência e propósito.",
+      "hub_event_id": 1,
+      "entity_register_id": 11138,
+      "place": "INATEL - Sala 25 - Prédio 1 - 2º Piso",
+      "allow_questions": false,
+      "external_id": "68be4b13-34e2-4b0c-8dd9-a7b10a81dde6",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 25,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4699,
+          "name": "Rayssa Mendes",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753751336416.png?ims=filters:quality(75)",
+          "bio": "Empreendedora social, historiadora e cientista social, Rayssa Mendes atua com tecnologias e inteligência voltadas para impacto social e enfrentamento das mudanças climáticas. Desenvolve iniciativas que promovem inovação com propósito e acredita no empreendedorismo como ferramenta para a construção de um Brasil mais justo, inclusivo e sustentável.",
+          "role": "Cofundadora da Manacá, atua com impacto, dados e justiça climática",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2789,
+            "pivot_speaker_id": 4699,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 294,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Impacto Social",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2767,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:30:00.000+00:00",
+      "title": "Linhas e rasgos: uma experiência projetiva sobre quem somos na fila do pão",
+      "description": "Um workshop criativo e sensorial que convida os participantes a explorar traços, rasgos, luz e sombra como formas de refletir sobre identidade e relação com o mundo. A partir da criação de composições visuais, a atividade propõe uma investigação profunda — e sem respostas prontas — sobre como nos posicionamos diante do outro, do ambiente e de nós mesmos. Não é necessário ter habilidades artísticas, apenas disposição para experimentar.",
+      "hub_event_id": 1,
+      "entity_register_id": 11116,
+      "place": "ETE - Sala 82",
+      "allow_questions": false,
+      "external_id": "a22e236f-b58b-4bc1-8152-6687d1f37d2d",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 30,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "speakers": [
+        {
+          "id": 4747,
+          "name": "Stella Nery",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1894/partner_1894_1752613578556.png",
+          "bio": "CEO e Consultora Criativa na Jellyframe Studio, com atuação multicarreira que integra arte, educação e cuidado. Arteterapeuta com foco em processos criativos e desenvolvimento humano, desenvolve projetos que promovem bem-estar, expressão e aprendizagem. Reconhecida por conectar inovação e sensibilidade em experiências formativas e terapêuticas.",
+          "role": "CEO, Sócia-Fundadora e Consultora Criativa na Jellyframe Studio.",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2767,
+            "pivot_speaker_id": 4747,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 293,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física e Mental – Presente e Futuro",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 2782,
+      "start_time": "2025-08-03T16:00:00.000+00:00",
+      "end_time": "2025-08-03T18:00:00.000+00:00",
+      "title": "O que você faria com um dia a mais na semana?",
+      "description": "O trabalho está quebrado. Não há comunicação adequada, não há organização. Quanto mais improdutivo você é, mais retrabalho você tem. Centralizar seu trabalho em um só lugar, com fluxos personalizados para o seu cenário e com agentes de IA que te auxiliam em uma rotina mais produtiva, faz você ganhar um dia a mais na sua semana. Então, o que você faria com esse tempo extra?",
+      "hub_event_id": 1,
+      "entity_register_id": 11131,
+      "place": "INATEL - Sala 17 - Prédio 1 - 2º Piso",
+      "allow_questions": false,
+      "external_id": "f25aae50-f456-4f57-b842-c1b6bb6e5752",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 50,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "speakers": [
+        {
+          "id": 4825,
+          "name": "Yago Santos",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1974/partner_1974_1752614060135.png",
+          "bio": "Especialista em gestão de projetos, Yago atua na identificação de necessidades de empresas e pessoas, orientando sobre boas práticas e impulsionando a produtividade. Com foco em inovação e melhoria contínua, desenvolve soluções estratégicas que otimizam processos, fortalecem equipes e ampliam resultados de forma sustentável.",
+          "role": "Head of Customer Success da P3rformar",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2782,
+            "pivot_speaker_id": 4825,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 284,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão e Governança Inovadora",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
+    },
+    {
       "id": 2847,
       "start_time": "2025-08-03T16:00:00.000+00:00",
       "end_time": "2025-08-03T18:30:00.000+00:00",
@@ -6018,12 +5973,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 0,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
+      "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4286,
@@ -6050,6 +6004,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6076,7 +6031,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5469,
@@ -6103,6 +6057,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6129,7 +6084,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4966,
@@ -6163,6 +6117,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6189,7 +6144,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5470,
@@ -6216,6 +6170,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6242,7 +6197,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -6253,6 +6207,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6274,12 +6229,11 @@
       "place_color": null,
       "allow_evaluation": false,
       "order": 256,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
+      "available_slots": 30,
+      "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5432,
@@ -6313,6 +6267,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6339,7 +6294,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4579,
@@ -6373,6 +6327,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6399,7 +6354,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5237,
@@ -6418,6 +6372,7 @@
         }
       ],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6444,6 +6399,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -6461,7 +6417,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -6489,8 +6444,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 24,
@@ -6526,6 +6481,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5234,
@@ -6543,7 +6499,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -6586,8 +6541,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 24,
@@ -6623,8 +6578,8 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 24,
