@@ -1,61 +1,8 @@
 {
   "date": "2025-08-02",
   "total_events": 424,
-  "scraped_at": "2025-08-01T19:01:26.174991-03:00",
+  "scraped_at": "2025-08-01T20:50:52.585222-03:00",
   "events": [
-    {
-      "id": 2653,
-      "start_time": "2025-08-02T10:00:00.000+00:00",
-      "end_time": "2025-08-02T11:00:00.000+00:00",
-      "title": "Hackeando o Caos: Inovação, futurismo e tecnologia para impacto social",
-      "description": "\"Como inovação e futuros se encontram na prática para enfrentar crises e transformar realidades.\nNesta palestra, Felipe Menezes revela os bastidores do projeto Meu Lar de Volta, uma resposta ágil e humana às enchentes no RS, e compartilha aprendizados sobre como agir no colapso pode antecipar o amanhã. Um convite para imaginar, fazer e transformar, mesmo quando tudo parece ruir.\"",
-      "hub_event_id": 1,
-      "entity_register_id": 10556,
-      "place": "ETE - Sala 82",
-      "allow_questions": false,
-      "external_id": "yazo_2653",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": -256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "speakers": [
-        {
-          "id": 4321,
-          "name": "Felipe Menezes",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1454/partner_1454_1752610914752.png",
-          "bio": "Futurista, palestrante, professor e empreendedor, com mais de 20 anos de experiência. Fundador da WTF! school e cofundador do Meu Lar de Volta, iniciativa que apoiou mais de 20 mil famílias após as enchentes no RS. Duas vezes TEDx Speaker, já colaborou com empresas como SAP, L’Oréal e Sicredi. Inspira pessoas a explorar o novo e cocriar futuros ousados e possíveis.",
-          "role": "Futurista na WTF! School",
-          "company": "",
-          "meta": {
-            "pivot_schedule_id": 2653,
-            "pivot_speaker_id": 4321,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
-    },
     {
       "id": 2742,
       "start_time": "2025-08-02T10:00:00.000+00:00",
@@ -409,8 +356,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Praça da Câmara - Praça Expedicionario Mauricio Adami",
-      "nearLocation": null
+      "filterLocation": "Praça da Câmara",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2436,
@@ -431,7 +378,6 @@
       "available_slots": 40,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4817,
@@ -449,6 +395,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 386,
@@ -1656,22 +1603,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 269,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Desenvolvimento de Hardware / Software",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4894,
@@ -1689,7 +1621,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 269,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Desenvolvimento de Hardware / Software",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1716,6 +1663,24 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4310,
+          "name": "Fabio Michelan",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1443/partner_1443_1752610843007.png",
+          "bio": "Com mais de 17 anos como Líder em Design e Inovação, cria soluções transformadoras para marcas globais. Fabio possui certificações em UX (Nielsen Norman Group) e IA (MIT), é fundador do DesignerTrack e DesignerFlash, e professor de Design de IA na Tera.",
+          "role": "Head de UX & AI Innovation no Google",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2022,
+            "pivot_speaker_id": 4310,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 404,
@@ -1739,24 +1704,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4310,
-          "name": "Fabio Michelan",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1443/partner_1443_1752610843007.png",
-          "bio": "Com mais de 17 anos como Líder em Design e Inovação, cria soluções transformadoras para marcas globais. Fabio possui certificações em UX (Nielsen Norman Group) e IA (MIT), é fundador do DesignerTrack e DesignerFlash, e professor de Design de IA na Tera.",
-          "role": "Head de UX & AI Innovation no Google",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2022,
-            "pivot_speaker_id": 4310,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1783,22 +1730,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 295,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cultura em Movimento",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5077,
@@ -1816,7 +1748,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 295,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cultura em Movimento",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1843,15 +1790,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5097,
@@ -1899,7 +1838,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1926,6 +1873,24 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4932,
+          "name": "Mateus Cruz",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4932/partner_4932_1753477301913.png",
+          "bio": "Machine Learning Developer no Inatel e pesquisador do IoT Research Group. Doutorando em IA aplicada à saúde, desenvolve soluções de aprendizado de máquina para diagnóstico, monitoramento e apoio à medicina de precisão",
+          "role": "Desenvolvedor/Pesquisador",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2125,
+            "pivot_speaker_id": 4932,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 291,
@@ -1949,24 +1914,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4932,
-          "name": "Mateus Cruz",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4932/partner_4932_1753477301913.png",
-          "bio": "Machine Learning Developer no Inatel e pesquisador do IoT Research Group. Doutorando em IA aplicada à saúde, desenvolve soluções de aprendizado de máquina para diagnóstico, monitoramento e apoio à medicina de precisão",
-          "role": "Desenvolvedor/Pesquisador",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2125,
-            "pivot_speaker_id": 4932,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -1993,6 +1940,24 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4136,
+          "name": "Ana Clara Tripolone",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/12/12_1753975836753.png?ims=filters:quality(75)",
+          "bio": "Head de Educação Empreendedora na Ousaria, lidera o desenvolvimento de metodologias e coordenação de programas focados em empreendedores periféricos, mulheres e jovens. Mestranda em Gestão do Conhecimento e formada em Administração pela UFSC, atua na promoção de inclusão, capacitação e fortalecimento de ecossistemas empreendedores.",
+          "role": "Head de Educação Empreendedora",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2029,
+            "pivot_speaker_id": 4136,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -2016,24 +1981,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4136,
-          "name": "Ana Clara Tripolone",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/12/12_1753975836753.png?ims=filters:quality(75)",
-          "bio": "Head de Educação Empreendedora na Ousaria, lidera o desenvolvimento de metodologias e coordenação de programas focados em empreendedores periféricos, mulheres e jovens. Mestranda em Gestão do Conhecimento e formada em Administração pela UFSC, atua na promoção de inclusão, capacitação e fortalecimento de ecossistemas empreendedores.",
-          "role": "Head de Educação Empreendedora",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2029,
-            "pivot_speaker_id": 4136,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2060,6 +2007,24 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4351,
+          "name": "Gabriel Lopes da Silva",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1484/partner_1484_1752611086033.png",
+          "bio": "Founder & CEO da AnnaHealth.ai e da Empathy, presidente da ABEDESIGN e diretor comercial da Câmara de Comércio Brasil–Canadá (CCBC), Gabriel Lopes é designer, cientista construtor e líder em inovação. Com mais de 25 anos de experiência, atua na interseção entre criatividade, tecnologia e impacto humano. É professor no Instituto Mauá, com certificações pelo MIT, University of Chicago e Boston Innovation Festival, e criador do ecossistema Empathy, guiado pelo manifesto “Human inside”.",
+          "role": "Co Fundador da SmartHow",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2093,
+            "pivot_speaker_id": 4351,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 332,
@@ -2083,24 +2048,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4351,
-          "name": "Gabriel Lopes da Silva",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1484/partner_1484_1752611086033.png",
-          "bio": "Founder & CEO da AnnaHealth.ai e da Empathy, presidente da ABEDESIGN e diretor comercial da Câmara de Comércio Brasil–Canadá (CCBC), Gabriel Lopes é designer, cientista construtor e líder em inovação. Com mais de 25 anos de experiência, atua na interseção entre criatividade, tecnologia e impacto humano. É professor no Instituto Mauá, com certificações pelo MIT, University of Chicago e Boston Innovation Festival, e criador do ecossistema Empathy, guiado pelo manifesto “Human inside”.",
-          "role": "Co Fundador da SmartHow",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2093,
-            "pivot_speaker_id": 4351,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2127,22 +2074,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 391,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Brand Experience / Festivais / Eventos",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4274,
@@ -2160,7 +2092,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 391,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Brand Experience / Festivais / Eventos",
+          "hub_event_id": 1
+        },
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2187,15 +2134,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4426,
@@ -2228,7 +2167,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2255,29 +2202,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 386,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Saúde Física / Mental – Presente / Futuro",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 273,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Criação Digital / Economia dos Criadores",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4871,
@@ -2310,7 +2235,29 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 386,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física / Mental – Presente / Futuro",
+          "hub_event_id": 1
+        },
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 273,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Criação Digital / Economia dos Criadores",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2590,6 +2537,59 @@
       },
       "filterLocation": "Inatel",
       "nearLocation": "Inatel e Arredores"
+    },
+    {
+      "id": 2653,
+      "start_time": "2025-08-02T13:00:00.000+00:00",
+      "end_time": "2025-08-02T14:00:00.000+00:00",
+      "title": "Hackeando o Caos: Inovação, futurismo e tecnologia para impacto social",
+      "description": "\"Como inovação e futuros se encontram na prática para enfrentar crises e transformar realidades.\nNesta palestra, Felipe Menezes revela os bastidores do projeto Meu Lar de Volta, uma resposta ágil e humana às enchentes no RS, e compartilha aprendizados sobre como agir no colapso pode antecipar o amanhã. Um convite para imaginar, fazer e transformar, mesmo quando tudo parece ruir.\"",
+      "hub_event_id": 1,
+      "entity_register_id": 10556,
+      "place": "ETE - Sala 82",
+      "allow_questions": false,
+      "external_id": "yazo_2653",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": -256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4321,
+          "name": "Felipe Menezes",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1454/partner_1454_1752610914752.png",
+          "bio": "Futurista, palestrante, professor e empreendedor, com mais de 20 anos de experiência. Fundador da WTF! school e cofundador do Meu Lar de Volta, iniciativa que apoiou mais de 20 mil famílias após as enchentes no RS. Duas vezes TEDx Speaker, já colaborou com empresas como SAP, L’Oréal e Sicredi. Inspira pessoas a explorar o novo e cocriar futuros ousados e possíveis.",
+          "role": "Futurista na WTF! School",
+          "company": "",
+          "meta": {
+            "pivot_schedule_id": 2653,
+            "pivot_speaker_id": 4321,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2931,
@@ -2900,15 +2900,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5232,
@@ -2924,6 +2915,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2953,15 +2953,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5498,
@@ -3024,12 +3015,21 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2724,
@@ -3051,15 +3051,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5549,
@@ -3122,6 +3113,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3149,22 +3149,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 291,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Gestão / Governança Inovadora",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4804,
@@ -3180,6 +3164,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 291,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão / Governança Inovadora",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -3209,7 +3209,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [
         {
           "id": 5614,
@@ -3227,6 +3226,7 @@
           "allow_access": false
         }
       ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3254,22 +3254,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 294,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Impacto Social",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4546,
@@ -3285,6 +3269,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 294,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Impacto Social",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -3314,22 +3314,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 275,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação / Aprendizado",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4108,
@@ -3345,6 +3329,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 275,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Educação / Aprendizado",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -3374,29 +3374,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 388,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
-          "hub_event_id": 1
-        },
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4234,
@@ -3444,6 +3421,29 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 388,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
+          "hub_event_id": 1
+        },
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3471,15 +3471,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5400,
@@ -3542,6 +3533,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3569,6 +3569,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4223,
+          "name": "Casals",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1354/partner_1354_1752610277179.png",
+          "bio": "Casals é um ontohacker hermenêutico, arquétipo insurgente que não visa moldar o mundo, mas revelar as dobras invisíveis que o estruturam. Sua atuação desestabiliza narrativas fixas e convoca à reinvenção contínua do sentido.",
+          "role": "Arquétipo construtor de pontes no Zwischenwelt.",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2115,
+            "pivot_speaker_id": 4223,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 404,
@@ -3590,23 +3607,6 @@
           "type": "schedules",
           "name": "IA / Tecnologias Emergentes",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4223,
-          "name": "Casals",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1354/partner_1354_1752610277179.png",
-          "bio": "Casals é um ontohacker hermenêutico, arquétipo insurgente que não visa moldar o mundo, mas revelar as dobras invisíveis que o estruturam. Sua atuação desestabiliza narrativas fixas e convoca à reinvenção contínua do sentido.",
-          "role": "Arquétipo construtor de pontes no Zwischenwelt.",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2115,
-            "pivot_speaker_id": 4223,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -5076,6 +5076,118 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2265,
+      "start_time": "2025-08-02T13:00:00.000+00:00",
+      "end_time": "2025-08-02T14:00:00.000+00:00",
+      "title": "A Melhor Idade Protagonista - Inclusão  e Bem-Estar em Cidades Acolhedoras",
+      "description": "Debater a importância da inclusão, do bem-estar e do protagonismo da melhor\nidade em municípios brasileiros. A proposta é explorar políticas públicas, atividades e as contribuições valiosas que esse grupo traz para a sociedade, discutindo o envelhecer ativamente",
+      "hub_event_id": 1,
+      "entity_register_id": 9971,
+      "place": "Casa do CCCF - Venue Principal",
+      "allow_questions": false,
+      "external_id": "5feb092e-4f5d-400a-971c-3e72063bdac4",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 768,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5150,
+          "name": "Silana Maria Falcucci",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5150/partner_5150_1753477840412.png",
+          "bio": "Psicóloga com 15 anos de formação e atuação há cinco anos com grupos da melhor idade no CRAS. Tem como inspiração a capacidade de ressignificação e vitalidade desse público. Atua com acolhimento, escuta e promoção do envelhecimento ativo.",
+          "role": "Coordenação",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2265,
+            "pivot_speaker_id": 5150,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5151,
+          "name": "Zita",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5151/partner_5151_1753477842116.png",
+          "bio": "Representante da melhor idade no CRAS, é professora e técnica em enfermagem aposentada. Aos 81 anos, participa ativamente de coral, capoeira e conselhos municipais. Valoriza o convívio social e o protagonismo da pessoa idosa com leveza e presença.",
+          "role": "Representante da Melhor Idade",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2265,
+            "pivot_speaker_id": 5151,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4541,
+          "name": "Luciana Oliveira",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1681/partner_1681_1752612269721.png",
+          "bio": "TEDx Speaker, ativista da longevidade e turismóloga. Idealizadora do perfil @emvelhasendo, atua há mais de 20 anos como consultora credenciada ao Sebrae PR, com foco em turismo, análise da experiência de consumo e benchmarking. Desenvolve projetos que promovem inclusão etária e inovação no atendimento ao público maduro.",
+          "role": "Ativista da Longevidade",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2265,
+            "pivot_speaker_id": 4541,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4997,
+          "name": "Roger Pascoal",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4997/partner_4997_1753477469081.png",
+          "bio": "Facilitador, consultor e mentor em inovação, design estratégico e cultura organizacional. Atua na interface entre pesquisa, mercado e educação em instituições como Unifesp, InovaHC e ABstartups. Colaborou com organizações como Nubank, USP e B3.",
+          "role": "Facilitador, Consultor e Mentor • Bertha Design, Unifesp, InovaHC, InovaUSCS, ABstartups",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2265,
+            "pivot_speaker_id": 4997,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 389,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física / Mental / Presente / Futuro",
+          "hub_event_id": 1
+        },
+        {
+          "id": 295,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cultura em Movimento",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Casa do CCCF",
+      "nearLocation": "Praça e Arredores"
+    },
+    {
       "id": 2438,
       "start_time": "2025-08-02T13:10:00.000+00:00",
       "end_time": "2025-08-02T14:00:00.000+00:00",
@@ -5583,7 +5695,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2647,
@@ -5840,6 +5952,73 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 2947,
+      "start_time": "2025-08-02T14:30:00.000+00:00",
+      "end_time": "2025-08-02T15:30:00.000+00:00",
+      "title": "Além do Happy Hour: A Comunidade como Motor de Negócios e Investimentos",
+      "description": "Engajamento é bom, mas startups precisam vender e captar. Como a comunidade pode ir além do networking e se tornar uma plataforma eficaz de negócios? Este painel foca no valor tangível, abordando os desafios práticos mencionados: como preparar e conectar startups para o investimento real (quebrando a \"visão romântica\"), como atrair investidores para teses complexas como deep techs, e como ajudar a superar o \"funding intermediário\".",
+      "hub_event_id": 1,
+      "entity_register_id": 11356,
+      "place": "Palco Comunidades - Feira de Startups - ETE",
+      "allow_questions": false,
+      "external_id": "377f9b42-c610-42a9-b7c3-149c8f828110",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5645,
+          "name": "Comunidade Nexus/PIT",
+          "picture": "https://iili.io/FgzzFiN.png",
+          "bio": "-",
+          "role": "-",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2947,
+            "pivot_speaker_id": 5645,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        },
+        {
+          "id": 292,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Inovação Corporativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 478,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Vendas/Marketing",
+          "hub_event_id": 1
+        }
+      ],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 2725,
       "start_time": "2025-08-02T14:30:00.000+00:00",
       "end_time": "2025-08-02T15:30:00.000+00:00",
@@ -5912,73 +6091,6 @@
           "color": "#21C89D",
           "type": "schedules",
           "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
-    },
-    {
-      "id": 2947,
-      "start_time": "2025-08-02T14:30:00.000+00:00",
-      "end_time": "2025-08-02T15:30:00.000+00:00",
-      "title": "Além do Happy Hour: A Comunidade como Motor de Negócios e Investimentos",
-      "description": "Engajamento é bom, mas startups precisam vender e captar. Como a comunidade pode ir além do networking e se tornar uma plataforma eficaz de negócios? Este painel foca no valor tangível, abordando os desafios práticos mencionados: como preparar e conectar startups para o investimento real (quebrando a \"visão romântica\"), como atrair investidores para teses complexas como deep techs, e como ajudar a superar o \"funding intermediário\".",
-      "hub_event_id": 1,
-      "entity_register_id": 11356,
-      "place": "Palco Comunidades - Feira de Startups - ETE",
-      "allow_questions": false,
-      "external_id": "377f9b42-c610-42a9-b7c3-149c8f828110",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 256,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5645,
-          "name": "Comunidade Nexus/PIT",
-          "picture": "https://iili.io/FgzzFiN.png",
-          "bio": "-",
-          "role": "-",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2947,
-            "pivot_speaker_id": 5645,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        },
-        {
-          "id": 292,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Inovação Corporativa",
-          "hub_event_id": 1
-        },
-        {
-          "id": 478,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Vendas/Marketing",
           "hub_event_id": 1
         }
       ],
@@ -7045,22 +7157,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4972,
@@ -7093,6 +7189,22 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -7120,7 +7232,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [
         {
           "id": 4965,
@@ -7183,6 +7294,7 @@
           "allow_access": false
         }
       ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -7210,22 +7322,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 337,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Música / Inovação na Indústria",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5241,
@@ -7288,6 +7384,22 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 337,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Música / Inovação na Indústria",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -7315,15 +7427,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5030,
@@ -7339,6 +7442,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -7368,15 +7480,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4978,
@@ -7392,6 +7495,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -7421,29 +7533,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 291,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Gestão / Governança Inovadora",
-          "hub_event_id": 1
-        },
-        {
-          "id": 386,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Saúde Física / Mental – Presente / Futuro",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4142,
@@ -7491,6 +7580,29 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 291,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão / Governança Inovadora",
+          "hub_event_id": 1
+        },
+        {
+          "id": 386,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física / Mental – Presente / Futuro",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -7518,6 +7630,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4416,
+          "name": "Itamar Olimpio",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1552/partner_1552_1752611488035.png",
+          "bio": "Um dos quatro Engenheiros da Imaginação no Brasil, é CEO da Co-Viva, consultoria especializada em inovação. Professor na FIAP, FGV e Breda University (Holanda), também atua como mentor de startups e facilitador de processos criativos para empresas e organizações que buscam inovação com impacto real.",
+          "role": "Engenheiro da Imaginação e CEO na Co-Viva",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2073,
+            "pivot_speaker_id": 4416,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -7539,23 +7668,6 @@
           "type": "schedules",
           "name": "Inovação Corporativa",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4416,
-          "name": "Itamar Olimpio",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1552/partner_1552_1752611488035.png",
-          "bio": "Um dos quatro Engenheiros da Imaginação no Brasil, é CEO da Co-Viva, consultoria especializada em inovação. Professor na FIAP, FGV e Breda University (Holanda), também atua como mentor de startups e facilitador de processos criativos para empresas e organizações que buscam inovação com impacto real.",
-          "role": "Engenheiro da Imaginação e CEO na Co-Viva",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2073,
-            "pivot_speaker_id": 4416,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -7585,6 +7697,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4808,
+          "name": "Vini Ferreira",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1956/partner_1956_1752613949653.png",
+          "bio": "Homem trans e negro, é biólogo e PhD em Ciências, atuando com consultoria, palestras e projetos nas áreas de sustentabilidade, Soluções Baseadas na Natureza (NBS) e impacto socioambiental. Conecta ciência, cultura e inovação com foco em regeneração, educação e justiça climática.",
+          "role": "Biólogo, PhD em Ciências com Atuação em NBS e Transformação Socioambiental",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2017,
+            "pivot_speaker_id": 4808,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 399,
@@ -7606,23 +7735,6 @@
           "type": "schedules",
           "name": "Cidades / Comunidades Inovadoras",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4808,
-          "name": "Vini Ferreira",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1956/partner_1956_1752613949653.png",
-          "bio": "Homem trans e negro, é biólogo e PhD em Ciências, atuando com consultoria, palestras e projetos nas áreas de sustentabilidade, Soluções Baseadas na Natureza (NBS) e impacto socioambiental. Conecta ciência, cultura e inovação com foco em regeneração, educação e justiça climática.",
-          "role": "Biólogo, PhD em Ciências com Atuação em NBS e Transformação Socioambiental",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2017,
-            "pivot_speaker_id": 4808,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -7652,15 +7764,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5535,
@@ -7723,6 +7826,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -7750,6 +7862,23 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4194,
+          "name": "Braulio Zorzella",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1325/partner_1325_1752610065691.png",
+          "bio": "Médico obstetra há 23 anos, é defensor da humanização do parto e da parentalidade consciente. Diretor de comunicação da ReHuNa (Rede pela Humanização do Parto e Nascimento), também se define como cachorreiro e roqueiro — unindo ciência, afeto e atitude em tudo o que faz.",
+          "role": "Médico Obstetra",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 2055,
+            "pivot_speaker_id": 4194,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 387,
@@ -7771,23 +7900,6 @@
           "type": "schedules",
           "name": "Pré-concepção Consciente / Parentalidade",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4194,
-          "name": "Braulio Zorzella",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1325/partner_1325_1752610065691.png",
-          "bio": "Médico obstetra há 23 anos, é defensor da humanização do parto e da parentalidade consciente. Diretor de comunicação da ReHuNa (Rede pela Humanização do Parto e Nascimento), também se define como cachorreiro e roqueiro — unindo ciência, afeto e atitude em tudo o que faz.",
-          "role": "Médico Obstetra",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 2055,
-            "pivot_speaker_id": 4194,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -10118,7 +10230,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2028,
@@ -11227,8 +11339,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco na Calçada - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2019,
@@ -13856,7 +13968,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2626,
@@ -13892,8 +14004,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco na Calçada - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2015,
@@ -17890,8 +18002,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Área de convivência - Em frente ao prédio 5",
-      "nearLocation": null
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3001,
@@ -18362,7 +18474,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2650,
@@ -18511,7 +18623,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4596,
@@ -18552,6 +18663,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18578,7 +18690,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4144,
@@ -18619,6 +18730,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18645,7 +18757,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5540,
@@ -18717,6 +18828,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18743,7 +18855,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4404,
@@ -18784,6 +18895,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18810,7 +18922,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4784,
@@ -18851,6 +18962,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18877,7 +18989,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -18888,6 +18999,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18914,7 +19026,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4615,
@@ -18955,6 +19066,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -18981,7 +19093,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4780,
@@ -19022,6 +19133,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19048,7 +19160,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4845,
@@ -19089,6 +19200,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19115,7 +19227,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4735,
@@ -19149,6 +19260,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19175,24 +19287,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4894,
-          "name": "Marcelo Palladino",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4894/partner_4894_1753477211481.png",
-          "bio": "Senior Developer Advocate na AWS, com mais de 30 anos de experiência em tecnologia. Atua promovendo inovação em nuvem, boas práticas de engenharia e adoção de arquitetura moderna no ecossistema de desenvolvedores.",
-          "role": "Senior Developer Advocate na AWS",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2122,
-            "pivot_speaker_id": 4894,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 264,
@@ -19216,6 +19310,24 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [
+        {
+          "id": 4894,
+          "name": "Marcelo Palladino",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4894/partner_4894_1753477211481.png",
+          "bio": "Senior Developer Advocate na AWS, com mais de 30 anos de experiência em tecnologia. Atua promovendo inovação em nuvem, boas práticas de engenharia e adoção de arquitetura moderna no ecossistema de desenvolvedores.",
+          "role": "Senior Developer Advocate na AWS",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2122,
+            "pivot_speaker_id": 4894,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19242,7 +19354,15 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5140,
@@ -19275,15 +19395,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19310,7 +19422,15 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4770,
@@ -19328,15 +19448,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19363,7 +19475,22 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 269,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Desenvolvimento de Hardware / Software",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5376,
@@ -19381,22 +19508,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 269,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Desenvolvimento de Hardware / Software",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19423,7 +19535,29 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 405,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Deepfakes / AI Generativa / Fake News",
+          "hub_event_id": 1
+        },
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5356,
@@ -19456,29 +19590,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 405,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Deepfakes / AI Generativa / Fake News",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19505,24 +19617,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4479,
-          "name": "Juno",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1617/partner_1617_1752611888443.png",
-          "bio": "Juno é designer, estrategista, líder da comunidade Friends of Figma em Atlanta e fundador do DOJO+, com 20 anos de experiência criando produtos digitais nos EUA e Brasil. Hoje, explora como IA e novas ferramentas como o Figma estão transformando o trabalho criativo.",
-          "role": "Friends of Figma, Atlanta Leader / Fundador da DOJO+",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2043,
-            "pivot_speaker_id": 4479,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 384,
@@ -19546,6 +19640,24 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [
+        {
+          "id": 4479,
+          "name": "Juno",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1617/partner_1617_1752611888443.png",
+          "bio": "Juno é designer, estrategista, líder da comunidade Friends of Figma em Atlanta e fundador do DOJO+, com 20 anos de experiência criando produtos digitais nos EUA e Brasil. Hoje, explora como IA e novas ferramentas como o Figma estão transformando o trabalho criativo.",
+          "role": "Friends of Figma, Atlanta Leader / Fundador da DOJO+",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2043,
+            "pivot_speaker_id": 4479,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19572,7 +19684,22 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 388,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
+          "hub_event_id": 1
+        },
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4460,
@@ -19590,22 +19717,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 388,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19632,7 +19744,22 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 275,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Educação / Aprendizado",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5075,
@@ -19695,22 +19822,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 275,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação / Aprendizado",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19737,7 +19849,22 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5332,
@@ -19755,22 +19882,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -19797,7 +19909,22 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 388,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
+          "hub_event_id": 1
+        },
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4252,
@@ -19815,22 +19942,7 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 388,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro do Trabalho / Carreira / Cultura Organizacional",
-          "hub_event_id": 1
-        },
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21059,8 +21171,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco na Calçada - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2106,
@@ -23482,8 +23594,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2128,
@@ -24848,118 +24960,6 @@
         "rating": 0
       },
       "filterLocation": "Escola Sanico Teles",
-      "nearLocation": "Praça e Arredores"
-    },
-    {
-      "id": 2265,
-      "start_time": "2025-08-02T20:30:00.000+00:00",
-      "end_time": "2025-08-02T21:30:00.000+00:00",
-      "title": "A Melhor Idade Protagonista - Inclusão  e Bem-Estar em Cidades Acolhedoras",
-      "description": "Debater a importância da inclusão, do bem-estar e do protagonismo da melhor\nidade em municípios brasileiros. A proposta é explorar políticas públicas, atividades e as contribuições valiosas que esse grupo traz para a sociedade, discutindo o envelhecer ativamente",
-      "hub_event_id": 1,
-      "entity_register_id": 9971,
-      "place": "Casa do CCCF - Venue Principal",
-      "allow_questions": false,
-      "external_id": "5feb092e-4f5d-400a-971c-3e72063bdac4",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": false,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5150,
-          "name": "Silana Maria Falcucci",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5150/partner_5150_1753477840412.png",
-          "bio": "Psicóloga com 15 anos de formação e atuação há cinco anos com grupos da melhor idade no CRAS. Tem como inspiração a capacidade de ressignificação e vitalidade desse público. Atua com acolhimento, escuta e promoção do envelhecimento ativo.",
-          "role": "Coordenação",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2265,
-            "pivot_speaker_id": 5150,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5151,
-          "name": "Zita",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_5151/partner_5151_1753477842116.png",
-          "bio": "Representante da melhor idade no CRAS, é professora e técnica em enfermagem aposentada. Aos 81 anos, participa ativamente de coral, capoeira e conselhos municipais. Valoriza o convívio social e o protagonismo da pessoa idosa com leveza e presença.",
-          "role": "Representante da Melhor Idade",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2265,
-            "pivot_speaker_id": 5151,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4541,
-          "name": "Luciana Oliveira",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1681/partner_1681_1752612269721.png",
-          "bio": "TEDx Speaker, ativista da longevidade e turismóloga. Idealizadora do perfil @emvelhasendo, atua há mais de 20 anos como consultora credenciada ao Sebrae PR, com foco em turismo, análise da experiência de consumo e benchmarking. Desenvolve projetos que promovem inclusão etária e inovação no atendimento ao público maduro.",
-          "role": "Ativista da Longevidade",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2265,
-            "pivot_speaker_id": 4541,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 4997,
-          "name": "Roger Pascoal",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4997/partner_4997_1753477469081.png",
-          "bio": "Facilitador, consultor e mentor em inovação, design estratégico e cultura organizacional. Atua na interface entre pesquisa, mercado e educação em instituições como Unifesp, InovaHC e ABstartups. Colaborou com organizações como Nubank, USP e B3.",
-          "role": "Facilitador, Consultor e Mentor • Bertha Design, Unifesp, InovaHC, InovaUSCS, ABstartups",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2265,
-            "pivot_speaker_id": 4997,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 389,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Saúde Física / Mental / Presente / Futuro",
-          "hub_event_id": 1
-        },
-        {
-          "id": 295,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cultura em Movimento",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Casa do CCCF",
       "nearLocation": "Praça e Arredores"
     },
     {
@@ -26439,8 +26439,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2955,
@@ -26723,6 +26723,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -26733,7 +26734,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -26760,9 +26760,9 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -26789,6 +26789,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -26799,13 +26800,12 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Dullê Gourmet",
-      "nearLocation": null
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2468,
@@ -26826,6 +26826,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -26836,13 +26837,12 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2457,
@@ -26863,6 +26863,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -26873,7 +26874,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -26900,6 +26900,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -26910,13 +26911,12 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2936,
@@ -26937,6 +26937,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -26947,7 +26948,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -26974,6 +26974,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -26984,13 +26985,12 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2733,
@@ -27011,6 +27011,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5366,
@@ -27059,7 +27060,6 @@
         }
       ],
       "tags": [],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -27086,6 +27086,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -27096,7 +27097,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -27175,8 +27175,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2518,
@@ -27250,7 +27250,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2471,
@@ -27286,8 +27286,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2519,
@@ -27397,8 +27397,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2472,
@@ -27434,8 +27434,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2520,
@@ -27508,8 +27508,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2473,
@@ -27545,8 +27545,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2609,
@@ -27583,7 +27583,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2614,
@@ -27619,8 +27619,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     }
   ]
 }
