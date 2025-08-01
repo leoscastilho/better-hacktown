@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
-  "total_events": 109,
-  "scraped_at": "2025-08-01T12:01:41.883848-03:00",
+  "total_events": 108,
+  "scraped_at": "2025-08-01T13:01:37.055947-03:00",
   "events": [
     {
       "id": 2790,
@@ -644,7 +644,6 @@
       "available_slots": 40,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4581,
@@ -662,6 +661,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 290,
@@ -704,7 +704,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4387,
@@ -722,6 +721,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 306,
@@ -764,7 +764,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4795,
@@ -782,6 +781,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -824,7 +824,6 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4530,
@@ -842,6 +841,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 469,
@@ -884,7 +884,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4839,
@@ -932,6 +931,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -967,7 +967,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4730,
@@ -985,6 +984,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -1027,7 +1027,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4190,
@@ -1045,6 +1044,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -1087,7 +1087,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5073,
@@ -1120,6 +1119,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 293,
@@ -1162,7 +1162,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4343,
@@ -1180,6 +1179,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -1222,7 +1222,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4415,
@@ -1240,6 +1239,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -1897,6 +1897,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4521,
@@ -1914,7 +1915,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 295,
@@ -1957,6 +1957,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4961,
@@ -1989,7 +1990,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 468,
@@ -2032,6 +2032,7 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4305,
@@ -2049,7 +2050,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -2092,6 +2092,7 @@
       "available_slots": 40,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4487,
@@ -2109,7 +2110,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 469,
@@ -2123,6 +2123,13 @@
           "color": "#21C89D",
           "type": "schedules",
           "name": "Workshop",
+          "hub_event_id": 1
+        },
+        {
+          "id": 293,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física e Mental – Presente e Futuro",
           "hub_event_id": 1
         }
       ],
@@ -2152,6 +2159,7 @@
       "available_slots": 70,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4183,
@@ -2199,7 +2207,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 312,
@@ -2242,6 +2249,7 @@
       "available_slots": 40,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4675,
@@ -2259,7 +2267,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -2302,6 +2309,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5394,
@@ -2349,7 +2357,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 306,
@@ -2392,6 +2399,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4721,
@@ -2409,7 +2417,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -2452,6 +2459,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4163,
@@ -2469,7 +2477,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 284,
@@ -2512,6 +2519,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4355,
@@ -2529,7 +2537,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 470,
@@ -2852,51 +2859,6 @@
       },
       "filterLocation": "ETE",
       "nearLocation": "ETE e Arredores"
-    },
-    {
-      "id": 3003,
-      "start_time": "2025-08-03T12:00:00.000+00:00",
-      "end_time": "2025-08-03T14:30:00.000+00:00",
-      "title": "Vamos Criar um Agente de IA do Zero? Da Ideia para produção!",
-      "description": "Neste workshop vamos conceituar o uso de agentes e da arquitetura de uma solução de IA. Se você está começando ou já usa IA nos projetos, este workshop vai acelerar sua jornada! Criaremos um agente de IA do zero, integrando ferramentas com uso de servidores de MCP, falaremos sobre modelos locais e na nuvem, tudo de forma prática, usando LLMs e trazendo o chat para o seu terminal. Falaremos também sobre como publicar e rodar seus  agentes e modelos nas principais nuvens públicas: Azure, AWS e Google. Traga seu notebook e saia com um protótipo funcional e aplicável para os seus projetos!",
-      "hub_event_id": 1,
-      "entity_register_id": 11505,
-      "place": "INATEL - Sala 07 - Prédio 1 - Térreo",
-      "allow_questions": false,
-      "external_id": "yazo_3003",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 60,
-      "unlimited_slots": false,
-      "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 5665,
-          "name": "Jorge Maia",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753986740820.png?ims=filters:quality(75)",
-          "bio": "Jorge Maia é arquiteto e consultor em IoT, Cloud e Inovação, com mais de 30 anos de experiência, atualmente focado em Inteligência Artificial e Gêmeos Digitais. Fundador da CrazyTechLabs, participa de projetos no Brasil, América do Norte e Europa. Reconhecido como MVP, MCT Regional Lead e Microsoft Learn Expert, é referência na comunidade técnica.",
-          "role": "Principal Solutions Architect",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 3003,
-            "pivot_speaker_id": 5665,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2781,
@@ -3306,6 +3268,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4960,
@@ -3339,7 +3302,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3366,6 +3328,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4894,
@@ -3399,7 +3362,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3426,6 +3388,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5468,
@@ -3452,7 +3415,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3479,6 +3441,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5286,
@@ -3542,7 +3505,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3569,6 +3531,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5264,
@@ -3602,7 +3565,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3629,6 +3591,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5068,
@@ -3692,7 +3655,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3719,6 +3681,7 @@
       "available_slots": 12,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4725,
@@ -3752,7 +3715,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3779,6 +3741,7 @@
       "available_slots": 45,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4960,
@@ -3819,7 +3782,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3846,6 +3808,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5063,
@@ -3872,7 +3835,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3899,6 +3861,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4894,
@@ -3925,7 +3888,6 @@
           "hub_event_id": 1
         }
       ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4020,53 +3982,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4224,
-          "name": "Benito Berretta",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556746540.png?ims=filters:quality(75)",
-          "bio": "Diretor Geral da Hyper Island, é formado em Ciências da Computação e Econometria. Atua no desenvolvimento de competências em liderança, inovação e tecnologia, facilitando processos de mudança para pessoas, times e organizações.",
-          "role": "Managing Director na Hyper Island Américas",
-          "company": "Hyper Island",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 4224,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5360,
-          "name": "Adam Kurdahl",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
-          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis.",
-          "role": "Sócio do SPOL Architects",
-          "company": "SPOL Architects",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 5360,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        },
-        {
-          "id": 5356,
-          "name": "Jesper Rhode",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753555906204.png?ims=filters:quality(75)",
-          "bio": "Fundador da Casa Dinamarca, Jesper é pensador de cultura digital e conselheiro em inovação e futuro, mentor no Hyper Island.",
-          "role": "Fundador da Casa Dinamarca",
-          "company": "Casa Dinamarca",
-          "meta": {
-            "pivot_schedule_id": 2503,
-            "pivot_speaker_id": 5356,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 275,
@@ -4118,6 +4033,53 @@
           "hub_event_id": 1
         }
       ],
+      "speakers": [
+        {
+          "id": 4224,
+          "name": "Benito Berretta",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556746540.png?ims=filters:quality(75)",
+          "bio": "Diretor Geral da Hyper Island, é formado em Ciências da Computação e Econometria. Atua no desenvolvimento de competências em liderança, inovação e tecnologia, facilitando processos de mudança para pessoas, times e organizações.",
+          "role": "Managing Director na Hyper Island Américas",
+          "company": "Hyper Island",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 4224,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5360,
+          "name": "Adam Kurdahl",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753556465369.png?ims=filters:quality(75)",
+          "bio": "Arquiteto e urbanista dinamarquês, sócio do SPOL Architects e idealizador do projeto São Paulo 2035. Codiretor da requalificação do histórico Complexo Matarazzo, em São Paulo, e cocriador, ainda jovem, de uma cidade futurista na Coreia do Sul. Defende uma nova urbanidade: a “cidade-esponja”, capaz de dialogar com o clima, a natureza e os desejos humanos. Atua entre o Brasil e a Europa, projetando cidades mais vivas, adaptáveis e sustentáveis.",
+          "role": "Sócio do SPOL Architects",
+          "company": "SPOL Architects",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 5360,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 5356,
+          "name": "Jesper Rhode",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/68/68_1753555906204.png?ims=filters:quality(75)",
+          "bio": "Fundador da Casa Dinamarca, Jesper é pensador de cultura digital e conselheiro em inovação e futuro, mentor no Hyper Island.",
+          "role": "Fundador da Casa Dinamarca",
+          "company": "Casa Dinamarca",
+          "meta": {
+            "pivot_schedule_id": 2503,
+            "pivot_speaker_id": 5356,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4145,8 +4107,8 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [],
       "tags": [],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4174,6 +4136,22 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 322,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Fronteiras da Mente",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4489,
@@ -4189,22 +4167,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 322,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Fronteiras da Mente",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -4234,6 +4196,29 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 332,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cidades / Comunidades Inovadoras",
+          "hub_event_id": 1
+        },
+        {
+          "id": 407,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Ancestralidade / Espiritualidade",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 5286,
@@ -4281,29 +4266,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 332,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cidades / Comunidades Inovadoras",
-          "hub_event_id": 1
-        },
-        {
-          "id": 407,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Ancestralidade / Espiritualidade",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4331,6 +4293,22 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 284,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão e Governança Inovadora",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4753,
@@ -4346,22 +4324,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 284,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Gestão e Governança Inovadora",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -4391,6 +4353,22 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 279,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Educação e Aprendizado",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "speakers": [
         {
           "id": 4815,
@@ -4406,22 +4384,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 279,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação e Aprendizado",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -4451,6 +4413,7 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5672,
@@ -4468,7 +4431,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4496,6 +4458,7 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5613,
@@ -4513,7 +4476,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4541,6 +4503,7 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "tags": [],
       "speakers": [
         {
           "id": 5662,
@@ -4558,7 +4521,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -4585,23 +4547,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "speakers": [
-        {
-          "id": 5421,
-          "name": "João Roberto Magalhães",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753750776355.png?ims=filters:quality(75)",
-          "bio": "Especialista em Comunicação e Negócios Digitais, com mais de 20 anos de experiência em estratégia, UX e design de experiências. Atuou na criação de produtos digitais para empresas como B3, Tesouro Direto, Habib’s e GrupoSC. Professor de UX na PUC-Campinas, também facilita workshops com foco em inovação e novos negócios, conectando as necessidades dos usuários às entregas dos times e aos objetivos das organizações.",
-          "role": "Experts em Produtos Digitais e UX na Prod UX Labs",
-          "company": "Prod UX Labs",
-          "meta": {
-            "pivot_schedule_id": 2759,
-            "pivot_speaker_id": 5421,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "broadcast_rooms": [],
       "tags": [
         {
@@ -4617,6 +4562,23 @@
           "type": "schedules",
           "name": "Workshop",
           "hub_event_id": 1
+        }
+      ],
+      "speakers": [
+        {
+          "id": 5421,
+          "name": "João Roberto Magalhães",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/67/67_1753750776355.png?ims=filters:quality(75)",
+          "bio": "Especialista em Comunicação e Negócios Digitais, com mais de 20 anos de experiência em estratégia, UX e design de experiências. Atuou na criação de produtos digitais para empresas como B3, Tesouro Direto, Habib’s e GrupoSC. Professor de UX na PUC-Campinas, também facilita workshops com foco em inovação e novos negócios, conectando as necessidades dos usuários às entregas dos times e aos objetivos das organizações.",
+          "role": "Experts em Produtos Digitais e UX na Prod UX Labs",
+          "company": "Prod UX Labs",
+          "meta": {
+            "pivot_schedule_id": 2759,
+            "pivot_speaker_id": 5421,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -5155,7 +5117,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5231,
@@ -5173,6 +5134,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -5215,7 +5177,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -5293,6 +5254,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 473,
@@ -5335,7 +5297,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -5353,6 +5314,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 292,
@@ -5423,7 +5385,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -5441,6 +5402,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -5476,7 +5438,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4569,
@@ -5494,6 +5455,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 306,
@@ -5536,7 +5498,6 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4279,
@@ -5554,6 +5515,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 261,
@@ -5596,7 +5558,6 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4374,
@@ -5614,6 +5575,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 472,
@@ -5656,7 +5618,6 @@
       "available_slots": 40,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4334,
@@ -5674,6 +5635,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -5716,7 +5678,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4380,
@@ -5734,6 +5695,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -5776,7 +5738,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4195,
@@ -5794,6 +5755,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -5829,7 +5791,6 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4699,
@@ -5847,6 +5808,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 294,
@@ -6129,8 +6091,8 @@
       "id": 2847,
       "start_time": "2025-08-03T16:00:00.000+00:00",
       "end_time": "2025-08-03T18:30:00.000+00:00",
-      "title": "Bem-estar, saúde, empatia, comunidade, participação",
-      "description": "Homem que Escuta: Roda Masculina para o Renascimento do Cuidado - Este workshop é um espaço seguro e sagrado para homens que desejam se reconectar com sua essência cuidadora, vulnerável e presente. Através da escuta ativa, do silêncio compartilhado e de práticas corporais e emocionais, os participantes são convidados a desprogramar padrões de masculinidade tóxica e acessar uma nova forma de estar no mundo — mais íntegra, afetiva e consciente.",
+      "title": "Homem que escuta: Roda Masculina para o Renascimento do cuidado",
+      "description": "Este workshop é um espaço seguro e sagrado para homens que desejam se reconectar com sua essência cuidadora, vulnerável e presente. Através da escuta ativa, do silêncio compartilhado e de práticas corporais e emocionais, os participantes são convidados a desprogramar padrões de masculinidade tóxica e acessar uma nova forma de estar no mundo — mais íntegra, afetiva e consciente.",
       "hub_event_id": 1,
       "entity_register_id": 11196,
       "place": "INATEL - Espaço Ecumênico - Espaço Conexão Origem",
