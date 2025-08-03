@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
   "total_events": 106,
-  "scraped_at": "2025-08-03T11:01:27.981343-03:00",
+  "scraped_at": "2025-08-03T12:01:34.570845-03:00",
   "events": [
     {
       "id": 2790,
@@ -22,7 +22,6 @@
       "available_slots": 80,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4768,
@@ -101,6 +100,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -127,7 +127,6 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4273,
@@ -161,6 +160,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -187,9 +187,9 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -216,7 +216,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4744,
@@ -250,6 +249,7 @@
         }
       ],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -276,7 +276,6 @@
       "available_slots": 70,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5649,
@@ -295,6 +294,7 @@
         }
       ],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -321,7 +321,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4930,
@@ -340,6 +339,7 @@
         }
       ],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -366,7 +366,6 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4258,
@@ -400,6 +399,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -426,7 +426,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5056,
@@ -460,6 +459,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -486,7 +486,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4929,
@@ -520,6 +519,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -546,7 +546,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4226,
@@ -580,6 +579,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -2572,22 +2572,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 293,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Saúde Física e Mental – Presente e Futuro",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4856,
@@ -2603,6 +2587,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 293,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física e Mental – Presente e Futuro",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2632,22 +2632,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 280,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Desenvolvimento de Hardware e Software",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5392,
@@ -2663,6 +2647,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 280,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Desenvolvimento de Hardware e Software",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2692,22 +2692,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 284,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Gestão e Governança Inovadora",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4269,
@@ -2723,6 +2707,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 284,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão e Governança Inovadora",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2752,22 +2752,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 272,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "AI e Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4344,
@@ -2783,6 +2767,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 272,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "AI e Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2812,22 +2812,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 293,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Saúde Física e Mental – Presente e Futuro",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4413,
@@ -2843,6 +2827,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 293,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física e Mental – Presente e Futuro",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -2872,22 +2872,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 312,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro da Alimentação",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4732,
@@ -3055,6 +3039,22 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 312,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Futuro da Alimentação",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3082,22 +3082,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 274,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cidades e Comunidades Inovadoras",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4224,
@@ -3145,6 +3129,22 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 274,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cidades e Comunidades Inovadoras",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3172,8 +3172,8 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -3201,22 +3201,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 272,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "AI e Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4960,
@@ -3232,6 +3216,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 272,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "AI e Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -3261,22 +3261,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 315,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA e Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4894,
@@ -3292,6 +3276,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 315,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA e Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -4503,7 +4503,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5596,
@@ -4536,6 +4535,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 315,
@@ -4578,7 +4578,6 @@
       "available_slots": 70,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4230,
@@ -4596,6 +4595,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -4638,7 +4638,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4953,
@@ -4656,6 +4655,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -4691,7 +4691,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4929,
@@ -4709,6 +4708,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 280,
@@ -4751,7 +4751,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5230,
@@ -4769,6 +4768,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -4796,8 +4796,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 24,
@@ -4833,7 +4833,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4195,
@@ -4851,6 +4850,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -4893,7 +4893,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5231,
@@ -4911,6 +4910,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -4953,7 +4953,6 @@
       "available_slots": 100,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -5031,6 +5030,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 473,
@@ -5073,7 +5073,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -5091,6 +5090,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
