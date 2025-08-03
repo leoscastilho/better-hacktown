@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
   "total_events": 108,
-  "scraped_at": "2025-08-03T08:01:30.474014-03:00",
+  "scraped_at": "2025-08-03T09:01:32.054747-03:00",
   "events": [
     {
       "id": 2790,
@@ -22,6 +22,7 @@
       "available_slots": 80,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4768,
@@ -84,7 +85,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 274,
@@ -127,6 +127,7 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4273,
@@ -144,7 +145,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -187,8 +187,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "speakers": [],
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -216,6 +216,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4744,
@@ -248,7 +249,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -276,6 +276,7 @@
       "available_slots": 70,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5649,
@@ -293,7 +294,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -321,6 +321,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4930,
@@ -338,7 +339,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -366,6 +366,7 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4258,
@@ -383,7 +384,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 285,
@@ -426,6 +426,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5056,
@@ -443,7 +444,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 468,
@@ -486,6 +486,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4929,
@@ -503,7 +504,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 280,
@@ -546,6 +546,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4226,
@@ -563,7 +564,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -2793,66 +2793,6 @@
       "nearLocation": "ETE e Arredores"
     },
     {
-      "id": 2763,
-      "start_time": "2025-08-03T12:00:00.000+00:00",
-      "end_time": "2025-08-03T15:00:00.000+00:00",
-      "title": "Zonas Autônomas Temporárias na Educação: se a revolução não chega, como levantar agora?",
-      "description": "Vivemos entre conformismo e desesperança, esperando mudanças que não chegam. E se pudéssemos criar mundos hoje? Esta oficina facilita a criação de Zonas Autônomas Temporárias - pequenas comunidades intencionais que começam no HackTown e se estendem para suas realidades. Através de exercícios práticos de imaginação coletiva, Ciano e Luis guiam participantes na construção de experimentos reais de transformação social, fugindo da lógica fatalista do \"só vale se for pra sempre\" para abraçar a potência revolucionária dos encontros temporários.",
-      "hub_event_id": 1,
-      "entity_register_id": 11112,
-      "place": "ETE - Sala 84",
-      "allow_questions": false,
-      "external_id": "c0869173-f1ba-4ac7-a571-0bca3608c2b1",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 512,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 30,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4555,
-          "name": "Luis Sérgio Ferreira",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1696/partner_1696_1752612354479.png",
-          "bio": "Educador e designer de experiências, fundador da Reaprendiz e idealizador da Expedição Reaprendiz, que impactou mais de 470 pessoas em todas as regiões do Brasil. Palestrante na Bett Educar, LinkedIn Creator e protagonista do documentário 'Educação: presente para o futuro'.",
-          "role": "Educador e designer de experiências",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2763,
-            "pivot_speaker_id": 4555,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 279,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação e Aprendizado",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
-    },
-    {
       "id": 2781,
       "start_time": "2025-08-03T12:00:00.000+00:00",
       "end_time": "2025-08-03T14:00:00.000+00:00",
@@ -4328,49 +4268,41 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
-      "id": 2982,
+      "id": 3086,
       "start_time": "2025-08-03T14:00:00.000+00:00",
-      "end_time": "2025-08-03T14:40:00.000+00:00",
-      "title": "A arte do imprevisível: o caos como interface, a única ferramenta para sobreviver",
-      "description": "Em um mundo onde o futuro não se prevê, se experimenta, está talk mergulha no caos como linguagem viva. Casos reais de tecnologia e criatividade se revelam ao vivo, entre falhas e descobertas. Não há roteiro, só jogo e curiosidade como bússolas. Uma investigação performática sobre como criar sentido onde não há chão. O caos não é ruído — é interface. E talvez, a única saída.",
+      "end_time": "2025-08-03T14:30:00.000+00:00",
+      "title": "Degustação de Chocolates Cacau do Céu",
+      "description": "Uma viagem de sabores e intensidades\nPrepare-se para uma experiência única.\nEm nossa degustação, você vai descobrir os segredos por trás do nosso chocolate, explorando notas, texturas e as histórias de cada variedade de cacau.\nProduzidos em Santa Rita do Sapucaí, nossos chocolates levam o melhor do cacau do sul da Bahia — transformado em chocolate Bean To Bar, com sabores que vão dos mais suaves às intensidades marcantes.\nPara as 20 primeiras pessoas, por ordem de chegada. ",
       "hub_event_id": 1,
-      "entity_register_id": 11478,
-      "place": "ETE - Sala 64",
+      "entity_register_id": 13730,
+      "place": "Feira da Mantiqueira",
       "allow_questions": false,
-      "external_id": "yazo_2982",
+      "external_id": "yazo_3086",
       "place_color": null,
       "allow_evaluation": false,
-      "order": 768,
-      "has_check_in": true,
+      "order": 1280,
+      "has_check_in": false,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 20,
-      "unlimited_slots": false,
+      "available_slots": 0,
+      "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "speakers": [
+      "speakers": [],
+      "tags": [
         {
-          "id": 5662,
-          "name": "Martin Rabaglia",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753983073815.png?ims=filters:quality(75)",
-          "bio": "Martín Rabaglia é engenheiro de sistemas e cofundador da Genosha, uma agência criativa com sede em Buenos Aires que explora o cruzamento entre design, narrativa e novas tecnologias. Como CEO, lidera projetos que combinam estratégia, experiência e uma forte vocação para a experimentação.\nCurioso por natureza, interessa-se por tudo o que envolve criar: faz música, fotografa e escreve. Também é apaixonado por andar de bicicleta — especialmente como forma de pensar, observar e continuar conectando ideias. Seu enfoque de trabalho é abertamente transdisciplinar, alimentando-se tanto da arte quanto da tecnologia para desenhar soluções originais. \nSob sua liderança, a Genosha desenvolveu experiências interativas e campanhas para marcas locais e internacionais, sempre com o objetivo de gerar impacto tanto conceitual quanto emocional. Além disso, participa ativamente de espaços de reflexão sobre criatividade, inovação e futuro.",
-          "role": "CEO @ Genosha",
-          "company": "Genosha",
-          "meta": {
-            "pivot_schedule_id": 2982,
-            "pivot_speaker_id": 5662,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
+          "id": 482,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Experiência",
+          "hub_event_id": 1
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
+      "filterLocation": "Feira da Mantiqueira",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2759,
@@ -4928,6 +4860,51 @@
       "nearLocation": "Praça e Arredores"
     },
     {
+      "id": 2982,
+      "start_time": "2025-08-03T14:30:00.000+00:00",
+      "end_time": "2025-08-03T16:00:00.000+00:00",
+      "title": "A arte do imprevisível: o caos como interface, a única ferramenta para sobreviver",
+      "description": "Em um mundo onde o futuro não se prevê, se experimenta, está talk mergulha no caos como linguagem viva. Casos reais de tecnologia e criatividade se revelam ao vivo, entre falhas e descobertas. Não há roteiro, só jogo e curiosidade como bússolas. Uma investigação performática sobre como criar sentido onde não há chão. O caos não é ruído — é interface. E talvez, a única saída.",
+      "hub_event_id": 1,
+      "entity_register_id": 11478,
+      "place": "ETE - Sala 64",
+      "allow_questions": false,
+      "external_id": "yazo_2982",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 768,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 20,
+      "unlimited_slots": false,
+      "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5662,
+          "name": "Martin Rabaglia",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/4263/4263_1753983073815.png?ims=filters:quality(75)",
+          "bio": "Martín Rabaglia é engenheiro de sistemas e cofundador da Genosha, uma agência criativa com sede em Buenos Aires que explora o cruzamento entre design, narrativa e novas tecnologias. Como CEO, lidera projetos que combinam estratégia, experiência e uma forte vocação para a experimentação.\nCurioso por natureza, interessa-se por tudo o que envolve criar: faz música, fotografa e escreve. Também é apaixonado por andar de bicicleta — especialmente como forma de pensar, observar e continuar conectando ideias. Seu enfoque de trabalho é abertamente transdisciplinar, alimentando-se tanto da arte quanto da tecnologia para desenhar soluções originais. \nSob sua liderança, a Genosha desenvolveu experiências interativas e campanhas para marcas locais e internacionais, sempre com o objetivo de gerar impacto tanto conceitual quanto emocional. Além disso, participa ativamente de espaços de reflexão sobre criatividade, inovação e futuro.",
+          "role": "CEO @ Genosha",
+          "company": "Genosha",
+          "meta": {
+            "pivot_schedule_id": 2982,
+            "pivot_speaker_id": 5662,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 2821,
       "start_time": "2025-08-03T14:30:00.000+00:00",
       "end_time": "2025-08-03T16:00:00.000+00:00",
@@ -5066,6 +5043,7 @@
       "available_slots": 100,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5360,
@@ -5143,7 +5121,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 473,
@@ -5186,6 +5163,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5226,
@@ -5203,7 +5181,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -5239,6 +5216,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4569,
@@ -5256,7 +5234,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 306,
@@ -5299,6 +5276,7 @@
       "available_slots": 40,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5594,
@@ -5331,7 +5309,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 290,
@@ -5374,6 +5351,7 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4279,
@@ -5391,7 +5369,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 261,
@@ -5434,6 +5411,7 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4374,
@@ -5451,7 +5429,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 472,
@@ -5494,6 +5471,7 @@
       "available_slots": 40,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4334,
@@ -5511,7 +5489,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -5554,6 +5531,7 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4380,
@@ -5571,7 +5549,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -5614,6 +5591,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4195,
@@ -5631,7 +5609,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 27,
@@ -5667,6 +5644,7 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4699,
@@ -5684,7 +5662,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 294,
@@ -5727,22 +5704,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "tags": [
-        {
-          "id": 293,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Saúde Física e Mental – Presente e Futuro",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4747,
@@ -5760,7 +5722,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 293,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Saúde Física e Mental – Presente e Futuro",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5787,22 +5764,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "tags": [
-        {
-          "id": 284,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Gestão e Governança Inovadora",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4825,
@@ -5820,7 +5782,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 284,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Gestão e Governança Inovadora",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5847,15 +5824,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4286,
@@ -5873,7 +5842,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5900,15 +5877,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5469,
@@ -5926,7 +5895,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5953,22 +5930,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 269,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Desenvolvimento de Hardware / Software",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4966,
@@ -5986,7 +5948,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 269,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Desenvolvimento de Hardware / Software",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6013,15 +5990,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5470,
@@ -6039,7 +6008,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6066,6 +6043,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 24,
@@ -6075,8 +6054,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6103,22 +6080,7 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 277,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Criação Digital e Economia dos Criadores",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5432,
@@ -6136,7 +6098,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 277,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Criação Digital e Economia dos Criadores",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6163,22 +6140,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "tags": [
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4579,
@@ -6196,7 +6158,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6223,22 +6200,7 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "tags": [
-        {
-          "id": 272,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "AI e Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4721,
@@ -6256,7 +6218,22 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 272,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "AI e Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
