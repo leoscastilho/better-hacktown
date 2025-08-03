@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
-  "total_events": 107,
-  "scraped_at": "2025-08-02T19:01:31.492861-03:00",
+  "total_events": 108,
+  "scraped_at": "2025-08-03T02:01:31.189293-03:00",
   "events": [
     {
       "id": 2790,
@@ -22,7 +22,6 @@
       "available_slots": 80,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4768,
@@ -85,6 +84,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 274,
@@ -127,7 +127,6 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4273,
@@ -145,6 +144,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -187,8 +187,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -196,6 +196,66 @@
       },
       "filterLocation": "ETE",
       "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 3085,
+      "start_time": "2025-08-03T12:00:00.000+00:00",
+      "end_time": "2025-08-03T13:00:00.000+00:00",
+      "title": "Ecos do Tempo: uma jornada sonora pelas memórias da sua vida",
+      "description": "Embarque em uma experiência imersiva de áudio criada para o HackTown: uma pausa de introspecção em meio à correria do festival, guiada por voz e design sonoro, que convida você a uma viagem sensorial pela memória — do nascimento ao futuro — retornando ao presente com clareza e propósito. Gravada pela premiada artista de voz Simone Kliass, com design de som do músico e produtor Bruno Bona, a experiência acontece em uma sala preparada para práticas meditativas, com 30 minutos de imersão e 30 minutos de atividades para integrar o que foi vivido.",
+      "hub_event_id": 1,
+      "entity_register_id": 13729,
+      "place": "INATEL - Espaço Ecumênico - Espaço Conexão Origem",
+      "allow_questions": false,
+      "external_id": "yazo_3085",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 256,
+      "has_check_in": false,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 0,
+      "unlimited_slots": true,
+      "requires_booking": false,
+      "speakers": [
+        {
+          "id": 4744,
+          "name": "Simone Kliass",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1891/partner_1891_1752613561566.png",
+          "bio": "Consultora de inovação no audiovisual, locutora e palestrante internacional. Co-fundadora da XRBR, é voz oficial da LATAM e SKY, com 7 prêmios SOVAS, já palestrou em eventos como SXSW, Web Summit e OCDE, além de ser embaixadora da Women in Voice no Brasil.",
+          "role": "Consultora de Inovação, Co-Fundadora da XRBR",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 3085,
+            "pivot_speaker_id": 4744,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        },
+        {
+          "id": 4426,
+          "name": "Jason Bermingham",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1562/partner_1562_1752611557342.png",
+          "bio": "Com 20 anos de carreira em TV, cinema e publicidade, está à  frente de um estúdio em São Paulo, trabalhou com grandes marcas, palestrou internacionalmente e foi consultor em uma experiência imersiva vencedora do Emmy. Além de já ter escrito para a prestigiada revista Sound on Sound, referência mundial em áudio profissional",
+          "role": "Locutor, Produtor e Diretor",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 3085,
+            "pivot_speaker_id": 4426,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "broadcast_rooms": [],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3023,
@@ -216,7 +276,6 @@
       "available_slots": 70,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5649,
@@ -234,6 +293,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -261,7 +321,6 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4930,
@@ -279,6 +338,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -306,7 +366,6 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4258,
@@ -324,6 +383,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 285,
@@ -366,7 +426,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5056,
@@ -384,6 +443,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 468,
@@ -426,7 +486,6 @@
       "available_slots": 20,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4929,
@@ -444,6 +503,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 280,
@@ -486,7 +546,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4226,
@@ -504,6 +563,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 322,
@@ -2511,7 +2571,6 @@
       "available_slots": 15,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4856,
@@ -2529,6 +2588,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 293,
@@ -2571,7 +2631,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5392,
@@ -2589,6 +2648,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 280,
@@ -2631,7 +2691,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4269,
@@ -2649,6 +2708,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 284,
@@ -2691,7 +2751,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4344,
@@ -2709,6 +2768,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -2751,7 +2811,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4555,
@@ -2769,6 +2828,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 279,
@@ -2811,7 +2871,6 @@
       "available_slots": 25,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4413,
@@ -2829,6 +2888,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 293,
@@ -2871,7 +2931,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4732,
@@ -3039,6 +3098,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 312,
@@ -3081,7 +3141,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4224,
@@ -3129,6 +3188,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 274,
@@ -3171,8 +3231,8 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -3200,7 +3260,6 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4960,
@@ -3218,6 +3277,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 272,
@@ -3259,7 +3319,7 @@
       "tolerance_time_in_minutes": 0,
       "available_slots": 50,
       "unlimited_slots": false,
-      "requires_booking": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -3858,7 +3918,7 @@
       "tolerance_time_in_minutes": 0,
       "available_slots": 30,
       "unlimited_slots": false,
-      "requires_booking": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -4011,6 +4071,51 @@
       },
       "filterLocation": "Casa do CCCF",
       "nearLocation": "Praça e Arredores"
+    },
+    {
+      "id": 3084,
+      "start_time": "2025-08-03T13:30:00.000+00:00",
+      "end_time": "2025-08-03T15:30:00.000+00:00",
+      "title": "Treinamento Gamificado com o Jogo da Regeneração - Sustentabildade, ESG e Resolução de Problemas",
+      "description": "Dinâmica validada por diversas organizações para desenolver de forma ludica e prática as competências necessárias para trabalho com sustentabilidade, ESG e Regeneração. Cooperação, resolução de problemas e pensamento sistêmico sobre a sociedade",
+      "hub_event_id": 1,
+      "entity_register_id": 13507,
+      "place": "INATEL - Sala 14 - Prédio 1 - 2º Piso",
+      "allow_questions": false,
+      "external_id": "yazo_3084",
+      "place_color": null,
+      "allow_evaluation": false,
+      "order": 256,
+      "has_check_in": true,
+      "tolerance_time_in_minutes": 0,
+      "available_slots": 30,
+      "unlimited_slots": false,
+      "requires_booking": true,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 5301,
+          "name": "Fabiano Porto",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/2527/2527_1754060283048.png?ims=filters:quality(75)",
+          "bio": "Diretor Executivo do Instituto Regeneração Global e idealizador da Wiki-Solution.Org, portal colaborativo com soluções de 35 países. Jornalista, empreendedor social, especialista em Gestão de Negócios e Mestre em Desenvolvimento Sustentável e Biodiversidade. \nCoordenador de projetos de sustentabilidade e ESG de impacto social e ambiental, na indústria, poder público e em comunidades tradicionais.",
+          "role": "Diretor Executivo do Instituto Regeneração Global e idealizador da Wiki-Solution.Org",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 3084,
+            "pivot_speaker_id": 5301,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
+      "tags": [],
+      "meta": {
+        "is_bookmarked": false,
+        "rating": 0
+      },
+      "filterLocation": "Inatel",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2768,
@@ -5741,7 +5846,7 @@
       "tolerance_time_in_minutes": 0,
       "available_slots": 30,
       "unlimited_slots": false,
-      "requires_booking": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5837,17 +5942,17 @@
       "description": "Destravando sua Carreira é uma atividade prática e interativa voltada para estudantes do ensino médio e técnico que sonham em atuar com tecnologia, games, automação, biomedicina, telecom e muito mais!\n\n🧠 Vamos falar sobre: ✅ Como escolher uma área que combina com você\n✅ LinkedIn e currículo para iniciantes\n✅ Soft skills que brilham nos olhos dos recrutadores\n✅ Como se destacar mesmo sem experiência\n\n💡 Uma conversa leve, acessível e transformadora para te ajudar a enxergar possibilidades e criar seu próprio caminho profissional desde já!",
       "hub_event_id": 1,
       "entity_register_id": 10541,
-      "place": "AWS Developer Hub ETE \"FMC\"",
+      "place": "ETE - AWS Developer HUB - Laboratório Games",
       "allow_questions": false,
       "external_id": "yazo_2640",
       "place_color": null,
       "allow_evaluation": false,
       "order": 256,
-      "has_check_in": false,
+      "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 0,
-      "unlimited_slots": true,
-      "requires_booking": false,
+      "available_slots": 50,
+      "unlimited_slots": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5978,66 +6083,6 @@
       },
       "filterLocation": "Circuito SESC Amantikir",
       "nearLocation": "Praça e Arredores"
-    },
-    {
-      "id": 2837,
-      "start_time": "2025-08-03T16:00:00.000+00:00",
-      "end_time": "2025-08-03T18:00:00.000+00:00",
-      "title": "Linkedin e currículo turbinados - É pra chegar chegando no mercado de trabalho",
-      "description": "Ensinar como montar um perfil de LinkedIn e um currículo que realmente chamem a atenção dos recrutadores, sem clichês ou frases vazias.",
-      "hub_event_id": 1,
-      "entity_register_id": 11186,
-      "place": "ETE - AWS Developer HUB - Laboratório Games",
-      "allow_questions": false,
-      "external_id": "0dae1cb1-d015-4960-9545-9be85a14ccb0",
-      "place_color": null,
-      "allow_evaluation": false,
-      "order": 512,
-      "has_check_in": true,
-      "tolerance_time_in_minutes": 0,
-      "available_slots": 50,
-      "unlimited_slots": false,
-      "requires_booking": true,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4966,
-          "name": "Paulo Boccaletti",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/partner_4966/partner_4966_1753477383077.png",
-          "bio": "Head de Parcerias no Papo de Sysadmin, engenheiro de software com experiência em Java, microsserviços e times ágeis. Atua como tech lead e mentor, promovendo excelência técnica e formação de talentos em tecnologia.",
-          "role": "Head de Parcerias e Novos Negócios",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2837,
-            "pivot_speaker_id": 4966,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 469,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Futuro do Trabalho/  Carreira e Cultura Organizacional",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
-      "meta": {
-        "is_bookmarked": false,
-        "rating": 0
-      },
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2841,
@@ -6350,11 +6395,11 @@
       "id": 3083,
       "start_time": "2025-08-03T19:00:00.000+00:00",
       "end_time": "2025-08-03T20:00:00.000+00:00",
-      "title": "Sessçao faroeste com Neil Redding, Simone Kliass e Jason Bermingham",
+      "title": "Sessão faroeste com Neil Redding, Simone Kliass e Jason Bermingham",
       "description": "Riding into the near future",
       "hub_event_id": 1,
       "entity_register_id": 13506,
-      "place": "",
+      "place": "Centro Hípico - Endereço. BR 459 km 124,5 bairro Ipanema Rua José Maglione Ribeiro 115 Santa Rita do Sapucaí MG",
       "allow_questions": false,
       "external_id": "yazo_3083",
       "place_color": null,
@@ -6362,9 +6407,9 @@
       "order": 1024,
       "has_check_in": true,
       "tolerance_time_in_minutes": 0,
-      "available_slots": 30,
+      "available_slots": 40,
       "unlimited_slots": false,
-      "requires_booking": false,
+      "requires_booking": true,
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -6418,8 +6463,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Other",
-      "nearLocation": "Other"
+      "filterLocation": "Centro Hípico - Endereço. BR 459 km 124,5 bairro Ipanema Rua José Maglione Ribeiro 115 Santa Rita do Sapucaí MG",
+      "nearLocation": null
     },
     {
       "id": 2824,
