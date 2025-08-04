@@ -7,7 +7,7 @@
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M9HKGBR5DC"></script>
-    <script>the
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -366,7 +366,13 @@
             margin-top: 15px;
         }
 
-        .sidebar .location-filter select {
+        /* Location Filter Dropdown Styles */
+        .location-dropdown {
+            position: relative;
+            width: 100%;
+        }
+
+        .location-dropdown-header {
             width: 100%;
             padding: 12px 20px;
             border: 2px solid #FF4500;
@@ -376,20 +382,273 @@
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
         }
 
-        .sidebar .location-filter select option {
-            background-color: #484F8B;
-            color: #fff;
-        }
-
-        .sidebar .location-filter select:hover {
+        .location-dropdown-header:hover {
             background-color: rgba(255,69,0,0.1);
         }
 
-        .sidebar .location-filter select:focus {
+        .location-dropdown-header:focus {
             outline: none;
             border-color: #ff6b3d;
+        }
+
+        .location-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .location-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid #FF4500;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            max-height: 300px;
+            overflow: hidden;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .location-dropdown.active .location-dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .location-search-container {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+        }
+
+        .location-search-container input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .location-search-container input:focus {
+            border-color: #FF4500;
+            box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.1);
+        }
+
+        .location-search-container input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .location-options {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .location-option {
+            padding: 12px 20px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+            font-size: 14px;
+        }
+
+        .location-option:last-child {
+            border-bottom: none;
+        }
+
+        .location-option:hover {
+            background: rgba(255, 69, 0, 0.1);
+            color: #FF4500;
+        }
+
+        .location-option.active {
+            background: rgba(255, 69, 0, 0.15);
+            color: #FF4500;
+            font-weight: 600;
+        }
+
+        .location-option.hidden {
+            display: none;
+        }
+
+        /* Custom scrollbar for location options */
+        .location-options::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .location-options::-webkit-scrollbar-track {
+            background: rgba(255, 69, 0, 0.1);
+        }
+
+        .location-options::-webkit-scrollbar-thumb {
+            background: rgba(255, 69, 0, 0.3);
+            border-radius: 3px;
+        }
+
+        .location-options::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 69, 0, 0.5);
+        }
+
+        /* Speaker Filter Styles */
+        .sidebar .speaker-filter {
+            margin-top: 15px;
+        }
+
+        .speaker-dropdown {
+            position: relative;
+            width: 100%;
+        }
+
+        .speaker-dropdown-header {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #FF4500;
+            background-color: transparent;
+            color: #fff;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .speaker-dropdown-header:hover {
+            background-color: rgba(255,69,0,0.1);
+        }
+
+        .speaker-dropdown-header:focus {
+            outline: none;
+            border-color: #ff6b3d;
+        }
+
+        .dropdown-arrow {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .speaker-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .speaker-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 2px solid #FF4500;
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            max-height: 300px;
+            overflow: hidden;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .speaker-dropdown.active .speaker-dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .speaker-search-container {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+        }
+
+        .speaker-search-container input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid rgba(255, 69, 0, 0.3);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .speaker-search-container input:focus {
+            border-color: #FF4500;
+            box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.1);
+        }
+
+        .speaker-search-container input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .speaker-options {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .speaker-option {
+            padding: 12px 20px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+            font-size: 14px;
+        }
+
+        .speaker-option:last-child {
+            border-bottom: none;
+        }
+
+        .speaker-option:hover {
+            background: rgba(255, 69, 0, 0.1);
+            color: #FF4500;
+        }
+
+        .speaker-option.active {
+            background: rgba(255, 69, 0, 0.15);
+            color: #FF4500;
+            font-weight: 600;
+        }
+
+        .speaker-option.hidden {
+            display: none;
+        }
+
+        /* Custom scrollbar for speaker options */
+        .speaker-options::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .speaker-options::-webkit-scrollbar-track {
+            background: rgba(255, 69, 0, 0.1);
+        }
+
+        .speaker-options::-webkit-scrollbar-thumb {
+            background: rgba(255, 69, 0, 0.3);
+            border-radius: 3px;
+        }
+
+        .speaker-options::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 69, 0, 0.5);
         }
 
         .sidebar-summary-info {
@@ -1937,9 +2196,48 @@
         <div class="sidebar-section">
             <div class="sidebar-section-title">Filtrar por Local</div>
             <div class="location-filter">
-                <select id="locationFilter">
-                    <option value="">Todos os locais</option>
-                </select>
+                <div class="location-dropdown" id="locationDropdown">
+                    <div class="location-dropdown-header" onclick="toggleLocationDropdown()">
+                        <span id="locationDropdownText">Todos os locais</span>
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </div>
+                    <div class="location-dropdown-content" id="locationDropdownContent">
+                        <div class="location-search-container">
+                            <input type="text" id="locationSearchInput" placeholder="Buscar local..." onkeyup="filterLocations()" />
+                        </div>
+                        <div class="location-options" id="locationOptions">
+                            <div class="location-option active" data-location="" onclick="selectLocation('', 'Todos os locais')">
+                                Todos os locais
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Filtrar por Palestrante</div>
+            <div class="speaker-filter">
+                <div class="speaker-dropdown" id="speakerDropdown">
+                    <div class="speaker-dropdown-header" onclick="toggleSpeakerDropdown()">
+                        <span id="speakerDropdownText">Todos os palestrantes</span>
+                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"/>
+                        </svg>
+                    </div>
+                    <div class="speaker-dropdown-content" id="speakerDropdownContent">
+                        <div class="speaker-search-container">
+                            <input type="text" id="speakerSearchInput" placeholder="Buscar palestrante..." onkeyup="filterSpeakers()" />
+                        </div>
+                        <div class="speaker-options" id="speakerOptions">
+                            <div class="speaker-option active" data-speaker="" onclick="selectSpeaker('', 'Todos os palestrantes')">
+                                Todos os palestrantes
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -2097,6 +2395,9 @@
         let loadedDays = new Set(); // Track which days have been loaded
         let currentDay = null;
         let locations = new Set();
+        let allSpeakers = new Set(); // Track all speakers across all events
+        let currentSpeakerFilter = ''; // Track current speaker filter
+        let currentLocationFilter = ''; // Track current location filter
         let showFavoritesOnly = false;
         let showNewEventsOnly = false; // Track new events filter
         let summaryData = null;
@@ -2556,6 +2857,188 @@
             });
         }
 
+        // Toggle location dropdown
+        function toggleLocationDropdown() {
+            const dropdown = document.getElementById('locationDropdown');
+            dropdown.classList.toggle('active');
+            
+            // Focus search input when opening
+            if (dropdown.classList.contains('active')) {
+                setTimeout(() => {
+                    document.getElementById('locationSearchInput').focus();
+                }, 100);
+            }
+        }
+
+        // Select location filter
+        function selectLocation(locationName, displayName) {
+            currentLocationFilter = locationName;
+            
+            // Update dropdown text
+            document.getElementById('locationDropdownText').textContent = displayName;
+            
+            // Update active option
+            document.querySelectorAll('.location-option').forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-location') === locationName);
+            });
+            
+            // Close dropdown
+            document.getElementById('locationDropdown').classList.remove('active');
+            
+            // Clear search input
+            document.getElementById('locationSearchInput').value = '';
+            
+            // Show all options again
+            document.querySelectorAll('.location-option').forEach(option => {
+                option.classList.remove('hidden');
+            });
+            
+            // Clear cache and refresh display
+            renderCache.clear();
+            if (currentDay) {
+                displayEvents(currentDay);
+            }
+        }
+
+        // Filter locations in dropdown based on search input
+        function filterLocations() {
+            const searchTerm = document.getElementById('locationSearchInput').value.toLowerCase();
+            const options = document.querySelectorAll('.location-option');
+            
+            options.forEach(option => {
+                const locationName = option.textContent.toLowerCase();
+                const matches = locationName.includes(searchTerm);
+                option.classList.toggle('hidden', !matches);
+            });
+        }
+
+        // Populate location filter dropdown
+        function populateLocationFilter() {
+            const locationOptions = document.getElementById('locationOptions');
+            
+            // Clear existing options except the first one (All locations)
+            const allOption = locationOptions.querySelector('[data-location=""]');
+            locationOptions.innerHTML = '';
+            locationOptions.appendChild(allOption);
+            
+            // Sort locations and add them to the dropdown
+            const sortedLocations = Array.from(locations).sort();
+            sortedLocations.forEach(locationName => {
+                const option = document.createElement('div');
+                option.className = 'location-option';
+                option.setAttribute('data-location', locationName);
+                option.textContent = locationName;
+                option.onclick = () => selectLocation(locationName, locationName);
+                locationOptions.appendChild(option);
+            });
+            
+            console.log('Unique locations found:', sortedLocations.length);
+        }
+
+        // Toggle speaker dropdown
+        function toggleSpeakerDropdown() {
+            const dropdown = document.getElementById('speakerDropdown');
+            dropdown.classList.toggle('active');
+            
+            // Focus search input when opening
+            if (dropdown.classList.contains('active')) {
+                setTimeout(() => {
+                    document.getElementById('speakerSearchInput').focus();
+                }, 100);
+            }
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            const locationDropdown = document.getElementById('locationDropdown');
+            if (locationDropdown && !locationDropdown.contains(e.target)) {
+                locationDropdown.classList.remove('active');
+            }
+            
+            const speakerDropdown = document.getElementById('speakerDropdown');
+            if (speakerDropdown && !speakerDropdown.contains(e.target)) {
+                speakerDropdown.classList.remove('active');
+            }
+        });
+
+        // Select speaker filter
+        function selectSpeaker(speakerName, displayName) {
+            currentSpeakerFilter = speakerName;
+            
+            // Update dropdown text
+            document.getElementById('speakerDropdownText').textContent = displayName;
+            
+            // Update active option
+            document.querySelectorAll('.speaker-option').forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-speaker') === speakerName);
+            });
+            
+            // Close dropdown
+            document.getElementById('speakerDropdown').classList.remove('active');
+            
+            // Clear search input
+            document.getElementById('speakerSearchInput').value = '';
+            
+            // Show all options again
+            document.querySelectorAll('.speaker-option').forEach(option => {
+                option.classList.remove('hidden');
+            });
+            
+            // Clear cache and refresh display
+            renderCache.clear();
+            if (currentDay) {
+                displayEvents(currentDay);
+            }
+        }
+
+        // Filter speakers in dropdown based on search input
+        function filterSpeakers() {
+            const searchTerm = document.getElementById('speakerSearchInput').value.toLowerCase();
+            const options = document.querySelectorAll('.speaker-option');
+            
+            options.forEach(option => {
+                const speakerName = option.textContent.toLowerCase();
+                const matches = speakerName.includes(searchTerm);
+                option.classList.toggle('hidden', !matches);
+            });
+        }
+
+        // Populate speaker filter dropdown
+        function populateSpeakerFilter() {
+            const speakerOptions = document.getElementById('speakerOptions');
+            
+            // Clear existing options except the first one (All speakers)
+            const allOption = speakerOptions.querySelector('[data-speaker=""]');
+            speakerOptions.innerHTML = '';
+            speakerOptions.appendChild(allOption);
+            
+            // Sort speakers and add them to the dropdown
+            const sortedSpeakers = Array.from(allSpeakers).sort();
+            sortedSpeakers.forEach(speakerName => {
+                const option = document.createElement('div');
+                option.className = 'speaker-option';
+                option.setAttribute('data-speaker', speakerName);
+                option.textContent = speakerName;
+                option.onclick = () => selectSpeaker(speakerName, speakerName);
+                speakerOptions.appendChild(option);
+            });
+            
+            console.log('Unique speakers found:', sortedSpeakers.length);
+        }
+
+        // Collect speakers from events
+        function collectSpeakersFromEvents(events) {
+            events.forEach(event => {
+                if (event.speakers && Array.isArray(event.speakers)) {
+                    event.speakers.forEach(speaker => {
+                        if (speaker.name && speaker.name.trim()) {
+                            allSpeakers.add(speaker.name.trim());
+                        }
+                    });
+                }
+            });
+        }
+
         // Toggle menu
         function toggleMenu() {
             const menuToggle = document.getElementById('menuToggle');
@@ -2749,6 +3232,9 @@
                 renderCache.clear();
                 summaryData = null;
                 locationsData = null;
+                allSpeakers.clear(); // Clear speakers cache
+                currentSpeakerFilter = ''; // Reset speaker filter
+                currentLocationFilter = ''; // Reset location filter
                 
                 // Clear browser cache for the JSON files
                 const cacheNames = await caches.keys();
@@ -2767,6 +3253,7 @@
                 // Force reload all data
                 await loadSummary();
                 await loadLocations();
+                await loadAllEventsForSpeakerFilter(); // Reload all events for speaker filter
                 
                 // If there's a current day selected, reload its events
                 if (currentDay) {
@@ -2777,6 +3264,18 @@
                 // Update UI elements
                 updateSummaryDisplay();
                 updateLocationFilter();
+                
+                // Reset speaker filter dropdown
+                document.getElementById('speakerDropdownText').textContent = 'Todos os palestrantes';
+                document.querySelectorAll('.speaker-option').forEach(option => {
+                    option.classList.toggle('active', option.getAttribute('data-speaker') === '');
+                });
+                
+                // Reset location filter dropdown
+                document.getElementById('locationDropdownText').textContent = 'Todos os locais';
+                document.querySelectorAll('.location-option').forEach(option => {
+                    option.classList.toggle('active', option.getAttribute('data-location') === '');
+                });
                 
                 // Show success message
                 refreshText.textContent = 'Atualizado';
@@ -2813,7 +3312,10 @@
             createDayIndicatorDots(); // Create day indicator dots
             await loadSummary();
             await loadLocations(); // Load locations data
-            // Don't load all events upfront anymore
+            
+            // Load all events to populate speaker filter with all speakers
+            await loadAllEventsForSpeakerFilter();
+            
             updateSummaryDisplay();
             
             // Set up scroll listener for sticky nav
@@ -2866,20 +3368,6 @@
                 }
             }
             
-            // const favoritesToggle = document.getElementById('showFavoritesOnly');
-            // favoritesToggle.addEventListener('change', (e) => {
-            //     showFavoritesOnly = e.target.checked;
-            //
-            //     // Update star filter button state
-            //     const starFilterBtn = document.getElementById('starFilterBtn');
-            //     starFilterBtn.classList.toggle('active', showFavoritesOnly);
-            //
-            //     renderCache.clear();
-            //     if (currentDay) {
-            //         displayEvents(currentDay);
-            //     }
-            // });
-            
             // Set up touch/swipe navigation
             const timeline = document.getElementById('timeline');
             timeline.addEventListener('touchstart', handleTouchStart, { passive: true });
@@ -2895,6 +3383,18 @@
             } else if (EVENT_DATES.length > 0) {
                 // Select first day by default
                 selectDay(EVENT_DATES[0].date);
+            }
+        }
+
+        // Load all events to populate speaker filter
+        async function loadAllEventsForSpeakerFilter() {
+            try {
+                // Load events for all days to collect all speakers
+                for (const eventDate of EVENT_DATES) {
+                    await loadEventsForDay(eventDate.date);
+                }
+            } catch (error) {
+                console.error('Error loading events for speaker filter:', error);
             }
         }
 
@@ -2983,10 +3483,14 @@
                     }
                 });
                 
+                // Collect speakers from this day's events
+                collectSpeakersFromEvents(data.events);
+                
                 loadedDays.add(date);
                 
-                // Always update location filter when new day is loaded
+                // Always update location and speaker filters when new day is loaded
                 populateLocationFilter();
+                populateSpeakerFilter();
             } catch (error) {
                 console.error(`Error loading events for ${date}:`, error);
                 allEvents[date] = [];
@@ -2996,45 +3500,6 @@
         // Update location filter (wrapper for populateLocationFilter)
         function updateLocationFilter() {
             populateLocationFilter();
-        }
-        
-        // Populate location filter dropdown
-        function populateLocationFilter() {
-            const locationFilter = document.getElementById('locationFilter');
-            
-            // Save current selection
-            const currentSelection = locationFilter.value;
-            
-            // Clear existing options except the first one
-            locationFilter.innerHTML = '<option value="">Todos os locais</option>';
-            
-            // Sort locations and add them to the dropdown
-            const sortedLocations = Array.from(locations).sort();
-            sortedLocations.forEach(location => {
-                const option = document.createElement('option');
-                option.value = location;
-                option.textContent = location;
-                locationFilter.appendChild(option);
-            });
-            
-            // Restore selection if it still exists in the new list
-            if (currentSelection && sortedLocations.includes(currentSelection)) {
-                locationFilter.value = currentSelection;
-            }
-            
-            console.log('Unique locations found:', sortedLocations.length);
-            
-            // Add change event listener with debouncing (only if not already added)
-            if (!locationFilter.hasAttribute('data-listener-added')) {
-                locationFilter.addEventListener('change', () => {
-                    clearTimeout(filterDebounceTimer);
-                    filterDebounceTimer = setTimeout(() => {
-                        renderCache.clear(); // Clear cache when filter changes
-                        displayEvents(currentDay);
-                    }, 300);
-                });
-                locationFilter.setAttribute('data-listener-added', 'true');
-            }
         }
 
         // Select a day and display its events
@@ -3066,10 +3531,9 @@
         // Display events for the selected day
         function displayEvents(date) {
             const timeline = document.getElementById('timeline');
-            const locationFilter = document.getElementById('locationFilter').value;
             
-            // Create cache key
-            const cacheKey = `${date}_${locationFilter}_${currentNearLocation}_${showFavoritesOnly}_${showNewEventsOnly}`;
+            // Create cache key including speaker filter
+            const cacheKey = `${date}_${currentLocationFilter}_${currentNearLocation}_${currentSpeakerFilter}_${showFavoritesOnly}_${showNewEventsOnly}`;
             
             // Check cache first
             if (renderCache.has(cacheKey)) {
@@ -3092,11 +3556,23 @@
             }
             
             // Apply location filter
-            if (locationFilter) {
+            if (currentLocationFilter) {
                 events = events.filter(event => {
                     // Use filterLocation if available, otherwise fall back to place
                     const eventLocation = event.filterLocation || event.place;
-                    return eventLocation === locationFilter;
+                    return eventLocation === currentLocationFilter;
+                });
+            }
+
+            // Apply speaker filter
+            if (currentSpeakerFilter) {
+                events = events.filter(event => {
+                    if (!event.speakers || !Array.isArray(event.speakers)) {
+                        return false;
+                    }
+                    return event.speakers.some(speaker => 
+                        speaker.name && speaker.name.trim() === currentSpeakerFilter
+                    );
                 });
             }
 
@@ -3116,6 +3592,10 @@
                     message = 'Nenhum evento favorito encontrado para os filtros selecionados';
                 } else if (showNewEventsOnly) {
                     message = 'Nenhum evento novo encontrado para os filtros selecionados';
+                } else if (currentSpeakerFilter) {
+                    message = `Nenhum evento encontrado para o palestrante "${currentSpeakerFilter}"`;
+                } else if (currentLocationFilter) {
+                    message = `Nenhum evento encontrado para o local "${currentLocationFilter}"`;
                 }
                 timeline.innerHTML = `<div class="no-events">${message}</div>`;
                 return;
@@ -3165,7 +3645,7 @@
                         <div class="location-group">
                             <div class="time-location-header">
                                 <div class="time-header">${startTime} - ${endTime}</div>
-                                ${sortedLocations.length > 1 || locationFilter ? `
+                                ${sortedLocations.length > 1 || currentLocationFilter ? `
                                     ${getGoogleMapsLink(location) ? `
                                         <a href="${getGoogleMapsLink(location)}"
                                            target="_blank"
@@ -3711,6 +4191,16 @@
                 const sidebar = document.getElementById('sidebar');
                 if (sidebar.classList.contains('active')) {
                     toggleMenu();
+                }
+                // Close speaker dropdown
+                const speakerDropdown = document.getElementById('speakerDropdown');
+                if (speakerDropdown && speakerDropdown.classList.contains('active')) {
+                    speakerDropdown.classList.remove('active');
+                }
+                // Close location dropdown
+                const locationDropdown = document.getElementById('locationDropdown');
+                if (locationDropdown && locationDropdown.classList.contains('active')) {
+                    locationDropdown.classList.remove('active');
                 }
             }
             
