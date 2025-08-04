@@ -994,6 +994,86 @@
             transform: translateY(-1px);
         }
 
+        /* Share Favorites Button */
+        .share-favorites-btn {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid var(--primary-purple);
+            background: transparent;
+            color: var(--text-white);
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 50px;
+        }
+
+        .share-favorites-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left var(--transition-normal);
+            z-index: -1;
+        }
+
+        .share-favorites-btn:hover::before {
+            left: 0;
+        }
+
+        .share-favorites-btn:hover {
+            color: var(--text-white);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .share-favorites-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .share-favorites-btn:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .share-favorites-btn:disabled::before {
+            left: -100%;
+        }
+
+        .share-favorites-btn:focus {
+            outline: 2px solid var(--primary-orange);
+            outline-offset: 2px;
+        }
+
+        .share-favorites-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        #favoritesCount {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
         .refresh-button.loading .refresh-icon {
             animation: spin 1s linear infinite;
         }
@@ -2687,6 +2767,17 @@
             </div>
         </div>
 
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Compartilhar Favoritos</div>
+            <button class="share-favorites-btn" id="shareFavoritesBtn" onclick="shareFavorites()" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+                </svg>
+                <span id="shareFavoritesText">Compartilhar Favoritos</span>
+                <span id="favoritesCount">(0)</span>
+            </button>
+        </div>
+
         <div class="sidebar-attribution">
             Esse aplicativo foi desenvolvido utilizando o <span class="amazon-q">Amazon Q</span> para o HackTown 2025
             <br><br>
@@ -2872,6 +2963,8 @@
         let locationsData = null; // Store locations data for Google Maps links
         let currentHighlightedEvent = null; // Track currently highlighted event
         let scrollObserver = null; // Intersection observer for scroll tracking
+        let sharedFavorites = null; // Store shared favorites from URL
+        let isViewingSharedFavorites = false; // Track if we're viewing shared favorites
         
         // Time selector variables
         let selectedTime = null;
@@ -2901,6 +2994,7 @@
                 if (saved) {
                     favorites = new Set(JSON.parse(saved));
                 }
+                updateShareFavoritesButton();
             } catch (error) {
                 console.error('Error loading favorites:', error);
                 favorites = new Set();
@@ -2911,6 +3005,7 @@
         function saveFavorites() {
             try {
                 localStorage.setItem('hacktown2025_favorites', JSON.stringify([...favorites]));
+                updateShareFavoritesButton();
             } catch (error) {
                 console.error('Error saving favorites:', error);
             }
@@ -3100,7 +3195,8 @@
             return {
                 day: params.get('day'),
                 eventId: params.get('event'),
-                openCard: params.get('openCard') === 'true'
+                openCard: params.get('openCard') === 'true',
+                sharedFavorites: params.get('favorites')
             };
         }
 
@@ -3318,6 +3414,242 @@
                     modal.remove();
                 }
             });
+        }
+
+        // Share favorites function
+        function shareFavorites() {
+            if (favorites.size === 0) {
+                showShareNotification('Nenhum evento favorito para compartilhar');
+                return;
+            }
+            
+            const favoriteIds = Array.from(favorites);
+            const baseUrl = 'https://leoscastilho.github.io/better-hacktown/';
+            const shareUrl = `${baseUrl}#favorites=${favoriteIds.join(',')}`;
+            
+            // Try to use Web Share API if available
+            if (navigator.share) {
+                navigator.share({
+                    title: `Confira meus eventos favoritos do HackTown 2025!`,
+                    text: `Confira meus ${favorites.size} eventos favoritos do HackTown 2025`,
+                    url: shareUrl
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                    fallbackShareFavorites(shareUrl);
+                });
+            } else {
+                fallbackShareFavorites(shareUrl);
+            }
+        }
+
+        // Fallback share favorites function
+        function fallbackShareFavorites(url) {
+            // Copy to clipboard
+            navigator.clipboard.writeText(url).then(() => {
+                showShareNotification('Link dos favoritos copiado para a área de transferência!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback to manual selection
+                showShareFavoritesModal(url);
+            });
+        }
+
+        // Show share favorites modal
+        function showShareFavoritesModal(url) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--bg-overlay);
+                z-index: 4000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                backdrop-filter: blur(20px);
+            `;
+            
+            const content = document.createElement('div');
+            content.style.cssText = `
+                background: var(--gradient-card);
+                padding: 30px;
+                border-radius: 16px;
+                max-width: 500px;
+                width: 90%;
+                text-align: center;
+                box-shadow: var(--shadow-2xl);
+            `;
+            
+            content.innerHTML = `
+                <h3 style="margin-bottom: 20px; color: var(--text-primary);">Compartilhar Favoritos</h3>
+                <p style="margin-bottom: 20px; color: var(--text-secondary);">Compartilhe seus ${favorites.size} eventos favoritos</p>
+                <input type="text" value="${url}" readonly style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 2px solid var(--border-light);
+                    border-radius: 8px;
+                    margin-bottom: 20px;
+                    font-family: monospace;
+                    background: var(--bg-secondary);
+                    font-size: 12px;
+                ">
+                <div>
+                    <button onclick="navigator.clipboard.writeText('${url}').then(() => { showShareNotification('Link copiado!'); this.closest('.share-modal').remove(); })" style="
+                        background: var(--gradient-secondary);
+                        color: white;
+                        border: none;
+                        padding: 12px 24px;
+                        border-radius: 8px;
+                        margin-right: 10px;
+                        cursor: pointer;
+                        font-weight: 600;
+                    ">Copiar Link</button>
+                    <button onclick="this.closest('.share-modal').remove()" style="
+                        background: var(--border-medium);
+                        color: var(--text-secondary);
+                        border: none;
+                        padding: 12px 24px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        font-weight: 600;
+                    ">Fechar</button>
+                </div>
+            `;
+            
+            modal.appendChild(content);
+            modal.className = 'share-modal';
+            document.body.appendChild(modal);
+            
+            // Close on backdrop click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+        }
+
+        // Update share favorites button state
+        function updateShareFavoritesButton() {
+            const btn = document.getElementById('shareFavoritesBtn');
+            const countSpan = document.getElementById('favoritesCount');
+            
+            if (btn && countSpan) {
+                const count = favorites.size;
+                btn.disabled = count === 0;
+                countSpan.textContent = `(${count})`;
+                
+                if (count === 0) {
+                    btn.setAttribute('aria-label', 'Nenhum favorito para compartilhar');
+                } else {
+                    btn.setAttribute('aria-label', `Compartilhar ${count} eventos favoritos`);
+                }
+            }
+        }
+
+        // Process shared favorites from URL
+        function processSharedFavorites(sharedFavoritesParam) {
+            if (!sharedFavoritesParam) {
+                isViewingSharedFavorites = false;
+                sharedFavorites = null;
+                return;
+            }
+            
+            try {
+                const favoriteIds = sharedFavoritesParam.split(',').filter(id => id.trim());
+                if (favoriteIds.length > 0) {
+                    sharedFavorites = new Set(favoriteIds);
+                    isViewingSharedFavorites = true;
+                    
+                    // Show notification about shared favorites
+                    showShareNotification(`Visualizando ${favoriteIds.length} eventos compartilhados`);
+                    
+                    // Update the page title or add indicator
+                    updatePageForSharedFavorites(favoriteIds.length);
+                } else {
+                    isViewingSharedFavorites = false;
+                    sharedFavorites = null;
+                }
+            } catch (error) {
+                console.error('Error processing shared favorites:', error);
+                isViewingSharedFavorites = false;
+                sharedFavorites = null;
+            }
+        }
+
+        // Update page UI for shared favorites view
+        function updatePageForSharedFavorites(count) {
+            // Add a banner or indicator that we're viewing shared favorites
+            const existingBanner = document.getElementById('sharedFavoritesBanner');
+            if (existingBanner) {
+                existingBanner.remove();
+            }
+            
+            const banner = document.createElement('div');
+            banner.id = 'sharedFavoritesBanner';
+            banner.style.cssText = `
+                background: var(--gradient-accent);
+                color: var(--text-primary);
+                padding: 12px 20px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 14px;
+                box-shadow: var(--shadow-md);
+                position: relative;
+                z-index: 100;
+            `;
+            banner.innerHTML = `
+                ⭐ Visualizando ${count} eventos compartilhados
+                <button onclick="clearSharedFavorites()" style="
+                    background: rgba(0,0,0,0.1);
+                    border: none;
+                    color: inherit;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    margin-left: 10px;
+                    cursor: pointer;
+                    font-size: 12px;
+                ">Limpar</button>
+            `;
+            
+            // Insert after the scrolling banner
+            const scrollingBanner = document.querySelector('.scrolling-banner');
+            if (scrollingBanner) {
+                scrollingBanner.insertAdjacentElement('afterend', banner);
+            }
+        }
+
+        // Clear shared favorites view
+        function clearSharedFavorites() {
+            isViewingSharedFavorites = false;
+            sharedFavorites = null;
+            
+            // Remove banner
+            const banner = document.getElementById('sharedFavoritesBanner');
+            if (banner) {
+                banner.remove();
+            }
+            
+            // Update URL to remove favorites parameter
+            const hashParams = parseUrlHash();
+            let newHash = '';
+            if (hashParams.day) {
+                newHash = `#day=${hashParams.day}`;
+                if (hashParams.eventId) {
+                    newHash += `&event=${hashParams.eventId}`;
+                }
+                if (hashParams.openCard) {
+                    newHash += `&openCard=true`;
+                }
+            }
+            window.history.replaceState(null, null, newHash || '#');
+            
+            // Clear cache and refresh display
+            renderCache.clear();
+            if (currentDay) {
+                displayEvents(currentDay);
+            }
         }
 
         // Clear location filter
@@ -4284,6 +4616,9 @@
             updateLocationClearButton();
             updateSpeakerClearButton();
             
+            // Initialize share favorites button
+            updateShareFavoritesButton();
+            
             updateSummaryDisplay();
             
             // Initialize mobile enhancements
@@ -4352,6 +4687,11 @@
             
             // Parse URL hash and select appropriate day/event
             const hashParams = parseUrlHash();
+            
+            // Process shared favorites if present
+            if (hashParams.sharedFavorites) {
+                processSharedFavorites(hashParams.sharedFavorites);
+            }
             
             if (hashParams.day && EVENT_DATES.some(date => date.date === hashParams.day)) {
                 // Valid day in URL hash
@@ -4474,8 +4814,8 @@
         function displayEvents(date) {
             const timeline = document.getElementById('timeline');
             
-            // Create cache key including speaker filter
-            const cacheKey = `${date}_${currentLocationFilter}_${currentNearLocation}_${currentSpeakerFilter}_${showFavoritesOnly}_${showNewEventsOnly}`;
+            // Create cache key including speaker filter and shared favorites
+            const cacheKey = `${date}_${currentLocationFilter}_${currentNearLocation}_${currentSpeakerFilter}_${showFavoritesOnly}_${showNewEventsOnly}_${isViewingSharedFavorites ? 'shared' : 'normal'}`;
             
             // Check cache first
             if (renderCache.has(cacheKey)) {
@@ -4490,47 +4830,54 @@
 
             let events = allEvents[date];
             
-            // Apply nearLocation filter
-            if (currentNearLocation) {
-                events = events.filter(event => {
-                    return event.nearLocation === currentNearLocation;
-                });
-            }
-            
-            // Apply location filter
-            if (currentLocationFilter) {
-                events = events.filter(event => {
-                    // Use filterLocation if available, otherwise fall back to place
-                    const eventLocation = event.filterLocation || event.place;
-                    return eventLocation === currentLocationFilter;
-                });
-            }
+            // Apply shared favorites filter first (overrides other filters)
+            if (isViewingSharedFavorites && sharedFavorites) {
+                events = events.filter(event => sharedFavorites.has(getEventId(event)));
+            } else {
+                // Apply nearLocation filter
+                if (currentNearLocation) {
+                    events = events.filter(event => {
+                        return event.nearLocation === currentNearLocation;
+                    });
+                }
+                
+                // Apply location filter
+                if (currentLocationFilter) {
+                    events = events.filter(event => {
+                        // Use filterLocation if available, otherwise fall back to place
+                        const eventLocation = event.filterLocation || event.place;
+                        return eventLocation === currentLocationFilter;
+                    });
+                }
 
-            // Apply speaker filter
-            if (currentSpeakerFilter) {
-                events = events.filter(event => {
-                    if (!event.speakers || !Array.isArray(event.speakers)) {
-                        return false;
-                    }
-                    return event.speakers.some(speaker => 
-                        speaker.name && speaker.name.trim() === currentSpeakerFilter
-                    );
-                });
-            }
+                // Apply speaker filter
+                if (currentSpeakerFilter) {
+                    events = events.filter(event => {
+                        if (!event.speakers || !Array.isArray(event.speakers)) {
+                            return false;
+                        }
+                        return event.speakers.some(speaker => 
+                            speaker.name && speaker.name.trim() === currentSpeakerFilter
+                        );
+                    });
+                }
 
-            // Apply favorites filter
-            if (showFavoritesOnly) {
-                events = events.filter(event => isFavorite(event));
-            }
+                // Apply favorites filter
+                if (showFavoritesOnly) {
+                    events = events.filter(event => isFavorite(event));
+                }
 
-            // Apply new events filter
-            if (showNewEventsOnly) {
-                events = events.filter(event => !isEventViewed(event));
+                // Apply new events filter
+                if (showNewEventsOnly) {
+                    events = events.filter(event => !isEventViewed(event));
+                }
             }
 
             if (events.length === 0) {
                 let message = 'Nenhum evento encontrado para os filtros selecionados';
-                if (showFavoritesOnly) {
+                if (isViewingSharedFavorites) {
+                    message = 'Nenhum evento compartilhado encontrado para este dia';
+                } else if (showFavoritesOnly) {
                     message = 'Nenhum evento favorito encontrado para os filtros selecionados';
                 } else if (showNewEventsOnly) {
                     message = 'Nenhum evento novo encontrado para os filtros selecionados';
