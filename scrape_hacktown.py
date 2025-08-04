@@ -162,6 +162,17 @@ location_cache = {}
 # Global variable to store location mappings loaded from config
 location_mappings = {}
 
+# Global set to track unmapped locations (places that couldn't be mapped)
+unmapped_locations = set()
+
+def reset_unmapped_locations():
+    """
+    Reset the unmapped locations tracking for a new scraping session.
+    This should be called at the beginning of each scraping run.
+    """
+    global unmapped_locations
+    unmapped_locations.clear()
+
 def load_location_config():
     """
     Load location configuration from locations_config.json.
@@ -232,8 +243,9 @@ def normalize_and_locate(place: str) -> tuple[str, str]:
     1. filterLocation: Standardized location name for filtering/grouping
     2. nearLocation: Broader geographical area for proximity-based grouping
     
-    The function now uses the centralized locations_config.json file instead of
-    hardcoded mappings, making it easier to maintain and update.
+    The function now uses the centralized locations_config.json file with support
+    for multiple possible names per location, making it easier to handle variations
+    like "Be Bold" vs "BeBold".
     
     Args:
         place (str): Raw location string from the API
@@ -257,19 +269,30 @@ def normalize_and_locate(place: str) -> tuple[str, str]:
     near_location = "Other"
 
     # ========================================================================
-    # CENTRALIZED LOCATION MAPPING
+    # CENTRALIZED LOCATION MAPPING WITH MULTIPLE POSSIBLE NAMES
     # ========================================================================
     # Search through the loaded configuration for matches
-    for key, config in location_mappings.items():
-        if key.upper() in place_upper:
-            filter_location = config.get('filter_location', key)
-            near_location = config.get('near_location', 'Other')
+    for location_key, config in location_mappings.items():
+        possible_names = config.get('possible_names', [])
+        
+        # Check if the place matches any of the possible names for this location
+        for possible_name in possible_names:
+            if possible_name.upper() in place_upper:
+                filter_location = config.get('filter_location', location_key)
+                near_location = config.get('near_location', 'Other')
+                break
+        
+        # If we found a match, break out of the outer loop too
+        if filter_location != "Other":
             break
     else:
         # For unmapped locations, preserve the original name
         # This allows for future mapping without losing data
         filter_location = place
         near_location = None
+        
+        # Track this as an unmapped location for the summary
+        unmapped_locations.add(place)
 
     # Cache the result for future lookups
     result = (filter_location, near_location)
@@ -945,6 +968,7 @@ async def main():
     logger.info("\n" + "📍 Loading location configuration...")
     logger.info("-" * 50)
     load_location_config()
+    reset_unmapped_locations()
     
     # Generate locations.json for the frontend
     generate_locations_json()
@@ -1037,6 +1061,14 @@ async def main():
     # Location cache efficiency metrics
     logger.info(f"🗺️  Location cache: {len(location_cache)} unique locations processed")
     logger.info(f"📍 Location mappings: {len(location_mappings)} configured mappings loaded")
+    
+    # Unmapped locations tracking
+    if unmapped_locations:
+        logger.warning(f"⚠️  Unmapped locations found: {len(unmapped_locations)} locations need configuration")
+        logger.warning(f"📍 Unmapped locations: {', '.join(sorted(unmapped_locations))}")
+        logger.info("💡 Consider adding these locations to locations_config.json using: python add_location.py")
+    else:
+        logger.info("✅ All locations successfully mapped!")
 
     # ========================================================================
     # SUMMARY FILE GENERATION
@@ -1061,7 +1093,8 @@ async def main():
             "scraping_time_seconds": round(elapsed_time, 2),
             "events_per_second": round(total_events/elapsed_time, 2) if elapsed_time > 0 else 0,
             "location_cache_size": len(location_cache),
-            "location_mappings_loaded": len(location_mappings)
+            "location_mappings_loaded": len(location_mappings),
+            "unmapped_locations": sorted(list(unmapped_locations))
         }
         logger.info("✅ Scraping successful - updating summary with new data")
         
@@ -1076,7 +1109,8 @@ async def main():
             "files_created": existing_summary.get("files_created", []),
             "scraping_time_seconds": round(elapsed_time, 2),
             "last_failed_attempt": brt_now.isoformat(),
-            "consecutive_failures": existing_summary.get("consecutive_failures", 0) + 1
+            "consecutive_failures": existing_summary.get("consecutive_failures", 0) + 1,
+            "unmapped_locations": existing_summary.get("unmapped_locations", [])
         }
         logger.error("❌ Scraping failed completely - preserving existing summary data")
 

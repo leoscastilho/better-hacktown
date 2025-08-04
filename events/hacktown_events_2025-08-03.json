@@ -1,7 +1,7 @@
 {
   "date": "2025-08-03",
   "total_events": 105,
-  "scraped_at": "2025-08-04T11:52:33.298824-03:00",
+  "scraped_at": "2025-08-04T13:59:28.317455-03:00",
   "events": [
     {
       "id": 2790,
@@ -3059,8 +3059,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Pousada do Barão - João Teixeira da Costa, Centro",
-      "nearLocation": null
+      "filterLocation": "Pousada do Barão",
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2828,
@@ -5051,8 +5051,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Av Antônio de Cássia/Praça das Crianças",
-      "nearLocation": null
+      "filterLocation": "Praça das Crianças",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2822,
@@ -5734,6 +5734,15 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": true,
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5750,15 +5759,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -5787,6 +5787,15 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5803,15 +5812,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -5840,6 +5840,22 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "tags": [
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 269,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Desenvolvimento de Hardware / Software",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5856,22 +5872,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 269,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Desenvolvimento de Hardware / Software",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -5900,6 +5900,15 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -5916,15 +5925,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -5953,8 +5953,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [],
       "tags": [
         {
           "id": 24,
@@ -5964,6 +5962,8 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
+      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5990,6 +5990,22 @@
       "available_slots": 30,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 277,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Criação Digital e Economia dos Criadores",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -6006,22 +6022,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 277,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Criação Digital e Economia dos Criadores",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -6050,6 +6050,22 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "tags": [
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -6066,22 +6082,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -6110,6 +6110,22 @@
       "available_slots": 50,
       "unlimited_slots": false,
       "requires_booking": true,
+      "tags": [
+        {
+          "id": 272,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "AI e Tecnologias Emergentes",
+          "hub_event_id": 1
+        },
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -6126,22 +6142,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 272,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "AI e Tecnologias Emergentes",
-          "hub_event_id": 1
-        },
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -6170,6 +6170,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -6188,7 +6189,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -6215,6 +6215,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -6233,7 +6234,6 @@
           "allow_access": false
         }
       ],
-      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0

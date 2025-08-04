@@ -2,43 +2,57 @@
 
 > 🤖 **Este aplicativo foi desenvolvido utilizando o Amazon Q para o HackTown 2025 em Santa Rita do Sapucaí**
 
-Um Progressive Web App (PWA) moderno para navegar pelos eventos do HackTown 2025 com uma experiência de usuário aprimorada.
+Um Progressive Web App (PWA) moderno para navegar pelos eventos do HackTown 2025 com uma experiência de usuário aprimorada e sistema de scraping assíncrono otimizado.
 
 ## 🚀 Funcionalidades
 
-- **Scraping de Eventos**: Scraping assíncrona de eventos do HackTown 2025 da API oficial
+- **Scraping Assíncrono**: Sistema de scraping otimizado com requisições concorrentes e retry automático
 - **Progressive Web App**: PWA instalável com capacidades offline
 - **Design Responsivo**: Design mobile-first que funciona em todos os dispositivos
-- **Atualizações em Tempo Real**: Sincronização automatizada de dados de eventos
+- **Sistema de Localização Inteligente**: Mapeamento centralizado de locais com suporte a múltiplos nomes
+- **Detecção de Ambiente**: Configurações adaptáveis para CI/CD e desenvolvimento local
 - **Performance Rápida**: Estratégias otimizadas de carregamento e cache
-- **Integração com Analytics**: Integração com Google Analytics e Tag Manager
+- **Deploy Flexível**: Suporte para GitHub Actions e Docker com automação completa
 
 ## 📋 Estrutura do Projeto
 
 ```
 better-hacktown/
-├── scrape_hacktown.py      # Script principal de Scraping (assíncrono)
-├── index.html              # Frontend PWA
-├── service-worker.js       # Service worker PWA para funcionalidade offline
-├── logo.png               # Logo/ícone do app
-├── requirements.txt        # Dependências Python
-├── events/                # Dados de eventos raspados
-│   ├── hacktown_events_*.json  # Arquivos de eventos diários
-│   ├── locations.json     # Dados de localizações de eventos
-│   ├── filter_locations.json  # Lista de localizações únicas para filtros
-│   ├── filter_speakers.json   # Lista de palestrantes únicos para filtros
-│   └── summary.json       # Estatísticas resumidas de eventos
-└── README.md              # Este arquivo
+├── scrape_hacktown.py          # Script principal de scraping (assíncrono)
+├── locations_config.json       # Configuração centralizada de localizações
+├── add_location.py            # Helper interativo para adicionar localizações
+├── index.html                 # Frontend PWA
+├── service-worker.js          # Service worker PWA para funcionalidade offline
+├── logo.png                   # Logo/ícone do app
+├── requirements.txt           # Dependências Python (requests, aiohttp)
+├── Dockerfile                 # Container Docker para scraping
+├── docker-compose.yml         # Orquestração Docker
+├── run-scraper.sh            # Script de execução Docker
+├── docker-scraper.sh         # Script interno do container
+├── DOCKER_SETUP.md           # Guia de configuração Docker
+├── .env.example              # Template de variáveis de ambiente
+├── .gitignore                # Arquivos ignorados pelo Git
+├── events/                   # Dados de eventos raspados
+│   ├── hacktown_events_*.json    # Arquivos de eventos diários
+│   ├── locations.json           # Dados de localizações (auto-gerado)
+│   ├── filter_locations.json    # Lista de localizações para filtros
+│   ├── filter_speakers.json     # Lista de palestrantes para filtros
+│   └── summary.json            # Estatísticas resumidas de eventos
+├── logs/                     # Logs de execução
+├── .github/workflows/        # Workflows GitHub Actions
+│   └── scrape-events.example    # Template de workflow
+└── README.md                 # Este arquivo
 ```
 
-## 🛠️ Instalação
+## 🛠️ Instalação e Configuração
 
 ### Pré-requisitos
 
 - Python 3.9+ (para suporte ao zoneinfo)
+- Docker e Docker Compose (para deploy automatizado)
 - Navegador moderno para recursos PWA
 
-### Configuração
+### Opção 1: Execução Local
 
 1. **Clone o repositório**
    ```bash
@@ -51,7 +65,7 @@ better-hacktown/
    pip install -r requirements.txt
    ```
 
-3. **Execute o raspador**
+3. **Execute o scraper**
    ```bash
    python scrape_hacktown.py
    ```
@@ -68,229 +82,181 @@ better-hacktown/
 5. **Acesse a aplicação**
    Abra seu navegador e navegue para `http://localhost:8000`
 
-## 🔍 Filter Data Files
+### Opção 2: Deploy com Docker
 
-The scraper automatically generates filter data files to populate dropdown lists in the web application:
+Para configuração automatizada com Docker, consulte o [DOCKER_SETUP.md](DOCKER_SETUP.md) para instruções detalhadas.
 
-### Filter Locations (`filter_locations.json`)
-Contains a list of unique location names extracted from all events:
-```json
-{
-  "generated_at": "2025-08-04T10:30:00-03:00",
-  "total_locations": 15,
-  "locations": [
-    "Auditório Principal",
-    "Sala de Workshops",
-    "Espaço Networking",
-    "..."
-  ]
-}
-```
+**Resumo rápido:**
 
-### Filter Speakers (`filter_speakers.json`)
-Contains a list of unique speaker names extracted from all events:
-```json
-{
-  "generated_at": "2025-08-04T10:30:00-03:00",
-  "total_speakers": 42,
-  "speakers": [
-    "Ana Silva",
-    "João Santos",
-    "Maria Oliveira",
-    "..."
-  ]
-}
-```
+1. **Configure as variáveis de ambiente**
+   ```bash
+   cp .env.example .env
+   # Edite .env com suas configurações
+   ```
 
-### Usage in Web Application
-These files can be loaded by the frontend to populate filter dropdowns:
-```javascript
-// Load filter locations
-fetch('./events/filter_locations.json')
-  .then(response => response.json())
-  .then(data => populateLocationFilter(data.locations));
+2. **Execute o scraper**
+   ```bash
+   ./run-scraper.sh
+   ```
 
-// Load filter speakers
-fetch('./events/filter_speakers.json')
-  .then(response => response.json())
-  .then(data => populateSpeakerFilter(data.speakers));
-```
+## 🗺️ Sistema de Gerenciamento de Localizações
 
-### Automatic Generation
-- Files are automatically generated each time the scraper runs
-- Data is extracted from all successfully scraped events
-- Lists are sorted alphabetically for consistent ordering
-- Duplicate entries are automatically removed
-- Empty or invalid entries are filtered out
+O projeto utiliza um **sistema centralizado de configuração de localizações** que elimina a necessidade de atualizar mapeamentos em múltiplos lugares.
 
-## 🗺️ Location Management
+### Arquivos de Configuração
 
-The application uses a **centralized location configuration system** that eliminates the need to update location mappings in multiple places.
+- **`locations_config.json`**: Arquivo mestre com todos os mapeamentos de localização
+- **`events/locations.json`**: Arquivo auto-gerado usado pelo frontend (não editar manualmente)
 
-### Configuration Files
-
-- **`locations_config.json`**: Master configuration file containing all location mappings
-- **`events/locations.json`**: Auto-generated file used by the frontend (do not edit manually)
-
-### Location Configuration Structure
+### Estrutura de Configuração
 
 ```json
 {
   "location_mappings": {
-    "API_LOCATION_KEY": {
-      "filter_location": "Standardized Name",
-      "near_location": "Geographical Area",
+    "location_key": {
+      "possible_names": ["VARIAÇÃO NOME 1", "VARIAÇÃO NOME 2"],
+      "filter_location": "Nome Padronizado para Exibição",
+      "near_location": "Área Geográfica",
       "gmaps": "https://maps.app.goo.gl/..."
     }
   }
 }
 ```
 
-### Adding New Locations
+### Funcionalidades Principais
 
-#### Method 1: Manual Editing
-Edit `locations_config.json` directly and add new mappings following the structure above.
+- **Suporte a Múltiplos Nomes**: Cada localização pode ter várias `possible_names` que mapeiam para o mesmo local padronizado
+- **Case Insensitive**: Toda correspondência é feita sem distinção de maiúsculas/minúsculas
+- **Deduplicação Automática**: Diferentes variações de nomes da API são automaticamente consolidadas
+- **Manutenção Fácil**: Adicione novas variações de nomes sem duplicar dados de localização
 
-### Location Categories
+### Adicionando Novas Localizações
 
-- **Inatel e Arredores**: Campus and nearby venues
-- **ETE e Arredores**: Technical school area  
-- **Praça e Arredores**: Central plaza and downtown area
-- **Other**: Unmapped or unknown locations
+#### Método 1: Script Helper Interativo (Recomendado)
+```bash
+python add_location.py
+```
 
-### Workflow
+O script helper fornece uma interface interativa para:
+- Adicionar novas localizações com múltiplos nomes possíveis
+- Listar localizações existentes e suas configurações
+- Validar entrada e prevenir duplicatas
 
-1. **Add new location**: Use `python add_location.py` or edit `locations_config.json`
-2. **Run scraper**: Execute `python scrape_hacktown.py`
-3. **Auto-generation**: The scraper automatically updates `events/locations.json`
-4. **Frontend sync**: The web app uses the updated location data
+#### Método 2: Edição Manual
+Edite `locations_config.json` diretamente seguindo a estrutura acima.
 
-### Benefits
+### Categorias de Localização
 
-- ✅ **Single source of truth**: All location data in one file
-- ✅ **Automatic sync**: Frontend locations.json is auto-generated
-- ✅ **No duplication**: Update once, works everywhere
-- ✅ **Easy maintenance**: Interactive helper for adding locations
-- ✅ **Version control friendly**: Clean diffs when locations change
+- **Inatel e Arredores**: Campus e locais próximos
+- **ETE e Arredores**: Área da escola técnica
+- **Praça e Arredores**: Praça central e área do centro
+- **Other**: Localizações não mapeadas ou desconhecidas
+
+## 🔍 Arquivos de Dados de Filtro
+
+O scraper gera automaticamente arquivos de dados de filtro para popular listas dropdown na aplicação web:
+
+### Localizações de Filtro (`filter_locations.json`)
+Contém uma lista de nomes únicos de localização extraídos de todos os eventos.
+
+### Palestrantes de Filtro (`filter_speakers.json`)
+Contém uma lista de nomes únicos de palestrantes extraídos de todos os eventos.
+
+### Uso na Aplicação Web
+```javascript
+// Carregar localizações de filtro
+fetch('./events/filter_locations.json')
+  .then(response => response.json())
+  .then(data => populateLocationFilter(data.locations));
+
+// Carregar palestrantes de filtro
+fetch('./events/filter_speakers.json')
+  .then(response => response.json())
+  .then(data => populateSpeakerFilter(data.speakers));
+```
+
+## ⚡ Sistema de Scraping Otimizado
+
+### Detecção de Ambiente
+
+O scraper detecta automaticamente o ambiente de execução e ajusta suas configurações:
+
+- **Ambiente CI/CD**: Configurações conservadoras (1 requisição por vez, delays maiores)
+- **Desenvolvimento Local**: Configurações otimizadas (2 requisições concorrentes)
+- **Docker com FORCE_LOCAL_MODE**: Força configurações locais mesmo em containers
+
+### Funcionalidades do Scraper
+
+- **Requisições Assíncronas**: Processamento concorrente para melhor performance
+- **Retry Automático**: Lógica de retry com backoff exponencial
+- **Rate Limiting Inteligente**: Respeita limites da API automaticamente
+- **Logging Abrangente**: Logs detalhados para debugging e monitoramento
+- **Cache de Localização**: Sistema de cache para otimizar mapeamentos
+
+### Configurações por Ambiente
+
+```python
+# Ambiente CI/CD
+MAX_CONCURRENT_REQUESTS = 1
+RETRY_DELAY = 20s
+MAX_RETRIES = 3
+REQUEST_TIMEOUT = 60s
+
+# Desenvolvimento Local
+MAX_CONCURRENT_REQUESTS = 2
+RETRY_DELAY = 5s
+MAX_RETRIES = 5
+REQUEST_TIMEOUT = 30s
+```
+
+## 🔄 Automação e Deploy
+
+### GitHub Actions (Opcional)
+
+O projeto inclui um template de workflow do GitHub Actions (`.github/workflows/scrape-events.example`) para automação:
+
+- **Agendamento**: Executa a cada 4 horas
+- **Trigger Manual**: Pode ser acionado via interface do GitHub
+- **Cache Busting**: Atualiza automaticamente versões de cache do PWA
+- **Commits Inteligentes**: Só faz commit quando há mudanças reais
+
+### Docker (Recomendado)
+
+Sistema completo de containerização para deploy em servidor próprio:
+
+- **Container Isolado**: Ambiente Python isolado e reproduzível
+- **Integração Git**: Clona, atualiza e faz push automaticamente
+- **Logging**: Sistema de logs com rotação automática
+- **Cron Integration**: Fácil integração com crontab do sistema
+
+### Configuração de Cron
+
+```bash
+# Executa a cada 4 horas
+0 */4 * * * /path/to/better-hacktown/run-scraper.sh
+```
 
 ## 📊 Estrutura de Dados
 
 ### Arquivos de Eventos
 - `hacktown_events_YYYY-MM-DD.json`: Programações de eventos diárias
-- `locations.json`: Informações de locais e venues
+- `locations.json`: Informações de locais e venues (auto-gerado)
 - `filter_locations.json`: Lista de localizações únicas para filtros dropdown
 - `filter_speakers.json`: Lista de palestrantes únicos para filtros dropdown
 - `summary.json`: Estatísticas de eventos e metadados
 
 ### Integração com API
-O raspador se conecta a:
+O scraper se conecta a:
 ```
 https://hacktown-2025-ss-v2.api.yazo.com.br/public/schedules
 ```
 
-## 🔄 Automação
-
-### Workflow do GitHub Actions
-
-O projeto inclui um workflow automatizado do GitHub Actions (`.github/workflows/scrape-events.yml`) que mantém os dados de eventos atualizados e a aplicação web atualizada automaticamente.
-
-#### Configuração do Workflow
-
-**Gatilhos:**
-- **Agendado**: Executa a cada 4 horas (`0 */4 * * *`)
-- **Manual**: Pode ser acionado manualmente via interface do GitHub Actions
-- **Push**: Executa automaticamente quando `scrape_hacktown.py` ou o arquivo de workflow é atualizado
-
-**Ambiente:**
-- Executa em `ubuntu-latest`
-- Usa Python 3.10
-- Detecta automaticamente ambiente CI para configurações conservadoras
-
-#### Etapas do Workflow
-
-1. **Configuração do Repositório**
-   ```yaml
-   - Checkout do repositório com permissões de escrita
-   - Configuração do ambiente Python 3.10
-   - Instalação de dependências do requirements.txt
-   ```
-
-2. **Scraping de Eventos**
-   ```yaml
-   - Execução do scrape_hacktown.py com otimizações CI
-   - Gerenciamento do diretório de saída
-   - Processamento de todas as datas de eventos do HackTown 2025
-   ```
-
-3. **Gerenciamento de Cache**
-   ```yaml
-   - Geração de versão de cache busting baseada em timestamp
-   - Atualização do index.html com novos números de versão
-   - Garantia de que o PWA atualiza adequadamente nos navegadores
-   ```
-
-4. **Operações Git**
-   ```yaml
-   - Verificação de mudanças em events/ e index.html
-   - Commit de mudanças com timestamp
-   - Push de atualizações de volta ao repositório
-   ```
-
-#### Funcionalidades do Workflow
-
-- **Atualizações Inteligentes**: Só faz commit quando mudanças reais são detectadas
-- **Cache Busting**: Atualiza automaticamente versões de cache do PWA
-- **Tratamento de Erros**: Tratamento gracioso de arquivos e diretórios ausentes
-- **Otimização CI**: Usa configurações conservadoras de Scraping no GitHub Actions
-- **Timestamps Automatizados**: Commits incluem timestamp de execução
-
-#### Monitoramento do Workflow
-
-**Aba GitHub Actions:**
-- Visualizar execuções do workflow e seus status
-- Verificar logs para progresso de Scraping e erros
-- Monitorar tempo de execução e taxas de sucesso
-
-**Atualizações do Repositório:**
-- Commits automáticos aparecem com mensagens "Update event data"
-- Arquivos de eventos são atualizados no diretório `events/`
-- Versões de cache PWA são automaticamente incrementadas
-
-#### Execução Manual
-
-Você pode acionar manualmente o workflow:
-
-1. Vá para a aba **Actions** do seu repositório
-2. Selecione o workflow **"Scrape Hacktown Events"**
-3. Clique no botão **"Run workflow"**
-4. Escolha a branch (geralmente `main`)
-5. Clique em **"Run workflow"** para executar
-
-#### Solução de Problemas do Workflow
-
-**Problemas Comuns:**
-- **Erros de Permissão**: Certifique-se de que o repositório tem Actions habilitadas
-- **Rate Limiting**: Workflow usa configurações otimizadas para CI para evitar limites de API
-- **Falhas de Commit**: Verifique se as regras de proteção do repositório permitem que Actions façam push
-
-**Passos de Debug:**
-1. Verifique a aba Actions para logs detalhados
-2. Procure por mensagens de erro na etapa "Run scraper"
-3. Verifique se o diretório events contém arquivos atualizados
-4. Confirme se as versões de cache estão sendo atualizadas no index.html
-
-### Suporte CI/CD
-O raspador inclui otimizações para CI/CD:
-- Detecta ambientes CI (variáveis `CI` ou `GITHUB_ACTIONS`)
-- Ajusta configurações de concorrência e retry automaticamente
-- Rate limiting conservador em ambientes automatizados
-
-### Opções Alternativas de Agendamento
-Considere configurar execuções automatizadas usando:
-- **GitHub Actions**: ✅ Já configurado (recomendado)
-- **Cron Jobs**: Para agendamento baseado em servidor
-- **Cloud Functions**: Para automação serverless
-- **AWS Lambda**: Scraping orientada por eventos
+### Datas dos Eventos
+- 2025-07-30 (Dia 1)
+- 2025-07-31 (Dia 2)
+- 2025-08-01 (Dia 3)
+- 2025-08-02 (Dia 4)
+- 2025-08-03 (Dia 5)
 
 ## 🎨 Personalização
 
@@ -311,16 +277,6 @@ Edite o manifest e service worker para personalização do PWA:
 - Estratégias de cache
 - Comportamento offline
 
-## 🚀 Deploy
-
-### Hospedagem Estática
-Faça deploy em qualquer serviço de hospedagem estática:
-- **GitHub Pages**: Deploy automático do repositório
-
-### Scraping Automatizada
-Configure Scraping agendada usando:
-- **GitHub Actions**: `.github/workflows/scrape-events.yml`
-
 ## 📱 Funcionalidades PWA
 
 - **Instalável**: Adicionar à tela inicial em dispositivos móveis
@@ -328,6 +284,40 @@ Configure Scraping agendada usando:
 - **Experiência Similar a App**: Modo tela cheia e sensação nativa
 - **Carregamento Rápido**: Estratégias de cache do service worker
 - **Responsivo**: Funciona em desktop, tablet e mobile
+
+## 🔧 Solução de Problemas
+
+### Problemas Comuns
+
+**Erro de Rate Limiting:**
+- O scraper detecta automaticamente e ajusta configurações
+- Em ambiente CI, usa configurações ultra-conservadoras
+- Use `FORCE_LOCAL_MODE=true` em Docker para configurações otimizadas
+
+**Localizações Não Mapeadas:**
+- Use `python add_location.py` para adicionar novas localizações
+- Verifique o arquivo `summary.json` para localizações não mapeadas
+- Edite `locations_config.json` manualmente se necessário
+
+**Problemas de Docker:**
+- Verifique se o arquivo `.env` está configurado corretamente
+- Confirme se o GITHUB_TOKEN tem permissões adequadas
+- Consulte logs em `./logs/` para detalhes de erro
+
+### Testando Configurações
+
+```bash
+# Testar mapeamentos de localização
+python -c "
+import json
+from scrape_hacktown import normalize_and_locate, load_location_config
+load_location_config()
+print('Testando variações de localização...')
+"
+
+# Testar scraper em modo debug
+python scrape_hacktown.py
+```
 
 ## 🤝 Contribuindo
 
@@ -340,3 +330,9 @@ Configure Scraping agendada usando:
 ---
 
 **Feito com ❤️ para a comunidade HackTown 2025 com a assistência do Amazon Q**
+
+### 🔗 Links Úteis
+
+- [HackTown 2025](https://hacktown.com.br)
+- [Docker Setup Guide](DOCKER_SETUP.md)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
