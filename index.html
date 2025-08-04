@@ -374,7 +374,7 @@
 
         .location-dropdown-header {
             width: 100%;
-            padding: 12px 20px;
+            padding: 15px 20px;
             border: 2px solid #FF4500;
             background-color: transparent;
             color: #fff;
@@ -386,6 +386,48 @@
             align-items: center;
             justify-content: space-between;
             user-select: none;
+            min-height: 50px;
+            touch-action: manipulation;
+        }
+
+        .dropdown-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .clear-filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+            flex-shrink: 0;
+        }
+
+        .clear-filter-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .clear-filter-btn:active {
+            transform: scale(0.95);
+        }
+
+        .dropdown-arrow {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .location-dropdown-header:hover {
@@ -406,18 +448,19 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
             border: 2px solid #FF4500;
             border-top: none;
-            border-radius: 0 0 20px 20px;
-            max-height: 300px;
+            border-radius: 0 0 25px 25px;
+            max-height: 350px;
             overflow: hidden;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.15);
         }
 
         .location-dropdown.active .location-dropdown-content {
@@ -427,43 +470,54 @@
         }
 
         .location-search-container {
-            padding: 15px;
+            padding: 20px;
             border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .location-search-container input {
             width: 100%;
-            padding: 10px 15px;
-            border: 1px solid rgba(255, 69, 0, 0.3);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 69, 0, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.95);
             color: var(--text-primary);
-            font-size: 14px;
+            font-size: 16px;
             outline: none;
             transition: all 0.3s ease;
+            min-height: 50px;
+            touch-action: manipulation;
         }
 
         .location-search-container input:focus {
             border-color: #FF4500;
-            box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
+            transform: scale(1.02);
         }
 
         .location-search-container input::placeholder {
             color: var(--text-secondary);
+            font-size: 15px;
         }
 
         .location-options {
-            max-height: 200px;
+            max-height: 250px;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .location-option {
-            padding: 12px 20px;
+            padding: 18px 25px;
             color: var(--text-primary);
             cursor: pointer;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(255, 69, 0, 0.1);
-            font-size: 14px;
+            font-size: 15px;
+            min-height: 55px;
+            display: flex;
+            align-items: center;
+            touch-action: manipulation;
+            position: relative;
         }
 
         .location-option:last-child {
@@ -473,6 +527,7 @@
         .location-option:hover {
             background: rgba(255, 69, 0, 0.1);
             color: #FF4500;
+            transform: translateX(5px);
         }
 
         .location-option.active {
@@ -481,26 +536,233 @@
             font-weight: 600;
         }
 
+        .location-option.active::after {
+            content: '✓';
+            position: absolute;
+            right: 20px;
+            font-size: 18px;
+            color: #FF4500;
+        }
+
         .location-option.hidden {
             display: none;
         }
 
         /* Custom scrollbar for location options */
         .location-options::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         .location-options::-webkit-scrollbar-track {
             background: rgba(255, 69, 0, 0.1);
+            border-radius: 4px;
         }
 
         .location-options::-webkit-scrollbar-thumb {
-            background: rgba(255, 69, 0, 0.3);
-            border-radius: 3px;
+            background: rgba(255, 69, 0, 0.4);
+            border-radius: 4px;
         }
 
         .location-options::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 69, 0, 0.5);
+            background: rgba(255, 69, 0, 0.6);
+        }
+
+        /* Mobile Filter Modal Styles */
+        .filter-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-overlay);
+            z-index: 3500;
+            backdrop-filter: blur(20px);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+        }
+
+        .filter-modal.show {
+            opacity: 1;
+        }
+
+        .filter-modal-content {
+            background: var(--gradient-card);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90vh;
+            border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+            transform: translateY(100%);
+            transition: transform var(--transition-normal);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-modal.show .filter-modal-content {
+            transform: translateY(0);
+        }
+
+        .filter-modal-header {
+            background: var(--gradient-primary);
+            color: var(--text-white);
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+            box-shadow: var(--shadow-md);
+            flex-shrink: 0;
+        }
+
+        .filter-modal-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .filter-modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--text-white);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .filter-modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .filter-modal-search {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .filter-modal-search input {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid rgba(255, 69, 0, 0.3);
+            border-radius: 30px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 18px;
+            outline: none;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            touch-action: manipulation;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-modal-search input:focus {
+            border-color: #FF4500;
+            box-shadow: 0 0 0 4px rgba(255, 69, 0, 0.1), var(--shadow-md);
+            transform: scale(1.02);
+        }
+
+        .filter-modal-search input::placeholder {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .filter-modal-options {
+            flex: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 0;
+        }
+
+        .filter-modal-option {
+            padding: 25px 30px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+            font-size: 18px;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            touch-action: manipulation;
+            position: relative;
+            background: var(--bg-primary);
+        }
+
+        .filter-modal-option:last-child {
+            border-bottom: none;
+        }
+
+        .filter-modal-option:hover {
+            background: rgba(255, 69, 0, 0.05);
+            color: #FF4500;
+            transform: translateX(5px);
+        }
+
+        .filter-modal-option.active {
+            background: rgba(255, 69, 0, 0.1);
+            color: #FF4500;
+            font-weight: 600;
+        }
+
+        .filter-modal-option.active::after {
+            content: '✓';
+            font-size: 24px;
+            color: #FF4500;
+            font-weight: bold;
+        }
+
+        .filter-modal-option.hidden {
+            display: none;
+        }
+
+        .filter-modal-option-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        /* Custom scrollbar for filter modal */
+        .filter-modal-options::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .filter-modal-options::-webkit-scrollbar-track {
+            background: rgba(255, 69, 0, 0.1);
+            border-radius: 6px;
+        }
+
+        .filter-modal-options::-webkit-scrollbar-thumb {
+            background: rgba(255, 69, 0, 0.4);
+            border-radius: 6px;
+        }
+
+        .filter-modal-options::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 69, 0, 0.6);
+        }
+
+        .filter-modal-no-results {
+            padding: 40px 30px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 16px;
+            background: var(--bg-primary);
         }
 
         /* Speaker Filter Styles */
@@ -515,7 +777,7 @@
 
         .speaker-dropdown-header {
             width: 100%;
-            padding: 12px 20px;
+            padding: 15px 20px;
             border: 2px solid #FF4500;
             background-color: transparent;
             color: #fff;
@@ -527,6 +789,8 @@
             align-items: center;
             justify-content: space-between;
             user-select: none;
+            min-height: 50px;
+            touch-action: manipulation;
         }
 
         .speaker-dropdown-header:hover {
@@ -538,13 +802,6 @@
             border-color: #ff6b3d;
         }
 
-        .dropdown-arrow {
-            width: 20px;
-            height: 20px;
-            fill: #fff;
-            transition: transform 0.3s ease;
-        }
-
         .speaker-dropdown.active .dropdown-arrow {
             transform: rotate(180deg);
         }
@@ -554,18 +811,19 @@
             top: 100%;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(15px);
             border: 2px solid #FF4500;
             border-top: none;
-            border-radius: 0 0 20px 20px;
-            max-height: 300px;
+            border-radius: 0 0 25px 25px;
+            max-height: 350px;
             overflow: hidden;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.15);
         }
 
         .speaker-dropdown.active .speaker-dropdown-content {
@@ -575,43 +833,54 @@
         }
 
         .speaker-search-container {
-            padding: 15px;
+            padding: 20px;
             border-bottom: 1px solid rgba(255, 69, 0, 0.2);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         .speaker-search-container input {
             width: 100%;
-            padding: 10px 15px;
-            border: 1px solid rgba(255, 69, 0, 0.3);
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 20px;
+            border: 2px solid rgba(255, 69, 0, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.95);
             color: var(--text-primary);
-            font-size: 14px;
+            font-size: 16px;
             outline: none;
             transition: all 0.3s ease;
+            min-height: 50px;
+            touch-action: manipulation;
         }
 
         .speaker-search-container input:focus {
             border-color: #FF4500;
-            box-shadow: 0 0 0 2px rgba(255, 69, 0, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.1);
+            transform: scale(1.02);
         }
 
         .speaker-search-container input::placeholder {
             color: var(--text-secondary);
+            font-size: 15px;
         }
 
         .speaker-options {
-            max-height: 200px;
+            max-height: 250px;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .speaker-option {
-            padding: 12px 20px;
+            padding: 18px 25px;
             color: var(--text-primary);
             cursor: pointer;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(255, 69, 0, 0.1);
-            font-size: 14px;
+            font-size: 15px;
+            min-height: 55px;
+            display: flex;
+            align-items: center;
+            touch-action: manipulation;
+            position: relative;
         }
 
         .speaker-option:last-child {
@@ -621,6 +890,7 @@
         .speaker-option:hover {
             background: rgba(255, 69, 0, 0.1);
             color: #FF4500;
+            transform: translateX(5px);
         }
 
         .speaker-option.active {
@@ -629,26 +899,35 @@
             font-weight: 600;
         }
 
+        .speaker-option.active::after {
+            content: '✓';
+            position: absolute;
+            right: 20px;
+            font-size: 18px;
+            color: #FF4500;
+        }
+
         .speaker-option.hidden {
             display: none;
         }
 
         /* Custom scrollbar for speaker options */
         .speaker-options::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         .speaker-options::-webkit-scrollbar-track {
             background: rgba(255, 69, 0, 0.1);
+            border-radius: 4px;
         }
 
         .speaker-options::-webkit-scrollbar-thumb {
-            background: rgba(255, 69, 0, 0.3);
-            border-radius: 3px;
+            background: rgba(255, 69, 0, 0.4);
+            border-radius: 4px;
         }
 
         .speaker-options::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 69, 0, 0.5);
+            background: rgba(255, 69, 0, 0.6);
         }
 
         .sidebar-summary-info {
@@ -2143,6 +2422,140 @@
                 padding: 8px 10px;
                 margin: 0 -20px 25px -20px;
             }
+
+            /* Mobile-specific filter dropdown improvements */
+            .location-dropdown-header,
+            .speaker-dropdown-header {
+                padding: 18px 25px;
+                font-size: 17px;
+                min-height: 55px;
+                border-width: 3px;
+            }
+
+            .dropdown-controls {
+                gap: 10px;
+            }
+
+            .clear-filter-btn {
+                width: 32px;
+                height: 32px;
+            }
+
+            .clear-filter-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .dropdown-arrow {
+                width: 26px;
+                height: 26px;
+            }
+
+            .location-dropdown-content,
+            .speaker-dropdown-content {
+                max-height: 400px;
+                border-radius: 0 0 30px 30px;
+                border-width: 3px;
+            }
+
+            .location-search-container,
+            .speaker-search-container {
+                padding: 25px;
+            }
+
+            .location-search-container input,
+            .speaker-search-container input {
+                padding: 18px 25px;
+                font-size: 17px;
+                min-height: 55px;
+                border-radius: 30px;
+                border-width: 3px;
+            }
+
+            .location-options,
+            .speaker-options {
+                max-height: 300px;
+            }
+
+            .location-option,
+            .speaker-option {
+                padding: 22px 30px;
+                font-size: 16px;
+                min-height: 65px;
+            }
+
+            .location-option.active::after,
+            .speaker-option.active::after {
+                font-size: 20px;
+                right: 25px;
+            }
+
+            /* Improved scrollbar for mobile */
+            .location-options::-webkit-scrollbar,
+            .speaker-options::-webkit-scrollbar {
+                width: 12px;
+            }
+
+            .location-options::-webkit-scrollbar-thumb,
+            .speaker-options::-webkit-scrollbar-thumb {
+                border-radius: 6px;
+            }
+
+            /* Better dropdown arrow for mobile */
+            .dropdown-arrow {
+                width: 26px;
+                height: 26px;
+            }
+
+            /* Sidebar mobile improvements */
+            .sidebar {
+                width: 320px;
+                right: -320px;
+                padding: 80px 35px 35px;
+            }
+
+            .sidebar-section {
+                margin-bottom: 40px;
+            }
+
+            .sidebar-section-title {
+                font-size: 1em;
+                margin-bottom: 20px;
+            }
+
+            /* Better touch targets for near location buttons */
+            .sidebar .day-btn {
+                padding: 15px 25px;
+                font-size: 17px;
+                min-height: 50px;
+                margin-bottom: 5px;
+            }
+
+            /* Improved toggle switches for mobile */
+            .toggle-item {
+                padding: 18px;
+                margin-bottom: 20px;
+            }
+
+            .toggle-item label {
+                font-size: 1em;
+            }
+
+            .toggle-switch {
+                width: 60px;
+                height: 30px;
+            }
+
+            .toggle-switch .slider {
+                width: 26px;
+                height: 26px;
+                top: 2px;
+                left: 2px;
+            }
+
+            .toggle-switch input:checked + .slider {
+                left: 32px;
+            }
         }
 
         /* Custom Scrollbar */
@@ -2199,9 +2612,16 @@
                 <div class="location-dropdown" id="locationDropdown">
                     <div class="location-dropdown-header" onclick="toggleLocationDropdown()">
                         <span id="locationDropdownText">Todos os locais</span>
-                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
-                            <path d="M7 10l5 5 5-5z"/>
-                        </svg>
+                        <div class="dropdown-controls">
+                            <button class="clear-filter-btn" id="locationClearBtn" onclick="clearLocationFilter(event)" style="display: none;" title="Limpar filtro">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                            <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="location-dropdown-content" id="locationDropdownContent">
                         <div class="location-search-container">
@@ -2223,9 +2643,16 @@
                 <div class="speaker-dropdown" id="speakerDropdown">
                     <div class="speaker-dropdown-header" onclick="toggleSpeakerDropdown()">
                         <span id="speakerDropdownText">Todos os palestrantes</span>
-                        <svg class="dropdown-arrow" viewBox="0 0 24 24">
-                            <path d="M7 10l5 5 5-5z"/>
-                        </svg>
+                        <div class="dropdown-controls">
+                            <button class="clear-filter-btn" id="speakerClearBtn" onclick="clearSpeakerFilter(event)" style="display: none;" title="Limpar filtro">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                            <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </div>
                     </div>
                     <div class="speaker-dropdown-content" id="speakerDropdownContent">
                         <div class="speaker-search-container">
@@ -2385,6 +2812,42 @@
                     </div>
                 </div>
                 <button class="time-selector-confirm" onclick="confirmTimeSelection()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Location Filter Modal -->
+    <div class="filter-modal" id="locationFilterModal">
+        <div class="filter-modal-content">
+            <div class="filter-modal-header">
+                <h3 class="filter-modal-title">Filtrar por Local</h3>
+                <button class="filter-modal-close" onclick="closeMobileLocationFilter()">&times;</button>
+            </div>
+            <div class="filter-modal-search">
+                <input type="text" id="mobileLocationSearchInput" placeholder="Buscar local..." onkeyup="filterMobileLocations()" />
+            </div>
+            <div class="filter-modal-options" id="mobileLocationOptions">
+                <div class="filter-modal-option active" data-location="" onclick="selectMobileLocation('', 'Todos os locais')">
+                    <span class="filter-modal-option-text">Todos os locais</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Speaker Filter Modal -->
+    <div class="filter-modal" id="speakerFilterModal">
+        <div class="filter-modal-content">
+            <div class="filter-modal-header">
+                <h3 class="filter-modal-title">Filtrar por Palestrante</h3>
+                <button class="filter-modal-close" onclick="closeMobileSpeakerFilter()">&times;</button>
+            </div>
+            <div class="filter-modal-search">
+                <input type="text" id="mobileSpeakerSearchInput" placeholder="Buscar palestrante..." onkeyup="filterMobileSpeakers()" />
+            </div>
+            <div class="filter-modal-options" id="mobileSpeakerOptions">
+                <div class="filter-modal-option active" data-speaker="" onclick="selectMobileSpeaker('', 'Todos os palestrantes')">
+                    <span class="filter-modal-option-text">Todos os palestrantes</span>
+                </div>
             </div>
         </div>
     </div>
@@ -2857,22 +3320,264 @@
             });
         }
 
+        // Clear location filter
+        function clearLocationFilter(event) {
+            event.stopPropagation(); // Prevent dropdown from opening
+            
+            // Add haptic feedback
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
+            
+            // Reset to default
+            selectLocation('', 'Todos os locais');
+            
+            // Also update mobile modal if it exists
+            const mobileOptions = document.querySelectorAll('#mobileLocationOptions .filter-modal-option');
+            mobileOptions.forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-location') === '');
+            });
+        }
+
+        // Clear speaker filter
+        function clearSpeakerFilter(event) {
+            event.stopPropagation(); // Prevent dropdown from opening
+            
+            // Add haptic feedback
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
+            
+            // Reset to default
+            selectSpeaker('', 'Todos os palestrantes');
+            
+            // Also update mobile modal if it exists
+            const mobileOptions = document.querySelectorAll('#mobileSpeakerOptions .filter-modal-option');
+            mobileOptions.forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-speaker') === '');
+            });
+        }
+
+        // Update clear button visibility for location filter
+        function updateLocationClearButton() {
+            const clearBtn = document.getElementById('locationClearBtn');
+            const dropdownArrow = document.querySelector('#locationDropdown .dropdown-arrow');
+            
+            if (currentLocationFilter && currentLocationFilter !== '') {
+                clearBtn.style.display = 'flex';
+                dropdownArrow.style.opacity = '0.7';
+            } else {
+                clearBtn.style.display = 'none';
+                dropdownArrow.style.opacity = '1';
+            }
+        }
+
+        // Update clear button visibility for speaker filter
+        function updateSpeakerClearButton() {
+            const clearBtn = document.getElementById('speakerClearBtn');
+            const dropdownArrow = document.querySelector('#speakerDropdown .dropdown-arrow');
+            
+            if (currentSpeakerFilter && currentSpeakerFilter !== '') {
+                clearBtn.style.display = 'flex';
+                dropdownArrow.style.opacity = '0.7';
+            } else {
+                clearBtn.style.display = 'none';
+                dropdownArrow.style.opacity = '1';
+            }
+        }
+
+        // Check if device is mobile
+        function isMobileDevice() {
+            return window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
         // Toggle location dropdown
         function toggleLocationDropdown() {
+            if (isMobileDevice()) {
+                openMobileLocationFilter();
+                return;
+            }
+
             const dropdown = document.getElementById('locationDropdown');
+            const isOpening = !dropdown.classList.contains('active');
+            
             dropdown.classList.toggle('active');
+            
+            // Add haptic feedback on mobile
+            if ('vibrate' in navigator && isOpening) {
+                navigator.vibrate(50);
+            }
             
             // Focus search input when opening
             if (dropdown.classList.contains('active')) {
                 setTimeout(() => {
-                    document.getElementById('locationSearchInput').focus();
+                    const searchInput = document.getElementById('locationSearchInput');
+                    searchInput.focus();
+                    // Prevent zoom on iOS
+                    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                        searchInput.setAttribute('readonly', 'readonly');
+                        setTimeout(() => {
+                            searchInput.removeAttribute('readonly');
+                        }, 100);
+                    }
                 }, 100);
             }
         }
 
-        // Select location filter
+        // Open mobile location filter modal
+        function openMobileLocationFilter() {
+            const modal = document.getElementById('locationFilterModal');
+            
+            // Populate mobile options if not already done
+            populateMobileLocationFilter();
+            
+            // Show modal with animation
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Add haptic feedback
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
+            }
+            
+            requestAnimationFrame(() => {
+                modal.classList.add('show');
+                // Focus search input
+                setTimeout(() => {
+                    const searchInput = document.getElementById('mobileLocationSearchInput');
+                    searchInput.focus();
+                    // Prevent zoom on iOS
+                    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                        searchInput.setAttribute('readonly', 'readonly');
+                        setTimeout(() => {
+                            searchInput.removeAttribute('readonly');
+                        }, 100);
+                    }
+                }, 300);
+            });
+        }
+
+        // Close mobile location filter modal
+        function closeMobileLocationFilter() {
+            const modal = document.getElementById('locationFilterModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                // Clear search input
+                document.getElementById('mobileLocationSearchInput').value = '';
+                // Show all options again
+                document.querySelectorAll('.filter-modal-option').forEach(option => {
+                    option.classList.remove('hidden');
+                });
+                // Remove no results message if exists
+                const noResults = document.querySelector('#mobileLocationOptions .filter-modal-no-results');
+                if (noResults) {
+                    noResults.remove();
+                }
+            }, 300);
+        }
+
+        // Populate mobile location filter
+        function populateMobileLocationFilter() {
+            const mobileLocationOptions = document.getElementById('mobileLocationOptions');
+            
+            // Check if already populated (more than just the "All" option)
+            if (mobileLocationOptions.children.length > 1) {
+                return;
+            }
+            
+            // Use allFilterLocations array (already sorted from JSON file)
+            allFilterLocations.forEach(locationName => {
+                if (locationName && locationName.trim()) {
+                    const option = document.createElement('div');
+                    option.className = 'filter-modal-option';
+                    option.setAttribute('data-location', locationName);
+                    option.onclick = () => selectMobileLocation(locationName, locationName);
+                    
+                    const textSpan = document.createElement('span');
+                    textSpan.className = 'filter-modal-option-text';
+                    textSpan.textContent = locationName;
+                    option.appendChild(textSpan);
+                    
+                    mobileLocationOptions.appendChild(option);
+                }
+            });
+        }
+
+        // Select mobile location filter
+        function selectMobileLocation(locationName, displayName) {
+            currentLocationFilter = locationName;
+            
+            // Add haptic feedback
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
+            
+            // Update dropdown text in sidebar
+            document.getElementById('locationDropdownText').textContent = displayName;
+            
+            // Update clear button visibility
+            updateLocationClearButton();
+            
+            // Update active option in mobile modal
+            document.querySelectorAll('#mobileLocationOptions .filter-modal-option').forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-location') === locationName);
+            });
+            
+            // Update active option in desktop dropdown
+            document.querySelectorAll('.location-option').forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-location') === locationName);
+            });
+            
+            // Close modal
+            closeMobileLocationFilter();
+            
+            // Clear cache and refresh display
+            renderCache.clear();
+            if (currentDay) {
+                displayEvents(currentDay);
+            }
+        }
+
+        // Filter mobile locations
+        function filterMobileLocations() {
+            const searchTerm = document.getElementById('mobileLocationSearchInput').value.toLowerCase();
+            const options = document.querySelectorAll('#mobileLocationOptions .filter-modal-option');
+            let visibleCount = 0;
+            
+            options.forEach(option => {
+                const locationName = option.textContent.toLowerCase();
+                const matches = locationName.includes(searchTerm);
+                option.classList.toggle('hidden', !matches);
+                if (matches) visibleCount++;
+            });
+            
+            // Add visual feedback if no results
+            const optionsContainer = document.getElementById('mobileLocationOptions');
+            const existingNoResults = optionsContainer.querySelector('.filter-modal-no-results');
+            
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                if (!existingNoResults) {
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.className = 'filter-modal-no-results';
+                    noResultsDiv.textContent = 'Nenhum local encontrado';
+                    optionsContainer.appendChild(noResultsDiv);
+                }
+            } else if (existingNoResults) {
+                existingNoResults.remove();
+            }
+        }
+
+        // Select location filter (updated to work with both mobile and desktop)
         function selectLocation(locationName, displayName) {
             currentLocationFilter = locationName;
+            
+            // Add haptic feedback on mobile
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
             
             // Update dropdown text
             document.getElementById('locationDropdownText').textContent = displayName;
@@ -2882,8 +3587,12 @@
                 option.classList.toggle('active', option.getAttribute('data-location') === locationName);
             });
             
-            // Close dropdown
-            document.getElementById('locationDropdown').classList.remove('active');
+            // Update clear button visibility
+            updateLocationClearButton();
+            
+            // Close dropdown with animation
+            const dropdown = document.getElementById('locationDropdown');
+            dropdown.classList.remove('active');
             
             // Clear search input
             document.getElementById('locationSearchInput').value = '';
@@ -2904,12 +3613,36 @@
         function filterLocations() {
             const searchTerm = document.getElementById('locationSearchInput').value.toLowerCase();
             const options = document.querySelectorAll('.location-option');
+            let visibleCount = 0;
             
             options.forEach(option => {
                 const locationName = option.textContent.toLowerCase();
                 const matches = locationName.includes(searchTerm);
                 option.classList.toggle('hidden', !matches);
+                if (matches) visibleCount++;
             });
+            
+            // Add visual feedback if no results
+            const optionsContainer = document.getElementById('locationOptions');
+            const existingNoResults = optionsContainer.querySelector('.no-results-message');
+            
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                if (!existingNoResults) {
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.className = 'no-results-message';
+                    noResultsDiv.style.cssText = `
+                        padding: 20px;
+                        text-align: center;
+                        color: var(--text-secondary);
+                        font-style: italic;
+                        font-size: 14px;
+                    `;
+                    noResultsDiv.textContent = 'Nenhum local encontrado';
+                    optionsContainer.appendChild(noResultsDiv);
+                }
+            } else if (existingNoResults) {
+                existingNoResults.remove();
+            }
         }
 
         // Load filter locations from JSON file
@@ -2992,33 +3725,191 @@
 
         // Toggle speaker dropdown
         function toggleSpeakerDropdown() {
+            if (isMobileDevice()) {
+                openMobileSpeakerFilter();
+                return;
+            }
+
             const dropdown = document.getElementById('speakerDropdown');
+            const isOpening = !dropdown.classList.contains('active');
+            
             dropdown.classList.toggle('active');
+            
+            // Add haptic feedback on mobile
+            if ('vibrate' in navigator && isOpening) {
+                navigator.vibrate(50);
+            }
             
             // Focus search input when opening
             if (dropdown.classList.contains('active')) {
                 setTimeout(() => {
-                    document.getElementById('speakerSearchInput').focus();
+                    const searchInput = document.getElementById('speakerSearchInput');
+                    searchInput.focus();
+                    // Prevent zoom on iOS
+                    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                        searchInput.setAttribute('readonly', 'readonly');
+                        setTimeout(() => {
+                            searchInput.removeAttribute('readonly');
+                        }, 100);
+                    }
                 }, 100);
             }
         }
 
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
-            const locationDropdown = document.getElementById('locationDropdown');
-            if (locationDropdown && !locationDropdown.contains(e.target)) {
-                locationDropdown.classList.remove('active');
+        // Open mobile speaker filter modal
+        function openMobileSpeakerFilter() {
+            const modal = document.getElementById('speakerFilterModal');
+            
+            // Populate mobile options if not already done
+            populateMobileSpeakerFilter();
+            
+            // Show modal with animation
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Add haptic feedback
+            if ('vibrate' in navigator) {
+                navigator.vibrate(50);
             }
             
-            const speakerDropdown = document.getElementById('speakerDropdown');
-            if (speakerDropdown && !speakerDropdown.contains(e.target)) {
-                speakerDropdown.classList.remove('active');
-            }
-        });
+            requestAnimationFrame(() => {
+                modal.classList.add('show');
+                // Focus search input
+                setTimeout(() => {
+                    const searchInput = document.getElementById('mobileSpeakerSearchInput');
+                    searchInput.focus();
+                    // Prevent zoom on iOS
+                    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+                        searchInput.setAttribute('readonly', 'readonly');
+                        setTimeout(() => {
+                            searchInput.removeAttribute('readonly');
+                        }, 100);
+                    }
+                }, 300);
+            });
+        }
 
-        // Select speaker filter
+        // Close mobile speaker filter modal
+        function closeMobileSpeakerFilter() {
+            const modal = document.getElementById('speakerFilterModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                // Clear search input
+                document.getElementById('mobileSpeakerSearchInput').value = '';
+                // Show all options again
+                document.querySelectorAll('#mobileSpeakerOptions .filter-modal-option').forEach(option => {
+                    option.classList.remove('hidden');
+                });
+                // Remove no results message if exists
+                const noResults = document.querySelector('#mobileSpeakerOptions .filter-modal-no-results');
+                if (noResults) {
+                    noResults.remove();
+                }
+            }, 300);
+        }
+
+        // Populate mobile speaker filter
+        function populateMobileSpeakerFilter() {
+            const mobileSpeakerOptions = document.getElementById('mobileSpeakerOptions');
+            
+            // Check if already populated (more than just the "All" option)
+            if (mobileSpeakerOptions.children.length > 1) {
+                return;
+            }
+            
+            // Use allFilterSpeakers array (already sorted from JSON file)
+            allFilterSpeakers.forEach(speakerName => {
+                if (speakerName && speakerName.trim()) {
+                    const option = document.createElement('div');
+                    option.className = 'filter-modal-option';
+                    option.setAttribute('data-speaker', speakerName);
+                    option.onclick = () => selectMobileSpeaker(speakerName, speakerName);
+                    
+                    const textSpan = document.createElement('span');
+                    textSpan.className = 'filter-modal-option-text';
+                    textSpan.textContent = speakerName;
+                    option.appendChild(textSpan);
+                    
+                    mobileSpeakerOptions.appendChild(option);
+                }
+            });
+        }
+
+        // Select mobile speaker filter
+        function selectMobileSpeaker(speakerName, displayName) {
+            currentSpeakerFilter = speakerName;
+            
+            // Add haptic feedback
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
+            
+            // Update dropdown text in sidebar
+            document.getElementById('speakerDropdownText').textContent = displayName;
+            
+            // Update clear button visibility
+            updateSpeakerClearButton();
+            
+            // Update active option in mobile modal
+            document.querySelectorAll('#mobileSpeakerOptions .filter-modal-option').forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-speaker') === speakerName);
+            });
+            
+            // Update active option in desktop dropdown
+            document.querySelectorAll('.speaker-option').forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-speaker') === speakerName);
+            });
+            
+            // Close modal
+            closeMobileSpeakerFilter();
+            
+            // Clear cache and refresh display
+            renderCache.clear();
+            if (currentDay) {
+                displayEvents(currentDay);
+            }
+        }
+
+        // Filter mobile speakers
+        function filterMobileSpeakers() {
+            const searchTerm = document.getElementById('mobileSpeakerSearchInput').value.toLowerCase();
+            const options = document.querySelectorAll('#mobileSpeakerOptions .filter-modal-option');
+            let visibleCount = 0;
+            
+            options.forEach(option => {
+                const speakerName = option.textContent.toLowerCase();
+                const matches = speakerName.includes(searchTerm);
+                option.classList.toggle('hidden', !matches);
+                if (matches) visibleCount++;
+            });
+            
+            // Add visual feedback if no results
+            const optionsContainer = document.getElementById('mobileSpeakerOptions');
+            const existingNoResults = optionsContainer.querySelector('.filter-modal-no-results');
+            
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                if (!existingNoResults) {
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.className = 'filter-modal-no-results';
+                    noResultsDiv.textContent = 'Nenhum palestrante encontrado';
+                    optionsContainer.appendChild(noResultsDiv);
+                }
+            } else if (existingNoResults) {
+                existingNoResults.remove();
+            }
+        }
+
+        // Select speaker filter (updated to work with both mobile and desktop)
         function selectSpeaker(speakerName, displayName) {
             currentSpeakerFilter = speakerName;
+            
+            // Add haptic feedback on mobile
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
             
             // Update dropdown text
             document.getElementById('speakerDropdownText').textContent = displayName;
@@ -3028,8 +3919,12 @@
                 option.classList.toggle('active', option.getAttribute('data-speaker') === speakerName);
             });
             
-            // Close dropdown
-            document.getElementById('speakerDropdown').classList.remove('active');
+            // Update clear button visibility
+            updateSpeakerClearButton();
+            
+            // Close dropdown with animation
+            const dropdown = document.getElementById('speakerDropdown');
+            dropdown.classList.remove('active');
             
             // Clear search input
             document.getElementById('speakerSearchInput').value = '';
@@ -3050,12 +3945,36 @@
         function filterSpeakers() {
             const searchTerm = document.getElementById('speakerSearchInput').value.toLowerCase();
             const options = document.querySelectorAll('.speaker-option');
+            let visibleCount = 0;
             
             options.forEach(option => {
                 const speakerName = option.textContent.toLowerCase();
                 const matches = speakerName.includes(searchTerm);
                 option.classList.toggle('hidden', !matches);
+                if (matches) visibleCount++;
             });
+            
+            // Add visual feedback if no results
+            const optionsContainer = document.getElementById('speakerOptions');
+            const existingNoResults = optionsContainer.querySelector('.no-results-message');
+            
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                if (!existingNoResults) {
+                    const noResultsDiv = document.createElement('div');
+                    noResultsDiv.className = 'no-results-message';
+                    noResultsDiv.style.cssText = `
+                        padding: 20px;
+                        text-align: center;
+                        color: var(--text-secondary);
+                        font-style: italic;
+                        font-size: 14px;
+                    `;
+                    noResultsDiv.textContent = 'Nenhum palestrante encontrado';
+                    optionsContainer.appendChild(noResultsDiv);
+                }
+            } else if (existingNoResults) {
+                existingNoResults.remove();
+            }
         }
 
         // Populate speaker filter dropdown
@@ -3361,7 +4280,14 @@
             // Load filter data from JSON files
             await loadFilterData();
             
+            // Initialize clear button states
+            updateLocationClearButton();
+            updateSpeakerClearButton();
+            
             updateSummaryDisplay();
+            
+            // Initialize mobile enhancements
+            initMobileEnhancements();
             
             // Set up scroll listener for sticky nav
             window.addEventListener('scroll', handleStickyNavScroll, { passive: true });
@@ -3380,6 +4306,11 @@
                 newEventsToggle.addEventListener('change', (e) => {
                     console.log('New events toggle changed:', e.target.checked);
                     showNewEventsOnly = e.target.checked;
+                    
+                    // Add haptic feedback on mobile
+                    if ('vibrate' in navigator) {
+                        navigator.vibrate(30);
+                    }
                     
                     // Update toggle switch appearance
                     if (toggleSwitch) {
@@ -4188,30 +5119,97 @@
             });
         }
 
-        // Keyboard navigation and accessibility
+        // Close dropdowns when clicking outside (updated for mobile modals)
+        document.addEventListener('click', function(e) {
+            // Only handle desktop dropdowns if not on mobile
+            if (!isMobileDevice()) {
+                const locationDropdown = document.getElementById('locationDropdown');
+                if (locationDropdown && !locationDropdown.contains(e.target)) {
+                    locationDropdown.classList.remove('active');
+                }
+                
+                const speakerDropdown = document.getElementById('speakerDropdown');
+                if (speakerDropdown && !speakerDropdown.contains(e.target)) {
+                    speakerDropdown.classList.remove('active');
+                }
+            }
+        });
+
+        // Add touch event handling for better mobile experience
+        document.addEventListener('touchstart', function(e) {
+            // Close dropdowns on touch outside (only for desktop dropdowns)
+            if (!isMobileDevice()) {
+                const locationDropdown = document.getElementById('locationDropdown');
+                const speakerDropdown = document.getElementById('speakerDropdown');
+                
+                if (locationDropdown && !locationDropdown.contains(e.target) && locationDropdown.classList.contains('active')) {
+                    locationDropdown.classList.remove('active');
+                }
+                
+                if (speakerDropdown && !speakerDropdown.contains(e.target) && speakerDropdown.classList.contains('active')) {
+                    speakerDropdown.classList.remove('active');
+                }
+            }
+        }, { passive: true });
+
+        // Close mobile filter modals when clicking outside
+        window.onclick = function(event) {
+            const eventModal = document.getElementById('eventModal');
+            if (event.target === eventModal) {
+                closeModal();
+            }
+            const timeSelectorModal = document.getElementById('timeSelectorModal');
+            if (event.target === timeSelectorModal) {
+                closeTimeSelector();
+            }
+            const locationFilterModal = document.getElementById('locationFilterModal');
+            if (event.target === locationFilterModal) {
+                closeMobileLocationFilter();
+            }
+            const speakerFilterModal = document.getElementById('speakerFilterModal');
+            if (event.target === speakerFilterModal) {
+                closeMobileSpeakerFilter();
+            }
+        }
+
+        // Keyboard navigation and accessibility (updated for mobile modals)
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const modal = document.getElementById('eventModal');
                 if (modal.classList.contains('show')) {
                     closeModal();
+                    return;
                 }
                 const timeSelectorModal = document.getElementById('timeSelectorModal');
                 if (timeSelectorModal.classList.contains('show')) {
                     closeTimeSelector();
+                    return;
+                }
+                const locationFilterModal = document.getElementById('locationFilterModal');
+                if (locationFilterModal.classList.contains('show')) {
+                    closeMobileLocationFilter();
+                    return;
+                }
+                const speakerFilterModal = document.getElementById('speakerFilterModal');
+                if (speakerFilterModal.classList.contains('show')) {
+                    closeMobileSpeakerFilter();
+                    return;
                 }
                 const sidebar = document.getElementById('sidebar');
                 if (sidebar.classList.contains('active')) {
                     toggleMenu();
+                    return;
                 }
-                // Close speaker dropdown
+                // Close desktop dropdowns
                 const speakerDropdown = document.getElementById('speakerDropdown');
                 if (speakerDropdown && speakerDropdown.classList.contains('active')) {
                     speakerDropdown.classList.remove('active');
+                    return;
                 }
-                // Close location dropdown
                 const locationDropdown = document.getElementById('locationDropdown');
                 if (locationDropdown && locationDropdown.classList.contains('active')) {
                     locationDropdown.classList.remove('active');
+                    return;
                 }
             }
             
@@ -4230,20 +5228,235 @@
             if (e.key === 'Enter' && e.target.classList.contains('event-card')) {
                 e.target.click();
             }
+            
+            // Enhanced dropdown keyboard navigation (for desktop)
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                const activeDropdown = document.querySelector('.location-dropdown.active, .speaker-dropdown.active');
+                if (activeDropdown) {
+                    e.preventDefault();
+                    const options = activeDropdown.querySelectorAll('.location-option:not(.hidden), .speaker-option:not(.hidden)');
+                    const currentActive = activeDropdown.querySelector('.location-option.active, .speaker-option.active');
+                    
+                    if (options.length > 0) {
+                        let currentIndex = Array.from(options).indexOf(currentActive);
+                        
+                        if (e.key === 'ArrowDown') {
+                            currentIndex = (currentIndex + 1) % options.length;
+                        } else {
+                            currentIndex = currentIndex <= 0 ? options.length - 1 : currentIndex - 1;
+                        }
+                        
+                        // Remove active class from all options
+                        options.forEach(opt => opt.classList.remove('active'));
+                        // Add active class to new option
+                        options[currentIndex].classList.add('active');
+                        // Scroll into view
+                        options[currentIndex].scrollIntoView({ block: 'nearest' });
+                    }
+                }
+                
+                // Mobile modal keyboard navigation
+                const activeLocationModal = document.getElementById('locationFilterModal');
+                const activeSpeakerModal = document.getElementById('speakerFilterModal');
+                
+                if (activeLocationModal && activeLocationModal.classList.contains('show')) {
+                    e.preventDefault();
+                    const options = activeLocationModal.querySelectorAll('.filter-modal-option:not(.hidden)');
+                    const currentActive = activeLocationModal.querySelector('.filter-modal-option.active');
+                    
+                    if (options.length > 0) {
+                        let currentIndex = Array.from(options).indexOf(currentActive);
+                        
+                        if (e.key === 'ArrowDown') {
+                            currentIndex = (currentIndex + 1) % options.length;
+                        } else {
+                            currentIndex = currentIndex <= 0 ? options.length - 1 : currentIndex - 1;
+                        }
+                        
+                        // Remove active class from all options
+                        options.forEach(opt => opt.classList.remove('active'));
+                        // Add active class to new option
+                        options[currentIndex].classList.add('active');
+                        // Scroll into view
+                        options[currentIndex].scrollIntoView({ block: 'nearest' });
+                    }
+                }
+                
+                if (activeSpeakerModal && activeSpeakerModal.classList.contains('show')) {
+                    e.preventDefault();
+                    const options = activeSpeakerModal.querySelectorAll('.filter-modal-option:not(.hidden)');
+                    const currentActive = activeSpeakerModal.querySelector('.filter-modal-option.active');
+                    
+                    if (options.length > 0) {
+                        let currentIndex = Array.from(options).indexOf(currentActive);
+                        
+                        if (e.key === 'ArrowDown') {
+                            currentIndex = (currentIndex + 1) % options.length;
+                        } else {
+                            currentIndex = currentIndex <= 0 ? options.length - 1 : currentIndex - 1;
+                        }
+                        
+                        // Remove active class from all options
+                        options.forEach(opt => opt.classList.remove('active'));
+                        // Add active class to new option
+                        options[currentIndex].classList.add('active');
+                        // Scroll into view
+                        options[currentIndex].scrollIntoView({ block: 'nearest' });
+                    }
+                }
+            }
+            
+            // Handle Enter key in dropdowns and modals
+            if (e.key === 'Enter') {
+                const activeLocationOption = document.querySelector('.location-dropdown.active .location-option.active');
+                const activeSpeakerOption = document.querySelector('.speaker-dropdown.active .speaker-option.active');
+                const activeMobileLocationOption = document.querySelector('#locationFilterModal.show .filter-modal-option.active');
+                const activeMobileSpeakerOption = document.querySelector('#speakerFilterModal.show .filter-modal-option.active');
+                
+                if (activeLocationOption) {
+                    e.preventDefault();
+                    activeLocationOption.click();
+                } else if (activeSpeakerOption) {
+                    e.preventDefault();
+                    activeSpeakerOption.click();
+                } else if (activeMobileLocationOption) {
+                    e.preventDefault();
+                    activeMobileLocationOption.click();
+                } else if (activeMobileSpeakerOption) {
+                    e.preventDefault();
+                    activeMobileSpeakerOption.click();
+                }
+            }
         });
         
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('eventModal');
-            if (event.target === modal) {
-                closeModal();
+        // Enhanced mobile menu toggle with haptic feedback
+        function toggleMenu() {
+            const menuToggle = document.getElementById('menuToggle');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            const isOpening = !sidebar.classList.contains('active');
+            
+            // Add haptic feedback on mobile
+            if ('vibrate' in navigator && isOpening) {
+                navigator.vibrate(50);
             }
-            const timeSelectorModal = document.getElementById('timeSelectorModal');
-            if (event.target === timeSelectorModal) {
-                closeTimeSelector();
+            
+            menuToggle.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // Prevent body scroll when sidebar is open
+            if (sidebar.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
             }
         }
 
+        // Enhanced near location selection with haptic feedback
+        function selectNearLocation(nearLocation) {
+            currentNearLocation = nearLocation;
+            
+            // Add haptic feedback on mobile
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
+            
+            // Update active button
+            document.querySelectorAll('#nearLocationSelector .day-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-near-location') === nearLocation);
+            });
+            
+            // Clear cache and refresh display
+            renderCache.clear();
+            if (currentDay) {
+                displayEvents(currentDay);
+            }
+            
+            // Close menu after selection on mobile
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    toggleMenu();
+                }, 300);
+            }
+        }
+
+        // Add smooth scrolling behavior for mobile
+        function addMobileSmoothScrolling() {
+            // Add smooth scrolling to all internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Optimize touch interactions for mobile
+        function optimizeTouchInteractions() {
+            // Add touch-action optimization to prevent unwanted gestures
+            const interactiveElements = document.querySelectorAll('.event-card, .favorite-btn, .share-btn, .day-btn, .location-option, .speaker-option');
+            
+            interactiveElements.forEach(element => {
+                element.style.touchAction = 'manipulation';
+            });
+            
+            // Add visual feedback for touch interactions
+            document.addEventListener('touchstart', function(e) {
+                if (e.target.classList.contains('event-card') || 
+                    e.target.classList.contains('location-option') || 
+                    e.target.classList.contains('speaker-option') ||
+                    e.target.classList.contains('day-btn')) {
+                    e.target.style.transform = 'scale(0.98)';
+                    e.target.style.transition = 'transform 0.1s ease';
+                }
+            }, { passive: true });
+            
+            document.addEventListener('touchend', function(e) {
+                if (e.target.classList.contains('event-card') || 
+                    e.target.classList.contains('location-option') || 
+                    e.target.classList.contains('speaker-option') ||
+                    e.target.classList.contains('day-btn')) {
+                    setTimeout(() => {
+                        e.target.style.transform = '';
+                        e.target.style.transition = '';
+                    }, 100);
+                }
+            }, { passive: true });
+        }
+
+        // Add mobile-specific initialization
+        function initMobileEnhancements() {
+            // Check if device is mobile
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+            
+            if (isMobile) {
+                addMobileSmoothScrolling();
+                optimizeTouchInteractions();
+                
+                // Add viewport meta tag optimization for mobile
+                const viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+                }
+                
+                // Prevent double-tap zoom on buttons
+                const buttons = document.querySelectorAll('button, .day-btn, .location-option, .speaker-option');
+                buttons.forEach(button => {
+                    button.addEventListener('touchend', function(e) {
+                        e.preventDefault();
+                        this.click();
+                    });
+                });
+            }
+        }
+        
         // Register service worker
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
