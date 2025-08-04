@@ -25,6 +25,8 @@ better-hacktown/
 ├── events/                # Dados de eventos raspados
 │   ├── hacktown_events_*.json  # Arquivos de eventos diários
 │   ├── locations.json     # Dados de localizações de eventos
+│   ├── filter_locations.json  # Lista de localizações únicas para filtros
+│   ├── filter_speakers.json   # Lista de palestrantes únicos para filtros
 │   └── summary.json       # Estatísticas resumidas de eventos
 └── README.md              # Este arquivo
 ```
@@ -65,6 +67,61 @@ better-hacktown/
 
 5. **Acesse a aplicação**
    Abra seu navegador e navegue para `http://localhost:8000`
+
+## 🔍 Filter Data Files
+
+The scraper automatically generates filter data files to populate dropdown lists in the web application:
+
+### Filter Locations (`filter_locations.json`)
+Contains a list of unique location names extracted from all events:
+```json
+{
+  "generated_at": "2025-08-04T10:30:00-03:00",
+  "total_locations": 15,
+  "locations": [
+    "Auditório Principal",
+    "Sala de Workshops",
+    "Espaço Networking",
+    "..."
+  ]
+}
+```
+
+### Filter Speakers (`filter_speakers.json`)
+Contains a list of unique speaker names extracted from all events:
+```json
+{
+  "generated_at": "2025-08-04T10:30:00-03:00",
+  "total_speakers": 42,
+  "speakers": [
+    "Ana Silva",
+    "João Santos",
+    "Maria Oliveira",
+    "..."
+  ]
+}
+```
+
+### Usage in Web Application
+These files can be loaded by the frontend to populate filter dropdowns:
+```javascript
+// Load filter locations
+fetch('./events/filter_locations.json')
+  .then(response => response.json())
+  .then(data => populateLocationFilter(data.locations));
+
+// Load filter speakers
+fetch('./events/filter_speakers.json')
+  .then(response => response.json())
+  .then(data => populateSpeakerFilter(data.speakers));
+```
+
+### Automatic Generation
+- Files are automatically generated each time the scraper runs
+- Data is extracted from all successfully scraped events
+- Lists are sorted alphabetically for consistent ordering
+- Duplicate entries are automatically removed
+- Empty or invalid entries are filtered out
 
 ## 🗺️ Location Management
 
@@ -121,6 +178,8 @@ Edit `locations_config.json` directly and add new mappings following the structu
 ### Arquivos de Eventos
 - `hacktown_events_YYYY-MM-DD.json`: Programações de eventos diárias
 - `locations.json`: Informações de locais e venues
+- `filter_locations.json`: Lista de localizações únicas para filtros dropdown
+- `filter_speakers.json`: Lista de palestrantes únicos para filtros dropdown
 - `summary.json`: Estatísticas de eventos e metadados
 
 ### Integração com API

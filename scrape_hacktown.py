@@ -605,6 +605,152 @@ def save_events_to_file(date: str, events: List[Dict[str, Any]]):
     logger.info(f"File size: {os.path.getsize(filepath):,} bytes")
 
 
+def extract_unique_filter_locations(all_events_data: Dict[str, List[Dict[str, Any]]]) -> List[str]:
+    """
+    Extract unique filter locations from all events across all dates.
+    
+    This function processes all scraped events to create a comprehensive list
+    of unique filter locations that can be used for dropdown filtering in the web app.
+    
+    Args:
+        all_events_data (Dict[str, List[Dict[str, Any]]]): All events organized by date
+        
+    Returns:
+        List[str]: Sorted list of unique filter locations
+    """
+    unique_locations = set()
+    
+    for date, events in all_events_data.items():
+        if events:  # Only process if events exist for this date
+            for event in events:
+                # Get the filterLocation field (added by process_events)
+                filter_location = event.get('filterLocation', '')
+                if filter_location and filter_location.strip():
+                    unique_locations.add(filter_location.strip())
+    
+    # Convert to sorted list for consistent ordering
+    sorted_locations = sorted(list(unique_locations))
+    logger.info(f"📍 Extracted {len(sorted_locations)} unique filter locations")
+    
+    return sorted_locations
+
+
+def extract_unique_speakers(all_events_data: Dict[str, List[Dict[str, Any]]]) -> List[str]:
+    """
+    Extract unique speaker names from all events across all dates.
+    
+    This function processes all scraped events to create a comprehensive list
+    of unique speaker names from the 'speakers.name' field that can be used 
+    for dropdown filtering in the web app.
+    
+    Args:
+        all_events_data (Dict[str, List[Dict[str, Any]]]): All events organized by date
+        
+    Returns:
+        List[str]: Sorted list of unique speaker names
+    """
+    unique_speakers = set()
+    
+    for date, events in all_events_data.items():
+        if events:  # Only process if events exist for this date
+            for event in events:
+                # Only check the 'speakers' field
+                speakers_data = event.get('speakers', [])
+                
+                if speakers_data and isinstance(speakers_data, list):
+                    # Process each speaker in the speakers array
+                    for speaker in speakers_data:
+                        if isinstance(speaker, dict):
+                            # Extract the 'name' field from the speaker object
+                            name = speaker.get('name', '')
+                            if name and isinstance(name, str) and name.strip():
+                                unique_speakers.add(name.strip())
+    
+    # Clean up speaker names - remove very short names and common non-speaker words
+    cleaned_speakers = set()
+    common_words = {'tbd', 'tba', 'a definir', 'em breve', 'soon', 'coming', 'undefined', 'null', 'none', ''}
+    
+    for speaker in unique_speakers:
+        # Skip very short names or common placeholder words
+        if len(speaker) > 2 and speaker.lower() not in common_words:
+            cleaned_speakers.add(speaker)
+    
+    # Convert to sorted list for consistent ordering
+    sorted_speakers = sorted(list(cleaned_speakers))
+    logger.info(f"🎤 Extracted {len(sorted_speakers)} unique speaker names from 'speakers.name' field")
+    
+    return sorted_speakers
+
+
+def save_filter_data(all_events_data: Dict[str, List[Dict[str, Any]]]):
+    """
+    Generate and save filter data files for the web application.
+    
+    This function creates two JSON files containing unique values for dropdown filters:
+    1. filter_locations.json - List of unique filter locations
+    2. filter_speakers.json - List of unique speaker names
+    
+    Args:
+        all_events_data (Dict[str, List[Dict[str, Any]]]): All events organized by date
+    """
+    # ========================================================================
+    # EXTRACT UNIQUE VALUES
+    # ========================================================================
+    logger.info("🔍 Extracting unique values for filter dropdowns...")
+    
+    unique_locations = extract_unique_filter_locations(all_events_data)
+    unique_speakers = extract_unique_speakers(all_events_data)
+    
+    # ========================================================================
+    # GENERATE TIMESTAMP
+    # ========================================================================
+    utc_now = datetime.now(ZoneInfo('UTC'))
+    brt_now = utc_now.astimezone(ZoneInfo('America/Sao_Paulo'))
+    
+    # ========================================================================
+    # SAVE FILTER LOCATIONS FILE
+    # ========================================================================
+    locations_filter_data = {
+        "generated_at": brt_now.isoformat(),
+        "total_locations": len(unique_locations),
+        "locations": unique_locations
+    }
+    
+    locations_file = os.path.join(OUTPUT_DIR, "filter_locations.json")
+    with open(locations_file, 'w', encoding='utf-8') as f:
+        json.dump(locations_filter_data, f, ensure_ascii=False, indent=2)
+    
+    logger.info(f"📍 Saved {len(unique_locations)} filter locations to {locations_file}")
+    
+    # ========================================================================
+    # SAVE FILTER SPEAKERS FILE
+    # ========================================================================
+    speakers_filter_data = {
+        "generated_at": brt_now.isoformat(),
+        "total_speakers": len(unique_speakers),
+        "speakers": unique_speakers
+    }
+    
+    speakers_file = os.path.join(OUTPUT_DIR, "filter_speakers.json")
+    with open(speakers_file, 'w', encoding='utf-8') as f:
+        json.dump(speakers_filter_data, f, ensure_ascii=False, indent=2)
+    
+    logger.info(f"🎤 Saved {len(unique_speakers)} filter speakers to {speakers_file}")
+    
+    # ========================================================================
+    # LOG SUMMARY
+    # ========================================================================
+    logger.info("✅ Filter data files generated successfully:")
+    logger.info(f"   • {locations_file} ({len(unique_locations)} locations)")
+    logger.info(f"   • {speakers_file} ({len(unique_speakers)} speakers)")
+    
+    # Show some examples for verification
+    if unique_locations:
+        logger.info(f"   📍 Sample locations: {', '.join(unique_locations[:3])}{'...' if len(unique_locations) > 3 else ''}")
+    if unique_speakers:
+        logger.info(f"   🎤 Sample speakers: {', '.join(unique_speakers[:3])}{'...' if len(unique_speakers) > 3 else ''}")
+
+
 async def warm_up_session(session: aiohttp.ClientSession):
     """
     Warm up the session by making a request to the main website first.
@@ -861,6 +1007,17 @@ async def main():
             logger.warning(f"❌ {date}: No events retrieved (scraping failed)")
 
     # ========================================================================
+    # GENERATE FILTER DATA FILES
+    # ========================================================================
+    # Generate filter dropdown data files if we have any successful events
+    if successful_dates > 0:
+        logger.info("\n" + "🔍 Generating filter data files...")
+        logger.info("-" * 50)
+        save_filter_data(all_events)
+    else:
+        logger.warning("⚠️ No successful events found - skipping filter data generation")
+
+    # ========================================================================
     # PERFORMANCE METRICS AND SUMMARY
     # ========================================================================
     elapsed_time = time.time() - start_time
@@ -900,6 +1057,7 @@ async def main():
             "failed_dates": failed_dates,
             "dates_processed": EVENT_DATES,
             "files_created": [f"hacktown_events_{date}.json" for date in EVENT_DATES if date not in failed_dates],
+            "filter_files_created": ["filter_locations.json", "filter_speakers.json"] if successful_dates > 0 else [],
             "scraping_time_seconds": round(elapsed_time, 2),
             "events_per_second": round(total_events/elapsed_time, 2) if elapsed_time > 0 else 0,
             "location_cache_size": len(location_cache),
@@ -939,6 +1097,7 @@ async def main():
         logger.info("✅ Status: SUCCESS")
         logger.info("🎉 Event data is ready for the web application")
         logger.info("📍 locations.json has been updated automatically")
+        logger.info("🔍 Filter data files (filter_locations.json, filter_speakers.json) generated")
     else:
         logger.error("❌ Status: FAILED")
         logger.error("🔧 Check logs above for error details and retry")

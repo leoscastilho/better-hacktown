@@ -1,7 +1,7 @@
 {
   "date": "2025-08-01",
   "total_events": 420,
-  "scraped_at": "2025-08-03T19:01:36.079650-03:00",
+  "scraped_at": "2025-08-04T11:52:33.250431-03:00",
   "events": [
     {
       "id": 2002,
@@ -23,15 +23,6 @@
       "unlimited_slots": false,
       "requires_booking": true,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 399,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Regeneração / Clima / Sustentabilidade",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 5049,
@@ -64,6 +55,15 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 399,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Regeneração / Clima / Sustentabilidade",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -91,6 +91,7 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 438,
@@ -100,7 +101,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -128,6 +128,7 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 18,
@@ -137,7 +138,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -165,7 +165,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [
         {
           "id": 5280,
@@ -183,6 +182,7 @@
           "allow_access": false
         }
       ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -210,8 +210,8 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -239,22 +239,6 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 290,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Economia Criativa",
-          "hub_event_id": 1
-        },
-        {
-          "id": 321,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Direitos Autorais / Criatividade",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4257,
@@ -302,6 +286,22 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 290,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Economia Criativa",
+          "hub_event_id": 1
+        },
+        {
+          "id": 321,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Direitos Autorais / Criatividade",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -329,8 +329,8 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -358,6 +358,7 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 482,
@@ -367,7 +368,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -395,8 +395,8 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -424,7 +424,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [],
       "speakers": [
         {
           "id": 5617,
@@ -442,6 +441,7 @@
           "allow_access": false
         }
       ],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -620,8 +620,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Praça da Câmara - Praça Expedicionario Mauricio Adami",
-      "nearLocation": null
+      "filterLocation": "Praça da Câmara",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2569,
@@ -3179,7 +3179,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2996,
@@ -5369,7 +5369,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
       "tags": [
         {
@@ -5380,6 +5379,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5406,7 +5406,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4645,
@@ -5447,6 +5446,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5473,7 +5473,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5071,
@@ -5500,6 +5499,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5526,7 +5526,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5388,
@@ -5553,6 +5552,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5579,7 +5579,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4168,
@@ -5620,6 +5619,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5646,7 +5646,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5028,
@@ -5717,6 +5716,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5743,7 +5743,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4702,
@@ -5799,6 +5798,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5825,7 +5825,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5354,
@@ -5887,6 +5886,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5913,7 +5913,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4330,
@@ -5954,6 +5953,7 @@
           "hub_event_id": 1
         }
       ],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -5980,7 +5980,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5482,
@@ -6029,12 +6028,13 @@
         }
       ],
       "tags": [],
+      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 1980,
@@ -9465,7 +9465,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2092,
@@ -10142,6 +10142,22 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 275,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Educação / Aprendizado",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -10158,22 +10174,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 275,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Educação / Aprendizado",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -10202,6 +10202,29 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 384,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Design / UX / Acessibilidade",
+          "hub_event_id": 1
+        },
+        {
+          "id": 387,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Diversidade / Equidade / Inclusão",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -10250,29 +10273,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 384,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Design / UX / Acessibilidade",
-          "hub_event_id": 1
-        },
-        {
-          "id": 387,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Diversidade / Equidade / Inclusão",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -10299,6 +10299,15 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -10315,15 +10324,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -10352,24 +10352,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4686,
-          "name": "Rafa Camilo",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1833/partner_1833_1752613218213.png",
-          "bio": "Trabalha com inovação, é conselheiro, escritor, palestrante, mentor e top voice. Rafa também é especialista em Presente do Trabalho num momento em que as discussões se exaurem ao redor de seu futuro.",
-          "role": "Especialista em Presente do Trabalho",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1877,
-            "pivot_speaker_id": 4686,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 19,
@@ -10391,6 +10373,24 @@
           "type": "schedules",
           "name": "Gestão / Governança Inovadora",
           "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4686,
+          "name": "Rafa Camilo",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1833/partner_1833_1752613218213.png",
+          "bio": "Trabalha com inovação, é conselheiro, escritor, palestrante, mentor e top voice. Rafa também é especialista em Presente do Trabalho num momento em que as discussões se exaurem ao redor de seu futuro.",
+          "role": "Especialista em Presente do Trabalho",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1877,
+            "pivot_speaker_id": 4686,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -10419,6 +10419,22 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 332,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Cidades / Comunidades Inovadoras",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -10435,22 +10451,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 332,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Cidades / Comunidades Inovadoras",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -10479,24 +10479,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4115,
-          "name": "Alexandre Coimbra Amaral",
-          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/26/26_1753968474783.png?ims=filters:quality(75)",
-          "bio": "Psicólogo, escritor, palestrante e podcaster, autor de cinco best sellers, incluindo *Toda ansiedade merece um abraço*. Atua em projetos de saúde mental voltados para empresas e escolas em todo o país, promovendo bem-estar emocional e conscientização.",
-          "role": "Psicólogo, Escritor, Palestrante e Podcaster.",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 1689,
-            "pivot_speaker_id": 4115,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 19,
@@ -10518,6 +10500,24 @@
           "type": "schedules",
           "name": "Saúde Física / Mental – Presente / Futuro",
           "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4115,
+          "name": "Alexandre Coimbra Amaral",
+          "picture": "https://mzc9kojc5a.map.azionedge.net/prd-hacktown-2025-ss-v2/app/image/26/26_1753968474783.png?ims=filters:quality(75)",
+          "bio": "Psicólogo, escritor, palestrante e podcaster, autor de cinco best sellers, incluindo *Toda ansiedade merece um abraço*. Atua em projetos de saúde mental voltados para empresas e escolas em todo o país, promovendo bem-estar emocional e conscientização.",
+          "role": "Psicólogo, Escritor, Palestrante e Podcaster.",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 1689,
+            "pivot_speaker_id": 4115,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -10546,24 +10546,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
-      "speakers": [
-        {
-          "id": 4102,
-          "name": "Ademir Martins",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1231/partner_1231_1752609504299.png",
-          "bio": "Fundador da Agô Comunicação, laboratório de comunicação popular e curadoria de conteúdo. Há 9 anos conduz oficinas de oratória e expressão, além de atuar como Diretor de Curadoria no TEDx Governador Valadares.",
-          "role": "Fundador da Agô Comunicação",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 1665,
-            "pivot_speaker_id": 4102,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
       "tags": [
         {
           "id": 19,
@@ -10585,6 +10567,24 @@
           "type": "schedules",
           "name": "Educação / Aprendizado",
           "hub_event_id": 1
+        }
+      ],
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4102,
+          "name": "Ademir Martins",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1231/partner_1231_1752609504299.png",
+          "bio": "Fundador da Agô Comunicação, laboratório de comunicação popular e curadoria de conteúdo. Há 9 anos conduz oficinas de oratória e expressão, além de atuar como Diretor de Curadoria no TEDx Governador Valadares.",
+          "role": "Fundador da Agô Comunicação",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 1665,
+            "pivot_speaker_id": 4102,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
         }
       ],
       "meta": {
@@ -10613,6 +10613,29 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        },
+        {
+          "id": 294,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Impacto Social",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -10676,29 +10699,6 @@
           "allow_access": false
         }
       ],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
-        },
-        {
-          "id": 294,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Impacto Social",
-          "hub_event_id": 1
-        }
-      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -10725,6 +10725,22 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 261,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Empreendedorismo",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -10741,22 +10757,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 261,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Empreendedorismo",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -10785,6 +10785,22 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 331,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Pré-concepção Consciente / Parentalidade",
+          "hub_event_id": 1
+        }
+      ],
       "broadcast_rooms": [],
       "speakers": [
         {
@@ -10801,22 +10817,6 @@
             "allow_access": false
           },
           "allow_access": false
-        }
-      ],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 331,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Pré-concepção Consciente / Parentalidade",
-          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -12090,8 +12090,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 24,
@@ -12105,8 +12105,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco na Calçada - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2229,
@@ -12127,7 +12127,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4508,
@@ -12145,6 +12144,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -12187,7 +12187,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5621,
@@ -12205,6 +12204,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -12232,7 +12232,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5236,
@@ -12250,6 +12249,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -12277,7 +12277,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4544,
@@ -12340,6 +12339,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 392,
@@ -12389,7 +12389,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4818,
@@ -12407,6 +12406,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 399,
@@ -12456,7 +12456,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4362,
@@ -12474,6 +12473,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [],
       "meta": {
         "is_bookmarked": false,
@@ -12501,7 +12501,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5635,
@@ -12519,6 +12518,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -12554,7 +12554,6 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4736,
@@ -12617,6 +12616,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -12659,7 +12659,6 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4602,
@@ -12677,6 +12676,7 @@
           "allow_access": false
         }
       ],
+      "broadcast_rooms": [],
       "tags": [
         {
           "id": 391,
@@ -13655,7 +13655,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2965,
@@ -15805,8 +15805,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco na Calçada - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 1666,
@@ -18442,8 +18442,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco na Calçada - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 1674,
@@ -18964,6 +18964,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4851,
@@ -18981,7 +18982,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19024,6 +19024,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4486,
@@ -19041,7 +19042,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -19077,6 +19077,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4755,
@@ -19094,7 +19095,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 391,
@@ -19144,6 +19144,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4135,
@@ -19161,7 +19162,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 321,
@@ -19211,6 +19211,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4654,
@@ -19273,7 +19274,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 23,
@@ -19309,6 +19309,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5374,
@@ -19326,7 +19327,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 264,
@@ -19369,6 +19369,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4647,
@@ -19386,7 +19387,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 388,
@@ -19436,6 +19436,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4497,
@@ -19453,7 +19454,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 273,
@@ -19503,6 +19503,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4750,
@@ -19520,7 +19521,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 386,
@@ -19570,6 +19570,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4243,
@@ -19587,7 +19588,6 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
       "tags": [
         {
           "id": 19,
@@ -20423,15 +20423,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4992,
@@ -20449,7 +20441,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20476,15 +20476,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4606,
@@ -20547,7 +20539,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20574,6 +20574,24 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4285,
+          "name": "Duda Diamba",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1418/partner_1418_1752610676137.png",
+          "bio": "Reconhecido como uma das principais vozes do reggae brasileiro, Duda Diamba é cantor, compositor e ativista cultural com quase 30 anos de carreira. Fundador e vocalista da banda Diamba, ajudou a consolidar o reggae na Bahia, destacando-se por sua performance carismática e mensagens de conexão humana. Em carreira solo, expande fronteiras com gravações no estúdio Tuff Gong, na Jamaica, e intercâmbio cultural na Argentina. Possui cinco álbuns independentes e participações em eventos como o Festival de Verão Salvador e o DVD Natiruts Reggae Brasil.",
+          "role": "Diretor Administrativo e Artístico na LB Cultura Circular",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2400,
+            "pivot_speaker_id": 4285,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 388,
@@ -20597,24 +20615,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4285,
-          "name": "Duda Diamba",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1418/partner_1418_1752610676137.png",
-          "bio": "Reconhecido como uma das principais vozes do reggae brasileiro, Duda Diamba é cantor, compositor e ativista cultural com quase 30 anos de carreira. Fundador e vocalista da banda Diamba, ajudou a consolidar o reggae na Bahia, destacando-se por sua performance carismática e mensagens de conexão humana. Em carreira solo, expande fronteiras com gravações no estúdio Tuff Gong, na Jamaica, e intercâmbio cultural na Argentina. Possui cinco álbuns independentes e participações em eventos como o Festival de Verão Salvador e o DVD Natiruts Reggae Brasil.",
-          "role": "Diretor Administrativo e Artístico na LB Cultura Circular",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2400,
-            "pivot_speaker_id": 4285,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20641,7 +20641,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "tags": [],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5096,
@@ -20659,7 +20659,7 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20686,6 +20686,24 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4420,
+          "name": "Jairo Neto",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1556/partner_1556_1752611517107.png",
+          "bio": "Diretor de cena e produtor criativo, formado em Design, pós-graduado em Cinema e mestre em Literatura. Dirige o longa \"Cavalcanti\" e assinou projetos para Discovery, GNT e Netflix. É mentor no EUETU Lab, promovendo a inclusão no audiovisual.",
+          "role": "Diretor e Produtor Criativo",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1663,
+            "pivot_speaker_id": 4420,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -20709,24 +20727,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [
-        {
-          "id": 4420,
-          "name": "Jairo Neto",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1556/partner_1556_1752611517107.png",
-          "bio": "Diretor de cena e produtor criativo, formado em Design, pós-graduado em Cinema e mestre em Literatura. Dirige o longa \"Cavalcanti\" e assinou projetos para Discovery, GNT e Netflix. É mentor no EUETU Lab, promovendo a inclusão no audiovisual.",
-          "role": "Diretor e Produtor Criativo",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1663,
-            "pivot_speaker_id": 4420,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
-        }
-      ],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20753,15 +20753,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5490,
@@ -20794,13 +20786,21 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2938,
@@ -20821,15 +20821,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 27,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Workshop",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5635,
@@ -20847,7 +20839,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 27,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Workshop",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20874,15 +20874,7 @@
       "available_slots": 0,
       "unlimited_slots": false,
       "requires_booking": false,
-      "tags": [
-        {
-          "id": 384,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Design / UX / Acessibilidade",
-          "hub_event_id": 1
-        }
-      ],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 5005,
@@ -20930,7 +20922,15 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [
+        {
+          "id": 384,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Design / UX / Acessibilidade",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -20957,7 +20957,7 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
-      "tags": [],
+      "broadcast_rooms": [],
       "speakers": [
         {
           "id": 4115,
@@ -20975,7 +20975,7 @@
           "allow_access": false
         }
       ],
-      "broadcast_rooms": [],
+      "tags": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21002,6 +21002,8 @@
       "available_slots": 0,
       "unlimited_slots": true,
       "requires_booking": false,
+      "broadcast_rooms": [],
+      "speakers": [],
       "tags": [
         {
           "id": 24,
@@ -21011,8 +21013,6 @@
           "hub_event_id": 1
         }
       ],
-      "speakers": [],
-      "broadcast_rooms": [],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21040,6 +21040,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4266,
+          "name": "Davi Bufalo",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1399/partner_1399_1752610564512.png",
+          "bio": "LATAM Head of Talent da Oliver, professor na Miami Ad School, colunista de Cultura Digital na EAMagazine e diretor voluntário na ABRH-SP. Graduado em Psicologia pela Universidade São Francisco, pós-graduado em Gestão Empresarial e Estratégia de Negócios e Inovação pela Fundação Dom Cabral, com formações executivas na Hyper Island e Singularity University. Com 15 anos de experiência como generalista de RH em mercados globais, atua em aquisição e gestão de talentos, employer branding, diversidade e cultura, atendendo setores como consultoria, ciência, bens de consumo, varejo, startups e tecnologia.",
+          "role": "LATAM Head of Talent - OLIVER",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1951,
+            "pivot_speaker_id": 4266,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 388,
@@ -21061,23 +21078,6 @@
           "type": "schedules",
           "name": "Cultura em Movimento",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4266,
-          "name": "Davi Bufalo",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1399/partner_1399_1752610564512.png",
-          "bio": "LATAM Head of Talent da Oliver, professor na Miami Ad School, colunista de Cultura Digital na EAMagazine e diretor voluntário na ABRH-SP. Graduado em Psicologia pela Universidade São Francisco, pós-graduado em Gestão Empresarial e Estratégia de Negócios e Inovação pela Fundação Dom Cabral, com formações executivas na Hyper Island e Singularity University. Com 15 anos de experiência como generalista de RH em mercados globais, atua em aquisição e gestão de talentos, employer branding, diversidade e cultura, atendendo setores como consultoria, ciência, bens de consumo, varejo, startups e tecnologia.",
-          "role": "LATAM Head of Talent - OLIVER",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1951,
-            "pivot_speaker_id": 4266,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -21107,6 +21107,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4333,
+          "name": "Flávia Belisário",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1466/partner_1466_1752610983949.png",
+          "bio": "Educadora em Gestão do Estresse e Bem-Estar, com abordagem baseada em evidências e foco na aplicação prática. Fisioterapeuta com 20 anos de experiência, atua com pessoas, organizações e equipes esportivas. É coordenadora de Yoga e Mindfulness no Minas Tênis Clube, promovendo saúde integral e equilíbrio emocional.",
+          "role": "Educadora Gestão do Estresse e Bem-Estar. Yoga e Mindfulness Minas Tênis Clube.",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1927,
+            "pivot_speaker_id": 4333,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 291,
@@ -21128,23 +21145,6 @@
           "type": "schedules",
           "name": "Palestra",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4333,
-          "name": "Flávia Belisário",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1466/partner_1466_1752610983949.png",
-          "bio": "Educadora em Gestão do Estresse e Bem-Estar, com abordagem baseada em evidências e foco na aplicação prática. Fisioterapeuta com 20 anos de experiência, atua com pessoas, organizações e equipes esportivas. É coordenadora de Yoga e Mindfulness no Minas Tênis Clube, promovendo saúde integral e equilíbrio emocional.",
-          "role": "Educadora Gestão do Estresse e Bem-Estar. Yoga e Mindfulness Minas Tênis Clube.",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1927,
-            "pivot_speaker_id": 4333,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -21174,22 +21174,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        },
-        {
-          "id": 292,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Inovação Corporativa",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4256,
@@ -21205,6 +21189,22 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
+        },
+        {
+          "id": 292,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Inovação Corporativa",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -21234,22 +21234,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 23,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Painel",
-          "hub_event_id": 1
-        },
-        {
-          "id": 264,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "IA / Tecnologias Emergentes",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4625,
@@ -21312,6 +21296,22 @@
           "allow_access": false
         }
       ],
+      "tags": [
+        {
+          "id": 23,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Painel",
+          "hub_event_id": 1
+        },
+        {
+          "id": 264,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "IA / Tecnologias Emergentes",
+          "hub_event_id": 1
+        }
+      ],
       "meta": {
         "is_bookmarked": false,
         "rating": 0
@@ -21339,15 +21339,6 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
-      "tags": [
-        {
-          "id": 19,
-          "color": "#21C89D",
-          "type": "schedules",
-          "name": "Palestra",
-          "hub_event_id": 1
-        }
-      ],
       "speakers": [
         {
           "id": 4380,
@@ -21363,6 +21354,15 @@
             "allow_access": false
           },
           "allow_access": false
+        }
+      ],
+      "tags": [
+        {
+          "id": 19,
+          "color": "#21C89D",
+          "type": "schedules",
+          "name": "Palestra",
+          "hub_event_id": 1
         }
       ],
       "meta": {
@@ -21392,6 +21392,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4724,
+          "name": "Roque Almeida",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1871/partner_1871_1752613437548.png",
+          "bio": "CEO do Grupo Matter\\&Co, Roque Almeida acumula quase 30 anos de experiência como executivo, consultor, professor, investidor e conselheiro. Lidera um ecossistema de empresas como AlmaBrands, Smart Business Lab, beePo e Matter Academy, com mais de 1.500 projetos realizados no Brasil e no exterior. É administrador pela UFMG, com especializações pela FDC, IETEC e University of British Columbia. Reconhecido por sua abordagem técnica, clara e orientada a resultados.",
+          "role": "CEO da Matter&Co e sócio Almabrands",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1938,
+            "pivot_speaker_id": 4724,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -21413,23 +21430,6 @@
           "type": "schedules",
           "name": "Inovação Corporativa",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4724,
-          "name": "Roque Almeida",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1871/partner_1871_1752613437548.png",
-          "bio": "CEO do Grupo Matter\\&Co, Roque Almeida acumula quase 30 anos de experiência como executivo, consultor, professor, investidor e conselheiro. Lidera um ecossistema de empresas como AlmaBrands, Smart Business Lab, beePo e Matter Academy, com mais de 1.500 projetos realizados no Brasil e no exterior. É administrador pela UFMG, com especializações pela FDC, IETEC e University of British Columbia. Reconhecido por sua abordagem técnica, clara e orientada a resultados.",
-          "role": "CEO da Matter&Co e sócio Almabrands",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1938,
-            "pivot_speaker_id": 4724,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -21459,6 +21459,23 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4539,
+          "name": "Lucas Veríssimo",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1679/partner_1679_1752612252544.png",
+          "bio": "Mestre de Cerimônias bilíngue, apresentador de quatro edições do TEDx, autor de três livros e criador do Método do Carvão ao Diamante. Ensina como transformar presença em autoridade e atenção em reputação, mesmo em um mundo programado para ignorar.",
+          "role": "Instituto do Carvão ao Diamante",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1686,
+            "pivot_speaker_id": 4539,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -21480,23 +21497,6 @@
           "type": "schedules",
           "name": "Vendas / Marketing",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4539,
-          "name": "Lucas Veríssimo",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1679/partner_1679_1752612252544.png",
-          "bio": "Mestre de Cerimônias bilíngue, apresentador de quatro edições do TEDx, autor de três livros e criador do Método do Carvão ao Diamante. Ensina como transformar presença em autoridade e atenção em reputação, mesmo em um mundo programado para ignorar.",
-          "role": "Instituto do Carvão ao Diamante",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1686,
-            "pivot_speaker_id": 4539,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -21526,6 +21526,23 @@
       "unlimited_slots": false,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4376,
+          "name": "Grace Lis",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1509/partner_1509_1752611237549.png",
+          "bio": "Doutoranda em Imagem e Som pela UFSCar, especialista em UX Design e educadora com 25 anos de experiência em design, tecnologia e inovação educacional. Atua com pesquisa aplicada em inteligência artificial e metodologias criativas, focada na transformação de experiências de aprendizagem para gerar impacto significativo.",
+          "role": "Professora e Pesquisadora - SENAC, UNIARA, UFSCAR",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 1897,
+            "pivot_speaker_id": 4376,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -21547,23 +21564,6 @@
           "type": "schedules",
           "name": "Educação / Aprendizado",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4376,
-          "name": "Grace Lis",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1509/partner_1509_1752611237549.png",
-          "bio": "Doutoranda em Imagem e Som pela UFSCar, especialista em UX Design e educadora com 25 anos de experiência em design, tecnologia e inovação educacional. Atua com pesquisa aplicada em inteligência artificial e metodologias criativas, focada na transformação de experiências de aprendizagem para gerar impacto significativo.",
-          "role": "Professora e Pesquisadora - SENAC, UNIARA, UFSCAR",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 1897,
-            "pivot_speaker_id": 4376,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -21593,6 +21593,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4540,
+          "name": "Lucia Rodrigues",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1680/partner_1680_1752612260869.png",
+          "bio": "Lucia Rodrigues conecta educação, trabalho e propósito, apoiando quem inicia a carreira ou empreende do zero. Atua em parceria com governos e ONGs, promovendo inclusão e desenvolvimento. Entusiasta de inovação e impacto social, utiliza inteligência artificial para acelerar transformações reais com pessoas engajadas e cheias de brilho no olho.",
+          "role": "Diretora de Desenvolvimento de Negócios e Parcerias – Wadhwani Foundation no Brasil",
+          "company": " ",
+          "meta": {
+            "pivot_schedule_id": 2379,
+            "pivot_speaker_id": 4540,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 19,
@@ -21614,23 +21631,6 @@
           "type": "schedules",
           "name": "Educação / Aprendizado",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4540,
-          "name": "Lucia Rodrigues",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1680/partner_1680_1752612260869.png",
-          "bio": "Lucia Rodrigues conecta educação, trabalho e propósito, apoiando quem inicia a carreira ou empreende do zero. Atua em parceria com governos e ONGs, promovendo inclusão e desenvolvimento. Entusiasta de inovação e impacto social, utiliza inteligência artificial para acelerar transformações reais com pessoas engajadas e cheias de brilho no olho.",
-          "role": "Diretora de Desenvolvimento de Negócios e Parcerias – Wadhwani Foundation no Brasil",
-          "company": " ",
-          "meta": {
-            "pivot_schedule_id": 2379,
-            "pivot_speaker_id": 4540,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -21660,6 +21660,23 @@
       "unlimited_slots": true,
       "requires_booking": false,
       "broadcast_rooms": [],
+      "speakers": [
+        {
+          "id": 4187,
+          "name": "Beatriz Parreiral Xavier",
+          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1318/partner_1318_1752610019458.png",
+          "bio": "Coordenadora da Comissão Ambiental, Social e de Governança no maior hospital 100% SUS do país. Mestre em Direito Internacional e Direito Comunitário, graduada em Relações Internacionais pela PUC Minas. Atua na promoção de práticas sustentáveis e governança responsável, com foco na transformação social e institucional por meio do conhecimento aplicado e colaborativo.",
+          "role": "Coordenadora da Comissão ASG da Santa Casa BH",
+          "company": "-",
+          "meta": {
+            "pivot_schedule_id": 1921,
+            "pivot_speaker_id": 4187,
+            "is_bookmarked": false,
+            "allow_access": false
+          },
+          "allow_access": false
+        }
+      ],
       "tags": [
         {
           "id": 291,
@@ -21681,23 +21698,6 @@
           "type": "schedules",
           "name": "Palestra",
           "hub_event_id": 1
-        }
-      ],
-      "speakers": [
-        {
-          "id": 4187,
-          "name": "Beatriz Parreiral Xavier",
-          "picture": "https://dtirr1ox68qli.cloudfront.net/base_streaming/app/image/partner_1318/partner_1318_1752610019458.png",
-          "bio": "Coordenadora da Comissão Ambiental, Social e de Governança no maior hospital 100% SUS do país. Mestre em Direito Internacional e Direito Comunitário, graduada em Relações Internacionais pela PUC Minas. Atua na promoção de práticas sustentáveis e governança responsável, com foco na transformação social e institucional por meio do conhecimento aplicado e colaborativo.",
-          "role": "Coordenadora da Comissão ASG da Santa Casa BH",
-          "company": "-",
-          "meta": {
-            "pivot_schedule_id": 1921,
-            "pivot_speaker_id": 4187,
-            "is_bookmarked": false,
-            "allow_access": false
-          },
-          "allow_access": false
         }
       ],
       "meta": {
@@ -22318,7 +22318,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 1933,
@@ -23279,8 +23279,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco na Calçada - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2444,
@@ -25235,8 +25235,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3037,
@@ -25294,7 +25294,7 @@
         "rating": 0
       },
       "filterLocation": "Casarão Pós-Doc",
-      "nearLocation": null
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 3039,
@@ -25472,7 +25472,7 @@
         "rating": 0
       },
       "filterLocation": "Casarão Pós-Doc",
-      "nearLocation": null
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 2510,
@@ -25537,8 +25537,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2461,
@@ -25574,8 +25574,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3041,
@@ -25604,7 +25604,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2605,
@@ -25641,7 +25641,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2732,
@@ -25780,8 +25780,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2619,
@@ -25817,8 +25817,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3044,
@@ -25912,8 +25912,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3046,
@@ -25942,7 +25942,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2462,
@@ -25978,8 +25978,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2606,
@@ -26016,7 +26016,7 @@
         "rating": 0
       },
       "filterLocation": "Casa Conectada by Claro",
-      "nearLocation": null
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3047,
@@ -26044,8 +26044,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2463,
@@ -26081,8 +26081,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3049,
@@ -26242,8 +26242,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2465,
@@ -26279,8 +26279,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3051,
@@ -26308,8 +26308,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 2464,
@@ -26345,8 +26345,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3053,
@@ -26411,8 +26411,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 3052,
@@ -26440,8 +26440,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2513,
@@ -26506,8 +26506,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2611,
@@ -26543,8 +26543,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2612,
@@ -26580,8 +26580,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 3055,
@@ -26609,8 +26609,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     },
     {
       "id": 3056,
@@ -26638,8 +26638,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Beco do Saci - MultiExperiências",
-      "nearLocation": null
+      "filterLocation": "Palco MultiExperiências",
+      "nearLocation": "ETE e Arredores"
     },
     {
       "id": 2466,
@@ -26675,8 +26675,8 @@
         "is_bookmarked": false,
         "rating": 0
       },
-      "filterLocation": "Palco MFM",
-      "nearLocation": null
+      "filterLocation": "Casa MFM",
+      "nearLocation": "Inatel e Arredores"
     }
   ]
 }

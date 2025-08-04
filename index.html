@@ -2394,8 +2394,8 @@
         let allEvents = {};
         let loadedDays = new Set(); // Track which days have been loaded
         let currentDay = null;
-        let locations = new Set();
-        let allSpeakers = new Set(); // Track all speakers across all events
+        let allFilterLocations = []; // Loaded from filter_locations.json
+        let allFilterSpeakers = []; // Loaded from filter_speakers.json
         let currentSpeakerFilter = ''; // Track current speaker filter
         let currentLocationFilter = ''; // Track current location filter
         let showFavoritesOnly = false;
@@ -2912,6 +2912,60 @@
             });
         }
 
+        // Load filter locations from JSON file
+        async function loadFilterLocations() {
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`./events/filter_locations.json?t=${timestamp}`, {
+                    cache: 'no-cache'
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                allFilterLocations = data.locations || [];
+                console.log('Filter locations loaded:', allFilterLocations.length);
+                return allFilterLocations;
+            } catch (error) {
+                console.error('Error loading filter locations:', error);
+                allFilterLocations = [];
+                return [];
+            }
+        }
+
+        // Load filter speakers from JSON file
+        async function loadFilterSpeakers() {
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`./events/filter_speakers.json?t=${timestamp}`, {
+                    cache: 'no-cache'
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                allFilterSpeakers = data.speakers || [];
+                console.log('Filter speakers loaded:', allFilterSpeakers.length);
+                return allFilterSpeakers;
+            } catch (error) {
+                console.error('Error loading filter speakers:', error);
+                allFilterSpeakers = [];
+                return [];
+            }
+        }
+
+        // Load all filter data
+        async function loadFilterData() {
+            await Promise.all([
+                loadFilterLocations(),
+                loadFilterSpeakers()
+            ]);
+            
+            // Populate filters after data is loaded
+            populateLocationFilter();
+            populateSpeakerFilter();
+        }
+
         // Populate location filter dropdown
         function populateLocationFilter() {
             const locationOptions = document.getElementById('locationOptions');
@@ -2921,18 +2975,19 @@
             locationOptions.innerHTML = '';
             locationOptions.appendChild(allOption);
             
-            // Sort locations and add them to the dropdown
-            const sortedLocations = Array.from(locations).sort();
-            sortedLocations.forEach(locationName => {
-                const option = document.createElement('div');
-                option.className = 'location-option';
-                option.setAttribute('data-location', locationName);
-                option.textContent = locationName;
-                option.onclick = () => selectLocation(locationName, locationName);
-                locationOptions.appendChild(option);
+            // Use allFilterLocations array (already sorted from JSON file)
+            allFilterLocations.forEach(locationName => {
+                if (locationName && locationName.trim()) {
+                    const option = document.createElement('div');
+                    option.className = 'location-option';
+                    option.setAttribute('data-location', locationName);
+                    option.textContent = locationName;
+                    option.onclick = () => selectLocation(locationName, locationName);
+                    locationOptions.appendChild(option);
+                }
             });
             
-            console.log('Unique locations found:', sortedLocations.length);
+            console.log('Location filter populated with', allFilterLocations.length, 'locations');
         }
 
         // Toggle speaker dropdown
@@ -3012,32 +3067,22 @@
             speakerOptions.innerHTML = '';
             speakerOptions.appendChild(allOption);
             
-            // Sort speakers and add them to the dropdown
-            const sortedSpeakers = Array.from(allSpeakers).sort();
-            sortedSpeakers.forEach(speakerName => {
-                const option = document.createElement('div');
-                option.className = 'speaker-option';
-                option.setAttribute('data-speaker', speakerName);
-                option.textContent = speakerName;
-                option.onclick = () => selectSpeaker(speakerName, speakerName);
-                speakerOptions.appendChild(option);
-            });
-            
-            console.log('Unique speakers found:', sortedSpeakers.length);
-        }
-
-        // Collect speakers from events
-        function collectSpeakersFromEvents(events) {
-            events.forEach(event => {
-                if (event.speakers && Array.isArray(event.speakers)) {
-                    event.speakers.forEach(speaker => {
-                        if (speaker.name && speaker.name.trim()) {
-                            allSpeakers.add(speaker.name.trim());
-                        }
-                    });
+            // Use allFilterSpeakers array (already sorted from JSON file)
+            allFilterSpeakers.forEach(speakerName => {
+                if (speakerName && speakerName.trim()) {
+                    const option = document.createElement('div');
+                    option.className = 'speaker-option';
+                    option.setAttribute('data-speaker', speakerName);
+                    option.textContent = speakerName;
+                    option.onclick = () => selectSpeaker(speakerName, speakerName);
+                    speakerOptions.appendChild(option);
                 }
             });
+            
+            console.log('Speaker filter populated with', allFilterSpeakers.length, 'speakers');
         }
+
+
 
         // Toggle menu
         function toggleMenu() {
@@ -3232,7 +3277,8 @@
                 renderCache.clear();
                 summaryData = null;
                 locationsData = null;
-                allSpeakers.clear(); // Clear speakers cache
+                allFilterLocations = []; // Clear filter locations cache
+                allFilterSpeakers = []; // Clear filter speakers cache
                 currentSpeakerFilter = ''; // Reset speaker filter
                 currentLocationFilter = ''; // Reset location filter
                 
@@ -3253,7 +3299,7 @@
                 // Force reload all data
                 await loadSummary();
                 await loadLocations();
-                await loadAllEventsForSpeakerFilter(); // Reload all events for speaker filter
+                await loadFilterData(); // Reload filter data from JSON files
                 
                 // If there's a current day selected, reload its events
                 if (currentDay) {
@@ -3263,7 +3309,6 @@
                 
                 // Update UI elements
                 updateSummaryDisplay();
-                updateLocationFilter();
                 
                 // Reset speaker filter dropdown
                 document.getElementById('speakerDropdownText').textContent = 'Todos os palestrantes';
@@ -3313,8 +3358,8 @@
             await loadSummary();
             await loadLocations(); // Load locations data
             
-            // Load all events to populate speaker filter with all speakers
-            await loadAllEventsForSpeakerFilter();
+            // Load filter data from JSON files
+            await loadFilterData();
             
             updateSummaryDisplay();
             
@@ -3383,18 +3428,6 @@
             } else if (EVENT_DATES.length > 0) {
                 // Select first day by default
                 selectDay(EVENT_DATES[0].date);
-            }
-        }
-
-        // Load all events to populate speaker filter
-        async function loadAllEventsForSpeakerFilter() {
-            try {
-                // Load events for all days to collect all speakers
-                for (const eventDate of EVENT_DATES) {
-                    await loadEventsForDay(eventDate.date);
-                }
-            } catch (error) {
-                console.error('Error loading events for speaker filter:', error);
             }
         }
 
@@ -3473,33 +3506,11 @@
                 const data = await response.json();
                 allEvents[date] = data.events || [];
                 
-                // Collect all unique filter locations
-                data.events.forEach(event => {
-                    if (event.filterLocation) {
-                        locations.add(event.filterLocation);
-                    } else if (event.place) {
-                        // Fallback to place if filterLocation doesn't exist
-                        locations.add(event.place);
-                    }
-                });
-                
-                // Collect speakers from this day's events
-                collectSpeakersFromEvents(data.events);
-                
                 loadedDays.add(date);
-                
-                // Always update location and speaker filters when new day is loaded
-                populateLocationFilter();
-                populateSpeakerFilter();
             } catch (error) {
                 console.error(`Error loading events for ${date}:`, error);
                 allEvents[date] = [];
             }
-        }
-
-        // Update location filter (wrapper for populateLocationFilter)
-        function updateLocationFilter() {
-            populateLocationFilter();
         }
 
         // Select a day and display its events
