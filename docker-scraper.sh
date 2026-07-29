@@ -126,7 +126,7 @@ commit_and_push() {
         git remote set-url origin "$AUTH_URL"
     fi
     
-    git add events/ index.html 2>/dev/null || true
+    git add events/ config/ index.html 2>/dev/null || true
     
     if git diff --staged --quiet; then
         echo "No changes detected, skipping commit"

@@ -17,6 +17,10 @@ services:
       # Python environment
       - PYTHONUNBUFFERED=1
       - FORCE_LOCAL_MODE=true
+
+      # Which year to scrape. Leave empty to use activeYear from config/years.json.
+      # Set to e.g. 2026 to scrape a specific year.
+      - HACKTOWN_YEAR=${HACKTOWN_YEAR:-}
       
       # Git environment (prevent interactive prompts)
       - GIT_TERMINAL_PROMPT=0
