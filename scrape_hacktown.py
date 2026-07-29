@@ -14,15 +14,16 @@ Key Features:
 - Comprehensive error handling and logging
 - Data persistence with summary statistics
 
-Author: Generated with assistance from Amazon Q
 License: MIT
 """
 
+import argparse
 import asyncio
 import aiohttp
 import json
 import os
 import random
+import sys
 from datetime import datetime
 import time
 from typing import List, Dict, Any, Optional
@@ -33,11 +34,29 @@ import logging
 # CONFIGURATION CONSTANTS
 # ============================================================================
 
-# API endpoint for HackTown 2025 event schedules
-BASE_URL = "https://hacktown-2025-ss-v2.api.yazo.com.br/public/schedules"
+# Central multi-year registry, shared with the web app (index.html). It declares
+# the active year and, for each year, the event dates and API parameters.
+YEARS_CONFIG_FILE = os.path.join("config", "years.json")
 
-# Directory where scraped event data will be stored
-OUTPUT_DIR = "events"
+# Base directory that holds one sub-directory of scraped data per year
+# (e.g. events/2025/, events/2026/).
+EVENTS_BASE_DIR = "events"
+
+# ----------------------------------------------------------------------------
+# Runtime, per-year configuration.
+# These globals are (re)populated by configure_for_year() from config/years.json
+# before each year is scraped. They carry neutral defaults so module import and
+# the import-time HEADERS snapshot below never fail.
+# ----------------------------------------------------------------------------
+YEAR = None                                   # Year currently being scraped (str)
+BASE_URL = ""                                 # API endpoint for the selected year
+OUTPUT_DIR = EVENTS_BASE_DIR                  # events/<year> once configured
+LOCATIONS_CONFIG_FILE = os.path.join("config", "locations_config.json")
+API_CATEGORY_ID = "42"                        # HackTown category identifier
+API_PRODUCT_IDS = "[2]"                       # Product identifier(s)
+API_PRODUCT_IDENTIFIER = "1"                  # 'product-identifier' request header
+API_ORIGIN = "https://hacktown2025.yazo.app.br"   # 'origin' request header
+API_REFERER = "https://hacktown2025.yazo.app.br/" # 'referer' request header
 
 # ============================================================================
 # ENVIRONMENT DETECTION AND ADAPTIVE SETTINGS
@@ -74,15 +93,9 @@ else:
 # EVENT CONFIGURATION
 # ============================================================================
 
-# HackTown 2025 event dates to scrape
-# These dates correspond to the actual event schedule
-EVENT_DATES = [
-    "2025-07-30",  # Day 1
-    "2025-07-31",  # Day 2
-    "2025-08-01",  # Day 3
-    "2025-08-02",  # Day 4
-    "2025-08-03"   # Day 5
-]
+# Event dates to scrape for the selected year (list of "YYYY-MM-DD" strings).
+# Populated by configure_for_year() from config/years.json; empty until then.
+EVENT_DATES = []
 
 # ============================================================================
 # HTTP REQUEST HEADERS
@@ -105,10 +118,10 @@ def get_headers():
         'accept-encoding': 'gzip, deflate, br',
         'accept-language': 'en-US,en;q=0.9,pt;q=0.8',
         'cache-control': 'no-cache',
-        'origin': 'https://hacktown2025.yazo.app.br',
+        'origin': API_ORIGIN,
         'pragma': 'no-cache',
-        'product-identifier': '1',
-        'referer': 'https://hacktown2025.yazo.app.br/',
+        'product-identifier': API_PRODUCT_IDENTIFIER,
+        'referer': API_REFERER,
         'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Linux"',
@@ -175,12 +188,14 @@ def reset_unmapped_locations():
 
 def load_location_config():
     """
-    Load location configuration from locations_config.json.
-    This centralizes all location mapping logic in one place.
+    Load location configuration for the selected year.
+
+    Reads config/<year>/locations_config.json (LOCATIONS_CONFIG_FILE, set by
+    configure_for_year). This centralizes all location mapping logic per year.
     """
     global location_mappings
-    config_file = "locations_config.json"
-    
+    config_file = LOCATIONS_CONFIG_FILE
+
     try:
         with open(config_file, 'r', encoding='utf-8') as f:
             config = json.load(f)
@@ -188,7 +203,7 @@ def load_location_config():
             logger.info(f"✅ Loaded {len(location_mappings)} location mappings from {config_file}")
     except FileNotFoundError:
         logger.error(f"❌ Location config file {config_file} not found!")
-        logger.error("Please create locations_config.json with location mappings")
+        logger.error(f"Please create {config_file} with location mappings")
         location_mappings = {}
     except Exception as e:
         logger.error(f"❌ Error loading location config: {e}")
@@ -329,12 +344,12 @@ async def fetch_page(session: aiohttp.ClientSession, date: str, page: int) -> Op
     # Prepare API request parameters
     # These parameters match the official HackTown web app requests
     params = {
-        'category_id': '42',           # HackTown 2025 category identifier
-        'tag_ids': '[]',               # No tag filtering (empty array)
+        'category_id': API_CATEGORY_ID,    # HackTown category identifier (per-year)
+        'tag_ids': '[]',                   # No tag filtering (empty array)
         'day[]': [date, '00:00:00.000Z'],  # Date filter with timezone
-        'page': str(page),             # Current page number
-        'search': '',                  # No search query
-        'product_ids': '[2]'           # Product identifier for HackTown 2025
+        'page': str(page),                 # Current page number
+        'search': '',                      # No search query
+        'product_ids': API_PRODUCT_IDS     # Product identifier(s) (per-year)
     }
 
     # Retry loop with exponential backoff
@@ -929,12 +944,101 @@ async def fetch_all_dates(dates: List[str]) -> Dict[str, List[Dict[str, Any]]]:
     return all_results
 
 
-async def main():
+# ============================================================================
+# MULTI-YEAR ORCHESTRATION
+# ============================================================================
+
+def load_years_registry():
+    """Load and return the multi-year registry from config/years.json."""
+    try:
+        with open(YEARS_CONFIG_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        logger.error(f"❌ Years registry {YEARS_CONFIG_FILE} not found!")
+        raise
+    except Exception as e:
+        logger.error(f"❌ Error loading years registry {YEARS_CONFIG_FILE}: {e}")
+        raise
+
+
+def year_is_scrapeable(year_cfg):
     """
-    Main orchestration function for the HackTown 2025 event scraping process.
-    
-    This function coordinates the entire scraping workflow:
-    1. Initialize logging and load configuration
+    A year can be scraped only if it is enabled and has both an API endpoint
+    and event dates configured. Returns (bool, reason_if_not).
+    """
+    if not year_cfg.get("enabled", False):
+        return False, "not enabled"
+    if not year_cfg.get("api", {}).get("base_url"):
+        return False, "no API base_url configured"
+    if not year_cfg.get("dates"):
+        return False, "no event dates configured"
+    return True, ""
+
+
+def configure_for_year(year, registry):
+    """
+    Populate the per-year runtime globals from the registry entry for `year`
+    (output dir, API endpoint/params, dates, location-config path).
+
+    Also clears the location caches so several years can be scraped in a single
+    run (--all-years) without cross-contamination.
+    """
+    global YEAR, BASE_URL, OUTPUT_DIR, EVENT_DATES, LOCATIONS_CONFIG_FILE
+    global API_CATEGORY_ID, API_PRODUCT_IDS, API_PRODUCT_IDENTIFIER, API_ORIGIN, API_REFERER
+    global location_mappings
+
+    years = registry.get("years", {})
+    if year not in years:
+        raise ValueError(f"Year '{year}' is not defined in {YEARS_CONFIG_FILE}")
+
+    cfg = years[year]
+    api = cfg.get("api", {})
+
+    YEAR = str(year)
+    OUTPUT_DIR = os.path.join(EVENTS_BASE_DIR, YEAR)
+    LOCATIONS_CONFIG_FILE = os.path.join("config", YEAR, "locations_config.json")
+    EVENT_DATES = [d["date"] for d in cfg.get("dates", []) if d.get("date")]
+    BASE_URL = api.get("base_url", "")
+    API_CATEGORY_ID = str(api.get("category_id", ""))
+    API_PRODUCT_IDS = str(api.get("product_ids", ""))
+    API_PRODUCT_IDENTIFIER = str(api.get("product_identifier", "1"))
+    API_ORIGIN = api.get("origin", "")
+    API_REFERER = api.get("referer", "")
+
+    # Reset per-year mutable state so --all-years stays correct
+    location_cache.clear()
+    location_mappings = {}
+    reset_unmapped_locations()
+
+    return cfg
+
+
+def resolve_target_years(registry, requested_year=None, all_years=False):
+    """
+    Decide which year(s) to scrape:
+    - all_years=True  -> every year defined in the registry (filtered later)
+    - requested_year  -> just that year
+    - otherwise       -> the registry's activeYear (default behaviour)
+    """
+    years = registry.get("years", {})
+    if all_years:
+        return list(years.keys())
+    if requested_year:
+        return [str(requested_year)]
+    active = registry.get("activeYear")
+    if not active:
+        raise ValueError(f"No 'activeYear' set in {YEARS_CONFIG_FILE} and no --year provided")
+    return [str(active)]
+
+
+async def scrape_year():
+    """
+    Scrape a single, already-configured year of HackTown events.
+
+    configure_for_year() must have been called first to populate the per-year
+    globals (YEAR, BASE_URL, OUTPUT_DIR, EVENT_DATES, API_* and
+    LOCATIONS_CONFIG_FILE). This function then coordinates the workflow:
+    1. Load the year's location configuration
     2. Execute concurrent event fetching across all dates
     3. Process and save individual date files
     4. Generate summary statistics and metadata
@@ -955,9 +1059,11 @@ async def main():
     # INITIALIZATION AND STARTUP
     # ========================================================================
     logger.info("=" * 60)
-    logger.info("🚀 Starting HackTown 2025 Event Scraper (Async Version)")
+    logger.info(f"🚀 Starting HackTown {YEAR} Event Scraper (Async Version)")
     logger.info("=" * 60)
     logger.info(f"Environment: {'CI/CD' if IS_CI else 'Local Development'}")
+    logger.info(f"Year: {YEAR}")
+    logger.info(f"API endpoint: {BASE_URL}")
     logger.info(f"Dates to scrape: {', '.join(EVENT_DATES)}")
     logger.info(f"Max concurrent requests: {MAX_CONCURRENT_REQUESTS}")
     logger.info(f"Output directory: {os.path.abspath(OUTPUT_DIR)}")
@@ -1066,7 +1172,7 @@ async def main():
     if unmapped_locations:
         logger.warning(f"⚠️  Unmapped locations found: {len(unmapped_locations)} locations need configuration")
         logger.warning(f"📍 Unmapped locations: {', '.join(sorted(unmapped_locations))}")
-        logger.info("💡 Consider adding these locations to locations_config.json using: python add_location.py")
+        logger.info(f"💡 Consider adding these locations to {LOCATIONS_CONFIG_FILE} using: python add_location.py --year {YEAR}")
     else:
         logger.info("✅ All locations successfully mapped!")
 
@@ -1135,8 +1241,86 @@ async def main():
     else:
         logger.error("❌ Status: FAILED")
         logger.error("🔧 Check logs above for error details and retry")
-    
+
     logger.info("=" * 60)
+
+    return fetch_successful
+
+
+async def main():
+    """
+    Entry point: parse CLI args, load the year registry, and scrape the
+    requested year(s). Defaults to the registry's activeYear.
+
+    Usage:
+        python scrape_hacktown.py                 # scrape activeYear (default)
+        python scrape_hacktown.py --year 2026     # scrape a specific year
+        python scrape_hacktown.py --all-years     # scrape every configured year
+
+    The year may also be supplied via the HACKTOWN_YEAR environment variable.
+    """
+    parser = argparse.ArgumentParser(description="HackTown multi-year event scraper")
+    parser.add_argument(
+        "--year", dest="year", default=os.environ.get("HACKTOWN_YEAR"),
+        help="Year to scrape (e.g. 2025). Defaults to activeYear in config/years.json "
+             "(or the HACKTOWN_YEAR environment variable if set)."
+    )
+    parser.add_argument(
+        "--all-years", dest="all_years", action="store_true",
+        help="Scrape every scrapeable year defined in config/years.json."
+    )
+    args = parser.parse_args()
+
+    registry = load_years_registry()
+    defined_years = registry.get("years", {})
+    target_years = resolve_target_years(
+        registry, requested_year=args.year, all_years=args.all_years
+    )
+
+    logger.info("=" * 60)
+    logger.info("🗂️  HackTown multi-year scraper")
+    logger.info(f"   Registry: {YEARS_CONFIG_FILE}")
+    logger.info(f"   Active year (default): {registry.get('activeYear')}")
+    logger.info(f"   Target year(s): {', '.join(target_years)}")
+    logger.info("=" * 60)
+
+    explicit_single = bool(args.year) and not args.all_years
+    scraped_any = False
+    overall_success = False
+
+    for year in target_years:
+        if year not in defined_years:
+            msg = f"Year '{year}' is not defined in {YEARS_CONFIG_FILE}"
+            if explicit_single:
+                logger.error(f"❌ {msg}")
+                sys.exit(1)
+            logger.warning(f"⏭️  Skipping: {msg}")
+            continue
+
+        scrapeable, reason = year_is_scrapeable(defined_years[year])
+        if not scrapeable:
+            msg = f"Year '{year}' is not scrapeable ({reason})"
+            if explicit_single:
+                logger.error(
+                    f"❌ {msg}. Fill in its 'dates' and 'api' in {YEARS_CONFIG_FILE} "
+                    f"and set 'enabled': true."
+                )
+                sys.exit(1)
+            logger.warning(f"⏭️  Skipping: {msg}")
+            continue
+
+        configure_for_year(year, registry)
+        scraped_any = True
+        year_ok = await scrape_year()
+        overall_success = overall_success or year_ok
+
+    if not scraped_any:
+        logger.error(f"❌ No scrapeable years were processed. Check {YEARS_CONFIG_FILE}.")
+        sys.exit(1)
+
+    if not overall_success:
+        # Every attempted year failed to retrieve data
+        sys.exit(1)
 
 # ============================================================================
 # SCRIPT ENTRY POINT
@@ -1151,11 +1335,13 @@ if __name__ == "__main__":
     all the event loop management automatically.
     
     Usage:
-        python scrape_hacktown.py
-        
-    The script will:
-    1. Create the events/ directory if it doesn't exist
-    2. Scrape all HackTown 2025 events across configured dates
+        python scrape_hacktown.py                 # scrape activeYear (default)
+        python scrape_hacktown.py --year 2026     # scrape a specific year
+        python scrape_hacktown.py --all-years     # scrape every configured year
+
+    The script will (for each target year):
+    1. Create the events/<year>/ directory if it doesn't exist
+    2. Scrape all HackTown events across that year's configured dates
     3. Save individual JSON files for each date
     4. Generate a summary.json with overall statistics
     5. Log comprehensive progress and performance metrics

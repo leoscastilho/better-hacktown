@@ -25,7 +25,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HackTown 2025 - Programação</title>
+    <title>HackTown - Programação</title>
     
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json?v=20250803220136">
@@ -35,7 +35,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="HackTown 2025">
+    <meta name="apple-mobile-web-app-title" content="HackTown">
     
     <!-- Cache busting version -->
     <meta name="app-version" content="20250803220136">
@@ -952,46 +952,6 @@
             opacity: 0.9;
             color: var(--text-white);
             line-height: 1.4;
-        }
-
-        .sidebar-attribution {
-            margin-top: 30px;
-            padding: 15px;
-            /*background: rgba(255, 255, 255, 0.08);*/
-            border-radius: var(--radius-md);
-            /*border-left: 3px solid var(--primary-orange);*/
-            font-size: 0.8em;
-            color: var(--text-white);
-            opacity: 0.9;
-            line-height: 1.4;
-            text-align: center;
-        }
-
-        .sidebar-attribution .amazon-q {
-            color: var(--primary-orange);
-            font-weight: 600;
-        }
-
-        .sidebar-attribution a {
-            color: var(--text-white);
-            text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            padding: 8px 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-sm);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-attribution a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: var(--primary-orange);
-            color: var(--primary-orange);
-            transform: translateY(-1px);
         }
 
         /* Share Favorites Button */
@@ -2664,6 +2624,76 @@
             scrollbar-width: thin;
             scrollbar-color: var(--primary-orange) var(--bg-secondary);
         }
+
+        /* ===== Bottom bar / page footer — discreet, GitHub-style ===== */
+        /* Not pinned: a quiet hairline strip at the very end of the page flow. */
+        .page-footer {
+            margin-top: var(--spacing-2xl);
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-medium);
+            background: var(--bg-secondary);
+            color: var(--text-light);
+            font-size: 0.75rem;
+            line-height: 1.5;
+        }
+        .page-footer-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 6px 14px;
+        }
+        .page-footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .page-footer a:hover {
+            color: var(--primary-orange);
+            text-decoration: underline;
+        }
+        .footer-sep {
+            color: var(--border-dark);
+            user-select: none;
+        }
+        .footer-year {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: 0;
+        }
+        .footer-year-select {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+        .footer-year-select select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 6px;
+            padding: 2px 22px 2px 8px;
+            font-size: 0.75rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: border-color var(--transition-fast);
+        }
+        .footer-year-select select:hover,
+        .footer-year-select select:focus {
+            border-color: var(--text-light);
+            outline: none;
+        }
+        .footer-year-arrow {
+            position: absolute;
+            right: 6px;
+            width: 14px;
+            height: 14px;
+            fill: var(--text-light);
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -2675,7 +2705,7 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <h3>Filtros e Opções</h3>
-        
+
         <div class="sidebar-section">
             <div class="sidebar-section-title">Filtrar por Proximidade</div>
             <div class="near-selector" id="nearLocationSelector">
@@ -2778,14 +2808,6 @@
             </button>
         </div>
 
-        <div class="sidebar-attribution">
-            Esse aplicativo foi desenvolvido utilizando o <span class="amazon-q">Amazon Q</span> para o HackTown 2025
-            <br><br>
-            <a href="https://github.com/leoscastilho/better-hacktown" target="_blank" rel="noopener noreferrer">
-                📂 Ver código no GitHub
-            </a>
-        </div>
-
     </div>
 
     <!-- Sidebar Overlay -->
@@ -2793,8 +2815,8 @@
 
     <header>
         <div class="header-content">
-            <img src="logo.png" alt="HackTown 2025" class="logo">
-            <h1>HackTown 2025</h1>
+            <img src="logo.png" alt="HackTown" class="logo">
+            <h1>HackTown</h1>
             <div class="subtitle">Programação Completa</div>
         </div>
     </header>
@@ -2877,6 +2899,29 @@
             </div>
         </div>
     </div>
+
+    <!-- Bottom bar: discreet hairline strip at the very end of the page (not pinned) -->
+    <footer class="page-footer" id="pageFooter">
+        <div class="page-footer-inner">
+            <label class="footer-year" for="yearSelect">
+                <span>Ano</span>
+                <span class="footer-year-select">
+                    <select id="yearSelect" onchange="onYearSelectChange(this.value)" aria-label="Selecionar ano do evento">
+                        <!-- Options inserted by populateYearSelect() -->
+                    </select>
+                    <svg class="footer-year-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5z"/></svg>
+                </span>
+            </label>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <span>© 2026 Leo Castilho</span>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <span>Feito para a comunidade HackTown</span>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">Licença MIT</a>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <a href="https://github.com/leoscastilho/better-hacktown" target="_blank" rel="noopener noreferrer">Código-fonte</a>
+        </div>
+    </footer>
 
     <div class="modal" id="eventModal">
         <div class="modal-content">
@@ -2978,8 +3023,14 @@
         let touchEndX = 0;
         let isScrolling = false;
 
-        // Event dates
-        const EVENT_DATES = [
+        // ---------------------------------------------------------------
+        // Multi-year support
+        // The active year and its event dates come from config/years.json
+        // at runtime. Only ONE year's data is ever loaded. These fallbacks
+        // keep the app working as 2025 if that config fetch fails.
+        // ---------------------------------------------------------------
+        const FALLBACK_YEAR = '2025';
+        const FALLBACK_EVENT_DATES = [
             { date: '2025-07-30', label: '30 JUL' },
             { date: '2025-07-31', label: '31 JUL' },
             { date: '2025-08-01', label: '01 AGO' },
@@ -2987,10 +3038,145 @@
             { date: '2025-08-03', label: '03 AGO' }
         ];
 
+        let yearsRegistry = null;                    // Parsed config/years.json
+        let currentYear = FALLBACK_YEAR;             // Year currently being viewed
+        // Event dates for the current year (populated by applyYear()).
+        let EVENT_DATES = FALLBACK_EVENT_DATES.slice();
+
+        // Per-year localStorage keys. For 2025 these resolve to the original
+        // hacktown2025_* keys, so existing users keep their favorites/history.
+        function favoritesStorageKey() { return `hacktown${currentYear}_favorites`; }
+        function viewedStorageKey() { return `hacktown${currentYear}_viewed_events`; }
+
+        // Load the multi-year registry (shared with the scraper).
+        async function loadYearsRegistry() {
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`config/years.json?t=${timestamp}`, { cache: 'no-cache' });
+                if (response.ok) {
+                    yearsRegistry = await response.json();
+                }
+            } catch (error) {
+                console.error('Error loading years registry:', error);
+            }
+            // Minimal fallback so the app still works if the registry is unreachable.
+            if (!yearsRegistry || !yearsRegistry.years) {
+                yearsRegistry = {
+                    activeYear: FALLBACK_YEAR,
+                    years: {
+                        [FALLBACK_YEAR]: { label: FALLBACK_YEAR, enabled: true, dates: FALLBACK_EVENT_DATES }
+                    }
+                };
+            }
+        }
+
+        // Is a given year present and enabled in the registry?
+        function isYearEnabled(year) {
+            return !!(year && yearsRegistry && yearsRegistry.years &&
+                      yearsRegistry.years[year] && yearsRegistry.years[year].enabled);
+        }
+
+        // One-shot handoff for an in-app year switch. selectYear() stashes the
+        // target year here and reloads; init() consumes it exactly once. It is
+        // deliberately NOT persisted in the URL or localStorage, so opening or
+        // refreshing the page always lands on the active year (below).
+        const PENDING_YEAR_KEY = 'hacktown_pending_year';
+        function consumePendingYear() {
+            try {
+                const y = sessionStorage.getItem(PENDING_YEAR_KEY);
+                if (y) sessionStorage.removeItem(PENDING_YEAR_KEY);
+                return y;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // Decide which year to show on load:
+        // a one-shot in-app switch (if any) > activeYear > any enabled > fallback.
+        // The year is never read from the URL, so every fresh open/refresh
+        // defaults to the current active year.
+        function resolveYear() {
+            const pending = consumePendingYear();
+            if (isYearEnabled(pending)) return pending;
+            const active = yearsRegistry && yearsRegistry.activeYear;
+            if (isYearEnabled(active)) return active;
+            const years = (yearsRegistry && yearsRegistry.years) || {};
+            const firstEnabled = Object.keys(years).find(isYearEnabled);
+            return firstEnabled || FALLBACK_YEAR;
+        }
+
+        // Apply a year: set current year, its event dates, branding and the switcher.
+        function applyYear(year) {
+            currentYear = year;
+            const yc = (yearsRegistry && yearsRegistry.years && yearsRegistry.years[year]) || null;
+            EVENT_DATES = (yc && Array.isArray(yc.dates) && yc.dates.length)
+                ? yc.dates.slice()
+                : FALLBACK_EVENT_DATES.slice();
+            applyYearBranding(yc && yc.label ? yc.label : year);
+            populateYearSelect();
+        }
+
+        // Update the visible year in the title, header and banner.
+        function applyYearBranding(label) {
+            try {
+                document.title = `HackTown ${label} - Programação`;
+                const h1 = document.querySelector('header .header-content h1');
+                if (h1) h1.textContent = `HackTown ${label}`;
+                const logo = document.querySelector('header .logo');
+                if (logo) logo.alt = `HackTown ${label}`;
+                const banner = document.querySelector('.scrolling-banner .scrolling-text');
+                if (banner) banner.textContent = banner.textContent.replace(/\b20\d{2}\b/g, label);
+            } catch (error) {
+                console.error('Error applying year branding:', error);
+            }
+        }
+
+        // Populate the footer year dropdown from the registry (enabled years, newest first).
+        function populateYearSelect() {
+            const select = document.getElementById('yearSelect');
+            if (!select) return;
+
+            const years = (yearsRegistry && yearsRegistry.years) || {};
+            const enabledYears = Object.keys(years).filter(isYearEnabled).sort().reverse();
+
+            select.innerHTML = '';
+            enabledYears.forEach(year => {
+                const opt = document.createElement('option');
+                opt.value = year;
+                opt.textContent = years[year].label || year;
+                if (year === currentYear) opt.selected = true;
+                select.appendChild(opt);
+            });
+
+            // Safety net: ensure the current year is always selectable.
+            if (!enabledYears.includes(currentYear)) {
+                const opt = document.createElement('option');
+                opt.value = currentYear;
+                opt.textContent = currentYear;
+                opt.selected = true;
+                select.appendChild(opt);
+            }
+        }
+
+        // Footer year dropdown change handler.
+        function onYearSelectChange(year) {
+            selectYear(year);
+        }
+
+        // Switch to another year. Stash the target as a one-shot (consumed on
+        // next load) and reload — a full reload guarantees a clean per-year
+        // state (favorites, viewed history, caches, filters, dates). The choice
+        // is NOT persisted, so a later refresh returns to the active year.
+        function selectYear(year) {
+            if (!year || year === currentYear) return;
+            try { sessionStorage.setItem(PENDING_YEAR_KEY, year); } catch (e) {}
+            window.location.reload();
+        }
+
         // Load favorites from localStorage
         function loadFavorites() {
             try {
-                const saved = localStorage.getItem('hacktown2025_favorites');
+                const saved = localStorage.getItem(favoritesStorageKey());
                 if (saved) {
                     favorites = new Set(JSON.parse(saved));
                 }
@@ -3004,7 +3190,7 @@
         // Save favorites to localStorage
         function saveFavorites() {
             try {
-                localStorage.setItem('hacktown2025_favorites', JSON.stringify([...favorites]));
+                localStorage.setItem(favoritesStorageKey(), JSON.stringify([...favorites]));
                 updateShareFavoritesButton();
             } catch (error) {
                 console.error('Error saving favorites:', error);
@@ -3014,7 +3200,7 @@
         // Load viewed events from localStorage
         function loadViewedEvents() {
             try {
-                const saved = localStorage.getItem('hacktown2025_viewed_events');
+                const saved = localStorage.getItem(viewedStorageKey());
                 if (saved) {
                     viewedEvents = new Set(JSON.parse(saved));
                 }
@@ -3027,7 +3213,7 @@
         // Save viewed events to localStorage
         function saveViewedEvents() {
             try {
-                localStorage.setItem('hacktown2025_viewed_events', JSON.stringify([...viewedEvents]));
+                localStorage.setItem(viewedStorageKey(), JSON.stringify([...viewedEvents]));
             } catch (error) {
                 console.error('Error saving viewed events:', error);
             }
@@ -3097,7 +3283,7 @@
             // Build Google Calendar URL
             const params = new URLSearchParams({
                 action: 'TEMPLATE',
-                text: event.title || 'Evento HackTown 2025',
+                text: event.title || `Evento HackTown ${currentYear}`,
                 dates: `${startStr}/${endStr}`,
                 details: description,
                 location: location
@@ -3180,7 +3366,8 @@
             }
         }
 
-        // Update URL hash with current day and highlighted event
+        // Update URL hash with current day and highlighted event.
+        // Year is intentionally NOT included: it must not survive a refresh.
         function updateUrlHash(day, eventId = null) {
             const hash = eventId ? `#day=${day}&event=${eventId}` : `#day=${day}`;
             if (window.location.hash !== hash) {
@@ -3284,12 +3471,12 @@
             const eventId = getEventId(event);
             const baseUrl = 'https://leoscastilho.github.io/better-hacktown/';
             const shareUrl = `${baseUrl}#day=${currentDay}&event=${eventId}&openCard=true`;
-            
+
             // Try to use Web Share API if available
             if (navigator.share) {
                 navigator.share({
-                    title: `Confira este evento no HackTown 2025!`,
-                    text: `Confira este evento no HackTown 2025: \n ${event.title}`,
+                    title: `Confira este evento no HackTown ${currentYear}!`,
+                    text: `Confira este evento no HackTown ${currentYear}: \n ${event.title}`,
                     url: shareUrl
                 }).catch(err => {
                     console.log('Error sharing:', err);
@@ -3426,12 +3613,12 @@
             const favoriteIds = Array.from(favorites);
             const baseUrl = 'https://leoscastilho.github.io/better-hacktown/';
             const shareUrl = `${baseUrl}#favorites=${favoriteIds.join(',')}`;
-            
+
             // Try to use Web Share API if available
             if (navigator.share) {
                 navigator.share({
-                    title: `Confira meus eventos favoritos do HackTown 2025!`,
-                    text: `Confira meus ${favorites.size} eventos favoritos do HackTown 2025`,
+                    title: `Confira meus eventos favoritos do HackTown ${currentYear}!`,
+                    text: `Confira meus ${favorites.size} eventos favoritos do HackTown ${currentYear}`,
                     url: shareUrl
                 }).catch(err => {
                     console.log('Error sharing:', err);
@@ -3631,7 +3818,7 @@
                 banner.remove();
             }
             
-            // Update URL to remove favorites parameter
+            // Update URL to remove favorites parameter (keep day + event)
             const hashParams = parseUrlHash();
             let newHash = '';
             if (hashParams.day) {
@@ -3981,7 +4168,7 @@
         async function loadFilterLocations() {
             try {
                 const timestamp = new Date().getTime();
-                const response = await fetch(`./events/filter_locations.json?t=${timestamp}`, {
+                const response = await fetch(`./events/${currentYear}/filter_locations.json?t=${timestamp}`, {
                     cache: 'no-cache'
                 });
                 if (!response.ok) {
@@ -4002,7 +4189,7 @@
         async function loadFilterSpeakers() {
             try {
                 const timestamp = new Date().getTime();
-                const response = await fetch(`./events/filter_speakers.json?t=${timestamp}`, {
+                const response = await fetch(`./events/${currentYear}/filter_speakers.json?t=${timestamp}`, {
                     cache: 'no-cache'
                 });
                 if (!response.ok) {
@@ -4350,7 +4537,7 @@
         async function loadLocations() {
             try {
                 const timestamp = new Date().getTime();
-                const response = await fetch(`events/locations.json?t=${timestamp}`, {
+                const response = await fetch(`events/${currentYear}/locations.json?t=${timestamp}`, {
                     cache: 'no-cache'
                 });
                 if (response.ok) {
@@ -4603,8 +4790,14 @@
         
         // Initialize the app
         async function init() {
-            loadFavorites(); // Load saved favorites
-            loadViewedEvents(); // Load viewed events cache
+            // Resolve the active year FIRST. Everything below — per-year
+            // localStorage keys, EVENT_DATES, data fetch paths and branding —
+            // depends on currentYear being set.
+            await loadYearsRegistry();
+            applyYear(resolveYear());
+
+            loadFavorites(); // Load saved favorites (for the current year)
+            loadViewedEvents(); // Load viewed events cache (for the current year)
             createDayIndicatorDots(); // Create day indicator dots
             await loadSummary();
             await loadLocations(); // Load locations data
@@ -4706,7 +4899,7 @@
         async function loadSummary() {
             try {
                 const timestamp = new Date().getTime();
-                const response = await fetch(`events/summary.json?t=${timestamp}`, {
+                const response = await fetch(`events/${currentYear}/summary.json?t=${timestamp}`, {
                     cache: 'no-cache'
                 });
                 if (response.ok) {
@@ -4770,7 +4963,7 @@
             
             try {
                 const timestamp = new Date().getTime();
-                const response = await fetch(`events/hacktown_events_${date}.json?t=${timestamp}`, {
+                const response = await fetch(`events/${currentYear}/hacktown_events_${date}.json?t=${timestamp}`, {
                     cache: 'no-cache'
                 });
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);

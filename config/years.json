@@ -1,0 +1,45 @@
+{
+  "_comment": "Central registry for multi-year support. Single source of truth shared by the scraper (scrape_hacktown.py) and the web app (index.html). Add a new year by adding an entry under 'years' and, when its data/API are ready, setting 'enabled': true. Set 'activeYear' to the year the app should show by default.",
+  "activeYear": "2025",
+  "years": {
+    "2025": {
+      "label": "2025",
+      "enabled": true,
+      "dates": [
+        { "date": "2025-07-30", "label": "30 JUL" },
+        { "date": "2025-07-31", "label": "31 JUL" },
+        { "date": "2025-08-01", "label": "01 AGO" },
+        { "date": "2025-08-02", "label": "02 AGO" },
+        { "date": "2025-08-03", "label": "03 AGO" }
+      ],
+      "api": {
+        "base_url": "https://hacktown-2025-ss-v2.api.yazo.com.br/public/schedules",
+        "category_id": "42",
+        "product_ids": "[2]",
+        "product_identifier": "1",
+        "origin": "https://hacktown2025.yazo.app.br",
+        "referer": "https://hacktown2025.yazo.app.br/"
+      }
+    },
+    "2026": {
+      "label": "2026",
+      "enabled": true,
+      "_todo": "Event dates are set. The 'api' block still needs the real 2026 endpoint/params before the scraper can fetch data (python scrape_hacktown.py --year 2026). Until scraped, events/2026/ holds empty placeholder files so the app shows an empty 2026 cleanly. Venue mappings live in config/2026/locations_config.json (seeded from 2025).",
+      "dates": [
+        { "date": "2026-09-03", "label": "03 SET" },
+        { "date": "2026-09-04", "label": "04 SET" },
+        { "date": "2026-09-05", "label": "05 SET" },
+        { "date": "2026-09-06", "label": "06 SET" },
+        { "date": "2026-09-07", "label": "07 SET" }
+      ],
+      "api": {
+        "base_url": "",
+        "category_id": "",
+        "product_ids": "",
+        "product_identifier": "1",
+        "origin": "",
+        "referer": ""
+      }
+    }
+  }
+}

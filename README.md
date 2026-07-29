@@ -1,8 +1,8 @@
-# Better HackTown 2025
+# Better HackTown
 
-> 🤖 **Este aplicativo foi desenvolvido utilizando o Amazon Q para o HackTown 2025 em Santa Rita do Sapucaí**
+> **Um app da comunidade para navegar pela programação do HackTown em Santa Rita do Sapucaí**
 
-Um Progressive Web App (PWA) moderno para navegar pelos eventos do HackTown 2025 com uma experiência de usuário aprimorada e sistema de scraping assíncrono otimizado.
+Um Progressive Web App (PWA) moderno para navegar pelos eventos do HackTown com uma experiência de usuário aprimorada e sistema de scraping assíncrono otimizado.
 
 ## 🚀 Funcionalidades
 
@@ -12,37 +12,68 @@ Um Progressive Web App (PWA) moderno para navegar pelos eventos do HackTown 2025
 - **Sistema de Localização Inteligente**: Mapeamento centralizado de locais com suporte a múltiplos nomes
 - **Detecção de Ambiente**: Configurações adaptáveis para CI/CD e desenvolvimento local
 - **Performance Rápida**: Estratégias otimizadas de carregamento e cache
+- **Suporte a Múltiplos Anos**: Dados organizados por ano; o app carrega apenas um ano por vez
 - **Deploy Flexível**: Suporte para GitHub Actions e Docker com automação completa
 
 ## 📋 Estrutura do Projeto
 
 ```
 better-hacktown/
-├── scrape_hacktown.py          # Script principal de scraping (assíncrono)
-├── locations_config.json       # Configuração centralizada de localizações
-├── add_location.py            # Helper interativo para adicionar localizações
-├── index.html                 # Frontend PWA
-├── service-worker.js          # Service worker PWA para funcionalidade offline
-├── logo.png                   # Logo/ícone do app
-├── requirements.txt           # Dependências Python (requests, aiohttp)
-├── Dockerfile                 # Container Docker para scraping
-├── docker-compose.yml         # Orquestração Docker
-├── run-scraper.sh            # Script de execução Docker
-├── docker-scraper.sh         # Script interno do container
-├── DOCKER_SETUP.md           # Guia de configuração Docker
-├── .env.example              # Template de variáveis de ambiente
-├── .gitignore                # Arquivos ignorados pelo Git
-├── events/                   # Dados de eventos raspados
-│   ├── hacktown_events_*.json    # Arquivos de eventos diários
-│   ├── locations.json           # Dados de localizações (auto-gerado)
-│   ├── filter_locations.json    # Lista de localizações para filtros
-│   ├── filter_speakers.json     # Lista de palestrantes para filtros
-│   └── summary.json            # Estatísticas resumidas de eventos
-├── logs/                     # Logs de execução
-├── .github/workflows/        # Workflows GitHub Actions
-│   └── scrape-events.example    # Template de workflow
-└── README.md                 # Este arquivo
+├── scrape_hacktown.py          # Script principal de scraping (assíncrono, multi-ano)
+├── add_location.py             # Helper interativo para adicionar localizações
+├── index.html                  # Frontend PWA
+├── service-worker.js           # Service worker PWA para funcionalidade offline
+├── logo.png                    # Logo/ícone do app
+├── requirements.txt            # Dependências Python (requests, aiohttp)
+├── Dockerfile                  # Container Docker para scraping
+├── docker-compose.yml          # Orquestração Docker
+├── run-scraper.sh              # Script de execução Docker
+├── docker-scraper.sh           # Script interno do container
+├── DOCKER_SETUP.md             # Guia de configuração Docker
+├── .env.example                # Template de variáveis de ambiente
+├── .gitignore                  # Arquivos ignorados pelo Git
+├── config/                     # Configuração (compartilhada entre scraper e frontend)
+│   ├── years.json                  # Registro de anos: activeYear + datas/API por ano
+│   ├── 2025/
+│   │   └── locations_config.json   # Mapeamentos de localização do ano 2025
+│   └── 2026/
+│       └── locations_config.json   # Mapeamentos de localização do ano 2026 (modelo)
+├── events/                     # Dados de eventos raspados, um subdiretório por ano
+│   └── 2025/                       # (events/<ano>/)
+│       ├── hacktown_events_*.json      # Arquivos de eventos diários
+│       ├── locations.json              # Dados de localizações (auto-gerado)
+│       ├── filter_locations.json       # Lista de localizações para filtros
+│       ├── filter_speakers.json        # Lista de palestrantes para filtros
+│       └── summary.json                # Estatísticas resumidas de eventos
+├── logs/                       # Logs de execução
+├── .github/workflows/          # Workflows GitHub Actions
+│   └── scrape-events.example       # Template de workflow
+└── README.md                   # Este arquivo
 ```
+
+## 🗓️ Suporte a Múltiplos Anos
+
+Os dados são organizados por ano em `events/<ano>/`, e a configuração de cada ano
+fica em `config/years.json` (registro central) e `config/<ano>/locations_config.json`
+(mapeamentos de localização). O arquivo `config/years.json` é a **única fonte de
+verdade**, compartilhada pelo scraper e pelo frontend.
+
+- **`config/years.json`** declara `activeYear` (o ano padrão exibido no app) e, para
+  cada ano, seu `label`, se está `enabled`, as `dates` do evento e os parâmetros de `api`.
+- O **frontend carrega apenas um ano por vez** (o `activeYear`, ou o ano do parâmetro de
+  URL `#year=`), evitando lentidão. Um seletor de ano aparece na barra lateral quando há
+  mais de um ano habilitado.
+- O **scraper** raspa o `activeYear` por padrão; use `--year <ano>` para um ano específico
+  ou `--all-years` para todos os anos configurados.
+
+### Adicionar um novo ano (ex.: 2026)
+
+1. Adicione/edite a entrada do ano em `config/years.json` com as `dates` e o bloco `api`
+   corretos e defina `"enabled": true`.
+2. Ajuste os mapeamentos de local em `config/2026/locations_config.json` (já criado como
+   modelo a partir de 2025).
+3. Rode o scraper para o ano: `python scrape_hacktown.py --year 2026`.
+4. Para tornar 2026 o padrão do app, defina `"activeYear": "2026"` em `config/years.json`.
 
 ## 🛠️ Instalação e Configuração
 
@@ -105,8 +136,8 @@ O projeto utiliza um **sistema centralizado de configuração de localizações*
 
 ### Arquivos de Configuração
 
-- **`locations_config.json`**: Arquivo mestre com todos os mapeamentos de localização
-- **`events/locations.json`**: Arquivo auto-gerado usado pelo frontend (não editar manualmente)
+- **`config/<ano>/locations_config.json`**: Arquivo mestre com os mapeamentos de localização do ano (um por ano)
+- **`events/<ano>/locations.json`**: Arquivo auto-gerado usado pelo frontend (não editar manualmente)
 
 ### Estrutura de Configuração
 
@@ -134,7 +165,8 @@ O projeto utiliza um **sistema centralizado de configuração de localizações*
 
 #### Método 1: Script Helper Interativo (Recomendado)
 ```bash
-python add_location.py
+python add_location.py            # usa o activeYear de config/years.json
+python add_location.py --year 2026  # edita um ano específico
 ```
 
 O script helper fornece uma interface interativa para:
@@ -143,7 +175,7 @@ O script helper fornece uma interface interativa para:
 - Validar entrada e prevenir duplicatas
 
 #### Método 2: Edição Manual
-Edite `locations_config.json` diretamente seguindo a estrutura acima.
+Edite `config/<ano>/locations_config.json` diretamente seguindo a estrutura acima.
 
 ### Categorias de Localização
 
@@ -163,14 +195,15 @@ Contém uma lista de nomes únicos de localização extraídos de todos os event
 Contém uma lista de nomes únicos de palestrantes extraídos de todos os eventos.
 
 ### Uso na Aplicação Web
+Os arquivos são carregados a partir do diretório do ano ativo (`events/<ano>/`):
 ```javascript
-// Carregar localizações de filtro
-fetch('./events/filter_locations.json')
+// Carregar localizações de filtro (ex.: events/2025/filter_locations.json)
+fetch(`./events/${currentYear}/filter_locations.json`)
   .then(response => response.json())
   .then(data => populateLocationFilter(data.locations));
 
 // Carregar palestrantes de filtro
-fetch('./events/filter_speakers.json')
+fetch(`./events/${currentYear}/filter_speakers.json`)
   .then(response => response.json())
   .then(data => populateSpeakerFilter(data.speakers));
 ```
@@ -238,7 +271,7 @@ Sistema completo de containerização para deploy em servidor próprio:
 
 ## 📊 Estrutura de Dados
 
-### Arquivos de Eventos
+### Arquivos de Eventos (por ano, em `events/<ano>/`)
 - `hacktown_events_YYYY-MM-DD.json`: Programações de eventos diárias
 - `locations.json`: Informações de locais e venues (auto-gerado)
 - `filter_locations.json`: Lista de localizações únicas para filtros dropdown
@@ -246,12 +279,14 @@ Sistema completo de containerização para deploy em servidor próprio:
 - `summary.json`: Estatísticas de eventos e metadados
 
 ### Integração com API
-O scraper se conecta a:
+O endpoint e os parâmetros da API são configurados por ano em `config/years.json`.
+Para 2025, o scraper se conecta a:
 ```
 https://hacktown-2025-ss-v2.api.yazo.com.br/public/schedules
 ```
 
 ### Datas dos Eventos
+As datas de cada ano ficam em `config/years.json` (`years.<ano>.dates`). Para 2025:
 - 2025-07-30 (Dia 1)
 - 2025-07-31 (Dia 2)
 - 2025-08-01 (Dia 3)
@@ -295,9 +330,9 @@ Edite o manifest e service worker para personalização do PWA:
 - Use `FORCE_LOCAL_MODE=true` em Docker para configurações otimizadas
 
 **Localizações Não Mapeadas:**
-- Use `python add_location.py` para adicionar novas localizações
-- Verifique o arquivo `summary.json` para localizações não mapeadas
-- Edite `locations_config.json` manualmente se necessário
+- Use `python add_location.py --year <ano>` para adicionar novas localizações
+- Verifique o arquivo `events/<ano>/summary.json` para localizações não mapeadas
+- Edite `config/<ano>/locations_config.json` manualmente se necessário
 
 **Problemas de Docker:**
 - Verifique se o arquivo `.env` está configurado corretamente
@@ -307,16 +342,19 @@ Edite o manifest e service worker para personalização do PWA:
 ### Testando Configurações
 
 ```bash
-# Testar mapeamentos de localização
+# Testar mapeamentos de localização (para um ano específico)
 python -c "
-import json
-from scrape_hacktown import normalize_and_locate, load_location_config
-load_location_config()
-print('Testando variações de localização...')
+import scrape_hacktown as s
+reg = s.load_years_registry()
+s.configure_for_year('2025', reg)   # carrega config/2025/locations_config.json
+s.load_location_config()
+print('Mapeamentos carregados:', len(s.location_mappings))
 "
 
-# Testar scraper em modo debug
+# Testar scraper em modo debug (ano ativo por padrão)
 python scrape_hacktown.py
+# ...ou um ano específico:
+python scrape_hacktown.py --year 2026
 ```
 
 ## 🤝 Contribuindo
@@ -329,10 +367,18 @@ python scrape_hacktown.py
 
 ---
 
-**Feito com ❤️ para a comunidade HackTown 2025 com a assistência do Amazon Q**
+## 📄 Licença
+
+Este projeto é de código aberto sob a **Licença MIT** — veja o arquivo [LICENSE](LICENSE)
+para o texto completo. Você pode usar, copiar, modificar e distribuir o código
+livremente, mantendo o aviso de copyright e a permissão.
+
+---
+
+**Feito com ❤️ para a comunidade HackTown**
 
 ### 🔗 Links Úteis
 
-- [HackTown 2025](https://hacktown.com.br)
+- [HackTown](https://hacktown.com.br)
 - [Docker Setup Guide](DOCKER_SETUP.md)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)

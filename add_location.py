@@ -1,43 +1,67 @@
 #!/usr/bin/env python3
 """
-Helper script to add new location mappings to locations_config.json.
+Helper script to add new location mappings to a year's locations_config.json.
 
-This script provides an interactive way to add new locations to the configuration
-file using the new format that supports multiple possible names per location.
+Location mappings live per year at config/<year>/locations_config.json. This
+script provides an interactive way to add new locations using the format that
+supports multiple possible names per location.
 
 Usage:
-    python add_location.py
+    python add_location.py                # uses activeYear from config/years.json
+    python add_location.py --year 2026    # target a specific year
 """
 
+import argparse
 import json
 import os
 import sys
 from typing import Dict, Any
 
-def load_config() -> Dict[str, Any]:
-    """Load the current locations configuration."""
-    config_file = "locations_config.json"
-    
-    if not os.path.exists(config_file):
-        print(f"❌ Configuration file {config_file} not found!")
-        print("Please make sure you're running this script from the project root directory.")
-        sys.exit(1)
-    
+# Path to the config file being edited; set by main() based on --year.
+CONFIG_FILE = os.path.join("config", "locations_config.json")
+
+# Year currently being edited; set by main().
+CURRENT_YEAR = None
+
+YEARS_CONFIG_FILE = os.path.join("config", "years.json")
+
+def resolve_year(requested_year: str = None) -> str:
+    """Resolve the target year: --year if given, else activeYear from the registry."""
+    if requested_year:
+        return str(requested_year)
     try:
-        with open(config_file, 'r', encoding='utf-8') as f:
+        with open(YEARS_CONFIG_FILE, 'r', encoding='utf-8') as f:
+            registry = json.load(f)
+        active = registry.get("activeYear")
+        if active:
+            return str(active)
+    except Exception as e:
+        print(f"⚠️  Could not read {YEARS_CONFIG_FILE} ({e}).")
+    print("❌ No year specified and no activeYear found. Use --year <year>.")
+    sys.exit(1)
+
+def load_config() -> Dict[str, Any]:
+    """Load the current locations configuration for the selected year."""
+    if not os.path.exists(CONFIG_FILE):
+        print(f"❌ Configuration file {CONFIG_FILE} not found!")
+        print("Please make sure you're running this script from the project root directory,")
+        print("and that the year exists under config/.")
+        sys.exit(1)
+
+    try:
+        with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     except Exception as e:
         print(f"❌ Error loading configuration: {e}")
         sys.exit(1)
 
 def save_config(config: Dict[str, Any]) -> None:
-    """Save the updated configuration."""
-    config_file = "locations_config.json"
-    
+    """Save the updated configuration for the selected year."""
     try:
-        with open(config_file, 'w', encoding='utf-8') as f:
+        os.makedirs(os.path.dirname(CONFIG_FILE), exist_ok=True)
+        with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
             json.dump(config, f, indent=2, ensure_ascii=False)
-        print(f"✅ Configuration saved to {config_file}")
+        print(f"✅ Configuration saved to {CONFIG_FILE}")
     except Exception as e:
         print(f"❌ Error saving configuration: {e}")
         sys.exit(1)
@@ -133,7 +157,7 @@ def add_location_interactive() -> None:
         save_config(config)
         print(f"✅ Location '{location_key}' added successfully!")
         print("\n💡 Don't forget to run the scraper to update the generated files:")
-        print("   python scrape_hacktown.py")
+        print(f"   python scrape_hacktown.py --year {CURRENT_YEAR}")
     else:
         print("❌ Operation cancelled.")
 
@@ -161,9 +185,23 @@ def list_locations() -> None:
 
 def main():
     """Main function."""
+    global CONFIG_FILE, CURRENT_YEAR
+
+    parser = argparse.ArgumentParser(description="Add location mappings for a HackTown year")
+    parser.add_argument(
+        "--year", dest="year", default=None,
+        help="Year to edit (e.g. 2025). Defaults to activeYear in config/years.json."
+    )
+    args = parser.parse_args()
+
+    CURRENT_YEAR = resolve_year(args.year)
+    CONFIG_FILE = os.path.join("config", CURRENT_YEAR, "locations_config.json")
+
     print("🏢 Location Configuration Helper")
     print("=" * 40)
-    
+    print(f"📅 Year: {CURRENT_YEAR}")
+    print(f"📄 Config file: {CONFIG_FILE}")
+
     while True:
         print("\nOptions:")
         print("1. Add new location")
