@@ -1,5 +1,8 @@
 // Bump this version whenever the cached app shell changes.
-const CACHE_NAME = 'hacktown-shell-v2';
+// v3: HackTown 2026 visual identity (Barlow/Roboto + pink/indigo palette).
+// Bumping forces a fresh SW install on deploy, which purges old caches and
+// self-heals any visitor stuck on a stale cached shell.
+const CACHE_NAME = 'hacktown-shell-v3';
 
 // Precache only the app shell. Paths are relative to the service worker's
 // scope (e.g. /better-hacktown/), so they work regardless of the deploy path.
