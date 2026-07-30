@@ -141,6 +141,12 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            /* Sticky footer: lay the page out as a column at least one screen
+               tall so the footer is pushed to the bottom even on short pages. */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            min-height: 100svh;
         }
 
         /* Display typeface (Barlow) for headings and branded UI — HackTown 2026.
@@ -1428,6 +1434,9 @@
             max-width: 1800px;
             margin: 0 auto;
             padding: 40px 10px;
+            width: 100%;
+            /* Grow to fill the space so the footer is pushed to the bottom. */
+            flex: 1 0 auto;
         }
 
         /* Timeline Container */
@@ -2660,6 +2669,8 @@
             color: var(--text-light);
             font-size: 0.75rem;
             line-height: 1.5;
+            /* Sit at the very bottom (body is a min-height:100vh flex column). */
+            flex-shrink: 0;
         }
         .page-footer-inner {
             max-width: 1000px;
@@ -2718,6 +2729,83 @@
             height: 14px;
             fill: var(--text-light);
             pointer-events: none;
+        }
+
+        /* ===== Favorites reminder banner (shown once per day on first open) ===== */
+        .favorites-notice {
+            position: fixed;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%) translateY(150%);
+            width: min(560px, calc(100% - 24px));
+            background: var(--gradient-primary);
+            color: var(--text-white);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+            z-index: 4500;
+            opacity: 0;
+            visibility: hidden;
+            transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s ease, visibility 0.4s;
+        }
+        .favorites-notice.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        .favorites-notice-inner {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 18px;
+        }
+        .favorites-notice-icon {
+            font-size: 1.6rem;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+        .favorites-notice-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex: 1;
+        }
+        .favorites-notice-text strong {
+            display: block;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 3px;
+        }
+        .favorites-notice-tip {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.82rem;
+            opacity: 0.92;
+        }
+        .favorites-notice-tip strong {
+            display: inline;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 0;
+            font-size: inherit;
+        }
+        .favorites-notice-close {
+            background: transparent;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.6rem;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0 2px;
+            flex-shrink: 0;
+            opacity: 0.75;
+            transition: opacity var(--transition-fast);
+        }
+        .favorites-notice-close:hover { opacity: 1; }
+        @media (max-width: 480px) {
+            .favorites-notice { bottom: 12px; }
+            .favorites-notice-text { font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -2882,6 +2970,19 @@
                     <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
                 </svg>
             </button>
+        </div>
+    </div>
+
+    <!-- Favorites reminder banner: shown once on the first open of each day -->
+    <div class="favorites-notice" id="favoritesNotice" role="status" aria-live="polite">
+        <div class="favorites-notice-inner">
+            <span class="favorites-notice-icon" aria-hidden="true">⭐</span>
+            <div class="favorites-notice-text">
+                <strong>Seus favoritos ficam salvos só neste navegador</strong>
+                Se você trocar de navegador, ou limpar os dados do site, a sua lista de favoritos será apagada.
+                <span class="favorites-notice-tip">Dica: use o <strong>Compartilhar Favoritos</strong> para gerar um link e guardar a sua lista.</span>
+            </div>
+            <button class="favorites-notice-close" onclick="dismissFavoritesNotice()" aria-label="Fechar aviso">×</button>
         </div>
     </div>
 
@@ -3072,6 +3173,89 @@
         // hacktown2025_* keys, so existing users keep their favorites/history.
         function favoritesStorageKey() { return `hacktown${currentYear}_favorites`; }
         function viewedStorageKey() { return `hacktown${currentYear}_viewed_events`; }
+
+        // ---------------------------------------------------------------
+        // Favorites reminder banner — shown once per day, every day, with the
+        // day boundary at 7am local (see FAVORITES_NOTICE_ROLLOVER_HOUR below)
+        // rather than midnight, because the event runs overnight.
+        // State lives under a DEDICATED localStorage key, separate from
+        // favorites/viewed data, so it can be reset independently. The stored
+        // value is the "notice day" (YYYY-MM-DD) it last appeared; when the
+        // local clock passes 7am into a new day it appears again.
+        //
+        // The browser reads the current date from the device clock (new Date()),
+        // so no timer or server job is needed. We just re-run the date check
+        // when the user comes back to the tab (visibilitychange) — that covers
+        // a tab that is never closed or reloaded across days (e.g. left open
+        // overnight, reopened in the morning). A server/GitHub Pages deploy
+        // cannot push this into an already-open tab; it has to be client-side.
+        //
+        // To force it now: run resetFavoritesNotice() in the browser console.
+        // ---------------------------------------------------------------
+        const FAVORITES_NOTICE_KEY = 'hacktown_favorites_notice_lastShown';
+
+        // The reminder's "day" rolls over at this local hour, NOT midnight.
+        // HackTown runs overnight, so someone opening the app at midnight/1am is
+        // still on the same event-night and shouldn't see the banner again until
+        // they open it after this hour (i.e. the next morning).
+        const FAVORITES_NOTICE_ROLLOVER_HOUR = 7; // 7am local time
+
+        // Current "notice day" as YYYY-MM-DD, with the day starting at 7am:
+        // before 7am counts as the previous day. Built from local calendar
+        // fields, so it's correct across month/year ends and unaffected by DST.
+        function favoritesNoticeDay() {
+            const now = new Date();
+            const day = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+            if (now.getHours() < FAVORITES_NOTICE_ROLLOVER_HOUR) {
+                day.setDate(day.getDate() - 1); // before 7am → still the previous day
+            }
+            return `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`;
+        }
+
+        function showFavoritesNotice() {
+            const el = document.getElementById('favoritesNotice');
+            if (!el) return;
+            // Defer a frame so the CSS enter-transition actually runs.
+            requestAnimationFrame(() => el.classList.add('show'));
+        }
+
+        function dismissFavoritesNotice() {
+            const el = document.getElementById('favoritesNotice');
+            if (el) el.classList.remove('show');
+        }
+
+        // Show the banner only on the first view of a new notice day (rolls at
+        // 7am). Safe to call often (page load, tab focus): it's a no-op until
+        // the local clock passes 7am into a new day.
+        function maybeShowFavoritesNotice() {
+            const day = favoritesNoticeDay();
+            let alreadyShown = false;
+            try {
+                alreadyShown = localStorage.getItem(FAVORITES_NOTICE_KEY) === day;
+                if (!alreadyShown) localStorage.setItem(FAVORITES_NOTICE_KEY, day);
+            } catch (e) {
+                // localStorage unavailable (e.g. private mode) — show best-effort.
+            }
+            if (!alreadyShown) showFavoritesNotice();
+        }
+
+        // Keep the daily reminder working for a tab left open across days:
+        // when the user returns to the tab, re-check the date (no polling timer).
+        let favoritesNoticeWatchersReady = false;
+        function setupFavoritesNoticeWatchers() {
+            if (favoritesNoticeWatchersReady) return;
+            favoritesNoticeWatchersReady = true;
+            document.addEventListener('visibilitychange', () => {
+                if (document.visibilityState === 'visible') maybeShowFavoritesNotice();
+            });
+        }
+
+        // Manual override: force the banner now (ignores the once-per-day guard)
+        // and mark the current notice day as shown so it won't auto-repeat today.
+        window.resetFavoritesNotice = function () {
+            try { localStorage.setItem(FAVORITES_NOTICE_KEY, favoritesNoticeDay()); } catch (e) {}
+            showFavoritesNotice();
+        };
 
         // Load the multi-year registry (shared with the scraper).
         async function loadYearsRegistry() {
@@ -4918,6 +5102,14 @@
                 // Select first day by default
                 selectDay(EVENT_DATES[0].date);
             }
+
+            // First open of the day: gently remind that favorites are browser-local.
+            // Skipped when viewing someone else's shared favorites link.
+            if (!isViewingSharedFavorites) {
+                setTimeout(maybeShowFavoritesNotice, 900);
+            }
+            // Keep the daily reminder alive for tabs that are never reloaded.
+            setupFavoritesNoticeWatchers();
         }
 
         // Load summary data
