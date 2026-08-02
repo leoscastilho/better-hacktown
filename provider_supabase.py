@@ -22,6 +22,10 @@ from typing import Any, Dict, List
 
 logger = logging.getLogger(__name__)
 
+# This source keys events by UUID; ask the dispatcher to remap them to stable
+# integer ids (via sync_common's id map) so favorites + share URLs stay small.
+REMAP_IDS = True
+
 # America/Sao_Paulo is UTC-3 year-round (Brazil dropped DST in 2019). The API
 # sends event_date + start_time/end_time as local wall-clock with no offset;
 # we stamp -03:00 so the stored instant renders at the real local time.
@@ -131,9 +135,9 @@ def fetch(dates: List[str]) -> Dict[str, List[Dict[str, Any]]]:
         "select": _config.get("select", DEFAULT_SELECT),
         "order": "event_date.asc,start_time.asc",
     }
-    status = _config.get("status_filter", "eq.publicado")
-    if status:
-        params["status"] = status
+    # status = _config.get("status_filter", "eq.publicado")
+    # if status:
+    #     params["status"] = status
 
     logger.info(f"🌐 Fetching the full 2026 schedule from Supabase ({table})...")
     rows = _request(table, params)

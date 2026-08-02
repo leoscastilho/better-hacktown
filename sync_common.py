@@ -16,6 +16,7 @@ config/<year>/locations_config.json — providers do NOT compute them.
 License: MIT
 """
 
+import hashlib
 import json
 import os
 import logging
@@ -154,7 +155,8 @@ def save_events_to_file(date: str, events: List[Dict[str, Any]]) -> None:
     filepath = os.path.join(OUTPUT_DIR, f"hacktown_events_{date}.json")
     output_data = {
         "date": date,
-        "total_events": len(processed_events),
+        # Count active events only; soft-removed ones are carried for the record.
+        "total_events": sum(1 for e in processed_events if not e.get("removed")),
         "scraped_at": brt_now_iso(),
         "events": processed_events,
     }
@@ -282,3 +284,154 @@ def save_summary(year: str, dates: List[str], all_events: Dict[str, List[Dict[st
         logger.info(f"💡 Add them to {LOCATIONS_CONFIG_FILE} via: python add_location.py --year {year}")
 
     return fetch_successful
+
+
+# ============================================================================
+# STABLE INTEGER IDs (for sources whose natural id is long, e.g. a UUID)
+# ============================================================================
+# Some sources (2026 / Supabase) key events by UUID. UUIDs bloat the favorites
+# stored in localStorage and the share URLs built from them, so we map each
+# natural key to a small, STABLE integer id that never changes once assigned.
+# The map is persisted per year (committed) so ids survive re-syncs and CI runs.
+# We also store a content hash per event so we know which days actually changed
+# and can leave the rest untouched (no needless rewrites / commits).
+#
+# Map shape:
+#   { "next_id": N,
+#     "events": { "<key>": {"id": int, "hash": str, "date": str, "removed_at": str|null} } }
+#
+# SOFT DELETE: an event that stops appearing in the feed is NEVER deleted from
+# the map or the data. Its record keeps its id forever and gets a `removed_at`
+# timestamp; its last-known object is carried forward in the day file flagged
+# `removed: true`. The frontend hides removed events. If it reappears, it is
+# reactivated (removed_at cleared) with fresh data. Mass disappearances are
+# caught upstream by the dispatcher's safety guard (see scrape_hacktown.py).
+
+def event_content_hash(event: Dict[str, Any]) -> str:
+    """
+    Short, stable hash of an event's content. Excludes 'id' (a derived, remapped
+    value) and 'removed' (a local soft-delete flag, not source content) so those
+    never spuriously mark an event as changed.
+    """
+    content = {k: v for k, v in event.items() if k not in ("id", "removed")}
+    blob = json.dumps(content, sort_keys=True, ensure_ascii=False)
+    return hashlib.sha256(blob.encode("utf-8")).hexdigest()[:16]
+
+
+def load_id_map(path: str) -> Dict[str, Any]:
+    """Load the natural-key → {id,hash,date,removed_at} map (or a fresh one)."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (FileNotFoundError, ValueError):
+        data = {}
+    data.setdefault("next_id", 1)
+    data.setdefault("events", {})
+    return data
+
+
+def save_id_map(path: str, id_map: Dict[str, Any]) -> None:
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(id_map, f, ensure_ascii=False, indent=2)
+
+
+def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Assign STABLE integer ids to the fetched events and detect what changed,
+    WITHOUT yet applying removals (so the caller can veto a suspicious run first).
+
+    Mutates each fetched event (event['id'] = int) and the id_map (mints ids,
+    updates hash/date, reactivates events that came back). Returns a report:
+        {
+          "changed_dates": set[str],   # dates whose files must be rewritten
+          "active_before": int,        # events that were active before this run
+          "vanished": list[str],       # active keys missing from this fetch
+          "new": int, "changed": int, "reactivated": int,
+        }
+    """
+    events = id_map["events"]
+    changed_dates = set()
+    seen = set()
+    new = changed = reactivated = 0
+    active_before = sum(1 for r in events.values() if not r.get("removed_at"))
+
+    for date, day_events in events_by_date.items():
+        for event in day_events:
+            key = str(event.get("id"))
+            seen.add(key)
+            h = event_content_hash(event)
+            rec = events.get(key)
+            if rec is None:
+                rec = {"id": id_map["next_id"], "hash": h, "date": date, "removed_at": None}
+                id_map["next_id"] += 1
+                events[key] = rec
+                changed_dates.add(date)
+                new += 1
+            else:
+                if rec.get("removed_at"):          # was soft-removed, now back
+                    rec["removed_at"] = None
+                    changed_dates.add(date)
+                    if rec.get("date"):
+                        changed_dates.add(rec["date"])
+                    reactivated += 1
+                if rec.get("hash") != h:
+                    rec["hash"] = h
+                    changed_dates.add(date)
+                    changed += 1
+                if rec.get("date") != date:
+                    if rec.get("date"):
+                        changed_dates.add(rec["date"])   # left its previous day
+                    rec["date"] = date
+                    changed_dates.add(date)
+            event["id"] = rec["id"]
+
+    vanished = [k for k, r in events.items() if k not in seen and not r.get("removed_at")]
+    return {
+        "changed_dates": changed_dates,
+        "active_before": active_before,
+        "vanished": vanished,
+        "new": new,
+        "changed": changed,
+        "reactivated": reactivated,
+    }
+
+
+def apply_removals(id_map: Dict[str, Any], vanished: List[str], changed_dates: set) -> None:
+    """Soft-delete the vanished keys: stamp removed_at (keep id + date) and mark
+    their day for rewrite. Called only after the safety guard approves the run."""
+    now = brt_now_iso()
+    for key in vanished:
+        rec = id_map["events"].get(key)
+        if rec is None:
+            continue
+        rec["removed_at"] = now
+        if rec.get("date"):
+            changed_dates.add(rec["date"])
+
+
+def carried_removed_for_date(date: str, id_map: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """
+    Last-known objects of soft-removed events belonging to `date`, read from the
+    existing day file and flagged `removed: true`, so a rewrite preserves them
+    instead of dropping them.
+    """
+    removed_ids = {
+        rec["id"] for rec in id_map["events"].values()
+        if rec.get("removed_at") and rec.get("date") == date
+    }
+    if not removed_ids:
+        return []
+    path = os.path.join(OUTPUT_DIR, f"hacktown_events_{date}.json")
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            old = json.load(f)
+    except (FileNotFoundError, ValueError):
+        return []
+    carried = []
+    for e in old.get("events", []):
+        if e.get("id") in removed_ids:
+            e = dict(e)
+            e["removed"] = True
+            carried.append(e)
+    return carried

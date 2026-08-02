@@ -2936,7 +2936,7 @@
 
     <div class="scrolling-banner">
         <div class="scrolling-text">
-            INOVAÇÃO ◆ TECNOLOGIA ◆ CRIATIVIDADE ◆ SANTA RITA DO SAPUCAÍ ◆ MINAS GERAIS ◆ 2025 ◆ STARTUPS ◆ NEGÓCIOS ◆ CULTURA ◆ AMÉRICA LATINA ◆ 
+            ⚈ SANTA RITA DO SAPUCAÍ ⚈ 2026 ⚈ INOVAÇÃO ⚈ CULTURA ⚈ AMÉRICA LATINA ⚈ STARTUPS ⚈ NEGÓCIOS ⚈ CRIATIVIDADE ⚈ SANTA RITA DO SAPUCAÍ ⚈ MINAS GERAIS ⚈ INOVAÇÃO ⚈ AMÉRICA LATINA ⚈ STARTUPS ⚈ NEGÓCIOS ⚈ CRIATIVIDADE ⚈ SANTA RITA DO SAPUCAÍ ⚈ MINAS GERAIS ⚈ 2025 ⚈ INOVAÇÃO ⚈ AMÉRICA LATINA ⚈ STARTUPS ◆ NEGÓCIOS ⚈ CRIATIVIDADE ⚈ SANTA RITA DO SAPUCAÍ ⚈ MINAS GERAIS ⚈ INOVAÇÃO ⚈ AMÉRICA LATINA ⚈ STARTUPS ⚈ NEGÓCIOS ⚈ CRIATIVIDADE ⚈ CULTURA
         </div>
     </div>
 
@@ -5236,8 +5236,10 @@
                 });
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data = await response.json();
-                allEvents[date] = data.events || [];
-                
+                // Soft-deleted events are kept in the data (flagged removed) for
+                // the record, but must never be shown in the app.
+                allEvents[date] = (data.events || []).filter(e => !e.removed);
+
                 loadedDays.add(date);
             } catch (error) {
                 console.error(`Error loading events for ${date}:`, error);

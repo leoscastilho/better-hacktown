@@ -10,3 +10,9 @@ logs/
 docker-data/
 
 __pycache__
+
+# Ad-hoc raw API dumps from exploring the schedule endpoints (see the 2026 API
+# spec) — not part of the app; the real data lives under events/<year>/.
+/hacktown_events_full.json
+/hacktown_events.json
+/hacktown_schedule.csv
