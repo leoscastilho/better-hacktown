@@ -3515,18 +3515,22 @@
             }
             
             saveFavorites();
-            
-            // Immediately update all favorite buttons for this event
+
+            // Immediately (and surgically) update just this event's star buttons.
             updateFavoriteButtons(eventId);
-            
-            // Clear cache when favorites change
+
+            // Invalidate cached HTML so any future full render reflects the change.
             renderCache.clear();
-            
-            // Update UI if needed
-            if (currentDay) {
+
+            // Only re-render the whole list when toggling actually changes which
+            // cards are visible — i.e. the favorites-only filter is on, where
+            // un-favoriting must drop the card. In the normal view the star
+            // update above is all that's needed; re-rendering every card here is
+            // what caused the whole screen to flicker on each favorite click.
+            if (currentDay && showFavoritesOnly && !isViewingSharedFavorites) {
                 displayEvents(currentDay);
             }
-            
+
             // Update modal if it's open
             const modalContent = document.getElementById('modalContent');
             if (modalContent && modalContent.dataset.eventId === eventId) {
@@ -3996,14 +4000,25 @@
                 z-index: 100;
             `;
             banner.innerHTML = `
-                ⭐ Visualizando ${count} eventos compartilhados
+                <span style="margin-right: 4px;">⭐ Visualizando ${count} eventos compartilhados</span>
+                <button onclick="addSharedToFavorites(this)" style="
+                    background: var(--primary-pink);
+                    border: none;
+                    color: #fff;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    margin-left: 8px;
+                    cursor: pointer;
+                    font-size: 12px;
+                    font-weight: 700;
+                ">Adicionar aos meus favoritos</button>
                 <button onclick="clearSharedFavorites()" style="
                     background: rgba(0,0,0,0.1);
                     border: none;
                     color: inherit;
-                    padding: 4px 8px;
+                    padding: 5px 10px;
                     border-radius: 4px;
-                    margin-left: 10px;
+                    margin-left: 8px;
                     cursor: pointer;
                     font-size: 12px;
                 ">Limpar</button>
@@ -4045,6 +4060,42 @@
             renderCache.clear();
             if (currentDay) {
                 displayEvents(currentDay);
+            }
+        }
+
+        // Merge the favorites currently being viewed (from a shared link) into
+        // the user's own favorites. De-duplicates: events already favorited are
+        // left untouched, so it's a safe union of both sets.
+        function addSharedToFavorites(btn) {
+            if (!sharedFavorites || sharedFavorites.size === 0) return;
+
+            let added = 0;
+            sharedFavorites.forEach(id => {
+                if (!favorites.has(id)) {
+                    favorites.add(id);
+                    added++;
+                }
+            });
+
+            saveFavorites(); // persist + refresh the "Compartilhar Favoritos" button/count
+
+            // Reflect the new state on any of these cards visible on the current
+            // day, and drop cached HTML so other days render with the right stars.
+            sharedFavorites.forEach(id => updateFavoriteButtons(id));
+            renderCache.clear();
+
+            showShareNotification(
+                added > 0
+                    ? `${added} evento(s) adicionado(s) aos seus favoritos`
+                    : 'Esses eventos já estavam nos seus favoritos'
+            );
+
+            // Lock the button into a done state so it's clear it worked.
+            if (btn) {
+                btn.textContent = added > 0 ? '✓ Adicionado' : '✓ Já nos favoritos';
+                btn.disabled = true;
+                btn.style.opacity = '0.65';
+                btn.style.cursor = 'default';
             }
         }
 
