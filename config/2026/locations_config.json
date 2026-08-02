@@ -2,51 +2,102 @@
   "_note": "2026 venue → filterLocation + proximity (nearLocation) mapping. Seeded by mapping the 30 real Supabase venues by name prefix into the existing proximity groups (best-effort; gmaps reused from 2025 where the venue matched). Refine venues/gmaps as needed; add mappings via: python add_location.py --year 2026. Matching is case-insensitive substring on possible_names.",
   "location_mappings": {
     "inatel": {
-      "possible_names": ["INATEL"],
+      "possible_names": [
+        "INATEL"
+      ],
       "filter_location": "Inatel",
       "near_location": "Inatel e Arredores",
       "gmaps": "https://maps.app.goo.gl/4h4cAJSwzHxvbSuA8"
     },
     "ete": {
-      "possible_names": ["ETE"],
+      "possible_names": [
+        "ETE"
+      ],
       "filter_location": "ETE",
       "near_location": "ETE e Arredores",
       "gmaps": "https://maps.app.goo.gl/gMQnqpq7qyWsmpji6"
     },
     "fai": {
-      "possible_names": ["FAI"],
+      "possible_names": [
+        "FAI"
+      ],
       "filter_location": "FAI",
       "near_location": "ETE e Arredores",
       "gmaps": "https://maps.app.goo.gl/NYzXJU421PcxpupXA"
     },
     "loja_maconica": {
-      "possible_names": ["LOJA MAÇÔNICA", "LOJA MAÇONICA"],
+      "possible_names": [
+        "LOJA MAÇÔNICA",
+        "LOJA MAÇONICA"
+      ],
       "filter_location": "Loja Maçônica",
       "near_location": "Praça e Arredores",
       "gmaps": "https://maps.app.goo.gl/NLusFgn1ngMjdtHU7"
     },
     "braseiro": {
-      "possible_names": ["BRASEIRO"],
+      "possible_names": [
+        "BRASEIRO"
+      ],
       "filter_location": "Braseiro",
       "near_location": "Praça e Arredores",
       "gmaps": "https://maps.app.goo.gl/PPuGqxH7mM8mmJkE8"
     },
     "bar_e_restaurante": {
-      "possible_names": ["BAR E RESTAURANTE", "DIMAS"],
+      "possible_names": [
+        "BAR E RESTAURANTE",
+        "DIMAS"
+      ],
       "filter_location": "Bar e Restaurante do Dimas II",
       "near_location": "Praça e Arredores",
       "gmaps": "https://maps.app.goo.gl/ipKWdLNwhEPaxGdV7"
     },
     "be_bold": {
-      "possible_names": ["BE BOLD", "BEBOLD"],
+      "possible_names": [
+        "BE BOLD",
+        "BEBOLD"
+      ],
       "filter_location": "Be Bold",
       "near_location": "ETE e Arredores",
       "gmaps": "https://maps.app.goo.gl/VJPQuXW3EWyD6F3E6"
     },
     "cine_teatro_municipal": {
-      "possible_names": ["CINE TEATRO"],
+      "possible_names": [
+        "CINE TEATRO"
+      ],
       "filter_location": "Cine Teatro Municipal",
       "near_location": "Praça e Arredores",
+      "gmaps": ""
+    },
+    "associacao_jose_do_patrocinio": {
+      "possible_names": [
+        "ASSOCIAÇÃO JOSÉ DO PATROCÍNIO"
+      ],
+      "filter_location": "Associação José do Patrocínio",
+      "near_location": "Praça e Arredores",
+      "gmaps": "https://maps.app.goo.gl/hCjiq8T9xyjtgQGS7"
+    },
+    "boteco_do_tio_joao": {
+      "possible_names": [
+        "BOTECO DO TIO JOÃO"
+      ],
+      "filter_location": "Boteco do Tio João",
+      "near_location": "Praça e Arredores",
+      "gmaps": "https://maps.app.goo.gl/c7GQHdrdXJAiAYyq7"
+    },
+    "cidade_criativa_cidade_feliz": {
+      "possible_names": [
+        "ESPAÇO CIDADE CRIATIVA, CIDADE FELIZ"
+      ],
+      "filter_location": "Espaço Cidade Criativa, Cidade Feliz",
+      "near_location": "Other",
+      "gmaps": ""
+    },
+    "online": {
+      "possible_names": [
+        "ONLINE - HACKEANDO FRONTEIRAS"
+      ],
+      "filter_location": "Online",
+      "near_location": "Other",
       "gmaps": ""
     }
   }

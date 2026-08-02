@@ -87,6 +87,25 @@ Cada provider apenas busca e converte os eventos; `sync_common` cuida de salvar 
 mesmo formato. Para adicionar uma fonte nova, escreva um `provider_*.py` com `configure()`
 e `fetch(dates)` e aponte o `provider` do ano para ele.
 
+**IDs estáveis (`REMAP_IDS`)**: fontes cujo id nativo é longo (ex.: os UUIDs do 2026)
+podem definir `REMAP_IDS = True` no provider. O dispatcher então mapeia cada UUID para um
+**id inteiro estável** (via `events/<ano>/id_map.json`, versionado) que nunca muda depois
+de atribuído — mantendo favoritos (localStorage) e links de compartilhamento curtos. O
+mapa também guarda um hash do conteúdo de cada evento, então o sync **só reescreve os dias
+que realmente mudaram** (sem churn/commits desnecessários); eventos novos ganham novos ids.
+
+**Segurança dos dados** (para providers com `REMAP_IDS`):
+
+- **Guarda contra apagamento em massa**: se mais de `HACKTOWN_GUARD_MAX_REMOVED` (padrão
+  **30%**) dos eventos ativos sumirem do feed numa única execução (havendo pelo menos
+  `HACKTOWN_GUARD_MIN_EVENTS`, padrão 20), o sync **aborta sem escrever nada** e sai com
+  erro — protegendo contra um feed adulterado/quebrado que apagaria tudo. Use `--force`
+  (ou `HACKTOWN_FORCE=1`) para uma mudança grande legítima.
+- **Remoção suave (soft delete)**: um evento que deixa de aparecer no feed **nunca é
+  apagado**. Ele ganha um `removed_at` no `id_map` e é mantido no arquivo do dia com
+  `removed: true` (o dado é preservado); o frontend não exibe eventos `removed`. Se voltar
+  a aparecer, é reativado (`removed_at` limpo) com dados novos.
+
 ### Adicionar um novo ano (ex.: 2026)
 
 1. Adicione/edite a entrada do ano em `config/years.json` com as `dates` e o bloco `api`
