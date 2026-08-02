@@ -69,8 +69,8 @@ run_scraper() {
     echo "Running scraper..."
     cd "$REPO_DIR"
     
-    # Copy the scraper script from the container to the repo
-    cp /app/scrape_hacktown.py .
+    # Copy the sync tool (dispatcher + shared core + per-year providers) into the repo
+    cp /app/scrape_hacktown.py /app/sync_common.py /app/provider_yazo.py /app/provider_supabase.py .
     
     # Show configuration
     echo "Checking scraper configuration..."

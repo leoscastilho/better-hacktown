@@ -1,951 +1,55 @@
 #!/usr/bin/env python3
 """
-HackTown 2025 Event Scraper - Asynchronous Version
+HackTown multi-year event sync — dispatcher.
 
-This script scrapes event data from the HackTown 2025 API using asynchronous HTTP requests
-for improved performance. It fetches all events across multiple dates, processes location
-data, and saves organized JSON files for use in the web application.
+Reads config/years.json and, for each target year, picks that year's PROVIDER
+(how to fetch its schedule) and runs it through the shared core (sync_common),
+so every year is saved identically under events/<year>/.
 
-Key Features:
-- Asynchronous HTTP requests with concurrent processing
-- Automatic retry logic with exponential backoff
-- CI/CD environment detection and optimization
-- Location normalization and categorization
-- Comprehensive error handling and logging
-- Data persistence with summary statistics
+    scrape_hacktown.py            (this dispatcher)
+      ├── sync_common.py          shared output format / writers / locations
+      ├── provider_yazo.py        2025 — Yazo API, paginated per day
+      └── provider_supabase.py    2026 — Supabase/PostgREST, one request
+
+Each year entry in config/years.json declares a `provider` ("yazo" | "supabase")
+and an `api` block with the connection details that provider needs.
+
+Usage:
+    python scrape_hacktown.py                 # sync activeYear (default)
+    python scrape_hacktown.py --year 2026     # sync a specific year
+    python scrape_hacktown.py --all-years     # sync every configured year
+
+The year may also be supplied via the HACKTOWN_YEAR environment variable.
 
 License: MIT
 """
 
 import argparse
-import asyncio
-import aiohttp
+import inspect
 import json
-import os
-import random
-import sys
-from datetime import datetime
-import time
-from typing import List, Dict, Any, Optional
-from zoneinfo import ZoneInfo
 import logging
+import os
+import sys
+import time
+
+import sync_common
 
 # ============================================================================
-# CONFIGURATION CONSTANTS
+# CONFIGURATION
 # ============================================================================
 
-# Central multi-year registry, shared with the web app (index.html). It declares
-# the active year and, for each year, the event dates and API parameters.
+# Central multi-year registry, shared with the web app (index.html).
 YEARS_CONFIG_FILE = os.path.join("config", "years.json")
 
-# Base directory that holds one sub-directory of scraped data per year
-# (e.g. events/2025/, events/2026/).
+# Base directory holding one sub-directory of scraped data per year.
 EVENTS_BASE_DIR = "events"
 
-# ----------------------------------------------------------------------------
-# Runtime, per-year configuration.
-# These globals are (re)populated by configure_for_year() from config/years.json
-# before each year is scraped. They carry neutral defaults so module import and
-# the import-time HEADERS snapshot below never fail.
-# ----------------------------------------------------------------------------
-YEAR = None                                   # Year currently being scraped (str)
-BASE_URL = ""                                 # API endpoint for the selected year
-OUTPUT_DIR = EVENTS_BASE_DIR                  # events/<year> once configured
-LOCATIONS_CONFIG_FILE = os.path.join("config", "locations_config.json")
-API_CATEGORY_ID = "42"                        # HackTown category identifier
-API_PRODUCT_IDS = "[2]"                       # Product identifier(s)
-API_PRODUCT_IDENTIFIER = "1"                  # 'product-identifier' request header
-API_ORIGIN = "https://hacktown2025.yazo.app.br"   # 'origin' request header
-API_REFERER = "https://hacktown2025.yazo.app.br/" # 'referer' request header
-
-# ============================================================================
-# ENVIRONMENT DETECTION AND ADAPTIVE SETTINGS
-# ============================================================================
-
-# Detect if running in CI/CD environment (GitHub Actions, etc.)
-# This allows us to use more conservative settings to avoid rate limiting
-# Check if we should force local mode (for Docker containers)
-FORCE_LOCAL_MODE = os.environ.get('FORCE_LOCAL_MODE', 'false').lower() == 'true'
-
-# Detect if running in CI/CD environment (GitHub Actions, etc.)
-# This allows us to use more conservative settings to avoid rate limiting
-# But can be overridden with FORCE_LOCAL_MODE for Docker containers
-IS_CI = (os.environ.get('CI', 'false').lower() == 'true' or os.environ.get('GITHUB_ACTIONS', 'false').lower() == 'true') and not FORCE_LOCAL_MODE
-
-# Adjust concurrency and timing settings based on environment
-if IS_CI:
-    MAX_CONCURRENT_REQUESTS = 1  # Ultra-conservative: single request at a time in CI
-    RETRY_DELAY = 20  # Much longer initial delay between retries in CI (seconds)
-    MAX_RETRIES = 3   # Fewer retries in CI to avoid prolonged blocking
-    REQUEST_TIMEOUT = 60  # Longer timeout for CI environment
-    print("🤖 Running in CI environment - using ultra-conservative settings")
-    print(f"   • Max concurrent requests: {MAX_CONCURRENT_REQUESTS}")
-    print(f"   • Retry delay: {RETRY_DELAY}s")
-    print(f"   • Max retries: {MAX_RETRIES}")
-    print(f"   • Request timeout: {REQUEST_TIMEOUT}s")
-else:
-    MAX_CONCURRENT_REQUESTS = 2  # Local development: allow 2 concurrent requests
-    RETRY_DELAY = 5  # Shorter delay for local development (seconds)
-    MAX_RETRIES = 5  # More retries for local development
-    REQUEST_TIMEOUT = 30  # Standard timeout for local development
-
-# ============================================================================
-# EVENT CONFIGURATION
-# ============================================================================
-
-# Event dates to scrape for the selected year (list of "YYYY-MM-DD" strings).
-# Populated by configure_for_year() from config/years.json; empty until then.
-EVENT_DATES = []
-
-# ============================================================================
-# HTTP REQUEST HEADERS
-# ============================================================================
-
-# HTTP headers required by the HackTown API
-# Enhanced headers to better mimic real browser requests and avoid blocking
-def get_headers():
-    """Generate headers with some randomization to avoid detection"""
-    user_agents = [
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:109.0) Gecko/20100101 Firefox/121.0'
-    ]
-    
-    return {
-        'accept': 'application/json, text/plain, */*',
-        'accept-encoding': 'gzip, deflate, br',
-        'accept-language': 'en-US,en;q=0.9,pt;q=0.8',
-        'cache-control': 'no-cache',
-        'origin': API_ORIGIN,
-        'pragma': 'no-cache',
-        'product-identifier': API_PRODUCT_IDENTIFIER,
-        'referer': API_REFERER,
-        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-        'sec-ch-ua-mobile': '?0',
-        'sec-ch-ua-platform': '"Linux"',
-        'sec-fetch-dest': 'empty',
-        'sec-fetch-mode': 'cors',
-        'sec-fetch-site': 'cross-site',
-        'user-agent': random.choice(user_agents),
-        'x-requested-with': 'XMLHttpRequest'
-    }
-
-# Keep a base version for backwards compatibility
-HEADERS = get_headers()
-
-# ============================================================================
-# LOGGING SETUP
-# ============================================================================
-
-# Configure logging with timestamp, level, and message format
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# ============================================================================
-# PROXY CONFIGURATION (Optional - for future use if needed)
-# ============================================================================
-
-def get_proxy_list():
-    """
-    Get list of free proxies for rotation (if needed in the future).
-    Currently disabled but can be enabled if API blocking becomes severe.
-    """
-    # Free proxy services (use with caution in production)
-    # return [
-    #     'http://proxy1:port',
-    #     'http://proxy2:port',
-    # ]
-    return []
-
-def get_random_proxy():
-    """Get a random proxy from the list (currently disabled)"""
-    proxies = get_proxy_list()
-    return random.choice(proxies) if proxies else None
 
 # ============================================================================
-# LOCATION PROCESSING CACHE AND CONFIGURATION
-# ============================================================================
-
-# Cache for location normalization to avoid repeated processing
-# Key: original location string, Value: (filter_location, near_location) tuple
-location_cache = {}
-
-# Global variable to store location mappings loaded from config
-location_mappings = {}
-
-# Global set to track unmapped locations (places that couldn't be mapped)
-unmapped_locations = set()
-
-def reset_unmapped_locations():
-    """
-    Reset the unmapped locations tracking for a new scraping session.
-    This should be called at the beginning of each scraping run.
-    """
-    global unmapped_locations
-    unmapped_locations.clear()
-
-def load_location_config():
-    """
-    Load location configuration for the selected year.
-
-    Reads config/<year>/locations_config.json (LOCATIONS_CONFIG_FILE, set by
-    configure_for_year). This centralizes all location mapping logic per year.
-    """
-    global location_mappings
-    config_file = LOCATIONS_CONFIG_FILE
-
-    try:
-        with open(config_file, 'r', encoding='utf-8') as f:
-            config = json.load(f)
-            location_mappings = config.get('location_mappings', {})
-            logger.info(f"✅ Loaded {len(location_mappings)} location mappings from {config_file}")
-    except FileNotFoundError:
-        logger.error(f"❌ Location config file {config_file} not found!")
-        logger.error(f"Please create {config_file} with location mappings")
-        location_mappings = {}
-    except Exception as e:
-        logger.error(f"❌ Error loading location config: {e}")
-        location_mappings = {}
-
-def generate_locations_json():
-    """
-    Generate locations.json file from the centralized configuration.
-    This ensures the frontend always has the latest location data.
-    """
-    locations_data = []
-    
-    # Create a set to track unique filter_locations to avoid duplicates
-    seen_locations = set()
-    
-    for key, config in location_mappings.items():
-        filter_location = config.get('filter_location', key)
-        gmaps = config.get('gmaps', '')
-        
-        # Only add if we haven't seen this filter_location before
-        if filter_location not in seen_locations:
-            locations_data.append({
-                "name": filter_location,
-                "gmaps": gmaps
-            })
-            seen_locations.add(filter_location)
-    
-    # Add "Other" location if not already present
-    if "Other" not in seen_locations:
-        locations_data.append({
-            "name": "Other",
-            "gmaps": ""
-        })
-    
-    # Sort by name for consistency
-    locations_data.sort(key=lambda x: x['name'])
-    
-    # Save to events directory
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    locations_file = os.path.join(OUTPUT_DIR, "locations.json")
-    
-    with open(locations_file, 'w', encoding='utf-8') as f:
-        json.dump(locations_data, f, ensure_ascii=False, indent=2)
-    
-    logger.info(f"📍 Generated {locations_file} with {len(locations_data)} locations")
-
-def normalize_and_locate(place: str) -> tuple[str, str]:
-    """
-    Normalize location names and categorize them using centralized configuration.
-    
-    This function processes raw location strings from the API and maps them to:
-    1. filterLocation: Standardized location name for filtering/grouping
-    2. nearLocation: Broader geographical area for proximity-based grouping
-    
-    The function now uses the centralized locations_config.json file with support
-    for multiple possible names per location, making it easier to handle variations
-    like "Be Bold" vs "BeBold".
-    
-    Args:
-        place (str): Raw location string from the API
-        
-    Returns:
-        tuple[str, str]: (filter_location, near_location)
-    """
-    # Handle empty or None input
-    if not place:
-        return "Other", "Other"
-
-    # Check cache first to avoid repeated processing
-    if place in location_cache:
-        return location_cache[place]
-
-    # Convert to uppercase for case-insensitive matching
-    place_upper = place.upper()
-    
-    # Default values for unmapped locations
-    filter_location = "Other"
-    near_location = "Other"
-
-    # ========================================================================
-    # CENTRALIZED LOCATION MAPPING WITH MULTIPLE POSSIBLE NAMES
-    # ========================================================================
-    # Search through the loaded configuration for matches
-    for location_key, config in location_mappings.items():
-        possible_names = config.get('possible_names', [])
-        
-        # Check if the place matches any of the possible names for this location
-        for possible_name in possible_names:
-            if possible_name.upper() in place_upper:
-                filter_location = config.get('filter_location', location_key)
-                near_location = config.get('near_location', 'Other')
-                break
-        
-        # If we found a match, break out of the outer loop too
-        if filter_location != "Other":
-            break
-    else:
-        # For unmapped locations, preserve the original name
-        # This allows for future mapping without losing data
-        filter_location = place
-        near_location = None
-        
-        # Track this as an unmapped location for the summary
-        unmapped_locations.add(place)
-
-    # Cache the result for future lookups
-    result = (filter_location, near_location)
-    location_cache[place] = result
-    return result
-
-
-async def fetch_page(session: aiohttp.ClientSession, date: str, page: int) -> Optional[Dict[str, Any]]:
-    """
-    Fetch a single page of events for a specific date with comprehensive retry logic.
-    
-    This function handles the core HTTP request to the HackTown API with robust
-    error handling, rate limiting, and retry mechanisms to ensure reliable data fetching.
-    
-    Args:
-        session (aiohttp.ClientSession): Reusable HTTP session for connection pooling
-        date (str): Event date in YYYY-MM-DD format
-        page (int): Page number to fetch (1-based indexing)
-        
-    Returns:
-        Optional[Dict[str, Any]]: JSON response data or None if all retries failed
-        
-    Error Handling:
-        - HTTP 403: Implements exponential backoff retry (common rate limiting response)
-        - Timeout: Retries with fixed delay
-        - Other HTTP errors: Logged and returned as None
-        - Network exceptions: Caught and retried
-        
-    Rate Limiting:
-        - Random delays between requests to appear more human-like
-        - Longer delays in CI environments to be more respectful
-        - Exponential backoff for 403 errors with jitter
-    """
-    # Prepare API request parameters
-    # These parameters match the official HackTown web app requests
-    params = {
-        'category_id': API_CATEGORY_ID,    # HackTown category identifier (per-year)
-        'tag_ids': '[]',                   # No tag filtering (empty array)
-        'day[]': [date, '00:00:00.000Z'],  # Date filter with timezone
-        'page': str(page),                 # Current page number
-        'search': '',                      # No search query
-        'product_ids': API_PRODUCT_IDS     # Product identifier(s) (per-year)
-    }
-
-    # Retry loop with exponential backoff
-    for attempt in range(MAX_RETRIES):
-        try:
-            # Add random delay to avoid appearing as a bot
-            # Much longer delays in CI to be more respectful of the API
-            if IS_CI:
-                # In CI: longer delays and simulate human browsing patterns
-                base_delay = random.uniform(5, 12)  # 5-12 seconds base delay
-                if attempt > 0:
-                    base_delay += random.uniform(10, 20)  # Additional delay on retries
-                await asyncio.sleep(base_delay)
-            else:
-                await asyncio.sleep(random.uniform(0.5, 1.5))  # 0.5-1.5 seconds locally
-            
-            # Get fresh headers for each request to avoid fingerprinting
-            headers = get_headers()
-            
-            # Make the HTTP request with timeout
-            async with session.get(
-                    BASE_URL,
-                    headers=headers,
-                    params=params,
-                    timeout=aiohttp.ClientTimeout(total=REQUEST_TIMEOUT)
-            ) as response:
-                
-                # Success case: return parsed JSON
-                if response.status == 200:
-                    logger.info(f"✅ Successfully fetched {date} page {page}")
-                    return await response.json()
-                
-                # Rate limiting case: retry with exponential backoff
-                elif response.status == 403 and attempt < MAX_RETRIES - 1:
-                    logger.warning(f"🚫 403 Forbidden for {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}")
-                    
-                    # Much longer delays in CI for 403 errors
-                    if IS_CI:
-                        # In CI: very conservative backoff (30-120 seconds)
-                        base_delay = 30 + (attempt * 30) + random.uniform(0, 30)
-                        retry_delay = min(base_delay, 120)  # Cap at 2 minutes
-                    else:
-                        # Local: normal exponential backoff
-                        base_delay = RETRY_DELAY * (2 ** attempt) + random.uniform(0, 5)
-                        retry_delay = max(5, min(base_delay, 30))  # Clamp between 5-30 seconds
-                    
-                    logger.info(f"⏳ Rate limited - waiting {retry_delay:.1f} seconds before retry...")
-                    await asyncio.sleep(retry_delay)
-                    continue
-                
-                # Other HTTP errors: log and return None
-                else:
-                    logger.error(f"❌ HTTP {response.status} error for {date} page {page}")
-                    # For other 4xx errors in CI, wait longer before giving up
-                    if IS_CI and 400 <= response.status < 500 and attempt < MAX_RETRIES - 1:
-                        await asyncio.sleep(random.uniform(15, 30))
-                        continue
-                    return None
-                    
-        except asyncio.TimeoutError:
-            # Handle request timeouts
-            logger.error(f"⏰ Request timeout ({REQUEST_TIMEOUT}s) for {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}")
-            if attempt < MAX_RETRIES - 1:
-                delay = RETRY_DELAY * (2 if IS_CI else 1)  # Longer delay in CI
-                await asyncio.sleep(delay)
-                continue
-            return None
-            
-        except Exception as e:
-            # Handle any other network or parsing errors
-            logger.error(f"💥 Unexpected error fetching {date} page {page}, attempt {attempt + 1}/{MAX_RETRIES}: {e}")
-            if attempt < MAX_RETRIES - 1:
-                delay = RETRY_DELAY * (2 if IS_CI else 1)  # Longer delay in CI
-                await asyncio.sleep(delay)
-                continue
-            return None
-    
-    # All retries exhausted
-    logger.error(f"🔴 All {MAX_RETRIES} retry attempts failed for {date} page {page}")
-    return None
-
-
-async def fetch_all_pages_for_date(session: aiohttp.ClientSession, date: str, semaphore: asyncio.Semaphore) -> List[Dict[str, Any]]:
-    """
-    Fetch all paginated events for a specific date using concurrent requests.
-    
-    The HackTown API returns events in paginated format. This function:
-    1. Fetches the first page to determine total page count
-    2. Concurrently fetches all remaining pages
-    3. Combines all events into a single list
-    
-    Args:
-        session (aiohttp.ClientSession): HTTP session for requests
-        date (str): Event date in YYYY-MM-DD format
-        semaphore (asyncio.Semaphore): Concurrency limiter to prevent overwhelming the API
-        
-    Returns:
-        List[Dict[str, Any]]: Combined list of all events for the date
-        
-    Concurrency Strategy:
-        - First page is fetched sequentially to get pagination metadata
-        - Remaining pages are fetched concurrently with semaphore limiting
-        - This balances speed with API respect
-    """
-    all_events = []
-
-    # ========================================================================
-    # STEP 1: Fetch first page to determine pagination
-    # ========================================================================
-    # The first page contains metadata about total pages available
-    # We need this information before we can fetch remaining pages concurrently
-    
-    async with semaphore:  # Respect concurrency limits even for first page
-        logger.info(f"Fetching page 1 for {date} to determine total pages...")
-        first_page_data = await fetch_page(session, date, 1)
-
-    # Handle case where first page fails
-    if not first_page_data:
-        logger.error(f"Failed to fetch first page for {date} - skipping date")
-        return []
-
-    # Extract events from first page
-    events = first_page_data.get('data', [])
-    all_events.extend(events)
-    logger.info(f"Page 1 for {date}: {len(events)} events")
-
-    # ========================================================================
-    # STEP 2: Determine if additional pages exist
-    # ========================================================================
-    # Parse pagination metadata from API response
-    meta = first_page_data.get('meta', {})
-    last_page = meta.get('last_page', 1)
-    
-    logger.info(f"Date {date} has {last_page} total pages")
-
-    # ========================================================================
-    # STEP 3: Fetch remaining pages concurrently (if any)
-    # ========================================================================
-    if last_page > 1:
-        logger.info(f"Fetching pages 2-{last_page} for {date} concurrently...")
-        
-        # Create async tasks for all remaining pages
-        tasks = []
-        for page in range(2, last_page + 1):
-            # Create a closure to capture the page number correctly
-            async def fetch_with_semaphore(p):
-                async with semaphore:  # Limit concurrent requests
-                    logger.info(f"Fetching page {p}/{last_page} for {date}...")
-                    return await fetch_page(session, date, p)
-
-            tasks.append(fetch_with_semaphore(page))
-
-        # Execute all page requests concurrently
-        # asyncio.gather maintains order and waits for all tasks
-        results = await asyncio.gather(*tasks)
-
-        # ====================================================================
-        # STEP 4: Process results and combine events
-        # ====================================================================
-        successful_pages = 0
-        for page_num, result in enumerate(results, start=2):
-            if result:
-                page_events = result.get('data', [])
-                all_events.extend(page_events)
-                successful_pages += 1
-                logger.info(f"Page {page_num} for {date}: {len(page_events)} events")
-            else:
-                logger.warning(f"Failed to fetch page {page_num} for {date}")
-        
-        logger.info(f"Successfully fetched {successful_pages}/{last_page-1} additional pages for {date}")
-
-    # ========================================================================
-    # FINAL SUMMARY
-    # ========================================================================
-    logger.info(f"Total events collected for {date}: {len(all_events)}")
-    return all_events
-
-
-def process_events(events: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """
-    Process raw event data to add location categorization fields.
-    
-    This function enhances each event with standardized location information
-    that enables filtering and geographical grouping in the web application.
-    
-    Processing Steps:
-    1. Extract the 'place' field from each event
-    2. Normalize the location using the normalize_and_locate function
-    3. Add 'filterLocation' and 'nearLocation' fields to each event
-    
-    Args:
-        events (List[Dict[str, Any]]): Raw event data from API
-        
-    Returns:
-        List[Dict[str, Any]]: Events enhanced with location categorization
-        
-    Added Fields:
-        - filterLocation: Standardized venue name for precise filtering
-        - nearLocation: Broader geographical area for proximity-based grouping
-    """
-    for event in events:
-        # Extract location from event data (may be empty or None)
-        place = event.get('place', '')
-        
-        # Normalize and categorize the location
-        filter_location, near_location = normalize_and_locate(place)
-        
-        # Add the processed location fields to the event
-        event['filterLocation'] = filter_location
-        event['nearLocation'] = near_location
-
-    return events
-
-
-def save_events_to_file(date: str, events: List[Dict[str, Any]]):
-    """
-    Save processed events to a structured JSON file with metadata.
-    
-    This function creates organized, timestamped JSON files that serve as the
-    data source for the web application. Each file contains events for a single
-    date along with processing metadata.
-    
-    File Structure:
-    - Filename: hacktown_events_YYYY-MM-DD.json
-    - Location: events/ directory
-    - Content: Metadata + processed events array
-    
-    Args:
-        date (str): Event date in YYYY-MM-DD format
-        events (List[Dict[str, Any]]): Raw events to process and save
-        
-    File Content Structure:
-        {
-            "date": "YYYY-MM-DD",
-            "total_events": number,
-            "scraped_at": "ISO timestamp in BRT",
-            "events": [processed_event_objects]
-        }
-    """
-    # ========================================================================
-    # DIRECTORY SETUP
-    # ========================================================================
-    # Ensure the output directory exists
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-
-    # ========================================================================
-    # EVENT PROCESSING
-    # ========================================================================
-    # Add location categorization to all events
-    processed_events = process_events(events)
-
-    # ========================================================================
-    # FILE PATH GENERATION
-    # ========================================================================
-    # Create standardized filename based on date
-    filename = f"hacktown_events_{date}.json"
-    filepath = os.path.join(OUTPUT_DIR, filename)
-
-    # ========================================================================
-    # TIMESTAMP GENERATION
-    # ========================================================================
-    # Generate timestamp in Brazilian timezone (BRT/BRST)
-    # This ensures timestamps match the local event timezone
-    utc_now = datetime.now(ZoneInfo('UTC'))
-    brt_now = utc_now.astimezone(ZoneInfo('America/Sao_Paulo'))
-
-    # ========================================================================
-    # DATA STRUCTURE PREPARATION
-    # ========================================================================
-    # Create structured output with metadata and events
-    output_data = {
-        "date": date,                           # Event date for reference
-        "total_events": len(processed_events),  # Quick count for web app
-        "scraped_at": brt_now.isoformat(),     # Processing timestamp
-        "events": processed_events              # Full event data array
-    }
-
-    # ========================================================================
-    # FILE WRITING
-    # ========================================================================
-    # Write JSON with proper encoding and formatting
-    with open(filepath, 'w', encoding='utf-8') as f:
-        json.dump(
-            output_data, 
-            f, 
-            ensure_ascii=False,  # Preserve Unicode characters (Portuguese text)
-            indent=2             # Pretty-print for readability
-        )
-
-    logger.info(f"Successfully saved {len(processed_events)} events to {filepath}")
-    logger.info(f"File size: {os.path.getsize(filepath):,} bytes")
-
-
-def extract_unique_filter_locations(all_events_data: Dict[str, List[Dict[str, Any]]]) -> List[str]:
-    """
-    Extract unique filter locations from all events across all dates.
-    
-    This function processes all scraped events to create a comprehensive list
-    of unique filter locations that can be used for dropdown filtering in the web app.
-    
-    Args:
-        all_events_data (Dict[str, List[Dict[str, Any]]]): All events organized by date
-        
-    Returns:
-        List[str]: Sorted list of unique filter locations
-    """
-    unique_locations = set()
-    
-    for date, events in all_events_data.items():
-        if events:  # Only process if events exist for this date
-            for event in events:
-                # Get the filterLocation field (added by process_events)
-                filter_location = event.get('filterLocation', '')
-                if filter_location and filter_location.strip():
-                    unique_locations.add(filter_location.strip())
-    
-    # Convert to sorted list for consistent ordering
-    sorted_locations = sorted(list(unique_locations))
-    logger.info(f"📍 Extracted {len(sorted_locations)} unique filter locations")
-    
-    return sorted_locations
-
-
-def extract_unique_speakers(all_events_data: Dict[str, List[Dict[str, Any]]]) -> List[str]:
-    """
-    Extract unique speaker names from all events across all dates.
-    
-    This function processes all scraped events to create a comprehensive list
-    of unique speaker names from the 'speakers.name' field that can be used 
-    for dropdown filtering in the web app.
-    
-    Args:
-        all_events_data (Dict[str, List[Dict[str, Any]]]): All events organized by date
-        
-    Returns:
-        List[str]: Sorted list of unique speaker names
-    """
-    unique_speakers = set()
-    
-    for date, events in all_events_data.items():
-        if events:  # Only process if events exist for this date
-            for event in events:
-                # Only check the 'speakers' field
-                speakers_data = event.get('speakers', [])
-                
-                if speakers_data and isinstance(speakers_data, list):
-                    # Process each speaker in the speakers array
-                    for speaker in speakers_data:
-                        if isinstance(speaker, dict):
-                            # Extract the 'name' field from the speaker object
-                            name = speaker.get('name', '')
-                            if name and isinstance(name, str) and name.strip():
-                                unique_speakers.add(name.strip())
-    
-    # Clean up speaker names - remove very short names and common non-speaker words
-    cleaned_speakers = set()
-    common_words = {'tbd', 'tba', 'a definir', 'em breve', 'soon', 'coming', 'undefined', 'null', 'none', ''}
-    
-    for speaker in unique_speakers:
-        # Skip very short names or common placeholder words
-        if len(speaker) > 2 and speaker.lower() not in common_words:
-            cleaned_speakers.add(speaker)
-    
-    # Convert to sorted list for consistent ordering
-    sorted_speakers = sorted(list(cleaned_speakers))
-    logger.info(f"🎤 Extracted {len(sorted_speakers)} unique speaker names from 'speakers.name' field")
-    
-    return sorted_speakers
-
-
-def save_filter_data(all_events_data: Dict[str, List[Dict[str, Any]]]):
-    """
-    Generate and save filter data files for the web application.
-    
-    This function creates two JSON files containing unique values for dropdown filters:
-    1. filter_locations.json - List of unique filter locations
-    2. filter_speakers.json - List of unique speaker names
-    
-    Args:
-        all_events_data (Dict[str, List[Dict[str, Any]]]): All events organized by date
-    """
-    # ========================================================================
-    # EXTRACT UNIQUE VALUES
-    # ========================================================================
-    logger.info("🔍 Extracting unique values for filter dropdowns...")
-    
-    unique_locations = extract_unique_filter_locations(all_events_data)
-    unique_speakers = extract_unique_speakers(all_events_data)
-    
-    # ========================================================================
-    # GENERATE TIMESTAMP
-    # ========================================================================
-    utc_now = datetime.now(ZoneInfo('UTC'))
-    brt_now = utc_now.astimezone(ZoneInfo('America/Sao_Paulo'))
-    
-    # ========================================================================
-    # SAVE FILTER LOCATIONS FILE
-    # ========================================================================
-    locations_filter_data = {
-        "generated_at": brt_now.isoformat(),
-        "total_locations": len(unique_locations),
-        "locations": unique_locations
-    }
-    
-    locations_file = os.path.join(OUTPUT_DIR, "filter_locations.json")
-    with open(locations_file, 'w', encoding='utf-8') as f:
-        json.dump(locations_filter_data, f, ensure_ascii=False, indent=2)
-    
-    logger.info(f"📍 Saved {len(unique_locations)} filter locations to {locations_file}")
-    
-    # ========================================================================
-    # SAVE FILTER SPEAKERS FILE
-    # ========================================================================
-    speakers_filter_data = {
-        "generated_at": brt_now.isoformat(),
-        "total_speakers": len(unique_speakers),
-        "speakers": unique_speakers
-    }
-    
-    speakers_file = os.path.join(OUTPUT_DIR, "filter_speakers.json")
-    with open(speakers_file, 'w', encoding='utf-8') as f:
-        json.dump(speakers_filter_data, f, ensure_ascii=False, indent=2)
-    
-    logger.info(f"🎤 Saved {len(unique_speakers)} filter speakers to {speakers_file}")
-    
-    # ========================================================================
-    # LOG SUMMARY
-    # ========================================================================
-    logger.info("✅ Filter data files generated successfully:")
-    logger.info(f"   • {locations_file} ({len(unique_locations)} locations)")
-    logger.info(f"   • {speakers_file} ({len(unique_speakers)} speakers)")
-    
-    # Show some examples for verification
-    if unique_locations:
-        logger.info(f"   📍 Sample locations: {', '.join(unique_locations[:3])}{'...' if len(unique_locations) > 3 else ''}")
-    if unique_speakers:
-        logger.info(f"   🎤 Sample speakers: {', '.join(unique_speakers[:3])}{'...' if len(unique_speakers) > 3 else ''}")
-
-
-async def warm_up_session(session: aiohttp.ClientSession):
-    """
-    Warm up the session by making a request to the main website first.
-    This helps establish a more legitimate browsing pattern.
-    """
-    try:
-        logger.info("🔥 Warming up session by visiting main website...")
-        
-        # Visit the main website first to establish session
-        async with session.get(
-            'https://hacktown2025.yazo.app.br/',
-            headers=get_headers(),
-            timeout=aiohttp.ClientTimeout(total=15)
-        ) as response:
-            if response.status == 200:
-                logger.info("✅ Session warmed up successfully")
-                # Wait a bit to simulate human browsing
-                await asyncio.sleep(random.uniform(2, 5))
-            else:
-                logger.warning(f"⚠️ Session warmup returned status {response.status}")
-                
-    except Exception as e:
-        logger.warning(f"⚠️ Session warmup failed: {e}")
-        # Continue anyway, warmup is optional
-
-
-async def fetch_all_dates(dates: List[str]) -> Dict[str, List[Dict[str, Any]]]:
-    """
-    Orchestrate concurrent fetching of events across multiple dates.
-    
-    This is the main coordination function that manages:
-    - HTTP session lifecycle and connection pooling
-    - Concurrency control via semaphores
-    - Environment-specific optimizations
-    - Task scheduling and result aggregation
-    
-    Args:
-        dates (List[str]): List of dates to scrape in YYYY-MM-DD format
-        
-    Returns:
-        Dict[str, List[Dict[str, Any]]]: Mapping of date -> events list
-        
-    Architecture:
-        - Single HTTP session with connection pooling for efficiency
-        - Semaphore-controlled concurrency to respect API limits
-        - Environment-aware connection settings (CI vs local)
-        - Cookie jar for session state management
-    """
-    all_results = {}
-
-    # ========================================================================
-    # CONCURRENCY CONTROL SETUP
-    # ========================================================================
-    # Create semaphore to limit concurrent requests and prevent API overload
-    # The limit is environment-dependent (conservative in CI, normal locally)
-    semaphore = asyncio.Semaphore(MAX_CONCURRENT_REQUESTS)
-    logger.info(f"Using semaphore with {MAX_CONCURRENT_REQUESTS} concurrent requests")
-
-    # ========================================================================
-    # HTTP SESSION CONFIGURATION
-    # ========================================================================
-    # Configure connection pooling based on environment
-    # CI environments get very conservative settings to avoid rate limiting
-    
-    if IS_CI:
-        # CI Environment: Ultra-conservative settings
-        connector = aiohttp.TCPConnector(
-            limit=3,              # Even smaller connection pool
-            limit_per_host=1,     # Only 1 connection per host in CI
-            ttl_dns_cache=300,    # DNS cache timeout (5 minutes)
-            force_close=True,     # Force close connections (no keep-alive)
-            enable_cleanup_closed=True  # Clean up closed connections
-        )
-        logger.info("Using CI-optimized connection settings (ultra-conservative)")
-    else:
-        # Local Development: Normal settings for better performance
-        connector = aiohttp.TCPConnector(
-            limit=20,             # Reasonable total connection pool
-            limit_per_host=10,    # Allow multiple connections per host
-            ttl_dns_cache=300     # DNS cache timeout (5 minutes)
-        )
-        logger.info("Using local development connection settings (normal)")
-
-    # ========================================================================
-    # SESSION LIFECYCLE MANAGEMENT
-    # ========================================================================
-    # Create HTTP session with:
-    # - Connection pooling for efficiency
-    # - Cookie jar for session state (if API requires it)
-    # - Automatic resource cleanup via context manager
-    
-    # Enhanced timeout settings for CI
-    timeout = aiohttp.ClientTimeout(
-        total=60 if IS_CI else 30,      # Longer total timeout in CI
-        connect=30 if IS_CI else 10,    # Longer connect timeout in CI
-        sock_read=30 if IS_CI else 10   # Longer read timeout in CI
-    )
-    
-    async with aiohttp.ClientSession(
-        connector=connector,
-        cookie_jar=aiohttp.CookieJar(),  # Maintain cookies across requests
-        timeout=timeout
-    ) as session:
-        
-        logger.info(f"Created HTTP session - starting to fetch {len(dates)} dates")
-        
-        # ====================================================================
-        # SESSION WARMING (CI ONLY)
-        # ====================================================================
-        # In CI, warm up the session to appear more like a real browser
-        if IS_CI:
-            await warm_up_session(session)
-        
-        # ====================================================================
-        # TASK CREATION AND SCHEDULING
-        # ====================================================================
-        # Create async tasks for each date
-        # Each task will handle all pages for its assigned date
-        
-        tasks = []
-        for date in dates:
-            logger.info(f"Scheduling task for date: {date}")
-            task = fetch_all_pages_for_date(session, date, semaphore)
-            tasks.append(task)
-
-        # ====================================================================
-        # CONCURRENT EXECUTION
-        # ====================================================================
-        # Execute all date-fetching tasks concurrently
-        # asyncio.gather waits for all tasks and preserves order
-        
-        logger.info("Starting concurrent execution of all date tasks...")
-        start_time = time.time()
-        
-        results = await asyncio.gather(*tasks)
-        
-        execution_time = time.time() - start_time
-        logger.info(f"All date tasks completed in {execution_time:.2f} seconds")
-
-        # ====================================================================
-        # RESULT AGGREGATION
-        # ====================================================================
-        # Map results back to their corresponding dates
-        # This creates the final date -> events mapping
-        
-        for date, events in zip(dates, results):
-            all_results[date] = events
-            event_count = len(events) if events else 0
-            logger.info(f"Date {date}: {event_count} events collected")
-
-    # Session automatically closed here due to context manager
-    logger.info("HTTP session closed - all network operations complete")
-    return all_results
-
-
-# ============================================================================
-# MULTI-YEAR ORCHESTRATION
+# REGISTRY + PROVIDER RESOLUTION
 # ============================================================================
 
 def load_years_registry():
@@ -963,8 +67,8 @@ def load_years_registry():
 
 def year_is_scrapeable(year_cfg):
     """
-    A year can be scraped only if it is enabled and has both an API endpoint
-    and event dates configured. Returns (bool, reason_if_not).
+    A year can be synced only if it is enabled and has both an API endpoint and
+    event dates configured. Returns (bool, reason_if_not).
     """
     if not year_cfg.get("enabled", False):
         return False, "not enabled"
@@ -975,47 +79,9 @@ def year_is_scrapeable(year_cfg):
     return True, ""
 
 
-def configure_for_year(year, registry):
-    """
-    Populate the per-year runtime globals from the registry entry for `year`
-    (output dir, API endpoint/params, dates, location-config path).
-
-    Also clears the location caches so several years can be scraped in a single
-    run (--all-years) without cross-contamination.
-    """
-    global YEAR, BASE_URL, OUTPUT_DIR, EVENT_DATES, LOCATIONS_CONFIG_FILE
-    global API_CATEGORY_ID, API_PRODUCT_IDS, API_PRODUCT_IDENTIFIER, API_ORIGIN, API_REFERER
-    global location_mappings
-
-    years = registry.get("years", {})
-    if year not in years:
-        raise ValueError(f"Year '{year}' is not defined in {YEARS_CONFIG_FILE}")
-
-    cfg = years[year]
-    api = cfg.get("api", {})
-
-    YEAR = str(year)
-    OUTPUT_DIR = os.path.join(EVENTS_BASE_DIR, YEAR)
-    LOCATIONS_CONFIG_FILE = os.path.join("config", YEAR, "locations_config.json")
-    EVENT_DATES = [d["date"] for d in cfg.get("dates", []) if d.get("date")]
-    BASE_URL = api.get("base_url", "")
-    API_CATEGORY_ID = str(api.get("category_id", ""))
-    API_PRODUCT_IDS = str(api.get("product_ids", ""))
-    API_PRODUCT_IDENTIFIER = str(api.get("product_identifier", "1"))
-    API_ORIGIN = api.get("origin", "")
-    API_REFERER = api.get("referer", "")
-
-    # Reset per-year mutable state so --all-years stays correct
-    location_cache.clear()
-    location_mappings = {}
-    reset_unmapped_locations()
-
-    return cfg
-
-
 def resolve_target_years(registry, requested_year=None, all_years=False):
     """
-    Decide which year(s) to scrape:
+    Decide which year(s) to sync:
     - all_years=True  -> every year defined in the registry (filtered later)
     - requested_year  -> just that year
     - otherwise       -> the registry's activeYear (default behaviour)
@@ -1031,243 +97,117 @@ def resolve_target_years(registry, requested_year=None, all_years=False):
     return [str(active)]
 
 
-async def scrape_year():
+def select_provider(name):
+    """Import and return the provider module for a given provider name."""
+    if name == "supabase":
+        import provider_supabase
+        return provider_supabase
+    if name in ("yazo", "", None):
+        import provider_yazo
+        return provider_yazo
+    raise ValueError(f"Unknown provider '{name}' in {YEARS_CONFIG_FILE}")
+
+
+def build_year_context(year, registry):
+    """Resolve everything needed to sync one year into a context dict."""
+    years = registry.get("years", {})
+    if year not in years:
+        raise ValueError(f"Year '{year}' is not defined in {YEARS_CONFIG_FILE}")
+    cfg = years[year]
+    provider_name = cfg.get("provider", "yazo")
+    return {
+        "year": str(year),
+        "output_dir": os.path.join(EVENTS_BASE_DIR, str(year)),
+        "locations_config_file": os.path.join("config", str(year), "locations_config.json"),
+        "dates": [d["date"] for d in cfg.get("dates", []) if d.get("date")],
+        "provider_name": provider_name,
+        "provider": select_provider(provider_name),
+        "api_config": cfg.get("api", {}),
+    }
+
+
+# ============================================================================
+# ORCHESTRATION (shared across all providers)
+# ============================================================================
+
+async def run_year(ctx):
     """
-    Scrape a single, already-configured year of HackTown events.
-
-    configure_for_year() must have been called first to populate the per-year
-    globals (YEAR, BASE_URL, OUTPUT_DIR, EVENT_DATES, API_* and
-    LOCATIONS_CONFIG_FILE). This function then coordinates the workflow:
-    1. Load the year's location configuration
-    2. Execute concurrent event fetching across all dates
-    3. Process and save individual date files
-    4. Generate summary statistics and metadata
-    5. Handle failure scenarios gracefully
-    
-    Workflow Architecture:
-    - Fault-tolerant: Preserves existing data if scraping fails
-    - Incremental: Updates only successfully scraped data
-    - Monitored: Comprehensive logging and performance metrics
-    - Resilient: Handles partial failures gracefully
-    
-    Output Files:
-        - hacktown_events_YYYY-MM-DD.json: Daily event data
-        - summary.json: Overall statistics and metadata
-        - locations.json: Location mapping data (auto-generated)
+    Sync a single, resolved year: load its locations, fetch via its provider,
+    then write events/filters/locations/summary through the shared core.
+    Returns True if any date produced events.
     """
-    # ========================================================================
-    # INITIALIZATION AND STARTUP
-    # ========================================================================
+    year = ctx["year"]
+    dates = ctx["dates"]
+    provider = ctx["provider"]
+
     logger.info("=" * 60)
-    logger.info(f"🚀 Starting HackTown {YEAR} Event Scraper (Async Version)")
+    logger.info(f"🚀 Syncing HackTown {year}  (provider: {ctx['provider_name']})")
     logger.info("=" * 60)
-    logger.info(f"Environment: {'CI/CD' if IS_CI else 'Local Development'}")
-    logger.info(f"Year: {YEAR}")
-    logger.info(f"API endpoint: {BASE_URL}")
-    logger.info(f"Dates to scrape: {', '.join(EVENT_DATES)}")
-    logger.info(f"Max concurrent requests: {MAX_CONCURRENT_REQUESTS}")
-    logger.info(f"Output directory: {os.path.abspath(OUTPUT_DIR)}")
+    logger.info(f"Dates: {', '.join(dates)}")
+    logger.info(f"Output: {os.path.abspath(ctx['output_dir'])}")
 
-    # ========================================================================
-    # LOAD LOCATION CONFIGURATION
-    # ========================================================================
-    logger.info("\n" + "📍 Loading location configuration...")
-    logger.info("-" * 50)
-    load_location_config()
-    reset_unmapped_locations()
-    
-    # Generate locations.json for the frontend
-    generate_locations_json()
+    # Shared core: point writers at this year + load its location config.
+    sync_common.configure(ctx["output_dir"], ctx["locations_config_file"])
+    sync_common.load_location_config()
+    sync_common.generate_locations_json()
 
-    # Start performance timing
-    start_time = time.time()
+    # Provider: fetch the raw/canonical events (async for yazo, sync for supabase).
+    provider.configure(ctx["api_config"])
+    start = time.time()
+    result = provider.fetch(dates)
+    if inspect.isawaitable(result):
+        result = await result
+    all_events = result or {}
 
-    # ========================================================================
-    # EXISTING DATA RECOVERY
-    # ========================================================================
-    # Load existing summary to preserve data in case of scraping failure
-    # This ensures we don't lose previously successful scraping results
-    
-    summary_file = os.path.join(OUTPUT_DIR, "summary.json")
-    existing_summary = {}
-    
-    if os.path.exists(summary_file):
-        try:
-            with open(summary_file, 'r', encoding='utf-8') as f:
-                existing_summary = json.load(f)
-            logger.info(f"📊 Loaded existing summary: {existing_summary.get('total_events', 0)} events from previous run")
-            logger.info(f"📅 Last successful scrape: {existing_summary.get('scraping_completed', 'Unknown')}")
-        except Exception as e:
-            logger.warning(f"⚠️  Could not load existing summary: {e}")
-            logger.info("Proceeding with fresh scraping session")
-    else:
-        logger.info("📝 No existing summary found - this appears to be the first run")
-
-    # ========================================================================
-    # MAIN SCRAPING EXECUTION
-    # ========================================================================
-    logger.info("\n" + "🌐 Starting concurrent event fetching...")
-    logger.info("-" * 50)
-    
-    # Execute the main scraping workflow
-    all_events = await fetch_all_dates(EVENT_DATES)
-
-    # ========================================================================
-    # RESULTS PROCESSING AND FILE GENERATION
-    # ========================================================================
-    logger.info("\n" + "💾 Processing results and saving files...")
-    logger.info("-" * 50)
-    
-    # Track overall statistics
+    # Save one file per configured date (keeps files aligned with the day tabs).
     total_events = 0
     successful_dates = 0
-    failed_dates = []
-    
-    # Process each date's results
-    for date, events in all_events.items():
+    empty_dates = []
+    for date in dates:
+        events = all_events.get(date) or []
         if events:
-            # Success case: save events and update counters
-            save_events_to_file(date, events)
+            sync_common.save_events_to_file(date, events)
             total_events += len(events)
             successful_dates += 1
-            logger.info(f"✅ {date}: {len(events)} events saved successfully")
+            logger.info(f"✅ {date}: {len(events)} events saved")
         else:
-            # Failure case: log and track for summary
-            failed_dates.append(date)
-            logger.warning(f"❌ {date}: No events retrieved (scraping failed)")
+            empty_dates.append(date)
 
-    # ========================================================================
-    # GENERATE FILTER DATA FILES
-    # ========================================================================
-    # Generate filter dropdown data files if we have any successful events
     if successful_dates > 0:
-        logger.info("\n" + "🔍 Generating filter data files...")
-        logger.info("-" * 50)
-        save_filter_data(all_events)
-    else:
-        logger.warning("⚠️ No successful events found - skipping filter data generation")
+        # The fetch worked, so configured dates with no events are legitimately
+        # empty (e.g. an upcoming day not scheduled yet). Write clean empty files
+        # so their day tab loads without a 404. On a TOTAL failure we skip this
+        # and leave existing files + summary untouched (fault tolerance).
+        for date in empty_dates:
+            sync_common.save_events_to_file(date, [])
+            logger.info(f"📭 {date}: no events yet — wrote empty file")
+        sync_common.save_filter_data({d: all_events.get(d, []) for d in dates})
 
-    # ========================================================================
-    # PERFORMANCE METRICS AND SUMMARY
-    # ========================================================================
-    elapsed_time = time.time() - start_time
-    
-    logger.info("\n" + "=" * 60)
-    logger.info("📈 SCRAPING SUMMARY")
-    logger.info("=" * 60)
-    logger.info(f"✅ Successful dates: {successful_dates}/{len(EVENT_DATES)}")
-    logger.info(f"📊 Total events scraped: {total_events:,}")
-    logger.info(f"⏱️  Total execution time: {elapsed_time:.2f} seconds")
-    logger.info(f"🚀 Average speed: {total_events/elapsed_time:.1f} events/second" if elapsed_time > 0 else "🚀 Speed: N/A")
-    logger.info(f"💾 Output directory: {os.path.abspath(OUTPUT_DIR)}")
-    
-    if failed_dates:
-        logger.warning(f"⚠️  Failed dates: {', '.join(failed_dates)}")
-    
-    # Location cache efficiency metrics
-    logger.info(f"🗺️  Location cache: {len(location_cache)} unique locations processed")
-    logger.info(f"📍 Location mappings: {len(location_mappings)} configured mappings loaded")
-    
-    # Unmapped locations tracking
-    if unmapped_locations:
-        logger.warning(f"⚠️  Unmapped locations found: {len(unmapped_locations)} locations need configuration")
-        logger.warning(f"📍 Unmapped locations: {', '.join(sorted(unmapped_locations))}")
-        logger.info(f"💡 Consider adding these locations to {LOCATIONS_CONFIG_FILE} using: python add_location.py --year {YEAR}")
-    else:
-        logger.info("✅ All locations successfully mapped!")
-
-    # ========================================================================
-    # SUMMARY FILE GENERATION
-    # ========================================================================
-    # Generate timestamp in Brazilian timezone for consistency
-    utc_now = datetime.now(ZoneInfo('UTC'))
-    brt_now = utc_now.astimezone(ZoneInfo('America/Sao_Paulo'))
-
-    # Determine if this scraping session was successful
-    fetch_successful = successful_dates > 0
-    
-    if fetch_successful:
-        # Success case: Update summary with new data
-        summary_data = {
-            "scraping_completed": brt_now.isoformat(),
-            "total_events": total_events,
-            "successful_dates": successful_dates,
-            "failed_dates": failed_dates,
-            "dates_processed": EVENT_DATES,
-            "files_created": [f"hacktown_events_{date}.json" for date in EVENT_DATES if date not in failed_dates],
-            "filter_files_created": ["filter_locations.json", "filter_speakers.json"] if successful_dates > 0 else [],
-            "scraping_time_seconds": round(elapsed_time, 2),
-            "events_per_second": round(total_events/elapsed_time, 2) if elapsed_time > 0 else 0,
-            "location_cache_size": len(location_cache),
-            "location_mappings_loaded": len(location_mappings),
-            "unmapped_locations": sorted(list(unmapped_locations))
-        }
-        logger.info("✅ Scraping successful - updating summary with new data")
-        
-    else:
-        # Failure case: Preserve existing data and log failure
-        summary_data = {
-            "scraping_completed": existing_summary.get("scraping_completed", "Never"),
-            "total_events": existing_summary.get("total_events", 0),
-            "successful_dates": existing_summary.get("successful_dates", 0),
-            "failed_dates": failed_dates,
-            "dates_processed": EVENT_DATES,
-            "files_created": existing_summary.get("files_created", []),
-            "scraping_time_seconds": round(elapsed_time, 2),
-            "last_failed_attempt": brt_now.isoformat(),
-            "consecutive_failures": existing_summary.get("consecutive_failures", 0) + 1,
-            "unmapped_locations": existing_summary.get("unmapped_locations", [])
-        }
-        logger.error("❌ Scraping failed completely - preserving existing summary data")
-
-    # Save summary file
-    try:
-        with open(summary_file, 'w', encoding='utf-8') as f:
-            json.dump(summary_data, f, indent=2, ensure_ascii=False)
-        logger.info(f"📋 Summary saved to: {summary_file}")
-    except Exception as e:
-        logger.error(f"❌ Failed to save summary file: {e}")
-
-    # ========================================================================
-    # FINAL STATUS AND CLEANUP
-    # ========================================================================
-    logger.info("\n" + "🏁 Scraping process completed!")
-    
-    if fetch_successful:
-        logger.info("✅ Status: SUCCESS")
-        logger.info("🎉 Event data is ready for the web application")
-        logger.info("📍 locations.json has been updated automatically")
-        logger.info("🔍 Filter data files (filter_locations.json, filter_speakers.json) generated")
-    else:
-        logger.error("❌ Status: FAILED")
-        logger.error("🔧 Check logs above for error details and retry")
+    elapsed = time.time() - start
+    # On success every configured date now has a file, so nothing "failed".
+    failed_dates = [] if successful_dates > 0 else empty_dates
+    ok = sync_common.save_summary(
+        year, dates, all_events, total_events, successful_dates, failed_dates, elapsed
+    )
 
     logger.info("=" * 60)
-
-    return fetch_successful
+    logger.info(f"🏁 {year}: {total_events} events across {successful_dates}/{len(dates)} days in {elapsed:.1f}s")
+    logger.info("✅ Status: SUCCESS" if ok else "❌ Status: FAILED")
+    logger.info("=" * 60)
+    return ok
 
 
 async def main():
-    """
-    Entry point: parse CLI args, load the year registry, and scrape the
-    requested year(s). Defaults to the registry's activeYear.
-
-    Usage:
-        python scrape_hacktown.py                 # scrape activeYear (default)
-        python scrape_hacktown.py --year 2026     # scrape a specific year
-        python scrape_hacktown.py --all-years     # scrape every configured year
-
-    The year may also be supplied via the HACKTOWN_YEAR environment variable.
-    """
-    parser = argparse.ArgumentParser(description="HackTown multi-year event scraper")
+    """Parse CLI args, load the registry, and sync the requested year(s)."""
+    parser = argparse.ArgumentParser(description="HackTown multi-year event sync")
     parser.add_argument(
         "--year", dest="year", default=os.environ.get("HACKTOWN_YEAR"),
-        help="Year to scrape (e.g. 2025). Defaults to activeYear in config/years.json "
+        help="Year to sync (e.g. 2026). Defaults to activeYear in config/years.json "
              "(or the HACKTOWN_YEAR environment variable if set)."
     )
     parser.add_argument(
         "--all-years", dest="all_years", action="store_true",
-        help="Scrape every scrapeable year defined in config/years.json."
+        help="Sync every scrapeable year defined in config/years.json."
     )
     args = parser.parse_args()
 
@@ -1278,7 +218,7 @@ async def main():
     )
 
     logger.info("=" * 60)
-    logger.info("🗂️  HackTown multi-year scraper")
+    logger.info("🗂️  HackTown multi-year sync")
     logger.info(f"   Registry: {YEARS_CONFIG_FILE}")
     logger.info(f"   Active year (default): {registry.get('activeYear')}")
     logger.info(f"   Target year(s): {', '.join(target_years)}")
@@ -1309,9 +249,9 @@ async def main():
             logger.warning(f"⏭️  Skipping: {msg}")
             continue
 
-        configure_for_year(year, registry)
+        ctx = build_year_context(year, registry)
         scraped_any = True
-        year_ok = await scrape_year()
+        year_ok = await run_year(ctx)
         overall_success = overall_success or year_ok
 
     if not scraped_any:
@@ -1319,47 +259,22 @@ async def main():
         sys.exit(1)
 
     if not overall_success:
-        # Every attempted year failed to retrieve data
         sys.exit(1)
+
 
 # ============================================================================
 # SCRIPT ENTRY POINT
 # ============================================================================
 
 if __name__ == "__main__":
-    """
-    Script entry point - executes the main scraping workflow.
-    
-    This section runs when the script is executed directly (not imported).
-    It uses asyncio.run() to execute the async main() function, which handles
-    all the event loop management automatically.
-    
-    Usage:
-        python scrape_hacktown.py                 # scrape activeYear (default)
-        python scrape_hacktown.py --year 2026     # scrape a specific year
-        python scrape_hacktown.py --all-years     # scrape every configured year
-
-    The script will (for each target year):
-    1. Create the events/<year>/ directory if it doesn't exist
-    2. Scrape all HackTown events across that year's configured dates
-    3. Save individual JSON files for each date
-    4. Generate a summary.json with overall statistics
-    5. Log comprehensive progress and performance metrics
-    
-    Exit Codes:
-        0: Success (events scraped and saved)
-        1: Failure (check logs for details)
-    """
+    import asyncio
     try:
-        # Execute the main async workflow
         asyncio.run(main())
     except KeyboardInterrupt:
-        # Handle Ctrl+C gracefully
-        print("\n🛑 Scraping interrupted by user (Ctrl+C)")
+        print("\n🛑 Sync interrupted by user (Ctrl+C)")
         print("📝 Partial results may have been saved to the events/ directory")
-        exit(1)
+        sys.exit(1)
     except Exception as e:
-        # Handle any unexpected errors
         print(f"\n💥 Unexpected error occurred: {e}")
         print("🔧 Check the logs above for detailed error information")
-        exit(1)
+        sys.exit(1)

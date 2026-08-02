@@ -1,7 +1,7 @@
 {
-  "scraping_completed": null,
-  "total_events": 0,
-  "successful_dates": 0,
+  "scraping_completed": "2026-08-02T12:54:57.159601-03:00",
+  "total_events": 363,
+  "successful_dates": 4,
   "failed_dates": [],
   "dates_processed": [
     "2026-09-03",
@@ -10,6 +10,20 @@
     "2026-09-06",
     "2026-09-07"
   ],
-  "files_created": [],
-  "note": "Placeholder — no 2026 event data scraped yet."
+  "files_created": [
+    "hacktown_events_2026-09-03.json",
+    "hacktown_events_2026-09-04.json",
+    "hacktown_events_2026-09-05.json",
+    "hacktown_events_2026-09-06.json",
+    "hacktown_events_2026-09-07.json"
+  ],
+  "filter_files_created": [
+    "filter_locations.json",
+    "filter_speakers.json"
+  ],
+  "scraping_time_seconds": 2.3,
+  "events_per_second": 157.81,
+  "location_cache_size": 30,
+  "location_mappings_loaded": 8,
+  "unmapped_locations": []
 }

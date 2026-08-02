@@ -19,7 +19,10 @@ Um Progressive Web App (PWA) moderno para navegar pelos eventos do HackTown com 
 
 ```
 better-hacktown/
-├── scrape_hacktown.py          # Script principal de scraping (assíncrono, multi-ano)
+├── scrape_hacktown.py          # Sync multi-ano: dispatcher (escolhe o provider por ano)
+├── sync_common.py              # Núcleo compartilhado: formato de saída, filtros, localizações
+├── provider_yazo.py            # Provider 2025 — API Yazo (paginada por dia)
+├── provider_supabase.py        # Provider 2026 — Supabase/PostgREST (tudo em uma requisição)
 ├── add_location.py             # Helper interativo para adicionar localizações
 ├── index.html                  # Frontend PWA
 ├── service-worker.js           # Service worker PWA para funcionalidade offline
@@ -65,6 +68,24 @@ verdade**, compartilhada pelo scraper e pelo frontend.
   mais de um ano habilitado.
 - O **scraper** raspa o `activeYear` por padrão; use `--year <ano>` para um ano específico
   ou `--all-years` para todos os anos configurados.
+
+### Arquitetura do sync (um provider por ano)
+
+Cada ano pode vir de uma API completamente diferente, então a busca é feita por
+**providers** intercambiáveis, mas a saída é sempre idêntica:
+
+- **`scrape_hacktown.py`** — dispatcher: lê `config/years.json`, escolhe o provider do ano
+  (campo `provider`) e o executa através do núcleo compartilhado.
+- **`sync_common.py`** — núcleo compartilhado: normalização de localização e geração de
+  `hacktown_events_<data>.json`, `filter_locations.json`, `filter_speakers.json`,
+  `locations.json` e `summary.json` (mesmo formato para todos os anos).
+- **`provider_yazo.py`** (2025) — API Yazo, paginada por dia.
+- **`provider_supabase.py`** (2026) — Supabase/PostgREST; todo o cronograma em uma
+  requisição, transformado no formato canônico (mesmos campos/filtros do 2025).
+
+Cada provider apenas busca e converte os eventos; `sync_common` cuida de salvar tudo no
+mesmo formato. Para adicionar uma fonte nova, escreva um `provider_*.py` com `configure()`
+e `fetch(dates)` e aponte o `provider` do ano para ele.
 
 ### Adicionar um novo ano (ex.: 2026)
 
@@ -279,19 +300,22 @@ Sistema completo de containerização para deploy em servidor próprio:
 - `summary.json`: Estatísticas de eventos e metadados
 
 ### Integração com API
-O endpoint e os parâmetros da API são configurados por ano em `config/years.json`.
-Para 2025, o scraper se conecta a:
-```
-https://hacktown-2025-ss-v2.api.yazo.com.br/public/schedules
-```
+O endpoint, o provider e os parâmetros são configurados por ano em `config/years.json`.
+
+- **2025** (`provider: yazo`) — API Yazo, paginada por dia:
+  ```
+  https://hacktown-2025-ss-v2.api.yazo.com.br/public/schedules
+  ```
+- **2026** (`provider: supabase`) — Supabase/PostgREST (embed Lovable em
+  `hacktown.com.br/programacao/`); todo o cronograma em uma requisição:
+  ```
+  https://xbsooiedncsrmrhjasvk.supabase.co/rest/v1/events
+  ```
 
 ### Datas dos Eventos
-As datas de cada ano ficam em `config/years.json` (`years.<ano>.dates`). Para 2025:
-- 2025-07-30 (Dia 1)
-- 2025-07-31 (Dia 2)
-- 2025-08-01 (Dia 3)
-- 2025-08-02 (Dia 4)
-- 2025-08-03 (Dia 5)
+As datas de cada ano ficam em `config/years.json` (`years.<ano>.dates`).
+- **2025**: 30/07 a 03/08 (5 dias)
+- **2026**: 03/09 a 06/09 (4 dias)
 
 ## 🎨 Personalização
 

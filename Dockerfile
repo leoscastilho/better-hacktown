@@ -12,8 +12,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the scraper script
-COPY scrape_hacktown.py .
+# Copy the sync tool (dispatcher + shared core + per-year providers)
+COPY scrape_hacktown.py sync_common.py provider_yazo.py provider_supabase.py ./
 COPY docker-scraper.sh .
 
 # Make the script executable
