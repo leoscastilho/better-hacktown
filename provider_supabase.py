@@ -119,6 +119,7 @@ def _to_canonical(row: Dict[str, Any]) -> Dict[str, Any]:
         "title": row.get("title") or "",
         "description": row.get("description") or "",
         "place": venue.get("name") or "",
+        "age_rating": row.get("age_rating"),
         "speakers": speakers,
         "tags": tags,
     }
