@@ -1,0 +1,57 @@
+name: Sync HackTown 2026
+
+# Runs the sync tool for 2026 once a day and commits any new event data.
+# 2025 is an archived event and is intentionally NOT synced here.
+on:
+  schedule:
+    # GitHub cron is UTC. 07:00 America/Sao_Paulo (UTC-3) == 10:00 UTC.
+    # (GitHub may delay scheduled runs by a few minutes under load.)
+    - cron: "0 10 * * *"
+  workflow_dispatch: {}   # allow manual runs from the Actions tab
+
+# Let the job commit + push with the default GITHUB_TOKEN.
+permissions:
+  contents: write
+
+# Never let two syncs run/commit at once.
+concurrency:
+  group: sync-2026
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Sync 2026 events
+        run: python scrape_hacktown.py --year 2026
+
+      - name: Commit & push if the event data changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add events/2026
+
+          # summary.json holds a timestamp that changes every run; only commit
+          # when actual event/filter/location data changed, to avoid daily noise.
+          CHANGED="$(git diff --staged --name-only -- events/2026 | grep -v 'summary.json' || true)"
+          if [ -z "$CHANGED" ]; then
+            echo "No event-data changes — skipping commit."
+          else
+            echo "Changed files:"; echo "$CHANGED"
+            git commit -m "Sync HackTown 2026 events ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            git push
+          fi
