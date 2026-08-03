@@ -31,7 +31,7 @@
     <link rel="manifest" href="manifest.json?v=20250803220136">
     
     <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#393F73">
+    <meta name="theme-color" content="#23275f">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -49,15 +49,15 @@
     <!-- Standard Icon -->
     <link rel="icon" type="image/png" href="logo.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800;900&display=swap');
 
         :root {
             /* Primary Colors — HackTown 2026 brand palette
                (captured from hacktown.com.br: deep indigo, hot pink/magenta, light blue) */
-            --primary-indigo: #393F73;    /* deep navy indigo — primary */
-            --primary-indigo-2: #484F8B;  /* secondary indigo */
-            --primary-pink: #F8105F;      /* hot pink — CTAs / accent */
-            --primary-magenta: #FF00AF;   /* bright magenta — bands / highlights */
+            --primary-indigo: #23275f;    /* deep navy indigo — primary */
+            --primary-indigo-2: #333a86;  /* secondary indigo */
+            --primary-pink: #f0246b;      /* hot pink — CTAs / accent */
+            --primary-magenta: #ff5f96;   /* bright magenta — bands / highlights */
             --primary-blue: #6EC1E4;      /* light blue accent */
 
             /* Legacy aliases: existing rules reference these names; they are now
@@ -66,9 +66,11 @@
             --primary-orange: var(--primary-pink);
             --primary-gold: var(--primary-blue);
 
-            /* Typography — HackTown 2026 (Barlow display, Roboto body) */
-            --font-display: 'Barlow', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            --font-body: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            /* Typography — official hacktown.com.br pairing:
+               Anton (condensed all-caps display: titles, modal headline, time labels)
+               + Poppins (everything else). Anton ships a single 400 weight. */
+            --font-display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
+            --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
             /* Gradients */
             --gradient-primary: linear-gradient(135deg, var(--primary-indigo) 0%, var(--primary-indigo-2) 100%);
@@ -77,8 +79,8 @@
             --gradient-card: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
             --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 100%);
 
-            /* Text Colors */
-            --text-primary: #1e293b;
+            /* Text Colors — primary text uses the official base indigo (--ht-indigo) */
+            --text-primary: #23275f;
             --text-secondary: #64748b;
             --text-light: #94a3b8;
             --text-white: #ffffff;
@@ -100,7 +102,7 @@
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            --shadow-colored: 0 10px 30px rgba(248, 16, 95, 0.25);
+            --shadow-colored: 0 10px 30px rgba(240, 36, 107, 0.25);
             --shadow-gold: 0 10px 30px rgba(110, 193, 228, 0.3);
 
             /* Spacing */
@@ -149,16 +151,22 @@
             min-height: 100svh;
         }
 
-        /* Display typeface (Barlow) for headings and branded UI — HackTown 2026.
-           Only sets the font family; sizes/spacing/weights defined elsewhere are untouched. */
-        h1, h2, h3, h4, h5, h6,
-        header h1, .subtitle, .scrolling-text,
-        .sidebar h3, .sidebar-section-title,
-        .day-btn, .current-day-value, .time-header,
-        .event-title, .modal-title,
-        .share-favorites-btn, .star-filter-btn, .day-nav-btn,
-        .no-events, .error {
+        /* Display typeface (Anton) — per the official site it is used ONLY for
+           event/session titles, the modal headline and time/date labels.
+           Everything else (body, chips, buttons, nav, badges) is Poppins.
+           Anton has a single 400 weight: heavier values would synthesize an
+           ugly faux-bold, so weight is pinned here. */
+        header h1,
+        .modal-title,
+        .time-header, .current-day-value {
             font-family: var(--font-display);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+
+        /* Poppins for form controls (buttons/inputs don't inherit by default). */
+        button, input, select, textarea {
+            font-family: var(--font-body);
         }
 
         /* Filter Menu */
@@ -174,6 +182,22 @@
             align-items: center;
             justify-content: center;
             transition: all var(--transition-normal);
+            position: relative; /* anchor for the active-filters dot */
+        }
+
+        /* Small dot on the menu button while any sidebar filter is active —
+           signals there is something applied inside the menu. */
+        .menu-toggle.has-filters::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--primary-pink);
+            border: 2px solid var(--bg-primary);
+            pointer-events: none;
         }
 
         .menu-toggle:hover {
@@ -406,7 +430,7 @@
         .location-dropdown-header {
             width: 100%;
             padding: 15px 20px;
-            border: 2px solid #F8105F;
+            border: 2px solid #f0246b;
             background-color: transparent;
             color: #fff;
             border-radius: 30px;
@@ -467,7 +491,7 @@
 
         .location-dropdown-header:focus {
             outline: none;
-            border-color: #FF00AF;
+            border-color: #ff5f96;
         }
 
         .location-dropdown.active .dropdown-arrow {
@@ -481,7 +505,7 @@
             right: 0;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(15px);
-            border: 2px solid #F8105F;
+            border: 2px solid #f0246b;
             border-top: none;
             border-radius: 0 0 25px 25px;
             max-height: 350px;
@@ -491,7 +515,7 @@
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(248, 16, 95, 0.15);
+            box-shadow: 0 8px 25px rgba(240, 36, 107, 0.15);
         }
 
         .location-dropdown.active .location-dropdown-content {
@@ -502,14 +526,14 @@
 
         .location-search-container {
             padding: 20px;
-            border-bottom: 1px solid rgba(248, 16, 95, 0.2);
+            border-bottom: 1px solid rgba(240, 36, 107, 0.2);
             background: rgba(255, 255, 255, 0.5);
         }
 
         .location-search-container input {
             width: 100%;
             padding: 15px 20px;
-            border: 2px solid rgba(248, 16, 95, 0.3);
+            border: 2px solid rgba(240, 36, 107, 0.3);
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.95);
             color: var(--text-primary);
@@ -521,8 +545,8 @@
         }
 
         .location-search-container input:focus {
-            border-color: #F8105F;
-            box-shadow: 0 0 0 3px rgba(248, 16, 95, 0.1);
+            border-color: #f0246b;
+            box-shadow: 0 0 0 3px rgba(240, 36, 107, 0.1);
             transform: scale(1.02);
         }
 
@@ -537,12 +561,13 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        .location-option {
+        .location-option,
+        .age-option {
             padding: 18px 25px;
             color: var(--text-primary);
             cursor: pointer;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(248, 16, 95, 0.1);
+            border-bottom: 1px solid rgba(240, 36, 107, 0.1);
             font-size: 15px;
             min-height: 55px;
             display: flex;
@@ -551,28 +576,32 @@
             position: relative;
         }
 
-        .location-option:last-child {
+        .location-option:last-child,
+        .age-option:last-child {
             border-bottom: none;
         }
 
-        .location-option:hover {
-            background: rgba(248, 16, 95, 0.1);
-            color: #F8105F;
+        .location-option:hover,
+        .age-option:hover {
+            background: rgba(240, 36, 107, 0.1);
+            color: #f0246b;
             transform: translateX(5px);
         }
 
-        .location-option.active {
-            background: rgba(248, 16, 95, 0.15);
-            color: #F8105F;
+        .location-option.active,
+        .age-option.active {
+            background: rgba(240, 36, 107, 0.15);
+            color: #f0246b;
             font-weight: 600;
         }
 
-        .location-option.active::after {
+        .location-option.active::after,
+        .age-option.active::after {
             content: '✓';
             position: absolute;
             right: 20px;
             font-size: 18px;
-            color: #F8105F;
+            color: #f0246b;
         }
 
         .location-option.hidden {
@@ -585,17 +614,17 @@
         }
 
         .location-options::-webkit-scrollbar-track {
-            background: rgba(248, 16, 95, 0.1);
+            background: rgba(240, 36, 107, 0.1);
             border-radius: 4px;
         }
 
         .location-options::-webkit-scrollbar-thumb {
-            background: rgba(248, 16, 95, 0.4);
+            background: rgba(240, 36, 107, 0.4);
             border-radius: 4px;
         }
 
         .location-options::-webkit-scrollbar-thumb:hover {
-            background: rgba(248, 16, 95, 0.6);
+            background: rgba(240, 36, 107, 0.6);
         }
 
         /* Mobile Filter Modal Styles */
@@ -690,7 +719,7 @@
         .filter-modal-search input {
             width: 100%;
             padding: 18px 25px;
-            border: 2px solid rgba(248, 16, 95, 0.3);
+            border: 2px solid rgba(240, 36, 107, 0.3);
             border-radius: 30px;
             background: var(--bg-primary);
             color: var(--text-primary);
@@ -703,8 +732,8 @@
         }
 
         .filter-modal-search input:focus {
-            border-color: #F8105F;
-            box-shadow: 0 0 0 4px rgba(248, 16, 95, 0.1), var(--shadow-md);
+            border-color: #f0246b;
+            box-shadow: 0 0 0 4px rgba(240, 36, 107, 0.1), var(--shadow-md);
             transform: scale(1.02);
         }
 
@@ -725,7 +754,7 @@
             color: var(--text-primary);
             cursor: pointer;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(248, 16, 95, 0.1);
+            border-bottom: 1px solid rgba(240, 36, 107, 0.1);
             font-size: 18px;
             min-height: 70px;
             display: flex;
@@ -741,21 +770,21 @@
         }
 
         .filter-modal-option:hover {
-            background: rgba(248, 16, 95, 0.05);
-            color: #F8105F;
+            background: rgba(240, 36, 107, 0.05);
+            color: #f0246b;
             transform: translateX(5px);
         }
 
         .filter-modal-option.active {
-            background: rgba(248, 16, 95, 0.1);
-            color: #F8105F;
+            background: rgba(240, 36, 107, 0.1);
+            color: #f0246b;
             font-weight: 600;
         }
 
         .filter-modal-option.active::after {
             content: '✓';
             font-size: 24px;
-            color: #F8105F;
+            color: #f0246b;
             font-weight: bold;
         }
 
@@ -774,17 +803,17 @@
         }
 
         .filter-modal-options::-webkit-scrollbar-track {
-            background: rgba(248, 16, 95, 0.1);
+            background: rgba(240, 36, 107, 0.1);
             border-radius: 6px;
         }
 
         .filter-modal-options::-webkit-scrollbar-thumb {
-            background: rgba(248, 16, 95, 0.4);
+            background: rgba(240, 36, 107, 0.4);
             border-radius: 6px;
         }
 
         .filter-modal-options::-webkit-scrollbar-thumb:hover {
-            background: rgba(248, 16, 95, 0.6);
+            background: rgba(240, 36, 107, 0.6);
         }
 
         .filter-modal-no-results {
@@ -809,7 +838,7 @@
         .speaker-dropdown-header {
             width: 100%;
             padding: 15px 20px;
-            border: 2px solid #F8105F;
+            border: 2px solid #f0246b;
             background-color: transparent;
             color: #fff;
             border-radius: 30px;
@@ -830,7 +859,7 @@
 
         .speaker-dropdown-header:focus {
             outline: none;
-            border-color: #FF00AF;
+            border-color: #ff5f96;
         }
 
         .speaker-dropdown.active .dropdown-arrow {
@@ -844,7 +873,7 @@
             right: 0;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(15px);
-            border: 2px solid #F8105F;
+            border: 2px solid #f0246b;
             border-top: none;
             border-radius: 0 0 25px 25px;
             max-height: 350px;
@@ -854,7 +883,7 @@
             visibility: hidden;
             transform: translateY(-10px);
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(248, 16, 95, 0.15);
+            box-shadow: 0 8px 25px rgba(240, 36, 107, 0.15);
         }
 
         .speaker-dropdown.active .speaker-dropdown-content {
@@ -865,14 +894,14 @@
 
         .speaker-search-container {
             padding: 20px;
-            border-bottom: 1px solid rgba(248, 16, 95, 0.2);
+            border-bottom: 1px solid rgba(240, 36, 107, 0.2);
             background: rgba(255, 255, 255, 0.5);
         }
 
         .speaker-search-container input {
             width: 100%;
             padding: 15px 20px;
-            border: 2px solid rgba(248, 16, 95, 0.3);
+            border: 2px solid rgba(240, 36, 107, 0.3);
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.95);
             color: var(--text-primary);
@@ -884,8 +913,8 @@
         }
 
         .speaker-search-container input:focus {
-            border-color: #F8105F;
-            box-shadow: 0 0 0 3px rgba(248, 16, 95, 0.1);
+            border-color: #f0246b;
+            box-shadow: 0 0 0 3px rgba(240, 36, 107, 0.1);
             transform: scale(1.02);
         }
 
@@ -905,7 +934,7 @@
             color: var(--text-primary);
             cursor: pointer;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(248, 16, 95, 0.1);
+            border-bottom: 1px solid rgba(240, 36, 107, 0.1);
             font-size: 15px;
             min-height: 55px;
             display: flex;
@@ -919,14 +948,14 @@
         }
 
         .speaker-option:hover {
-            background: rgba(248, 16, 95, 0.1);
-            color: #F8105F;
+            background: rgba(240, 36, 107, 0.1);
+            color: #f0246b;
             transform: translateX(5px);
         }
 
         .speaker-option.active {
-            background: rgba(248, 16, 95, 0.15);
-            color: #F8105F;
+            background: rgba(240, 36, 107, 0.15);
+            color: #f0246b;
             font-weight: 600;
         }
 
@@ -935,7 +964,7 @@
             position: absolute;
             right: 20px;
             font-size: 18px;
-            color: #F8105F;
+            color: #f0246b;
         }
 
         .speaker-option.hidden {
@@ -948,17 +977,17 @@
         }
 
         .speaker-options::-webkit-scrollbar-track {
-            background: rgba(248, 16, 95, 0.1);
+            background: rgba(240, 36, 107, 0.1);
             border-radius: 4px;
         }
 
         .speaker-options::-webkit-scrollbar-thumb {
-            background: rgba(248, 16, 95, 0.4);
+            background: rgba(240, 36, 107, 0.4);
             border-radius: 4px;
         }
 
         .speaker-options::-webkit-scrollbar-thumb:hover {
-            background: rgba(248, 16, 95, 0.6);
+            background: rgba(240, 36, 107, 0.6);
         }
 
         .sidebar-summary-info {
@@ -1102,10 +1131,10 @@
 
         h1 {
             font-size: 3.5em;
-            font-weight: 900;
+            font-weight: 400; /* Anton has a single weight */
             margin-bottom: 10px;
             text-transform: uppercase;
-            letter-spacing: -2px;
+            letter-spacing: 0.02em;
             color: var(--text-white);
             text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             background: linear-gradient(45deg, #ffffff, #f0f0f0);
@@ -1126,7 +1155,8 @@
 
         /* Scrolling Banner */
         .scrolling-banner {
-            background: var(--gradient-secondary);
+            /* Official top banner bar gradient (indigo -> pink) */
+            background: linear-gradient(to right, #333a86, #f0246b);
             color: var(--text-white);
             padding: 15px 0;
             overflow: hidden;
@@ -1139,9 +1169,11 @@
             display: inline-block;
             padding-left: 100%;
             animation: scroll 90s linear infinite;
-            font-weight: 700;
+            /* Official banner type: Poppins 16px / 900 with 1.92px tracking */
+            font-size: 16px;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.92px;
         }
 
         @keyframes scroll {
@@ -1294,10 +1326,10 @@
 
         .current-day-value {
             font-size: 1.4em;
-            font-weight: 900;
+            font-weight: 400; /* Anton */
             color: var(--primary-purple);
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: 0.02em;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -1364,7 +1396,7 @@
         .day-dot.active {
             background: var(--primary-orange);
             transform: scale(1.3);
-            box-shadow: 0 0 10px rgba(248, 16, 95, 0.3);
+            box-shadow: 0 0 10px rgba(240, 36, 107, 0.3);
         }
 
         .day-dot:hover {
@@ -1549,10 +1581,10 @@
 
         .time-header {
             font-size: clamp(1.2em, 4vw, 1.8em);
-            font-weight: 900;
+            font-weight: 400; /* Anton */
             color: var(--primary-purple);
             text-transform: uppercase;
-            letter-spacing: -1px;
+            letter-spacing: 0.02em;
             flex-shrink: 0;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             white-space: nowrap;
@@ -1789,10 +1821,13 @@
         }
 
         .event-title {
-            font-size: 0.85em;
+            /* Poppins semibold, sentence case: Anton's single ultra-heavy weight
+               made long multi-line titles too dense to scan in the card grid.
+               Anton stays on the short display labels (header, times, modal). */
+            font-size: 15px;
             margin-bottom: 8px;
-            font-weight: 700;
-            line-height: 1.4;
+            font-weight: 600;
+            line-height: 1.45;
             color: var(--text-primary);
             margin-right: 45px;
         }
@@ -1810,6 +1845,9 @@
         }
 
         .event-time {
+            /* Normalized with the other card meta rows (Poppins like the
+               speaker row); Anton was too heavy next to place/speaker. */
+            font-size: 13px;
             font-weight: 500;
             margin-right: 45px;
         }
@@ -1911,7 +1949,7 @@
 
         .close-btn:hover {
             transform: rotate(90deg) scale(1.1);
-            background: rgba(248, 16, 95, 0.1);
+            background: rgba(240, 36, 107, 0.1);
             box-shadow: var(--shadow-md);
         }
 
@@ -1933,10 +1971,10 @@
 
         .modal-header.scrolled {
             background: linear-gradient(135deg,
-                rgba(248, 16, 95, 0.3) 0%,
+                rgba(240, 36, 107, 0.3) 0%,
                 rgba(255, 140, 0, 0.25) 50%,
                 var(--gradient-card) 100%);
-            box-shadow: 0 20px 20px rgba(248, 16, 95, 0.3);
+            box-shadow: 0 20px 20px rgba(240, 36, 107, 0.3);
             margin: 0 0 0 0;
             padding: 0 0 0 0;
         }
@@ -1948,12 +1986,13 @@
         }
 
         .modal-title {
-            font-size: 1.3em;
-            font-weight: 700;
+            font-size: 18px; /* official uses Anton 16px; +2px for the full-screen sheet */
+            font-weight: 400; /* Anton */
+            text-transform: uppercase;
             margin-top: 20px;
             margin-bottom: 20px;
             margin-right: 50px;
-            line-height: 1.3;
+            line-height: 1.35;
             color: var(--text-primary);
             background: var(--gradient-secondary);
             -webkit-background-clip: text;
@@ -2774,7 +2813,7 @@
         }
         .favorites-notice-text strong {
             display: block;
-            font-family: var(--font-display);
+            font-family: var(--font-body); /* Poppins — Anton is reserved for titles/times */
             font-weight: 700;
             font-size: 1rem;
             margin-bottom: 3px;
@@ -2810,6 +2849,31 @@
             .favorites-notice { bottom: 12px; }
             .favorites-notice-text { font-size: 0.85rem; }
         }
+
+        /* ===== Official type scale (hacktown.com.br) =====
+           Body copy Poppins 12–14px; eyebrows Poppins 11/700 with 0.55px
+           tracking; times Anton 14px. Declared last so these sizes win over
+           the older em-based values at equal specificity. */
+        /* Card/modal meta rows share one voice (Poppins 500, secondary color):
+           time + place at 13px, speaker one notch smaller at 12px. */
+        .event-place { font-size: 13px; font-weight: 500; }
+        .speaker-preview { font-size: 12px; }
+        .speaker-preview-item { font-size: 12px; font-weight: 500; }
+        .modal-time { font-size: 13px; font-weight: 500; }
+        .modal-place { font-size: 13px; font-weight: 500; }
+        .modal-description { font-size: 14px; line-height: 1.7; }
+        .speaker-name { font-size: 14px; font-weight: 600; }
+        .speaker-role { font-size: 12px; }
+        /* Section eyebrow ("PALESTRANTES") */
+        .speakers-title {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.55px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+        /* Badges are Poppins (Anton would leak in from .event-time/.modal-time) */
+        .age-badge { font-family: var(--font-body); }
     </style>
 </head>
 <body>
@@ -2825,10 +2889,13 @@
         <div class="sidebar-section">
             <div class="sidebar-section-title">Filtrar por Proximidade</div>
             <div class="near-selector" id="nearLocationSelector">
+                <!-- "Geral" = no filter applied (default). It is not a filter itself. -->
                 <button class="day-btn active" data-near-location="" onclick="selectNearLocation('')">Geral</button>
                 <button class="day-btn" data-near-location="Inatel e Arredores" onclick="selectNearLocation('Inatel e Arredores')">Inatel e Arredores</button>
                 <button class="day-btn" data-near-location="ETE e Arredores" onclick="selectNearLocation('ETE e Arredores')">ETE e Arredores</button>
                 <button class="day-btn" data-near-location="Praça e Arredores" onclick="selectNearLocation('Praça e Arredores')">Praça e Arredores</button>
+                <!-- Online meetings — a modality, not a physical location -->
+                <button class="day-btn" data-near-location="Online" onclick="selectNearLocation('Online')">Online</button>
             </div>
         </div>
 
@@ -2888,6 +2955,39 @@
                             <div class="speaker-option active" data-speaker="" onclick="selectSpeaker('', 'Todos os palestrantes')">
                                 Todos os palestrantes
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Classificação Etária</div>
+            <div class="location-filter">
+                <div class="location-dropdown" id="ageDropdown">
+                    <div class="location-dropdown-header" onclick="toggleAgeDropdown()">
+                        <span id="ageDropdownText">Sem restrições</span>
+                        <div class="dropdown-controls">
+                            <button class="clear-filter-btn" id="ageClearBtn" onclick="clearAgeFilter(event)" style="display: none;" title="Limpar filtro">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                            <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="location-dropdown-content">
+                        <div class="location-options" id="ageOptions">
+                            <!-- "Livre" is deliberately NOT an option: it is not a
+                                 restriction, so it shows under every selection. -->
+                            <div class="age-option active" data-age="" onclick="selectAgeRating('', 'Sem restrições')">Sem restrições</div>
+                            <div class="age-option" data-age="10" onclick="selectAgeRating('10', '10+')">10+</div>
+                            <div class="age-option" data-age="12" onclick="selectAgeRating('12', '12+')">12+</div>
+                            <div class="age-option" data-age="14" onclick="selectAgeRating('14', '14+')">14+</div>
+                            <div class="age-option" data-age="16" onclick="selectAgeRating('16', '16+')">16+</div>
+                            <div class="age-option" data-age="18" onclick="selectAgeRating('18', '18+')">18+</div>
                         </div>
                     </div>
                 </div>
@@ -3126,6 +3226,7 @@
         let allFilterSpeakers = []; // Loaded from filter_speakers.json
         let currentSpeakerFilter = ''; // Track current speaker filter
         let currentLocationFilter = ''; // Track current location filter
+        let currentAgeFilter = ''; // Track current age-rating filter ('' = Sem restrições)
         let showFavoritesOnly = false;
         let showNewEventsOnly = false; // Track new events filter
         let summaryData = null;
@@ -4141,6 +4242,69 @@
         }
 
         // Update clear button visibility for location filter
+        // ------- Classificação Etária (age-rating) filter -------
+        // Single-select dropdown, no search. "Sem restrições" = no filter.
+        // Additive semantics: selecting N shows Livre + every rating <= N
+        // (16+ -> Livre, 10, 12, 14, 16). "Livre" is not an option — it is not
+        // a restriction, so it appears under every selection.
+        function toggleAgeDropdown() {
+            const dropdown = document.getElementById('ageDropdown');
+            dropdown.classList.toggle('active');
+            if ('vibrate' in navigator && dropdown.classList.contains('active')) {
+                navigator.vibrate(50);
+            }
+        }
+
+        function selectAgeRating(value, displayName) {
+            currentAgeFilter = value;
+
+            if ('vibrate' in navigator) {
+                navigator.vibrate(30);
+            }
+
+            document.getElementById('ageDropdownText').textContent = displayName;
+            document.querySelectorAll('.age-option').forEach(option => {
+                option.classList.toggle('active', option.getAttribute('data-age') === value);
+            });
+            updateAgeClearButton();
+            document.getElementById('ageDropdown').classList.remove('active');
+
+            renderCache.clear();
+            if (currentDay) {
+                displayEvents(currentDay);
+            }
+        }
+
+        function clearAgeFilter(event) {
+            event.stopPropagation(); // don't toggle the dropdown open/closed
+            selectAgeRating('', 'Sem restrições');
+        }
+
+        function updateAgeClearButton() {
+            const clearBtn = document.getElementById('ageClearBtn');
+            const dropdownArrow = document.querySelector('#ageDropdown .dropdown-arrow');
+
+            if (currentAgeFilter && currentAgeFilter !== '') {
+                clearBtn.style.display = 'flex';
+                dropdownArrow.style.opacity = '0.7';
+            } else {
+                clearBtn.style.display = 'none';
+                dropdownArrow.style.opacity = '1';
+            }
+        }
+
+        // Does the event fit the selected maximum rating?
+        // Missing/empty/"Livre" ratings always fit (they are unrestricted).
+        function eventFitsAgeFilter(event) {
+            if (!currentAgeFilter) return true;
+            const rating = event.age_rating;
+            if (rating === null || rating === undefined || String(rating).trim() === '') return true;
+            const normalized = String(rating).trim().toLowerCase();
+            if (normalized === 'livre') return true;
+            const n = parseInt(normalized, 10);
+            return isNaN(n) ? true : n <= parseInt(currentAgeFilter, 10);
+        }
+
         function updateLocationClearButton() {
             const clearBtn = document.getElementById('locationClearBtn');
             const dropdownArrow = document.querySelector('#locationDropdown .dropdown-arrow');
@@ -4429,7 +4593,9 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                allFilterLocations = data.locations || [];
+                // "Online" is a modality, not a physical location: it gets its
+                // own proximity button instead of a Filtrar por Local entry.
+                allFilterLocations = (data.locations || []).filter(loc => loc !== 'Online');
                 console.log('Filter locations loaded:', allFilterLocations.length);
                 return allFilterLocations;
             } catch (error) {
@@ -5236,8 +5402,11 @@
         async function selectDay(date, eventId = null, openCard = false) {
             currentDay = date;
             
-            // Update active button
-            document.querySelectorAll('.day-btn').forEach(btn => {
+            // Update active button — only DATE buttons. The proximity buttons
+            // (Geral/Inatel/.../Online) reuse .day-btn but carry data-near-location
+            // instead of data-date; touching them here wiped Geral's default
+            // active state on load.
+            document.querySelectorAll('.day-btn[data-date]').forEach(btn => {
                 btn.classList.toggle('active', btn.getAttribute('data-date') === date);
             });
             
@@ -5259,11 +5428,26 @@
         }
 
         // Display events for the selected day
+        // Show a small dot on the menu button while any sidebar filter is
+        // active. The favorites star is excluded: it lives outside the menu
+        // and its button already shows its own active state.
+        function updateFilterIndicator() {
+            const btn = document.getElementById('menuToggle');
+            if (!btn) return;
+            const anyActive = !!(currentNearLocation || currentLocationFilter ||
+                                 currentSpeakerFilter || currentAgeFilter || showNewEventsOnly);
+            btn.classList.toggle('has-filters', anyActive);
+        }
+
         function displayEvents(date) {
             const timeline = document.getElementById('timeline');
-            
+
+            // Every filter change re-renders through here, so this one call
+            // keeps the menu dot in sync (must run before the cache early-return).
+            updateFilterIndicator();
+
             // Create cache key including speaker filter and shared favorites
-            const cacheKey = `${date}_${currentLocationFilter}_${currentNearLocation}_${currentSpeakerFilter}_${showFavoritesOnly}_${showNewEventsOnly}_${isViewingSharedFavorites ? 'shared' : 'normal'}`;
+            const cacheKey = `${date}_${currentLocationFilter}_${currentNearLocation}_${currentSpeakerFilter}_${currentAgeFilter}_${showFavoritesOnly}_${showNewEventsOnly}_${isViewingSharedFavorites ? 'shared' : 'normal'}`;
             
             // Check cache first
             if (renderCache.has(cacheKey)) {
@@ -5310,6 +5494,11 @@
                     });
                 }
 
+                // Apply age-rating filter (additive: "Livre" always shows)
+                if (currentAgeFilter) {
+                    events = events.filter(eventFitsAgeFilter);
+                }
+
                 // Apply favorites filter
                 if (showFavoritesOnly) {
                     events = events.filter(event => isFavorite(event));
@@ -5333,6 +5522,8 @@
                     message = `Nenhum evento encontrado para o palestrante "${currentSpeakerFilter}"`;
                 } else if (currentLocationFilter) {
                     message = `Nenhum evento encontrado para o local "${currentLocationFilter}"`;
+                } else if (currentAgeFilter) {
+                    message = `Nenhum evento encontrado para a classificação até ${currentAgeFilter}+`;
                 }
                 timeline.innerHTML = `<div class="no-events">${message}</div>`;
                 return;
@@ -5543,7 +5734,7 @@
                     </button>
                     <div class="event-title">${event.title || 'Evento sem título'}</div>
                     ${event.start_time && event.end_time ? `
-                        <div class="event-time" style="display: flex; align-items: center; gap: 6px; margin-bottom: 5px; color: var(--text-secondary); font-size: 0.7em;">
+                        <div class="event-time" style="display: flex; align-items: center; gap: 6px; margin-bottom: 5px; color: var(--text-secondary);">
                             ${lucideIcon('clock')}
                             <span>${formatTimeAMPM(new Date(event.start_time))} - ${formatTimeAMPM(new Date(event.end_time))}</span>
                             ${ageBadgeHtml(event.age_rating)}
@@ -5957,11 +6148,18 @@
                 if (locationDropdown && !locationDropdown.contains(e.target)) {
                     locationDropdown.classList.remove('active');
                 }
-                
+
                 const speakerDropdown = document.getElementById('speakerDropdown');
                 if (speakerDropdown && !speakerDropdown.contains(e.target)) {
                     speakerDropdown.classList.remove('active');
                 }
+            }
+
+            // The age dropdown is an inline dropdown on every device (no mobile
+            // modal variant), so close it on outside clicks unconditionally.
+            const ageDropdown = document.getElementById('ageDropdown');
+            if (ageDropdown && !ageDropdown.contains(e.target)) {
+                ageDropdown.classList.remove('active');
             }
         });
 

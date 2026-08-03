@@ -1,8 +1,8 @@
 // Bump this version whenever the cached app shell changes.
-// v3: HackTown 2026 visual identity (Barlow/Roboto + pink/indigo palette).
+// v4: official hacktown.com.br typography (Anton/Poppins) + --ht-* palette.
 // Bumping forces a fresh SW install on deploy, which purges old caches and
 // self-heals any visitor stuck on a stale cached shell.
-const CACHE_NAME = 'hacktown-shell-v3';
+const CACHE_NAME = 'hacktown-shell-v4';
 
 // Precache only the app shell. Paths are relative to the service worker's
 // scope (e.g. /better-hacktown/), so they work regardless of the deploy path.
@@ -64,9 +64,9 @@ function offlinePage() {
         <style>
           body { font-family: Inter, sans-serif; text-align: center; padding: 50px; background: #f8fafc; }
           .offline-message { background: white; padding: 40px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); max-width: 400px; margin: 0 auto; }
-          h1 { color: #393F73; margin-bottom: 20px; }
+          h1 { color: #23275f; margin-bottom: 20px; }
           p { color: #64748b; line-height: 1.6; }
-          button { background: linear-gradient(135deg, #393F73, #6366f1); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-top: 20px; }
+          button { background: linear-gradient(135deg, #23275f, #6366f1); color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer; margin-top: 20px; }
         </style>
       </head>
       <body>
