@@ -1824,8 +1824,8 @@
             /* Poppins semibold, sentence case: Anton's single ultra-heavy weight
                made long multi-line titles too dense to scan in the card grid.
                Anton stays on the short display labels (header, times, modal). */
-            font-size: 15px;
-            margin-bottom: 8px;
+            font-size: 14px;
+            margin-bottom: 6px;
             font-weight: 600;
             line-height: 1.45;
             color: var(--text-primary);
@@ -1836,9 +1836,10 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid var(--border-light);
+            /* Even 5px rhythm between the meta rows (time/place/speakers). The
+               old margin+padding+invisible white border added up to a 21px gap
+               here versus ~12px elsewhere. */
+            margin-top: 5px;
             font-size: 0.7em;
             margin-right: 45px;
             color: var(--text-secondary);
@@ -1847,7 +1848,7 @@
         .event-time {
             /* Normalized with the other card meta rows (Poppins like the
                speaker row); Anton was too heavy next to place/speaker. */
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             margin-right: 45px;
         }
@@ -1864,26 +1865,28 @@
             min-width: 18px;
             padding: 1px 5px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 800;
             line-height: 1.35;
             flex-shrink: 0;
         }
 
         .speaker-preview {
-            margin-top: 4px;
-            padding-top: 4px;
-            /*border-top: 1px solid var(--border-light);*/
+            margin-top: 5px;
             font-size: 0.7em;
             color: var(--text-secondary);
         }
 
         .speaker-preview-item {
-            margin: 3px 0;
+            margin: 0;
             display: flex;
             align-items: center;
-            gap: 3px;
+            gap: 6px; /* same icon↔text gap as the time/place rows */
             font-size: 0.7em;
+        }
+
+        .speaker-preview-item + .speaker-preview-item {
+            margin-top: 3px;
         }
 
 
@@ -5734,7 +5737,7 @@
                     </button>
                     <div class="event-title">${event.title || 'Evento sem título'}</div>
                     ${event.start_time && event.end_time ? `
-                        <div class="event-time" style="display: flex; align-items: center; gap: 6px; margin-bottom: 5px; color: var(--text-secondary);">
+                        <div class="event-time" style="display: flex; align-items: center; gap: 6px; color: var(--text-secondary);">
                             ${lucideIcon('clock')}
                             <span>${formatTimeAMPM(new Date(event.start_time))} - ${formatTimeAMPM(new Date(event.end_time))}</span>
                             ${ageBadgeHtml(event.age_rating)}
