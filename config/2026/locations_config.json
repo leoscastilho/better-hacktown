@@ -93,11 +93,12 @@
       "gmaps": ""
     },
     "online": {
+      "_note": "Not a physical venue — online meetings. near_location 'Online' feeds the dedicated proximity button; the frontend hides 'Online' from the Filtrar por Local dropdown.",
       "possible_names": [
-        "ONLINE - HACKEANDO FRONTEIRAS"
+        "ONLINE"
       ],
       "filter_location": "Online",
-      "near_location": "Other",
+      "near_location": "Online",
       "gmaps": ""
     }
   }
