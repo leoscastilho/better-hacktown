@@ -32,8 +32,11 @@ REMAP_IDS = True
 SP_OFFSET = "-03:00"
 
 # The exact join the embed uses. Overridable via api.select in the registry.
+# formato/selo: online events carry venue_id NULL and are identified by
+# formato="online" (+ selo, e.g. "Hackeando Fronteiras") instead of a venue.
 DEFAULT_SELECT = (
     "id,title,description,event_date,start_time,end_time,age_rating,status,"
+    "formato,selo,"
     "venue:venue_id(name,area),"
     "event_tracks(tracks(id,name,code)),"
     "event_speakers(cargo_empresa,mini_bio,photo_url,"
@@ -98,9 +101,24 @@ def _map_speaker(event_speaker: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def _place_for(row: Dict[str, Any]) -> str:
+    """
+    The venue label for an event. Physical events embed a venue; ONLINE events
+    have venue_id NULL and are flagged by formato="online" (+ selo), so their
+    place is synthesized ("Online - Hackeando Fronteiras") — that string is what
+    the year's locations_config maps into the Online proximity group.
+    """
+    venue = row.get("venue") or {}
+    if venue.get("name"):
+        return venue["name"]
+    if str(row.get("formato") or "").strip().lower() == "online":
+        selo = str(row.get("selo") or "").strip()
+        return f"Online - {selo}" if selo else "Online"
+    return ""
+
+
 def _to_canonical(row: Dict[str, Any]) -> Dict[str, Any]:
     """Transform one Supabase event row into the canonical (app-facing) event."""
-    venue = row.get("venue") or {}
     speakers = [
         _map_speaker(es)
         for es in (row.get("event_speakers") or [])
@@ -118,7 +136,7 @@ def _to_canonical(row: Dict[str, Any]) -> Dict[str, Any]:
         "end_time": _iso(row.get("event_date"), row.get("end_time")),
         "title": row.get("title") or "",
         "description": row.get("description") or "",
-        "place": venue.get("name") or "",
+        "place": _place_for(row),
         "age_rating": row.get("age_rating"),
         "speakers": speakers,
         "tags": tags,
