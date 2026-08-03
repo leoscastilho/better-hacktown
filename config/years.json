@@ -39,7 +39,7 @@
         "apikey": "sb_publishable_-xZkCMPyJLSSXZZvwHRGLw_QFbLS_yN",
         "events_table": "events",
         "status_filter": "eq.publicado",
-        "select": "id,title,description,event_date,start_time,end_time,age_rating,status,venue:venue_id(name,area),event_tracks(tracks(id,name,code)),event_speakers(cargo_empresa,mini_bio,photo_url,speakers(id,name,cargo_empresa,mini_bio,photo_url))"
+        "select": "id,title,description,event_date,start_time,end_time,age_rating,status,formato,selo,venue:venue_id(name,area),event_tracks(tracks(id,name,code)),event_speakers(cargo_empresa,mini_bio,photo_url,speakers(id,name,cargo_empresa,mini_bio,photo_url))"
       }
     }
   }

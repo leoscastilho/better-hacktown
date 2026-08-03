@@ -93,9 +93,10 @@
       "gmaps": ""
     },
     "online": {
-      "_note": "Not a physical venue — online meetings. near_location 'Online' feeds the dedicated proximity button; the frontend hides 'Online' from the Filtrar por Local dropdown.",
+      "_note": "Not a physical venue — online meetings. The API flags these with formato='online' (venue_id is NULL) and the sync synthesizes place as 'Online - <selo>'. 'ONLINE -' is a fallback so future online selos also land in this group. near_location 'Online' feeds the dedicated proximity button; the frontend hides 'Online' from the Filtrar por Local dropdown.",
       "possible_names": [
-        "ONLINE"
+        "Online - Hackeando Fronteiras",
+        "ONLINE -"
       ],
       "filter_location": "Online",
       "near_location": "Online",
