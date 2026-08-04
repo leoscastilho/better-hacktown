@@ -2487,12 +2487,14 @@
             }
 
             .day-nav-content {
-                padding: 0 15px;
-                gap: 10px;
+                /* Tightened so the whole nav row still fits on very narrow
+                   phones (320px) without spilling off-screen. */
+                padding: 0 10px;
+                gap: 6px;
             }
 
             .nav-left-section {
-                gap: 10px;
+                gap: 8px;
             }
 
             .current-day-display {
@@ -2506,21 +2508,27 @@
             }
 
             .current-day-value {
-                font-size: 1.1em;
+                font-size: 1em;
+                /* The date is short ("03 SET") — never break it across lines. */
+                white-space: nowrap;
             }
 
             .day-nav-arrows {
                 justify-content: center;
+                gap: 6px;
             }
 
             .day-nav-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
+                width: 30px;
+                height: 30px;
+                font-size: 13px;
             }
 
             .day-indicator-dots {
-                gap: 5px;
+                gap: 4px;
+                /* Base rule is 0 15px; that alone ate 30px of a 345px row and
+                   squeezed the date into wrapping. */
+                margin: 0 6px;
             }
 
             .day-dot {
