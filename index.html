@@ -6783,26 +6783,52 @@
             });
             
             // Add visual feedback for touch interactions
+            const givesTouchFeedback = (el) => !!el.classList && (
+                el.classList.contains('event-card') ||
+                el.classList.contains('location-option') ||
+                el.classList.contains('speaker-option') ||
+                el.classList.contains('day-btn'));
+
+            // Track where the press started so a scroll can release the
+            // "pressed" look instead of leaving the element visually held down.
+            let pressedEl = null, pressX = 0, pressY = 0;
+            const releasePress = (delay = 0) => {
+                const el = pressedEl;
+                pressedEl = null;
+                if (!el) return;
+                setTimeout(() => {
+                    el.style.transform = '';
+                    el.style.transition = '';
+                }, delay);
+            };
+
             document.addEventListener('touchstart', function(e) {
-                if (e.target.classList.contains('event-card') || 
-                    e.target.classList.contains('location-option') || 
-                    e.target.classList.contains('speaker-option') ||
-                    e.target.classList.contains('day-btn')) {
+                if (givesTouchFeedback(e.target)) {
+                    const t = e.changedTouches[0];
+                    pressedEl = e.target;
+                    pressX = t.clientX;
+                    pressY = t.clientY;
                     e.target.style.transform = 'scale(0.98)';
                     e.target.style.transition = 'transform 0.1s ease';
                 }
             }, { passive: true });
-            
-            document.addEventListener('touchend', function(e) {
-                if (e.target.classList.contains('event-card') || 
-                    e.target.classList.contains('location-option') || 
-                    e.target.classList.contains('speaker-option') ||
-                    e.target.classList.contains('day-btn')) {
-                    setTimeout(() => {
-                        e.target.style.transform = '';
-                        e.target.style.transition = '';
-                    }, 100);
+
+            // Moved = the user is scrolling, not pressing: drop the press state
+            // right away so the control doesn't look like it is being activated.
+            document.addEventListener('touchmove', function(e) {
+                if (!pressedEl) return;
+                const t = e.changedTouches[0];
+                if (Math.abs(t.clientX - pressX) > 10 || Math.abs(t.clientY - pressY) > 10) {
+                    releasePress();
                 }
+            }, { passive: true });
+
+            document.addEventListener('touchend', function() {
+                releasePress(100);
+            }, { passive: true });
+
+            document.addEventListener('touchcancel', function() {
+                releasePress();
             }, { passive: true });
         }
 
@@ -6821,10 +6847,43 @@
                     viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
                 }
                 
-                // Prevent double-tap zoom on buttons
+                // Fast taps without the double-tap zoom: synthesize the click on
+                // touchend, but ONLY when the finger stayed put.
+                //
+                // Without the movement check this fired on every touchend, so
+                // resting a finger on a filter button and dragging to scroll the
+                // sidebar triggered that filter on release — and preventDefault()
+                // suppressed the browser's own "the user scrolled, cancel the
+                // click" behaviour, which would otherwise have saved us.
+                const TAP_SLOP_PX = 10; // finger wobble tolerated on a real tap
                 const buttons = document.querySelectorAll('button, .day-btn, .location-option, .speaker-option');
                 buttons.forEach(button => {
+                    let startX = 0, startY = 0, scrolled = false;
+
+                    button.addEventListener('touchstart', function(e) {
+                        const t = e.changedTouches[0];
+                        startX = t.clientX;
+                        startY = t.clientY;
+                        scrolled = false;
+                    }, { passive: true });
+
+                    button.addEventListener('touchmove', function(e) {
+                        const t = e.changedTouches[0];
+                        if (Math.abs(t.clientX - startX) > TAP_SLOP_PX ||
+                            Math.abs(t.clientY - startY) > TAP_SLOP_PX) {
+                            scrolled = true;
+                        }
+                    }, { passive: true });
+
+                    // Interrupted by the system (or a gesture) — never a tap.
+                    button.addEventListener('touchcancel', function() {
+                        scrolled = true;
+                    }, { passive: true });
+
                     button.addEventListener('touchend', function(e) {
+                        // It was a scroll: do nothing and let the browser be —
+                        // it already suppresses the click after a drag.
+                        if (scrolled) return;
                         e.preventDefault();
                         this.click();
                     });
