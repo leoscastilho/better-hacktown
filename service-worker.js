@@ -1,8 +1,8 @@
 // Bump this version whenever the cached app shell changes.
-// v4: official hacktown.com.br typography (Anton/Poppins) + --ht-* palette.
-// Bumping forces a fresh SW install on deploy, which purges old caches and
-// self-heals any visitor stuck on a stale cached shell.
-const CACHE_NAME = 'hacktown-shell-v4';
+// v5: bounded data caching (see isDataRequest below). The bump matters here —
+// activate() deletes every cache that isn't CACHE_NAME, so deploying this also
+// purges the unbounded pile of ?t=… entries earlier versions accumulated.
+const CACHE_NAME = 'hacktown-shell-v5';
 
 // Precache only the app shell. Paths are relative to the service worker's
 // scope (e.g. /better-hacktown/), so they work regardless of the deploy path.
@@ -82,10 +82,38 @@ function offlinePage() {
   );
 }
 
+// Per-year data + config are requested with a ?t=<timestamp> cache-buster, so
+// every request is a brand-new URL. Cached naively, each page load added a set
+// of entries that could never be served again — the cache grew without bound
+// (measured at ~350 KB per visit).
+function isDataRequest(url) {
+  return url.pathname.includes('/events/') || url.pathname.includes('/config/');
+}
+
 // Fetch event
 self.addEventListener('fetch', (event) => {
   // Only handle GET requests
   if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // NETWORK-FIRST for data, cached under the URL *without* its query string.
+  // That keeps exactly one slot per file (bounded forever) while still giving
+  // an offline fallback — which the cache-busted keys never could.
+  const url = new URL(event.request.url);
+  if (url.origin === self.location.origin && isDataRequest(url)) {
+    const cacheKey = new Request(url.origin + url.pathname);
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200 && response.type === 'basic') {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(cacheKey, copy));
+          }
+          return response;
+        })
+        .catch(async () => (await caches.match(cacheKey)) || Response.error())
+    );
     return;
   }
 

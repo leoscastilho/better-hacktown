@@ -290,9 +290,11 @@ def _write_remapped(ctx, all_events, force=False):
         else:
             logger.info(f"↔️  {date}: unchanged — kept existing file")
 
-    filters_missing = not (
-        os.path.exists(os.path.join(output_dir, "filter_locations.json"))
-        and os.path.exists(os.path.join(output_dir, "filter_speakers.json"))
+    # Any missing filter file forces a regeneration — otherwise adding a new
+    # one (e.g. filter_tracks.json) would never be written on a quiet sync.
+    filters_missing = not all(
+        os.path.exists(os.path.join(output_dir, name))
+        for name in ("filter_locations.json", "filter_speakers.json", "filter_tracks.json")
     )
     if changed or filters_missing:
         # Filters + counts reflect ACTIVE events only (all_events = current fetch).

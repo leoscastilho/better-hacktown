@@ -197,11 +197,27 @@ def extract_unique_speakers(all_events_data: Dict[str, List[Dict[str, Any]]]) ->
     return result
 
 
+def extract_unique_tracks(all_events_data: Dict[str, List[Dict[str, Any]]]) -> List[str]:
+    """Sorted unique track (trilha) names across all dates, read from tags[]."""
+    unique_tracks = set()
+    for _date, events in all_events_data.items():
+        for event in (events or []):
+            tags = event.get('tags', [])
+            if isinstance(tags, list):
+                for tag in tags:
+                    if isinstance(tag, str) and tag.strip():
+                        unique_tracks.add(tag.strip())
+    result = sorted(unique_tracks)
+    logger.info(f"🎯 Extracted {len(result)} unique tracks")
+    return result
+
+
 def save_filter_data(all_events_data: Dict[str, List[Dict[str, Any]]]) -> None:
-    """Write filter_locations.json + filter_speakers.json for the dropdowns."""
+    """Write filter_locations / _speakers / _tracks.json for the dropdowns."""
     logger.info("🔍 Extracting unique values for filter dropdowns...")
     unique_locations = extract_unique_filter_locations(all_events_data)
     unique_speakers = extract_unique_speakers(all_events_data)
+    unique_tracks = extract_unique_tracks(all_events_data)
     generated_at = brt_now_iso()
 
     locations_file = os.path.join(OUTPUT_DIR, "filter_locations.json")
@@ -221,6 +237,17 @@ def save_filter_data(all_events_data: Dict[str, List[Dict[str, Any]]]) -> None:
             "speakers": unique_speakers,
         }, f, ensure_ascii=False, indent=2)
     logger.info(f"🎤 Saved {len(unique_speakers)} filter speakers to {speakers_file}")
+
+    # Track names already live in each event's tags[]; this is just the lookup
+    # list for the dropdown (a fraction of a KB).
+    tracks_file = os.path.join(OUTPUT_DIR, "filter_tracks.json")
+    with open(tracks_file, 'w', encoding='utf-8') as f:
+        json.dump({
+            "generated_at": generated_at,
+            "total_tracks": len(unique_tracks),
+            "tracks": unique_tracks,
+        }, f, ensure_ascii=False, indent=2)
+    logger.info(f"🎯 Saved {len(unique_tracks)} filter tracks to {tracks_file}")
 
 
 def save_summary(year: str, dates: List[str], all_events: Dict[str, List[Dict[str, Any]]],
