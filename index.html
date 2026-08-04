@@ -176,7 +176,6 @@
             border: none;
             border-radius: 50%;
             padding: 10px;
-            margin-left: 10px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -1301,6 +1300,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            /* Even spacing for the action buttons (star / bell / menu) instead
+               of per-button margins, which left them unevenly spaced. */
+            gap: 8px;
         }
 
         .nav-left-section {
@@ -2529,7 +2531,7 @@
             .star-filter-btn {
                 width: 32px;
                 height: 32px;
-                margin-left: 10px;
+                /* No margin: the nav's gap spaces star / bell / menu evenly. */
             }
 
             .star-filter-btn svg {
@@ -2877,6 +2879,112 @@
         }
         /* Badges are Poppins (Anton would leak in from .event-time/.modal-time) */
         .age-badge { font-family: var(--font-body); }
+
+        /* ===== Event-change notifications (bell + panel) ===== */
+        .notification-btn {
+            position: relative; /* anchors the unread dot; spacing comes from the nav gap */
+        }
+        .notification-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: var(--primary-pink);
+        }
+        /* Unread indicator: a plain dot, no count. */
+        .notification-dot {
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary-pink);
+            border: 2px solid var(--bg-primary);
+            pointer-events: none;
+        }
+        .notifications-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border-medium);
+            font-size: 12px;
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+        .notifications-mark-read {
+            background: transparent;
+            border: 1px solid var(--primary-pink);
+            color: var(--primary-pink);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+        .notifications-mark-read:hover {
+            background: var(--primary-pink);
+            color: #fff;
+        }
+        .notification-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(240, 36, 107, 0.1);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+        }
+        .notification-item:hover { background: rgba(240, 36, 107, 0.06); }
+        /* Already-read entries stay in the list but fade into the background. */
+        .notification-item.read { background: var(--bg-secondary); }
+        .notification-item.read .notification-icon { filter: grayscale(1); opacity: 0.5; }
+        .notification-item.read .notification-title { color: var(--text-light); font-weight: 500; }
+        .notification-item.read .notification-detail { color: var(--text-light); }
+        .notification-item.read .notification-detail strong { font-weight: 500; }
+        .notification-item.is-removed { cursor: default; }
+        .notification-icon {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 13px;
+        }
+        .notification-icon.place { background: var(--primary-indigo-2); }
+        .notification-icon.time { background: var(--primary-blue); }
+        .notification-icon.removed { background: var(--primary-pink); }
+        .notification-body { flex: 1; min-width: 0; }
+        .notification-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.35;
+            margin-bottom: 2px;
+        }
+        .notification-detail {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            word-break: break-word;
+        }
+        .notification-detail del { opacity: 0.7; text-decoration-thickness: 1px; }
+        .notification-meta {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 3px;
+        }
+        .notifications-empty {
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -3071,6 +3179,11 @@
                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
                 </svg>
             </button>
+            <!-- Always visible; the dot only appears while something is unread -->
+            <button class="star-filter-btn notification-btn" id="notificationBtn" onclick="openNotifications()" aria-label="Ver atualizações">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg>
+                <span class="notification-dot" id="notificationDot" style="display: none;"></span>
+            </button>
             <button class="menu-toggle" id="menuToggle" onclick="toggleMenu()" aria-label="Open filters">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
@@ -3220,6 +3333,21 @@
         </div>
     </div>
 
+    <!-- Event-change notifications (fed by events/<year>/updates.json) -->
+    <div class="filter-modal" id="notificationsModal">
+        <div class="filter-modal-content">
+            <div class="filter-modal-header">
+                <h3 class="filter-modal-title">Atualizações</h3>
+                <button class="filter-modal-close" onclick="closeNotifications()">&times;</button>
+            </div>
+            <div class="notifications-actions">
+                <span id="notificationsSummary">Nenhuma atualização</span>
+                <button class="notifications-mark-read" id="notificationsMarkRead" onclick="markAllNotificationsRead()">Marcar todas como lidas</button>
+            </div>
+            <div class="filter-modal-options" id="notificationsList"></div>
+        </div>
+    </div>
+
     <script>
         // Global variables
         let allEvents = {};
@@ -3236,6 +3364,8 @@
         let favorites = new Set();
         let currentNearLocation = ''; // Track current nearLocation filter
         let viewedEvents = new Set(); // Cache for events that have been viewed
+        let eventUpdates = []; // Change log from events/<year>/updates.json
+        let readNotifications = new Set(); // Notification keys already seen/read
         let renderCache = new Map(); // Cache rendered HTML
         let filterDebounceTimer = null;
         let locationsData = null; // Store locations data for Google Maps links
@@ -3280,6 +3410,7 @@
         // hacktown2025_* keys, so existing users keep their favorites/history.
         function favoritesStorageKey() { return `hacktown${currentYear}_favorites`; }
         function viewedStorageKey() { return `hacktown${currentYear}_viewed_events`; }
+        function readNotificationsStorageKey() { return `hacktown${currentYear}_read_notifications`; }
 
         // ---------------------------------------------------------------
         // Favorites reminder banner — shown once per day, every day, with the
@@ -3548,6 +3679,202 @@
         // Check if event has been viewed
         function isEventViewed(event) {
             return viewedEvents.has(getEventId(event));
+        }
+
+        // ---------------------------------------------------------------
+        // Event-change notifications.
+        // The sync appends cancelled/place/time changes to
+        // events/<year>/updates.json. Entries the user has already seen are
+        // remembered per year in localStorage — the same idea as the viewed
+        // events index — so the bell only appears while something is unread.
+        // ---------------------------------------------------------------
+
+        // Stable key for one change entry (timestamp + event + kind).
+        function notificationKey(update) {
+            return `${update.at}|${update.id}|${update.change}`;
+        }
+
+        function loadReadNotifications() {
+            try {
+                const saved = localStorage.getItem(readNotificationsStorageKey());
+                readNotifications = saved ? new Set(JSON.parse(saved)) : new Set();
+            } catch (error) {
+                console.error('Error loading read notifications:', error);
+                readNotifications = new Set();
+            }
+        }
+
+        function saveReadNotifications() {
+            try {
+                // Only keep keys that still exist in the log, so the entry can't
+                // grow forever as old updates are trimmed by the sync.
+                const alive = new Set(eventUpdates.map(notificationKey));
+                readNotifications = new Set([...readNotifications].filter(k => alive.has(k)));
+                localStorage.setItem(readNotificationsStorageKey(), JSON.stringify([...readNotifications]));
+            } catch (error) {
+                console.error('Error saving read notifications:', error);
+            }
+        }
+
+        // Load the year's change log. Missing file (e.g. 2025) = no notifications.
+        async function loadEventUpdates() {
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`events/${currentYear}/updates.json?t=${timestamp}`, {
+                    cache: 'no-cache'
+                });
+                if (!response.ok) {
+                    eventUpdates = [];
+                    return;
+                }
+                const data = await response.json();
+                // Newest first for the panel.
+                eventUpdates = (data.updates || []).slice().reverse();
+            } catch (error) {
+                // No updates file yet — perfectly normal.
+                eventUpdates = [];
+            }
+        }
+
+        function unreadNotifications() {
+            return eventUpdates.filter(u => !readNotifications.has(notificationKey(u)));
+        }
+
+        // The bell is always visible; the dot marks "there is something unread".
+        function updateNotificationBell() {
+            const btn = document.getElementById('notificationBtn');
+            const dot = document.getElementById('notificationDot');
+            if (!btn || !dot) return;
+
+            const unread = unreadNotifications().length;
+            dot.style.display = unread > 0 ? 'block' : 'none';
+            btn.setAttribute(
+                'aria-label',
+                unread > 0 ? `Ver atualizações (${unread} não lidas)` : 'Ver atualizações'
+            );
+        }
+
+        function formatNotificationTime(iso) {
+            try {
+                return new Date(iso).toLocaleString('pt-BR', {
+                    day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
+                });
+            } catch (e) {
+                return '';
+            }
+        }
+
+        function notificationDetail(update) {
+            const timeOf = (v) => {
+                try {
+                    return formatTimeAMPM(new Date(v));
+                } catch (e) {
+                    return '?';
+                }
+            };
+            if (update.change === 'removed') {
+                return 'Este evento foi cancelado.';
+            }
+            if (update.change === 'place') {
+                return `Local alterado: <del>${update.from || '—'}</del> → <strong>${update.to || '—'}</strong>`;
+            }
+            if (update.change === 'time') {
+                const f = update.from || {}, t = update.to || {};
+                return `Horário alterado: <del>${timeOf(f.start_time)} - ${timeOf(f.end_time)}</del> → ` +
+                       `<strong>${timeOf(t.start_time)} - ${timeOf(t.end_time)}</strong>`;
+            }
+            return '';
+        }
+
+        const NOTIFICATION_LABELS = { removed: 'Cancelado', place: 'Local', time: 'Horário' };
+        const NOTIFICATION_ICONS = { removed: '✕', place: '📍', time: '🕐' };
+
+        function renderNotifications() {
+            const list = document.getElementById('notificationsList');
+            const summary = document.getElementById('notificationsSummary');
+            const markBtn = document.getElementById('notificationsMarkRead');
+            if (!list) return;
+
+            if (eventUpdates.length === 0) {
+                list.innerHTML = '<div class="notifications-empty">Nenhuma atualização por enquanto.<br>Avisaremos aqui se algum evento mudar de local, horário ou for cancelado.</div>';
+                if (summary) summary.textContent = 'Nenhuma atualização';
+                if (markBtn) markBtn.style.display = 'none';
+                return;
+            }
+
+            const unreadCount = unreadNotifications().length;
+            if (summary) {
+                summary.textContent = unreadCount > 0
+                    ? `${unreadCount} não lida(s) de ${eventUpdates.length}`
+                    : `${eventUpdates.length} atualização(ões)`;
+            }
+            if (markBtn) markBtn.style.display = unreadCount > 0 ? '' : 'none';
+
+            list.innerHTML = eventUpdates.map(update => {
+                const key = notificationKey(update);
+                const isRead = readNotifications.has(key);
+                const isRemoved = update.change === 'removed';
+                const favorite = favorites.has(String(update.id)) ? ' ⭐' : '';
+                const onclick = isRemoved ? '' : ` onclick="goToNotificationEvent('${update.date}', '${update.id}')"`;
+                return `
+                    <div class="notification-item ${isRead ? 'read' : ''} ${isRemoved ? 'is-removed' : ''}"${onclick}>
+                        <div class="notification-icon ${update.change}">${NOTIFICATION_ICONS[update.change] || '•'}</div>
+                        <div class="notification-body">
+                            <div class="notification-title">${update.title || 'Evento'}${favorite}</div>
+                            <div class="notification-detail">${notificationDetail(update)}</div>
+                            <div class="notification-meta">${NOTIFICATION_LABELS[update.change] || ''} · ${formatNotificationTime(update.at)}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Opening the panel counts as viewing: every listed entry is recorded in
+        // the read index (same behaviour as marking an event as viewed), so the
+        // bell is gone on the next refresh. The unread highlight stays visible
+        // for this session so the user can still tell what was new.
+        function openNotifications() {
+            const modal = document.getElementById('notificationsModal');
+            if (!modal) return;
+
+            renderNotifications();
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => modal.classList.add('show'));
+
+            if ('vibrate' in navigator) navigator.vibrate(30);
+
+            eventUpdates.forEach(u => readNotifications.add(notificationKey(u)));
+            saveReadNotifications();
+            updateNotificationBell();
+        }
+
+        function closeNotifications() {
+            const modal = document.getElementById('notificationsModal');
+            if (!modal) return;
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            setTimeout(() => { modal.style.display = 'none'; }, 300);
+        }
+
+        // Explicit "mark all as read" — clears the unread highlight immediately.
+        function markAllNotificationsRead() {
+            eventUpdates.forEach(u => readNotifications.add(notificationKey(u)));
+            saveReadNotifications();
+            updateNotificationBell();
+            renderNotifications();
+        }
+
+        // Jump from a notification to the event it refers to.
+        function goToNotificationEvent(date, eventId) {
+            closeNotifications();
+            setTimeout(() => {
+                if (date && EVENT_DATES.some(d => d.date === date)) {
+                    selectDay(date, eventId, true);
+                } else {
+                    scrollToEvent(eventId, true);
+                }
+            }, 320);
         }
 
         // Create unique event ID
@@ -5212,9 +5539,14 @@
 
             loadFavorites(); // Load saved favorites (for the current year)
             loadViewedEvents(); // Load viewed events cache (for the current year)
+            loadReadNotifications(); // Which change notifications were already seen
             createDayIndicatorDots(); // Create day indicator dots
             await loadSummary();
             await loadLocations(); // Load locations data
+
+            // Event-change notifications (bell shows only if something is unread)
+            await loadEventUpdates();
+            updateNotificationBell();
             
             // Load filter data from JSON files
             await loadFilterData();
@@ -6200,6 +6532,10 @@
             const speakerFilterModal = document.getElementById('speakerFilterModal');
             if (event.target === speakerFilterModal) {
                 closeMobileSpeakerFilter();
+            }
+            const notificationsModal = document.getElementById('notificationsModal');
+            if (event.target === notificationsModal) {
+                closeNotifications();
             }
         }
 

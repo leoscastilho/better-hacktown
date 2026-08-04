@@ -317,6 +317,33 @@ Sistema completo de containerização para deploy em servidor próprio:
 - `filter_locations.json`: Lista de localizações únicas para filtros dropdown
 - `filter_speakers.json`: Lista de palestrantes únicos para filtros dropdown
 - `summary.json`: Estatísticas de eventos e metadados
+- `id_map.json`: Mapa `UUID → id inteiro estável` + hash e baselines de cada evento (não editar)
+- `updates.json`: Histórico de alterações dos eventos (ver abaixo)
+
+### Histórico de alterações (`events/<ano>/updates.json`)
+
+Log **append-only** com as mudanças que interessam a quem vai ao evento — a base
+para o futuro sistema de notificações do frontend. A cada sync, novas linhas são
+acrescentadas com o horário da ocorrência:
+
+| `change`  | Quando |
+|-----------|--------|
+| `removed` | Evento cancelado (sumiu do feed) |
+| `place`   | Local alterado (inclui `from`/`to`) |
+| `time`    | Horário alterado (`start_time` e/ou `end_time`, com `from`/`to`) |
+
+```json
+{ "at": "2026-08-04T08:25:18-03:00", "id": 27, "change": "place",
+  "date": "2026-09-03", "title": "…", "from": "FAI - Sala 8", "to": "ETE - Sala 12" }
+```
+
+- Outras alterações (título, descrição…) **não** são registradas.
+- Um evento cancelado que **volta** a aparecer não gera registro novo e ainda
+  **remove** o aviso de cancelamento anterior da lista — o ciclo cancelar →
+  reativar não deixa rastro. Se for cancelado de novo, um aviso novo é criado.
+- O mesmo evento pode acumular vários registros ao longo do tempo.
+- Nada é gravado quando a guarda de segurança aborta o sync; um sync sem mudanças
+  deixa o arquivo intacto. O log é limitado às últimas 2000 entradas.
 
 ### Integração com API
 O endpoint, o provider e os parâmetros são configurados por ano em `config/years.json`.

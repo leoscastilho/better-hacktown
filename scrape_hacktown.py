@@ -131,6 +131,7 @@ def build_year_context(year, registry):
         "output_dir": os.path.join(EVENTS_BASE_DIR, str(year)),
         "locations_config_file": os.path.join("config", str(year), "locations_config.json"),
         "id_map_file": os.path.join(EVENTS_BASE_DIR, str(year), "id_map.json"),
+        "updates_file": os.path.join(EVENTS_BASE_DIR, str(year), "updates.json"),
         "dates": [d["date"] for d in cfg.get("dates", []) if d.get("date")],
         "provider_name": provider_name,
         "provider": select_provider(provider_name),
@@ -248,8 +249,24 @@ def _write_remapped(ctx, all_events, force=False):
 
     # Guard passed → soft-delete the vanished events, then persist the map.
     changed = recon["changed_dates"]
-    sync_common.apply_removals(id_map, vanished, changed)
+    removal_updates = sync_common.apply_removals(id_map, vanished, changed)
     sync_common.save_id_map(ctx["id_map_file"], id_map)
+
+    # Update the per-year change tracker that feeds the frontend notifications:
+    # append the new changes (cancelled / place / time) and drop the stale
+    # "cancelled" notices of any event that came back.
+    tracked = recon["updates"] + removal_updates
+    added, purged = sync_common.update_change_log(
+        ctx["updates_file"], tracked, recon["reactivated_ids"]
+    )
+    if added or purged:
+        by_kind = {}
+        for u in tracked:
+            by_kind[u["change"]] = by_kind.get(u["change"], 0) + 1
+        parts = [f"{k}={v}" for k, v in sorted(by_kind.items())]
+        if purged:
+            parts.append(f"cancelamentos removidos={purged}")
+        logger.info("🔔 tracked changes: " + ", ".join(parts))
 
     total_events = 0
     successful_dates = 0

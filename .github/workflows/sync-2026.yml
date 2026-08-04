@@ -1,12 +1,13 @@
 name: Sync HackTown 2026
 
-# Runs the sync tool for 2026 once a day and commits any new event data.
+# Syncs the 2026 schedule every 30 minutes and commits any real change.
 # 2025 is an archived event and is intentionally NOT synced here.
+# Disable or delete this workflow once HackTown 2026 is over.
 on:
   schedule:
-    # GitHub cron is UTC. 07:00 America/Sao_Paulo (UTC-3) == 10:00 UTC.
-    # (GitHub may delay scheduled runs by a few minutes under load.)
-    - cron: "0 10 * * *"
+    # Every 30 minutes. GitHub may delay or drop scheduled runs under load, so
+    # treat the cadence as "about every 30 min", not a guarantee.
+    - cron: "*/30 * * * *"
   workflow_dispatch: {}   # allow manual runs from the Actions tab
 
 # Let the job commit + push with the default GITHUB_TOKEN.
@@ -46,12 +47,16 @@ jobs:
           git add events/2026
 
           # summary.json holds a timestamp that changes every run; only commit
-          # when actual event/filter/location data changed, to avoid daily noise.
+          # when actual event/filter/location data changed, to avoid noise —
+          # important at 48 runs a day.
           CHANGED="$(git diff --staged --name-only -- events/2026 | grep -v 'summary.json' || true)"
           if [ -z "$CHANGED" ]; then
             echo "No event-data changes — skipping commit."
           else
             echo "Changed files:"; echo "$CHANGED"
             git commit -m "Sync HackTown 2026 events ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+            # The branch may have moved on since checkout; rebase before pushing
+            # so a run never fails on a stale ref.
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git push
           fi
