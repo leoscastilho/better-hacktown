@@ -2993,6 +2993,50 @@
             color: var(--text-secondary);
             font-size: 13px;
         }
+
+        /* ===== Trilhas multi-select ===== */
+        .track-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(240, 36, 107, 0.1);
+            cursor: pointer;
+            transition: background var(--transition-fast);
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+        .track-option:hover { background: rgba(240, 36, 107, 0.06); }
+        /* Selected rows read as "on": tinted row, pink filled box, bold label. */
+        .track-option.selected {
+            background: rgba(240, 36, 107, 0.09);
+            font-weight: 600;
+        }
+        .track-checkbox {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            border: 2px solid var(--border-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-fast);
+        }
+        .track-option.selected .track-checkbox {
+            background: var(--primary-pink);
+            border-color: var(--primary-pink);
+        }
+        .track-checkbox svg {
+            width: 13px;
+            height: 13px;
+            stroke: #fff;
+            stroke-width: 3.5;
+            fill: none;
+            opacity: 0;
+            transition: opacity var(--transition-fast);
+        }
+        .track-option.selected .track-checkbox svg { opacity: 1; }
     </style>
 </head>
 <body>
@@ -3107,6 +3151,29 @@
                             <div class="age-option" data-age="14" onclick="selectAgeRating('14', '14+')">14+</div>
                             <div class="age-option" data-age="16" onclick="selectAgeRating('16', '16+')">16+</div>
                             <div class="age-option" data-age="18" onclick="selectAgeRating('18', '18+')">18+</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trilhas: multi-select, opens a full-screen picker. Hidden for years
+             whose data carries no tracks (e.g. 2025). -->
+        <div class="sidebar-section" id="trackFilterSection" style="display: none;">
+            <div class="sidebar-section-title">Filtrar por Trilha</div>
+            <div class="location-filter">
+                <div class="location-dropdown" id="trackDropdown">
+                    <div class="location-dropdown-header" onclick="openTrackFilter()">
+                        <span id="trackDropdownText">Todas as trilhas</span>
+                        <div class="dropdown-controls">
+                            <button class="clear-filter-btn" id="trackClearBtn" onclick="clearTrackFilter(event)" style="display: none;" title="Limpar filtro">
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                </svg>
+                            </button>
+                            <svg class="dropdown-arrow" viewBox="0 0 24 24">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -3356,6 +3423,21 @@
         </div>
     </div>
 
+    <!-- Trilhas picker: multi-select, applies live as you toggle -->
+    <div class="filter-modal" id="trackFilterModal">
+        <div class="filter-modal-content">
+            <div class="filter-modal-header">
+                <h3 class="filter-modal-title">Filtrar por Trilha</h3>
+                <button class="filter-modal-close" onclick="closeTrackFilter()">&times;</button>
+            </div>
+            <div class="notifications-actions">
+                <span id="trackFilterSummary">Todas as trilhas</span>
+                <button class="notifications-mark-read" id="trackFilterClearAll" onclick="clearTrackFilter(event)">Limpar</button>
+            </div>
+            <div class="filter-modal-options" id="trackOptions"></div>
+        </div>
+    </div>
+
     <script>
         // Global variables
         let allEvents = {};
@@ -3366,6 +3448,8 @@
         let currentSpeakerFilter = ''; // Track current speaker filter
         let currentLocationFilter = ''; // Track current location filter
         let currentAgeFilter = ''; // Track current age-rating filter ('' = Sem restrições)
+        let allFilterTracks = []; // Loaded from filter_tracks.json (empty = filter hidden)
+        let currentTrackFilter = new Set(); // Selected trilhas; empty = no filter (all)
         let showFavoritesOnly = false;
         let showNewEventsOnly = false; // Track new events filter
         let summaryData = null;
@@ -3419,6 +3503,115 @@
         function favoritesStorageKey() { return `hacktown${currentYear}_favorites`; }
         function viewedStorageKey() { return `hacktown${currentYear}_viewed_events`; }
         function readNotificationsStorageKey() { return `hacktown${currentYear}_read_notifications`; }
+        function viewStateStorageKey() { return `hacktown${currentYear}_view_state`; }
+
+        // ---------------------------------------------------------------
+        // Continue where you left off.
+        // The active filters + day are saved per year so leaving the app and
+        // coming back doesn't silently reset the view. Deliberately bounded:
+        //  • localStorage (survives a closed tab, unlike sessionStorage)
+        //  • only restored within VIEW_STATE_TTL_MS — coming back days later
+        //    starts clean, so nobody meets a filtered app and thinks it broke
+        //    (the menu dot also stays lit whenever a filter is restored)
+        //  • the open event modal is NOT reopened; restoring the day is enough
+        //  • skipped entirely for shared-favorites links, so someone else's
+        //    list is never filtered by your leftovers
+        // ---------------------------------------------------------------
+        const VIEW_STATE_TTL_MS = 12 * 60 * 60 * 1000; // 12h
+        let viewStateReady = false;   // don't persist while init is still wiring up
+
+        function saveViewState() {
+            if (!viewStateReady || isViewingSharedFavorites) return;
+            try {
+                localStorage.setItem(viewStateStorageKey(), JSON.stringify({
+                    savedAt: Date.now(),
+                    day: currentDay,
+                    nearLocation: currentNearLocation,
+                    location: currentLocationFilter,
+                    speaker: currentSpeakerFilter,
+                    age: currentAgeFilter,
+                    tracks: [...currentTrackFilter],
+                    newOnly: showNewEventsOnly,
+                }));
+            } catch (e) {
+                // Storage full or unavailable (private mode) — not worth failing over.
+            }
+        }
+
+        function loadViewState() {
+            try {
+                const raw = localStorage.getItem(viewStateStorageKey());
+                if (!raw) return null;
+                const state = JSON.parse(raw);
+                if (!state || typeof state.savedAt !== 'number') return null;
+                if (Date.now() - state.savedAt > VIEW_STATE_TTL_MS) {
+                    localStorage.removeItem(viewStateStorageKey());   // stale: start clean
+                    return null;
+                }
+                return state;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // Restore the saved filters into both the state and the sidebar controls.
+        // Does not render — the caller selects the day, which renders once.
+        function applyViewState(state) {
+            if (!state) return;
+
+            currentNearLocation = state.nearLocation || '';
+            document.querySelectorAll('#nearLocationSelector .day-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-near-location') === currentNearLocation);
+            });
+
+            currentLocationFilter = state.location || '';
+            const locText = document.getElementById('locationDropdownText');
+            if (locText) locText.textContent = currentLocationFilter || 'Todos os locais';
+            document.querySelectorAll('.location-option').forEach(o => {
+                o.classList.toggle('active', o.getAttribute('data-location') === currentLocationFilter);
+            });
+            updateLocationClearButton();
+
+            currentSpeakerFilter = state.speaker || '';
+            const spkText = document.getElementById('speakerDropdownText');
+            if (spkText) spkText.textContent = currentSpeakerFilter || 'Todos os palestrantes';
+            document.querySelectorAll('.speaker-option').forEach(o => {
+                o.classList.toggle('active', o.getAttribute('data-speaker') === currentSpeakerFilter);
+            });
+            updateSpeakerClearButton();
+
+            currentAgeFilter = state.age || '';
+            const ageText = document.getElementById('ageDropdownText');
+            if (ageText) ageText.textContent = currentAgeFilter ? `${currentAgeFilter}+` : 'Sem restrições';
+            document.querySelectorAll('.age-option').forEach(o => {
+                o.classList.toggle('active', o.getAttribute('data-age') === currentAgeFilter);
+            });
+            updateAgeClearButton();
+
+            // Only keep trilhas that still exist in this year's data.
+            currentTrackFilter = new Set((state.tracks || []).filter(t => allFilterTracks.includes(t)));
+            populateTrackFilter();
+
+            showNewEventsOnly = !!state.newOnly;
+            const newToggle = document.getElementById('showNewEventsOnly');
+            if (newToggle) {
+                newToggle.checked = showNewEventsOnly;
+                const sw = newToggle.closest('.toggle-switch');
+                if (sw) sw.classList.toggle('checked', showNewEventsOnly);
+            }
+        }
+
+        // Which day to land on:
+        //   • during the event  → today
+        //   • outside it        → the first day
+        // Derived from the configured dates, so it follows config/years.json
+        // rather than hard-coded dates.
+        function resolveLandingDay() {
+            if (!EVENT_DATES.length) return null;
+            const d = new Date();
+            const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+            return EVENT_DATES.some(x => x.date === today) ? today : EVENT_DATES[0].date;
+        }
 
         // ---------------------------------------------------------------
         // Favorites reminder banner — shown once per day, every day, with the
@@ -4964,16 +5157,167 @@
             }
         }
 
+        // Load the year's trilhas. Missing file (e.g. 2025, whose tags are not
+        // tracks) simply means the filter stays hidden.
+        async function loadFilterTracks() {
+            try {
+                const timestamp = new Date().getTime();
+                const response = await fetch(`./events/${currentYear}/filter_tracks.json?t=${timestamp}`, {
+                    cache: 'no-cache'
+                });
+                if (!response.ok) {
+                    allFilterTracks = [];
+                    return [];
+                }
+                const data = await response.json();
+                allFilterTracks = data.tracks || [];
+                console.log('Filter tracks loaded:', allFilterTracks.length);
+                return allFilterTracks;
+            } catch (error) {
+                allFilterTracks = [];
+                return [];
+            }
+        }
+
         // Load all filter data
         async function loadFilterData() {
             await Promise.all([
                 loadFilterLocations(),
-                loadFilterSpeakers()
+                loadFilterSpeakers(),
+                loadFilterTracks()
             ]);
-            
+
             // Populate filters after data is loaded
             populateLocationFilter();
             populateSpeakerFilter();
+            populateTrackFilter();
+        }
+
+        // ---------------------------------------------------------------
+        // Trilhas (tracks) — multi-select filter.
+        // An empty selection means "no filter", i.e. every trilha is shown;
+        // that is also what Limpar resets to. Selecting several is an OR:
+        // an event matches if it carries ANY of the chosen trilhas.
+        // ---------------------------------------------------------------
+        function populateTrackFilter() {
+            const section = document.getElementById('trackFilterSection');
+            const list = document.getElementById('trackOptions');
+            if (!section || !list) return;
+
+            // No trilhas in this year's data → hide the filter entirely.
+            if (!allFilterTracks.length) {
+                section.style.display = 'none';
+                currentTrackFilter.clear();
+                return;
+            }
+            section.style.display = '';
+
+            const check = '<span class="track-checkbox"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg></span>';
+            list.innerHTML = allFilterTracks.map(name => {
+                const selected = currentTrackFilter.has(name);
+                const safe = name.replace(/'/g, "\\'");
+                return `<div class="track-option ${selected ? 'selected' : ''}" data-track="${name.replace(/"/g, '&quot;')}"
+                             role="checkbox" aria-checked="${selected}"
+                             onclick="toggleTrack('${safe}')">${check}<span>${name}</span></div>`;
+            }).join('');
+
+            updateTrackDropdownLabel();
+            updateTrackFilterSummary();
+        }
+
+        // Closed dropdown label: none → "Todas as trilhas", one → its name,
+        // several → "Várias".
+        function updateTrackDropdownLabel() {
+            const label = document.getElementById('trackDropdownText');
+            if (!label) return;
+            const n = currentTrackFilter.size;
+            label.textContent = n === 0 ? 'Todas as trilhas'
+                              : n === 1 ? [...currentTrackFilter][0]
+                              : 'Várias';
+            updateTrackClearButton();
+        }
+
+        function updateTrackClearButton() {
+            const clearBtn = document.getElementById('trackClearBtn');
+            const arrow = document.querySelector('#trackDropdown .dropdown-arrow');
+            if (!clearBtn) return;
+            const active = currentTrackFilter.size > 0;
+            clearBtn.style.display = active ? 'flex' : 'none';
+            if (arrow) arrow.style.opacity = active ? '0.7' : '1';
+        }
+
+        function updateTrackFilterSummary() {
+            const summary = document.getElementById('trackFilterSummary');
+            const clearAll = document.getElementById('trackFilterClearAll');
+            if (!summary) return;
+            const n = currentTrackFilter.size;
+            summary.textContent = n === 0
+                ? 'Todas as trilhas'
+                : `${n} de ${allFilterTracks.length} selecionada(s)`;
+            if (clearAll) clearAll.style.display = n > 0 ? '' : 'none';
+        }
+
+        function openTrackFilter() {
+            const modal = document.getElementById('trackFilterModal');
+            if (!modal) return;
+            populateTrackFilter();               // reflect the current selection
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => modal.classList.add('show'));
+            if ('vibrate' in navigator) navigator.vibrate(30);
+        }
+
+        function closeTrackFilter() {
+            const modal = document.getElementById('trackFilterModal');
+            if (!modal) return;
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            setTimeout(() => { modal.style.display = 'none'; }, 300);
+        }
+
+        // Toggle one trilha and apply immediately (the list stays open).
+        function toggleTrack(name) {
+            if (currentTrackFilter.has(name)) {
+                currentTrackFilter.delete(name);
+            } else {
+                currentTrackFilter.add(name);
+            }
+            if ('vibrate' in navigator) navigator.vibrate(20);
+
+            const row = document.querySelector(`#trackOptions .track-option[data-track="${name.replace(/"/g, '&quot;')}"]`);
+            if (row) {
+                const on = currentTrackFilter.has(name);
+                row.classList.toggle('selected', on);
+                row.setAttribute('aria-checked', String(on));
+            }
+            updateTrackDropdownLabel();
+            updateTrackFilterSummary();
+
+            renderCache.clear();
+            if (currentDay) displayEvents(currentDay);
+        }
+
+        // Limpar = clear the selection, which shows every trilha again.
+        function clearTrackFilter(event) {
+            if (event) event.stopPropagation();   // don't re-open the dropdown
+            currentTrackFilter.clear();
+            document.querySelectorAll('#trackOptions .track-option').forEach(o => {
+                o.classList.remove('selected');
+                o.setAttribute('aria-checked', 'false');
+            });
+            updateTrackDropdownLabel();
+            updateTrackFilterSummary();
+
+            renderCache.clear();
+            if (currentDay) displayEvents(currentDay);
+        }
+
+        // Does the event belong to any selected trilha?
+        function eventMatchesTrackFilter(event) {
+            if (currentTrackFilter.size === 0) return true;
+            const tags = event.tags;
+            if (!Array.isArray(tags)) return false;
+            return tags.some(t => currentTrackFilter.has(t));
         }
 
         // Populate location filter dropdown
@@ -5640,13 +5984,31 @@
                 processSharedFavorites(hashParams.sharedFavorites);
             }
             
-            if (hashParams.day && EVENT_DATES.some(date => date.date === hashParams.day)) {
-                // Valid day in URL hash
-                selectDay(hashParams.day, hashParams.eventId, hashParams.openCard);
-            } else if (EVENT_DATES.length > 0) {
-                // Select first day by default
-                selectDay(EVENT_DATES[0].date);
+            // Restore the previous view (filters + day) unless this is somebody
+            // else's shared-favorites link, which must always open clean.
+            const savedView = isViewingSharedFavorites ? null : loadViewState();
+            if (savedView) {
+                applyViewState(savedView);
             }
+
+            // Day precedence: URL hash (shared links win) > restored day >
+            // landing day (today during the event, otherwise day one).
+            const hashDay = hashParams.day && EVENT_DATES.some(d => d.date === hashParams.day)
+                ? hashParams.day : null;
+            const savedDay = savedView && EVENT_DATES.some(d => d.date === savedView.day)
+                ? savedView.day : null;
+            const startDay = hashDay || savedDay || resolveLandingDay();
+
+            if (startDay) {
+                // The event card is only auto-opened when the hash asked for it —
+                // a restored session never reopens a modal.
+                selectDay(startDay, hashDay ? hashParams.eventId : null,
+                          hashDay ? hashParams.openCard : false);
+            }
+
+            // From here on, filter/day changes are worth persisting.
+            viewStateReady = true;
+            saveViewState();
 
             // First open of the day: gently remind that favorites are browser-local.
             // Skipped when viewing someone else's shared favorites link.
@@ -5778,19 +6140,22 @@
             const btn = document.getElementById('menuToggle');
             if (!btn) return;
             const anyActive = !!(currentNearLocation || currentLocationFilter ||
-                                 currentSpeakerFilter || currentAgeFilter || showNewEventsOnly);
+                                 currentSpeakerFilter || currentAgeFilter || showNewEventsOnly ||
+                                 currentTrackFilter.size);
             btn.classList.toggle('has-filters', anyActive);
         }
 
         function displayEvents(date) {
             const timeline = document.getElementById('timeline');
 
-            // Every filter change re-renders through here, so this one call
-            // keeps the menu dot in sync (must run before the cache early-return).
+            // Every filter change re-renders through here, so these run before
+            // the cache early-return: the menu dot stays in sync and the view
+            // (filters + day) is persisted for the next visit.
             updateFilterIndicator();
+            saveViewState();
 
             // Create cache key including speaker filter and shared favorites
-            const cacheKey = `${date}_${currentLocationFilter}_${currentNearLocation}_${currentSpeakerFilter}_${currentAgeFilter}_${showFavoritesOnly}_${showNewEventsOnly}_${isViewingSharedFavorites ? 'shared' : 'normal'}`;
+            const cacheKey = `${date}_${currentLocationFilter}_${currentNearLocation}_${currentSpeakerFilter}_${currentAgeFilter}_${[...currentTrackFilter].sort().join('|')}_${showFavoritesOnly}_${showNewEventsOnly}_${isViewingSharedFavorites ? 'shared' : 'normal'}`;
             
             // Check cache first
             if (renderCache.has(cacheKey)) {
@@ -5842,6 +6207,11 @@
                     events = events.filter(eventFitsAgeFilter);
                 }
 
+                // Apply trilha filter (OR across the selected trilhas)
+                if (currentTrackFilter.size > 0) {
+                    events = events.filter(eventMatchesTrackFilter);
+                }
+
                 // Apply favorites filter
                 if (showFavoritesOnly) {
                     events = events.filter(event => isFavorite(event));
@@ -5867,6 +6237,10 @@
                     message = `Nenhum evento encontrado para o local "${currentLocationFilter}"`;
                 } else if (currentAgeFilter) {
                     message = `Nenhum evento encontrado para a classificação até ${currentAgeFilter}+`;
+                } else if (currentTrackFilter.size) {
+                    message = currentTrackFilter.size === 1
+                        ? `Nenhum evento encontrado para a trilha "${[...currentTrackFilter][0]}"`
+                        : 'Nenhum evento encontrado para as trilhas selecionadas';
                 }
                 timeline.innerHTML = `<div class="no-events">${message}</div>`;
                 return;
@@ -6544,6 +6918,10 @@
             const notificationsModal = document.getElementById('notificationsModal');
             if (event.target === notificationsModal) {
                 closeNotifications();
+            }
+            const trackFilterModal = document.getElementById('trackFilterModal');
+            if (event.target === trackFilterModal) {
+                closeTrackFilter();
             }
         }
 
