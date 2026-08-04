@@ -3,6 +3,16 @@ name: Sync HackTown 2026
 # Syncs the 2026 schedule every 30 minutes and commits any real change.
 # 2025 is an archived event and is intentionally NOT synced here.
 # Disable or delete this workflow once HackTown 2026 is over.
+#
+# Tuned to stay fast, since this runs ~48x/day:
+#   • No pip install — the 2026 (Supabase) provider is pure stdlib (urllib), and
+#     provider_yazo (the only aiohttp user) is imported lazily, so `--year 2026`
+#     never touches it. requirements.txt is still needed for 2025/local dev;
+#     please don't "restore" a pip step here.
+#   • No actions/setup-python — the runner image already ships Python 3.12 and
+#     the sync only needs 3.9+ (zoneinfo).
+#   • Sparse checkout — skips events/2025 (~3.4 MB of the ~5.2 MB tree), which
+#     this job never reads.
 on:
   schedule:
     # Every 30 minutes. GitHub may delay or drop scheduled runs under load, so
@@ -22,23 +32,19 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          # Cone mode also includes every root-level file (the .py sync tool),
+          # so this is just "everything except the other years' data".
+          sparse-checkout: |
+            config
+            events/2026
 
       - name: Sync 2026 events
-        run: python scrape_hacktown.py --year 2026
+        run: python3 scrape_hacktown.py --year 2026
 
       - name: Commit & push if the event data changed
         run: |
