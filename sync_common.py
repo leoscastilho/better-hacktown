@@ -336,18 +336,142 @@ def save_id_map(path: str, id_map: Dict[str, Any]) -> None:
         json.dump(id_map, f, ensure_ascii=False, indent=2)
 
 
+# ============================================================================
+# EVENT CHANGE TRACKER (events/<year>/updates.json)
+# ============================================================================
+# An append-only log of the changes that matter to an attendee, so the frontend
+# can surface them as notifications:
+#   • "removed" — the event was cancelled (vanished from the feed)
+#   • "place"   — the venue changed
+#   • "time"    — start_time and/or end_time changed
+# Nothing else is tracked (title/description edits are noise here), and a
+# cancel → re-enable cycle is deliberately NOT logged as a change.
+#
+# Baselines live in the id map (place/start_time/end_time per event), so a
+# change is detected by comparing the incoming event against the last synced
+# values. Entries are only persisted after the safety guard approves a run.
+
+# Keep the log bounded so it can't grow without limit across a long season.
+MAX_UPDATE_ENTRIES = 2000
+
+
+def clean_place(value: Any) -> str:
+    """
+    Normalize a venue value for comparison/display. Guards against placeholder
+    junk ever reaching a notification as a literal "None"/"null" string.
+    """
+    text = "" if value is None else str(value).strip()
+    return "" if text.lower() in ("none", "null", "undefined") else text
+
+
+def snapshot_tracked_fields(rec: Dict[str, Any], event: Dict[str, Any]) -> None:
+    """Store the current tracked values on the id-map record (the next baseline)."""
+    rec["place"] = clean_place(event.get("place"))
+    rec["start_time"] = event.get("start_time")
+    rec["end_time"] = event.get("end_time")
+    rec["title"] = event.get("title") or ""
+
+
+def detect_tracked_changes(rec: Dict[str, Any], event: Dict[str, Any], now: str) -> List[Dict[str, Any]]:
+    """
+    Compare an incoming event against its id-map baseline and return tracker
+    entries for the changes we care about (place / time).
+
+    Records written before this feature existed carry no baseline; those are
+    seeded silently (no entries) so the first run after deploy doesn't report
+    every event as changed.
+    """
+    if "place" not in rec:      # no baseline yet → seed only
+        return []
+
+    entries = []
+    base = {
+        "id": rec["id"],
+        # Day the event now sits on, so a notification can deep-link to it.
+        "date": (event.get("start_time") or "")[:10] or rec.get("date"),
+        "title": event.get("title") or "",
+    }
+
+    new_place = clean_place(event.get("place"))
+    old_place = clean_place(rec.get("place"))
+    if old_place != new_place:
+        entries.append({**base, "at": now, "change": "place",
+                        "from": old_place, "to": new_place})
+
+    new_start, new_end = event.get("start_time"), event.get("end_time")
+    if rec.get("start_time") != new_start or rec.get("end_time") != new_end:
+        entries.append({**base, "at": now, "change": "time",
+                        "from": {"start_time": rec.get("start_time"), "end_time": rec.get("end_time")},
+                        "to": {"start_time": new_start, "end_time": new_end}})
+
+    return entries
+
+
+def load_updates_log(path: str) -> List[Dict[str, Any]]:
+    """Load the existing tracker entries (oldest first)."""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (FileNotFoundError, ValueError):
+        return []
+    return data.get("updates", []) if isinstance(data, dict) else []
+
+
+def update_change_log(path: str, entries: List[Dict[str, Any]],
+                      reactivated_ids: List[int]) -> tuple:
+    """
+    Update events/<year>/updates.json (chronological, oldest first):
+
+      • append the new entries, and
+      • drop the "removed" entries of events that came back, so a cancellation
+        notice disappears once the event is re-enabled instead of lingering as
+        a stale warning.
+
+    Returns (added, purged). A no-op when there is nothing to add or purge, so
+    an unchanged sync leaves the file untouched.
+    """
+    log = load_updates_log(path)
+
+    purged = 0
+    if reactivated_ids:
+        back = set(reactivated_ids)
+        before = len(log)
+        log = [u for u in log
+               if not (u.get("change") == "removed" and u.get("id") in back)]
+        purged = before - len(log)
+
+    if not entries and not purged:
+        return 0, 0
+
+    log.extend(entries)
+    if len(log) > MAX_UPDATE_ENTRIES:
+        log = log[-MAX_UPDATE_ENTRIES:]
+
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump({
+            "generated_at": brt_now_iso(),
+            "total": len(log),
+            "updates": log,
+        }, f, ensure_ascii=False, indent=2)
+    return len(entries), purged
+
+
 def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Dict[str, Any]) -> Dict[str, Any]:
     """
     Assign STABLE integer ids to the fetched events and detect what changed,
     WITHOUT yet applying removals (so the caller can veto a suspicious run first).
 
     Mutates each fetched event (event['id'] = int) and the id_map (mints ids,
-    updates hash/date, reactivates events that came back). Returns a report:
+    updates hash/date/tracked baselines, reactivates events that came back).
+    Returns a report:
         {
           "changed_dates": set[str],   # dates whose files must be rewritten
           "active_before": int,        # events that were active before this run
           "vanished": list[str],       # active keys missing from this fetch
           "new": int, "changed": int, "reactivated": int,
+          "updates": list[dict],       # place/time changes for the tracker
+          "reactivated_ids": list[int],# events back from cancellation
         }
     """
     events = id_map["events"]
@@ -355,6 +479,9 @@ def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Di
     seen = set()
     new = changed = reactivated = 0
     active_before = sum(1 for r in events.values() if not r.get("removed_at"))
+    now = brt_now_iso()
+    updates = []
+    reactivated_ids = []
 
     for date, day_events in events_by_date.items():
         for event in day_events:
@@ -369,12 +496,19 @@ def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Di
                 changed_dates.add(date)
                 new += 1
             else:
-                if rec.get("removed_at"):          # was soft-removed, now back
+                came_back = bool(rec.get("removed_at"))
+                if came_back:                     # was soft-removed, now back
                     rec["removed_at"] = None
                     changed_dates.add(date)
                     if rec.get("date"):
                         changed_dates.add(rec["date"])
                     reactivated += 1
+                    # Its "cancelled" notice is now wrong — drop it from the log.
+                    reactivated_ids.append(rec["id"])
+                # Track the user-visible changes (place / time). Skipped when the
+                # event just came back — a cancel→re-enable cycle is not tracked.
+                if not came_back:
+                    updates.extend(detect_tracked_changes(rec, event, now))
                 if rec.get("hash") != h:
                     rec["hash"] = h
                     changed_dates.add(date)
@@ -384,6 +518,8 @@ def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Di
                         changed_dates.add(rec["date"])   # left its previous day
                     rec["date"] = date
                     changed_dates.add(date)
+            # (Re)seed the tracked baselines + title snapshot for the next run.
+            snapshot_tracked_fields(rec, event)
             event["id"] = rec["id"]
 
     vanished = [k for k, r in events.items() if k not in seen and not r.get("removed_at")]
@@ -394,13 +530,38 @@ def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Di
         "new": new,
         "changed": changed,
         "reactivated": reactivated,
+        "updates": updates,
+        "reactivated_ids": reactivated_ids,
     }
 
 
-def apply_removals(id_map: Dict[str, Any], vanished: List[str], changed_dates: set) -> None:
-    """Soft-delete the vanished keys: stamp removed_at (keep id + date) and mark
-    their day for rewrite. Called only after the safety guard approves the run."""
+def apply_removals(id_map: Dict[str, Any], vanished: List[str], changed_dates: set) -> List[Dict[str, Any]]:
+    """
+    Soft-delete the vanished keys: stamp removed_at (keep id + date) and mark
+    their day for rewrite. Called only after the safety guard approves the run.
+    Returns one "removed" update entry per event, for the change tracker.
+    """
     now = brt_now_iso()
+    entries = []
+    day_cache: Dict[str, Dict[int, str]] = {}
+
+    def title_from_day_file(date: str, event_id: int) -> str:
+        """Look a title up in the last written day file — used for records that
+        predate the title snapshot (an event can't be snapshotted on the run it
+        disappears), so a cancellation notice is never left nameless."""
+        if not date:
+            return ""
+        if date not in day_cache:
+            titles = {}
+            try:
+                with open(os.path.join(OUTPUT_DIR, f"hacktown_events_{date}.json"), "r", encoding="utf-8") as f:
+                    for e in json.load(f).get("events", []):
+                        titles[e.get("id")] = e.get("title") or ""
+            except (FileNotFoundError, ValueError):
+                pass
+            day_cache[date] = titles
+        return day_cache[date].get(event_id, "")
+
     for key in vanished:
         rec = id_map["events"].get(key)
         if rec is None:
@@ -408,6 +569,15 @@ def apply_removals(id_map: Dict[str, Any], vanished: List[str], changed_dates: s
         rec["removed_at"] = now
         if rec.get("date"):
             changed_dates.add(rec["date"])
+        title = rec.get("title") or title_from_day_file(rec.get("date"), rec["id"])
+        entries.append({
+            "at": now,
+            "id": rec["id"],
+            "change": "removed",
+            "date": rec.get("date"),
+            "title": title,
+        })
+    return entries
 
 
 def carried_removed_for_date(date: str, id_map: Dict[str, Any]) -> List[Dict[str, Any]]:
