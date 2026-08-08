@@ -16,3 +16,6 @@ __pycache__
 /hacktown_events_full.json
 /hacktown_events.json
 /hacktown_schedule.csv
+# Local safety copy taken before the one-off id_map UUID re-key — keep it on
+# disk for rollback, but it is not part of the app.
+events/*/id_map.json.bak
