@@ -4828,11 +4828,10 @@
         // Missing/empty/"Livre" ratings always fit (they are unrestricted).
         function eventFitsAgeFilter(event) {
             if (!currentAgeFilter) return true;
-            const rating = event.age_rating;
-            if (rating === null || rating === undefined || String(rating).trim() === '') return true;
-            const normalized = String(rating).trim().toLowerCase();
-            if (normalized === 'livre') return true;
-            const n = parseInt(normalized, 10);
+            // Same normaliser as the badge, so "12" and "12 anos" filter alike.
+            const key = ageRatingKey(event.age_rating);
+            if (!key || key === 'livre') return true;      // unrated / Livre always show
+            const n = parseInt(key, 10);
             return isNaN(n) ? true : n <= parseInt(currentAgeFilter, 10);
         }
 
@@ -6384,9 +6383,25 @@
 
         // Brazilian "classificação indicativa" ratings. Numbered ones show a "+"
         // (12 -> "12+"); "Livre" stays as-is. Colors follow the official scheme.
+        // The source is inconsistent about this field — it has written "12",
+        // "12 anos" and "12+" for the same rating — so read the age out of
+        // whatever form arrives instead of matching the string exactly.
+        // Returns the number as a string, or 'livre', or null when unrated.
+        function ageRatingKey(rating) {
+            if (rating === null || rating === undefined) return null;
+            // Squash whitespace anywhere in the value, not just at the ends: a
+            // stray space ("12 +", " Livre") must never change how it reads.
+            const raw = String(rating).replace(/\s+/g, '').toLowerCase();
+            if (!raw) return null;
+            const digits = raw.match(/\d{1,2}/);
+            if (digits) return digits[0];
+            return raw.startsWith('livre') ? 'livre' : raw;
+        }
+
         function ageRatingInfo(rating) {
-            if (rating === null || rating === undefined || String(rating).trim() === '') return null;
-            const r = String(rating).trim();
+            const key = ageRatingKey(rating);
+            if (!key) return null;
+            // Official Brazilian classificação indicativa palette.
             const colors = {
                 'livre': { bg: '#1a8f3c', fg: '#ffffff' },
                 '10':    { bg: '#1f6fd0', fg: '#ffffff' },
@@ -6395,8 +6410,8 @@
                 '16':    { bg: '#d32f2f', fg: '#ffffff' },
                 '18':    { bg: '#111827', fg: '#ffffff' },
             };
-            const c = colors[r.toLowerCase()] || { bg: 'var(--primary-indigo)', fg: '#ffffff' };
-            const label = /^\d+$/.test(r) ? `${r}+` : r;   // 12 -> 12+, "Livre" -> "Livre"
+            const c = colors[key] || { bg: 'var(--primary-indigo)', fg: '#ffffff' };
+            const label = /^\d+$/.test(key) ? `${key}+` : 'Livre';   // "12 anos" -> 12+
             return { label, ...c };
         }
 
