@@ -16,10 +16,13 @@ config/<year>/locations_config.json — providers do NOT compute them.
 License: MIT
 """
 
+import difflib
 import hashlib
 import json
 import os
 import logging
+import re
+import unicodedata
 from datetime import datetime
 from typing import Any, Dict, List
 from zoneinfo import ZoneInfo
@@ -391,12 +394,32 @@ def clean_place(value: Any) -> str:
     return "" if text.lower() in ("none", "null", "undefined") else text
 
 
+def match_text(value: Any) -> str:
+    """Lowercase, accent- and punctuation-free form used for fuzzy matching."""
+    s = unicodedata.normalize('NFD', str(value or ''))
+    s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')
+    return ' '.join(re.sub(r'[^a-z0-9 ]', ' ', s.lower()).split())
+
+
+def speaker_names(event: Dict[str, Any]) -> List[str]:
+    """Normalized speaker names — the most durable signal an event carries.
+    Speaker *rows* are re-created when the source is rebuilt, but the people
+    presenting stay the same, so names survive where UUIDs do not."""
+    out = []
+    for s in (event.get('speakers') or []):
+        n = match_text(s.get('name') if isinstance(s, dict) else s)
+        if n:
+            out.append(n)
+    return sorted(set(out))
+
+
 def snapshot_tracked_fields(rec: Dict[str, Any], event: Dict[str, Any]) -> None:
     """Store the current tracked values on the id-map record (the next baseline)."""
     rec["place"] = clean_place(event.get("place"))
     rec["start_time"] = event.get("start_time")
     rec["end_time"] = event.get("end_time")
     rec["title"] = event.get("title") or ""
+    rec["speakers"] = speaker_names(event)   # for drift matching, see rescue_drifted_ids
 
 
 def detect_tracked_changes(rec: Dict[str, Any], event: Dict[str, Any], now: str) -> List[Dict[str, Any]]:
@@ -484,6 +507,115 @@ def update_change_log(path: str, entries: List[Dict[str, Any]],
     return len(entries), purged
 
 
+# ============================================================================
+# ID DRIFT RESCUE
+# ============================================================================
+# The source has no stable identifier: its `id` is a UUID, and a rebuild of the
+# events table regenerates every one of them (it also re-creates the speakers
+# table, so speaker UUIDs are no help either). Left alone that looks like "every
+# event was cancelled and replaced", which would strand every saved favourite,
+# since favourites are stored against OUR integer ids.
+#
+# So when an event's UUID is unknown, we try to recognise it by content before
+# minting a new id. Scoring is deliberately conservative — the aim is to keep
+# favourites attached to the same talk, never to guess:
+#
+#   • speaker names are the strongest signal (people outlive rows)
+#   • venue / time / date carry the weight when the title was edited
+#   • a title-similarity GATE stops a *different* talk in the same slot, by the
+#     same speaker, from inheriting the id — that case is real (observed) and
+#     is exactly what "don't over-assume" has to protect against.
+#
+# Anything close but below the bar is reported instead of assumed, so a human
+# can look at it.
+DRIFT_WEIGHTS = {"speakers": 0.35, "place": 0.20, "time": 0.15, "date": 0.10, "title": 0.20}
+DRIFT_MIN_SCORE = 0.70     # total confidence needed to re-key
+DRIFT_TITLE_GATE = 0.45    # a rename must still *look* like the same talk
+DRIFT_MARGIN = 0.05        # winner must be clearly ahead of the runner-up
+
+
+def drift_score(rec: Dict[str, Any], event: Dict[str, Any]) -> tuple:
+    """Confidence that `event` is the same talk as the stored `rec`.
+    Returns (total_score, title_similarity)."""
+    old_spk = set(rec.get("speakers") or [])
+    new_spk = set(speaker_names(event))
+    if old_spk and new_spk:
+        speakers = len(old_spk & new_spk) / len(old_spk | new_spk)
+    else:
+        speakers = 0.0
+
+    same_place = clean_place(rec.get("place")) == clean_place(event.get("place"))
+    old_st, new_st = (rec.get("start_time") or ""), (event.get("start_time") or "")
+    same_time = old_st[11:16] == new_st[11:16] and bool(new_st[11:16])
+    same_date = old_st[:10] == new_st[:10] and bool(new_st[:10])
+    a, b = match_text(rec.get("title")), match_text(event.get("title"))
+    title = difflib.SequenceMatcher(None, a, b).ratio()
+
+    # An identical title is by itself strong identity evidence on a conference
+    # schedule, so it clears the bar on its own; the other signals then rank
+    # competing candidates (and the uniqueness check below rejects real ties,
+    # e.g. the same workshop genuinely running twice).
+    if a and a == b:
+        evidence = (0.4 * (1.0 if same_date else 0.0) + 0.3 * (1.0 if same_place else 0.0)
+                    + 0.2 * (1.0 if same_time else 0.0) + 0.1 * speakers)
+        return DRIFT_MIN_SCORE + (1.0 - DRIFT_MIN_SCORE) * evidence, title
+
+    w = DRIFT_WEIGHTS
+    total = (w["speakers"] * speakers + w["place"] * (1.0 if same_place else 0.0)
+             + w["time"] * (1.0 if same_time else 0.0) + w["date"] * (1.0 if same_date else 0.0)
+             + w["title"] * title)
+    return total, title
+
+
+def rescue_drifted_ids(orphans: Dict[str, Dict[str, Any]],
+                       unclaimed: List[Dict[str, Any]]) -> tuple:
+    """
+    Pair records whose UUID vanished (`orphans`: key -> record) with fetched
+    events nobody claimed (`unclaimed`), so each keeps its stable integer id.
+
+    Returns (matches, review) where matches is [(old_key, event, score)] and
+    review is the near-misses worth a human glance.
+    """
+    if not orphans or not unclaimed:
+        return [], []
+
+    scored = []
+    for key, rec in orphans.items():
+        for event in unclaimed:
+            # Cheap prune: only consider events sharing a day, a speaker or a venue.
+            same_day = (rec.get("start_time") or "")[:10] == (event.get("start_time") or "")[:10]
+            shares_spk = bool(set(rec.get("speakers") or []) & set(speaker_names(event)))
+            same_place = clean_place(rec.get("place")) == clean_place(event.get("place"))
+            if not (same_day or shares_spk or same_place):
+                continue
+            total, title = drift_score(rec, event)
+            if total > 0.5:
+                scored.append((total, title, key, id(event), event))
+
+    scored.sort(key=lambda x: -x[0])
+    best_for_key, runner_up = {}, {}
+    for total, title, key, eid, event in scored:
+        if key not in best_for_key:
+            best_for_key[key] = (total, title, eid, event)
+        elif key not in runner_up:
+            runner_up[key] = total
+
+    matches, review, taken = [], [], set()
+    for total, title, eid, event in sorted(best_for_key.values(), key=lambda x: -x[0]):
+        key = next(k for k, v in best_for_key.items() if v[2] == eid and v[0] == total)
+        if eid in taken:
+            continue
+        clear = total - runner_up.get(key, 0.0) >= DRIFT_MARGIN or key not in runner_up
+        if total >= DRIFT_MIN_SCORE and title >= DRIFT_TITLE_GATE and clear:
+            matches.append((key, event, total))
+            taken.add(eid)
+        else:
+            reason = ("title too different" if title < DRIFT_TITLE_GATE
+                      else "ambiguous" if not clear else "low confidence")
+            review.append((key, event, total, title, reason))
+    return matches, review
+
+
 def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Dict[str, Any]) -> Dict[str, Any]:
     """
     Assign STABLE integer ids to the fetched events and detect what changed,
@@ -510,6 +642,35 @@ def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Di
     updates = []
     reactivated_ids = []
 
+    # ---- Phase 1: pair unknown UUIDs with records whose UUID vanished --------
+    # The source regenerates its UUIDs on a rebuild, so an unknown key does not
+    # necessarily mean a new event. Recognise drifted events first, re-keying
+    # them onto the new UUID so they keep their integer id (and their
+    # favourites). Only then is anything treated as genuinely new.
+    fetched_keys = {str(e.get("id")) for evs in events_by_date.values() for e in evs}
+    unknown = [e for evs in events_by_date.values() for e in evs
+               if str(e.get("id")) not in events]
+    orphans = {k: r for k, r in events.items()
+               if k not in fetched_keys and not r.get("removed_at")}
+
+    rescued_keys = {}
+    if unknown and orphans:
+        matches, review = rescue_drifted_ids(orphans, unknown)
+        for old_key, event, score in matches:
+            rec = events.pop(old_key)
+            new_key = str(event.get("id"))
+            events[new_key] = rec              # same integer id, new source UUID
+            rescued_keys[new_key] = (old_key, score)
+        if matches:
+            logger.info(f"🔗 id drift: re-keyed {len(matches)} event(s) onto new UUIDs "
+                        f"(favourites preserved)")
+        for old_key, event, total, title, reason in review:
+            r = events.get(old_key) or {}
+            logger.warning(
+                f"⚠️  possible drift not auto-matched ({reason}, score {total:.2f}, "
+                f"title {title:.0%}): id={r.get('id')} {str(r.get('title'))[:44]!r} "
+                f"-> {str(event.get('title'))[:44]!r}")
+
     for date, day_events in events_by_date.items():
         for event in day_events:
             key = str(event.get("id"))
@@ -522,6 +683,13 @@ def reconcile_events(events_by_date: Dict[str, List[Dict[str, Any]]], id_map: Di
                 events[key] = rec
                 changed_dates.add(date)
                 new += 1
+            elif key in rescued_keys:
+                # Re-keyed by the drift pass: the content is "changed", but the
+                # identity is the same, so no cancel/create churn is reported.
+                rec["hash"] = h
+                rec["date"] = date
+                changed_dates.add(date)
+                changed += 1
             else:
                 came_back = bool(rec.get("removed_at"))
                 if came_back:                     # was soft-removed, now back
