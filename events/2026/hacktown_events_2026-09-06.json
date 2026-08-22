@@ -1,7 +1,7 @@
 {
   "date": "2026-09-06",
-  "total_events": 200,
-  "scraped_at": "2026-08-22T17:45:22.350587-03:00",
+  "total_events": 199,
+  "scraped_at": "2026-08-22T18:10:53.196949-03:00",
   "events": [
     {
       "id": 854,
@@ -2474,30 +2474,6 @@
       "nearLocation": "ETE e Arredores"
     },
     {
-      "id": 63,
-      "start_time": "2026-09-06T13:00:00-03:00",
-      "end_time": "2026-09-06T14:30:00-03:00",
-      "title": "Do vibe coding à engenharia: desenvolvendo sistemas com IA",
-      "description": "Modelos de IA já escrevem código bem. O resto é que ninguém resolveu direito: gerenciar contexto, escolher um fluxo de desenvolvimento, criar e executar backlogs, evoluir a aplicação sem acumular dívida.\n\nPassei o último ano montando um guideline para esses problemas, usando em aplicações reais. Tem coisa ali de Boris Cherny (criador do Claude Code) e de Andrej Karpathy. Tem coisa que só entrou porque a primeira abordagem quebrou na minha mão, e muito mais.",
-      "place": "Be Bold",
-      "age_rating": "Livre",
-      "speakers": [
-        {
-          "id": "6b7b4b84-fa58-4f9d-9cf3-a126a7eaf252",
-          "name": "Raphael Moura",
-          "role": "Arquiteto de software - Serverless Guru",
-          "bio": "Senior Cloud Architect & Staff Engineer com mais de 10 anos de experiência projetando sistemas distribuídos de alta escala. AWS Community Builder & Leader.",
-          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/213e53f0-6f27-49f6-b84a-9a6b416c014e",
-          "company": ""
-        }
-      ],
-      "tags": [
-        "Desenvolvimento de Software e Hardware"
-      ],
-      "filterLocation": "Be Bold",
-      "nearLocation": "ETE e Arredores"
-    },
-    {
       "id": 151,
       "start_time": "2026-09-06T13:00:00-03:00",
       "end_time": "2026-09-06T14:00:00-03:00",
@@ -3461,7 +3437,8 @@
         "Direitos Autorais e Propriedade Intelectual"
       ],
       "filterLocation": "Inatel",
-      "nearLocation": "Inatel e Arredores"
+      "nearLocation": "Inatel e Arredores",
+      "removed": true
     },
     {
       "id": 1127,
@@ -3596,6 +3573,30 @@
         "Estratégia, Negócios e Governança"
       ],
       "filterLocation": "FAI",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 63,
+      "start_time": "2026-09-06T14:30:00-03:00",
+      "end_time": "2026-09-06T15:30:00-03:00",
+      "title": "Do vibe coding à engenharia: desenvolvendo sistemas com IA",
+      "description": "Modelos de IA já escrevem código bem. O resto é que ninguém resolveu direito: gerenciar contexto, escolher um fluxo de desenvolvimento, criar e executar backlogs, evoluir a aplicação sem acumular dívida.\n\nPassei o último ano montando um guideline para esses problemas, usando em aplicações reais. Tem coisa ali de Boris Cherny (criador do Claude Code) e de Andrej Karpathy. Tem coisa que só entrou porque a primeira abordagem quebrou na minha mão, e muito mais.",
+      "place": "Be Bold",
+      "age_rating": "Livre",
+      "speakers": [
+        {
+          "id": "6b7b4b84-fa58-4f9d-9cf3-a126a7eaf252",
+          "name": "Raphael Moura",
+          "role": "Arquiteto de software - Serverless Guru",
+          "bio": "Senior Cloud Architect & Staff Engineer com mais de 10 anos de experiência projetando sistemas distribuídos de alta escala. AWS Community Builder & Leader.",
+          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/213e53f0-6f27-49f6-b84a-9a6b416c014e",
+          "company": ""
+        }
+      ],
+      "tags": [
+        "Desenvolvimento de Software e Hardware"
+      ],
+      "filterLocation": "Be Bold",
       "nearLocation": "ETE e Arredores"
     },
     {
