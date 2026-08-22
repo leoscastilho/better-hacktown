@@ -1,7 +1,7 @@
 {
   "date": "2026-09-06",
-  "total_events": 197,
-  "scraped_at": "2026-08-22T17:10:20.424886-03:00",
+  "total_events": 200,
+  "scraped_at": "2026-08-22T17:45:22.350587-03:00",
   "events": [
     {
       "id": 854,
@@ -1265,28 +1265,6 @@
       "nearLocation": "ETE e Arredores"
     },
     {
-      "id": 1035,
-      "start_time": "2026-09-06T10:00:00-03:00",
-      "end_time": "2026-09-06T11:00:00-03:00",
-      "title": "Mulheres de Quarenta Mais: Como Transformei a Dor em Movimen",
-      "description": "A história de Vanessa Palazzi e a criação da maior comunidade dedicada às mulheres 40+. Uma conversa sobre reinvenção, propósito, menopausa, autoestima, relacionamentos e o poder de dar voz a uma geração que não aceita mais ser invisível. Inspirada pela experiência real de milhares de mulheres que descobriram que a vida não acaba aos 40, mas ganha novos significados.",
-      "place": "ETE - Espaço Escola Técnica de Eletrônica (Salão)",
-      "age_rating": "Livre",
-      "speakers": [
-        {
-          "id": "808b9163-92d9-42b9-826c-f2ce5121dca7",
-          "name": "Vanessa",
-          "role": "Vanessa Palazzi, idealizadora do Mulheres de Quarenta Mais. - MQ Comunicações- Mulheres de Quarenta",
-          "bio": "Vanessa Palazzi é jornalista, advogada è idealizadora do Mulheres de Quarenta Mais, uma rede que existe há 15 anos e reúne mais de 1,5 milhão de seguidores em todas as mídias sociais.",
-          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/10244068-ef65-4858-8a05-2ccf9c829829",
-          "company": ""
-        }
-      ],
-      "tags": [],
-      "filterLocation": "ETE",
-      "nearLocation": "ETE e Arredores"
-    },
-    {
       "id": 1037,
       "start_time": "2026-09-06T10:00:00-03:00",
       "end_time": "2026-09-06T11:30:00-03:00",
@@ -1360,7 +1338,7 @@
       "id": 1039,
       "start_time": "2026-09-06T10:00:00-03:00",
       "end_time": "2026-09-06T13:00:00-03:00",
-      "title": "Workshop Imagem e Expressão (versão pocket)",
+      "title": "Workshop condensado (ou pocket)  \"Imagem e Expressão\"",
       "description": "O Workshop Imagem e Expressão propõe uma imersão na investigação do corpo como vibração e como usa-lo para acessar qualquer coisa que esteja ao nosso redor, seja visível ou não. \nUm convite à presença, foco, interesse verdadeiro e mentalidade aberta para uma pesquisa sincera num corpo sem limites.",
       "place": "INATEL - Espaço Ecumênico",
       "age_rating": "12",
@@ -2496,6 +2474,30 @@
       "nearLocation": "ETE e Arredores"
     },
     {
+      "id": 63,
+      "start_time": "2026-09-06T13:00:00-03:00",
+      "end_time": "2026-09-06T14:30:00-03:00",
+      "title": "Do vibe coding à engenharia: desenvolvendo sistemas com IA",
+      "description": "Modelos de IA já escrevem código bem. O resto é que ninguém resolveu direito: gerenciar contexto, escolher um fluxo de desenvolvimento, criar e executar backlogs, evoluir a aplicação sem acumular dívida.\n\nPassei o último ano montando um guideline para esses problemas, usando em aplicações reais. Tem coisa ali de Boris Cherny (criador do Claude Code) e de Andrej Karpathy. Tem coisa que só entrou porque a primeira abordagem quebrou na minha mão, e muito mais.",
+      "place": "Be Bold",
+      "age_rating": "Livre",
+      "speakers": [
+        {
+          "id": "6b7b4b84-fa58-4f9d-9cf3-a126a7eaf252",
+          "name": "Raphael Moura",
+          "role": "Arquiteto de software - Serverless Guru",
+          "bio": "Senior Cloud Architect & Staff Engineer com mais de 10 anos de experiência projetando sistemas distribuídos de alta escala. AWS Community Builder & Leader.",
+          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/213e53f0-6f27-49f6-b84a-9a6b416c014e",
+          "company": ""
+        }
+      ],
+      "tags": [
+        "Desenvolvimento de Software e Hardware"
+      ],
+      "filterLocation": "Be Bold",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
       "id": 151,
       "start_time": "2026-09-06T13:00:00-03:00",
       "end_time": "2026-09-06T14:00:00-03:00",
@@ -2685,7 +2687,11 @@
           "company": ""
         }
       ],
-      "tags": [],
+      "tags": [
+        "Movimentos Criativos e Ecossistemas Emergentes",
+        "Marcas e Economia de Criadores",
+        "Comportamento e Tendências"
+      ],
       "filterLocation": "Inatel",
       "nearLocation": "Inatel e Arredores"
     },
@@ -2744,8 +2750,8 @@
       "id": 530,
       "start_time": "2026-09-06T13:00:00-03:00",
       "end_time": "2026-09-06T14:00:00-03:00",
-      "title": "o erro do marketing b2b acontece antes, no diagnóstico",
-      "description": "o marketing b2b ganhou mais ferramentas, canais e investimento, mas segue com baixa previsibilidade e pouca influência nas decisões. o problema não está na execução, mas na ausência de diagnóstico estruturado\n\ncomo continuidade da pesquisa apresentada no Hacktown 2025, esta palestra aprofunda como empresas em contextos complexos tomam decisões de marketing e onde esse processo falha antes de começar\n\na partir de casos reais, mostra o que muda quando o marketing passa a operar com critérios claros de leitura e decisão. não é sobre fazer melhor, mas entender antes de fazer",
+      "title": "O paradoxo do valor invisível. Como transformar diferenciais em critérios de escolha no marketing B2B",
+      "description": "Empresas podem gerar valor, reunir equipes competentes e investir em marketing sem conseguir transformar todo esse potencial em crescimento. O paradoxo do valor invisível investiga por que isso acontece e propõe uma nova forma de compreender o papel do marketing: não apenas como comunicação ou execução, mas como um sistema capaz de transformar valor em entendimento e complexidade em direção. A partir de pesquisa e casos reais, a palestra mostra como clareza, critérios compartilhados e prioridades podem aproximar aquilo que a empresa realmente entrega daquilo que o mercado consegue perceber.",
       "place": "ETE - Sala 65",
       "age_rating": "Livre",
       "speakers": [
@@ -4058,32 +4064,6 @@
       "nearLocation": "Inatel e Arredores"
     },
     {
-      "id": 598,
-      "start_time": "2026-09-06T14:30:00-03:00",
-      "end_time": "2026-09-06T15:30:00-03:00",
-      "title": "Bagunça por design: como dados de saúde desiguais deixam a IA mais forte",
-      "description": "A maioria da IA clínica é treinada em dados limpos e homogêneos, e quebra no primeiro contato com o mundo real. Nós construímos ao contrário. Treinar modelos dentro da realidade de saúde brasileira significa enfrentar variação extrema desde o primeiro dia: qualidade desigual de dado, registros fragmentados e uma das populações mais diversas do planeta. Esta palestra defende, com métricas de um produto em operação, uma tese contraintuitiva: a bagunça que parece desvantagem é justamente o que produz modelos que aguentam pressão. E mostra o que qualquer time pode extrair disso.",
-      "place": "Be Bold",
-      "age_rating": "Livre",
-      "speakers": [
-        {
-          "id": "23241a78-479a-4dac-9d48-6ed40d0ada27",
-          "name": "Raphael Saraiva",
-          "role": "Fundador e CEO da Hemodoctor, levo IA aplicada à saúde de protótipo à ponta assistencial, treinando em dados o que ninguém conseguia enfrentar. - Hemodoctor",
-          "bio": "Raphael Saraiva é fundador da Hemodoctor, solução de IA aplicada à saúde que ajuda médicos não especialistas com alto nível de concordância. Há 10 anos foca na realidade desigual dos dados de saúde brasileiros, transformando fragmentação e diversidade extrema em robustez para reduzir gaps no sistema público de saúde.",
-          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/19bd1324-886d-423e-b01b-073d848f6a4c",
-          "company": ""
-        }
-      ],
-      "tags": [
-        "Saúde e Bem-Estar",
-        "Tecnologias Emergentes",
-        "Corporate AI"
-      ],
-      "filterLocation": "Be Bold",
-      "nearLocation": "ETE e Arredores"
-    },
-    {
       "id": 692,
       "start_time": "2026-09-06T14:30:00-03:00",
       "end_time": "2026-09-06T15:30:00-03:00",
@@ -4264,6 +4244,30 @@
       ],
       "tags": [
         "Trabalho e Liderança"
+      ],
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 787,
+      "start_time": "2026-09-06T14:30:00-03:00",
+      "end_time": "2026-09-06T15:30:00-03:00",
+      "title": "O passo que ninguém pode dar por nós",
+      "description": "O que milhares de entrevistas, encontros com centenas de mulheres e um diagnóstico de câncer me ensinaram sobre calma, liderança, coragem e o poder de escolher a própria vida. A ideia é conectar o Jornada da Calma, a Casa Clã, o Eu, CEO e o trabalho nas revistas com a vivência da cura.",
+      "place": "ETE - Espaço Escola Técnica de Eletrônica (Salão)",
+      "age_rating": "12",
+      "speakers": [
+        {
+          "id": "77f523ba-1d29-45f1-93a7-9554bb29d90b",
+          "name": "Helena Galante",
+          "role": "Criadora do podcast Jornada da Calma | Diretora de CLAUDIA - Editora Abril",
+          "bio": "Criadora do podcast Jornada da Calma, diretora de @claudiaonline, @boaforma e @casacombr, apresentadora do programa Eu, CEO | Liderança Feminina e curadora da Casa Clã.",
+          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/76379224-e013-490e-81a4-243252d50f1a",
+          "company": ""
+        }
+      ],
+      "tags": [
+        "Saúde e Bem-Estar"
       ],
       "filterLocation": "ETE",
       "nearLocation": "ETE e Arredores"
@@ -4764,6 +4768,36 @@
       "nearLocation": "Praça e Arredores"
     },
     {
+      "id": 1075,
+      "start_time": "2026-09-06T14:30:00-03:00",
+      "end_time": "2026-09-06T15:30:00-03:00",
+      "title": "Escutando Cidades: ferramentas para uma revolução urbana emocional e criativa",
+      "description": "\"Palavra puxa palavra, uma ideia traz outra, e assim se faz um livro, um governo, ou uma revolução\" - Machado de Assis. Baseado em práticas de Way of Council, mapas de Possibility Management e ferramentas de Desenvolvimento Regenerativo, propomos um mergulho coletivo na desconstrução e re-construção social desse ambiente que chamamos cidade. Se você sente que algo mais é possível, mas não sabe por onde começar este é o lugar para transformar a sua visão em carreira, coletivo, movimento e impacto. Este workshop é uma iniciação para a manifestação criativa.",
+      "place": "Associação José do Patrocínio",
+      "age_rating": "Livre",
+      "speakers": [
+        {
+          "id": "4a4682ce-b251-48c6-bbaa-968ab3a942b3",
+          "name": "Matheus Oliveira",
+          "role": "Facilitador de Cidades Extraordinárias da PCE I.S. - Pessoas e Cidades Extraorinárias",
+          "bio": "Pesquiso a interseção entre  participação pública, novas tecnologias, comunicação e planejamento urbano. Bacharel em Ciências Econômicas pela UFMG, Mestre em Eng. de Transportes pela COPPE/UFRJ e Doutor em Sistemas de Transportes pelo Programa de Parceria entre MIT e Instituto Superior Técnico de Lisboa. Autor do livro Cidades Extraordinárias: o anti-guia emocional para a revolução urbana.",
+          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/d1f47da4-e8ff-4963-81dd-00f5f1254ddc",
+          "company": ""
+        },
+        {
+          "id": "9c781f67-cc0e-4843-8ee1-090f4fc305ea",
+          "name": "Joana Ribeiro",
+          "role": "Mentora de Relacionamentos Extraordinários - Pessoas e Cidades Extraordinárias",
+          "bio": "Joana Ribeiro é facilitadora e mentora de relacionamentos extraordinários.  Portuguesa a viver no Rio de Janeiro, acompanha pessoas, casais e famílias em processos de autoconhecimento e transformação. Engenheira de formação, é apaixonada pelo potencial humano. Acredita que só existem cidades extraordinárias se as pessoas forem extraordinárias. Autora do livro infantil Pessoas e Cidades Extraordinárias.",
+          "picture": "/__l5e/assets-v1/060689fe-545a-4788-8ea6-ab3b8195f488/joanaribeiro.jpg",
+          "company": ""
+        }
+      ],
+      "tags": [],
+      "filterLocation": "Associação José do Patrocínio",
+      "nearLocation": "Praça e Arredores"
+    },
+    {
       "id": 881,
       "start_time": "2026-09-06T15:30:00-03:00",
       "end_time": "2026-09-06T16:30:00-03:00",
@@ -4812,6 +4846,28 @@
       ],
       "filterLocation": "FAI",
       "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 427,
+      "start_time": "2026-09-06T16:00:00-03:00",
+      "end_time": "2026-09-06T17:00:00-03:00",
+      "title": "Da Estratégia a tinta: Como hackear cidades e criar conexões que as telas não replicam.",
+      "description": "Nesta Action Talk, apresentamos uma dinâmica inédita que materializa a criatividade na prática. Vou compartilhar os bastidores estratégicos de como hackear o concreto para gerar inovação urbana, focando nas metodologias que transformam espaços públicos em plataformas de conexão real. Enquanto isso, o Zezão traz a visão de quem domina o asfalto, pintando ao vivo e trazendo insights sobre ocupação e subversão da cidade. Vamos promover o encontro do pensamento estratégico com a entrega do spray, oferecendo caminhos práticos para quem quer gerar impacto onde o público não consegue dar 'skip'.",
+      "place": "Cine Teatro Municipal",
+      "age_rating": "Livre",
+      "speakers": [
+        {
+          "id": "5e005734-4f62-404b-a19a-bcd039b41cf7",
+          "name": "Marcelo Pimentel",
+          "role": "Marcelo Pimentel, fundador do Instagrafite e curador de marcas como Nike e Disney, & Zezão, um dos principais artistas de rua do Brasil e do mundo. - Instagrafite",
+          "bio": "Fundador do Instagrafite e estrategista de curadoria urbana com projetos premiados internacionalmente. Especialista em hackear o espaço público na prática para marcas como Nike, Disney, Netflix, Amazon, Ambev, entre outras. Transforma a rua em plataforma de inovação e entrega experiências reais que ressignificam o território das cidades.",
+          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/27d8cf69-2648-48ab-a879-7697cffb192c",
+          "company": ""
+        }
+      ],
+      "tags": [],
+      "filterLocation": "Cine Teatro Municipal",
+      "nearLocation": "Praça e Arredores"
     },
     {
       "id": 479,
@@ -4966,7 +5022,7 @@
       "id": 576,
       "start_time": "2026-09-06T16:00:00-03:00",
       "end_time": "2026-09-06T17:00:00-03:00",
-      "title": "Corpo em Movimento ou CorpOralidade",
+      "title": "CorpOralidade",
       "description": "A oficina de Corporalidade trabalha o desenvolvimento a partir da consciência física, ampliando a percepção sobre como emoções e padrões de comportamento impactam a tomada de decisão, as relações e a presença executiva. \n\nA utilização de dinâmicas de movimento e interação evidencia aspectos comportamentais que a análise puramente racional costuma ocultar. É um espaço seguro de preparação focado em fortalecer a coerência entre intenção e ação, oferecendo recursos práticos para lidar com os desafios reais de relacionamento, apresentações executivas, hierarquia e influência na organização.",
       "place": "FAI - Sala 20 - Módulo 4",
       "age_rating": "Livre",
@@ -4975,7 +5031,7 @@
           "id": "8f59f17d-be78-4bbb-8dad-a2a7edef48c7",
           "name": "Tati Reimol",
           "role": "Consultora e Coach - Atma Genus",
-          "bio": "Possuo mais de 10 anos de experiência no mercado financeiro e, desde 2019, atua na Atma Genus como consultora e coach em transformação cultural e desenvolvimento de lideranças. Pós-graduada em Psicologia Positiva e especialista em Psicologia Junguiana, possui diversas certificações em Coaching (incluindo ICF e Ontológico Corporal).",
+          "bio": "Possuo mais de 10 anos de experiência no mercado financeiro e, desde 2019, atua na Atma Genus como consultora e coach em transformação cultural e desenvolvimento de lideranças. Pós-graduada em Psicologia Positiva e especialista em Psicologia Junguiana, possui diversas certificações em Coaching (incluindo ICF e Ontológico Corporal).\nMinha abordagem integral conecta linguagem, emoção e corpo, tendo liderado projetos de cultura em grandes empresas como Visa Brasil e Ultracargo.",
           "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/bb0c4276-012a-42aa-b1a8-d5eba0fafcac",
           "company": ""
         }
@@ -5398,6 +5454,28 @@
       "tags": [
         "Lifestyle e Economia da Experiência"
       ],
+      "filterLocation": "ETE",
+      "nearLocation": "ETE e Arredores"
+    },
+    {
+      "id": 598,
+      "start_time": "2026-09-06T16:00:00-03:00",
+      "end_time": "2026-09-06T17:00:00-03:00",
+      "title": "Bagunça por design: como dados de saúde desiguais deixam a IA mais forte",
+      "description": "A maioria da IA clínica é treinada em dados limpos e homogêneos, e quebra no primeiro contato com o mundo real. Nós construímos ao contrário. Treinar modelos dentro da realidade de saúde brasileira significa enfrentar variação extrema desde o primeiro dia: qualidade desigual de dado, registros fragmentados e uma das populações mais diversas do planeta. Esta palestra defende, com métricas de um produto em operação, uma tese contraintuitiva: a bagunça que parece desvantagem é justamente o que produz modelos que aguentam pressão. E mostra o que qualquer time pode extrair disso.",
+      "place": "ETE - Biblioteca - Espaço Santa Casa BH",
+      "age_rating": "Livre",
+      "speakers": [
+        {
+          "id": "23241a78-479a-4dac-9d48-6ed40d0ada27",
+          "name": "Raphael Saraiva",
+          "role": "Fundador e CEO da Hemodoctor, levo IA aplicada à saúde de protótipo à ponta assistencial, treinando em dados o que ninguém conseguia enfrentar. - Hemodoctor",
+          "bio": "Raphael Saraiva é fundador da Hemodoctor, solução de IA aplicada à saúde que ajuda médicos não especialistas com alto nível de concordância. Há 10 anos foca na realidade desigual dos dados de saúde brasileiros, transformando fragmentação e diversidade extrema em robustez para reduzir gaps no sistema público de saúde.",
+          "picture": "https://vamsprrmpd.us-east-1.awsapprunner.com/scheduling/public/photo/19bd1324-886d-423e-b01b-073d848f6a4c",
+          "company": ""
+        }
+      ],
+      "tags": [],
       "filterLocation": "ETE",
       "nearLocation": "ETE e Arredores"
     },
